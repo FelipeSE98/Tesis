@@ -1,0 +1,2089 @@
+\documentclass{article}[14pts]
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[spanish]{babel}
+\usepackage{amssymb, amsthm}
+\usepackage{bbm}
+\usepackage{amsmath}
+\usepackage{stackrel}
+
+\usepackage[utf8]{inputenc}
+%\usepackage[vietnam]{babel}
+\usepackage{xcolor,colortbl}
+
+\newcommand{\hh}[1]{{\color{red} * #1 *}}
+\newcommand{\fs}[1]{{\color{blue}* #1 *}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Para teoremas, proposición y demnostración
+\newtheorem{teorema}{Teorema}
+\newtheorem{prop}{Proposición}
+\newtheorem{lema}{Lema}
+\newtheorem{corolario}{Corolario}
+\newtheorem{definicion}{Definición}
+%\newtheorem{}{}
+
+
+% Creación de comandos %
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+
+
+% Palabras recurrentes Chung,Graham y Wilson
+\newcommand{\disc}{\mathrm{DISC}}
+\newcommand{\discp}{\mathrm{DISC'}}
+\newcommand{\Count}{\mathrm{COUNT}}
+%\newcommand{\Cuatro}{\mathrm{COUNT}_{p,C_4}}
+\newcommand{\codeg}{\mathrm{CODEG}}
+\newcommand{\eig}{\mathrm{EIG}}
+
+% Ahora para Chung-Graham y Wilson bipartito
+\newcommand{\bidisc}{\mathrm{BI-DISC}}
+\newcommand{\bicount}{\mathrm{BI-COUNT}}
+\newcommand{\izcodeg}{\mathrm{IZQ-CODEG}}
+\newcommand{\dercodeg}{\mathrm{DER-CODEG}}
+\newcommand{\bieig}{\mathrm{BI-EIG}}
+
+% Define codeg
+\newcommand{\cod}{\mathrm{codeg}}
+% Define Traza
+\newcommand{\Tr}{\mathrm{Tr}}
+% Define varianza
+\newcommand{\var}{\mathrm{Var}}
+%\documentclass[tikz, border = 10pt]{standalone}
+
+\usepackage{pgfgantt}
+%\def\proof{\paragraph{Demostraci\'on Segunda parte Teorema 3:\\}}
+%\def\endproof{\hfill$\blacksquare$}
+
+\newcommand{\prooftext}{}
+
+\newenvironment{myproof}[1]
+{
+  \renewcommand{\prooftext}{#1}    
+  
+  \paragraph{\prooftext:}\par
+}
+{
+  \hfill$\blacksquare$
+  \renewcommand{\prooftext}{}
+}
+
+
+\usepackage{forloop}
+\newcounter{loopcntr}
+\newcommand{\rpt}[2][1]{%
+  \forloop{loopcntr}{0}{\value{loopcntr}<#1}{#2}%
+}
+\newcommand{\on}[1][1]{
+  \forloop{loopcntr}{0}{\value{loopcntr}<#1}{&\cellcolor{gray}}
+}
+\newcommand{\off}[1][1]{
+  \forloop{loopcntr}{0}{\value{loopcntr}<#1}{&}
+}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+
+
+\let\varepsilon=\varepsilon
+
+\begin{document}
+
+\begin{titlepage}
+   \begin{center}
+
+       \includegraphics[width=0.33\textwidth]{Imágenes/logo_usach.png}
+       \vspace{1.5cm}
+
+       \textbf{\LARGE Grafos cuasi-aleatorios y lema de regularidad de Szemerédi}
+
+       \vspace{0.5cm}
+
+       \vspace{1.5cm}
+
+       \textbf{\textbf{Estudiante:} \\Felipe Sánchez Erazo\\   \vspace{1.5cm} \textbf{Profesor Guía:}   \vspace{0.5cm} \\ Dr. Hi\d{ê}p Hàn}
+
+       \vspace{1.cm}
+            
+\textbf{Tesis para optar al título de Ingeniero Matemático de la Universidad de Santiago de Chile}\\      
+\vspace{0.5cm}
+
+Departamento de Matemática y Ciencia de la computación \\
+Universidad de Santiago de Chile \\
+%11 de Julio de 2022 
+\date{\today}
+            
+       \vspace{0.8cm}
+     
+           \vspace{0.5cm}
+
+   \end{center}
+\end{titlepage}
+
+%\tableofcontents
+\newpage
+
+
+\section{Introducción}
+
+Para adentrarnos en esta historia, debemos de saber que las estructuras pseudo-aleatorias son objetos determinísticos que tienen comportamientos, o bien, lucen como un objeto aleatorio\hh{objetos aleatorios?}. A lo largo de la historia, la formalización de este concepto se ha vuelto una herramienta muy útil en diferentes áreas, tales como teoría de números, teoría de grafos, combinatorial extremal, diseño de algoritmos, teoría de complejidad, entre otras. Estas contribuciones son debidas, en general, a que si un objeto es pseudo-aleatorio \hh{cuasi-aleatorio en vez de pseudo-aleatorio}, entonces goza de muchas propiedades satisfacidas por su contraparte aleatoria.\\
+
+El trabajo fundamental sobre la pseudo-aleatoriedad se ha desarrollado en grafos, probablemente por lo natural que muchas veces resulta modelar un problema utilizándolos. Un \emph{grafo pseudo-aleatorio} $G = (V,E)$ es un grafo que se comporta como un verdadero grafo aleatorio $G = (|V|,p)$ con la misma densidad de aristas $p= |E| \Big/ \binom{|V|}{2}$. Si bien la sentencia anterior nos entrega una idea inicial de este concepto, no logra ser demasiado satisfactoria en el sentido de que no nos dice en qué aspecto  el comportamiento del grafo pseaudo-aleatorio es similar al un grafo aleatorio, y tampoco nos otorga ninguna medida cuantitativa de esta semejanza.\\
+
+A mediados de los 80, Andrew Thomason introdujo la noción de "Grafos-revueltos", los cuales hacen posible medir en términos cuantitativos la similitud entre la distribución de aristas de los grafos pseudo-aleatorios y los aleatorios. Su investigación también nos otorgó ejemplos de grafos pseudo-aleatorios con discusiones de sus propiedades.\\
+
+Sin duda alguna, una contribución clave fue la de Chung, Grahan y Wilson, quienes en 1989 logran caracterizar la noción de pseudo-aleatoriedad de formas superficialmente distintas, pero equivalentes entre sí. Este resultado abrió muchos nuevos horizontes mostrando nuevas facetas de la pseudo-aleatoriedad.\\
+
+Con estos avances, otros objetos combinatorios fueron incluidos al estudio de la pseudo-aleatoriedad, como lo son los subconjuntos de $\mathbb{Z}_n$, hipergrafos, grupos finitos, permutaciones, y recientemente las palabras (i.e, secuencias de letras de un alfabeto finito).\\
+
+El objeto de estudio principal en este trabajo son las palabras pseudo-aleatoria, enfocándonos en una equivalencia en particular, análoga a las planteadas en el teorema de Chung, Graham y Wilson. Para evidenciar el objetivo, daremos un paseo por la teoría clásica en grafos de pseudo-aleatoriedad y culminaremos planteando la formulación del problema en cuestion.
+
+\section{Preeliminares}
+
+\subsection{Notaciones y convenciones}
+
+\hh{De momento, en esta sección solo voy a enumerar lo que voy necesitando o me voy acordando}
+
+\begin{enumerate}
+    \item Escribiremos $[n] := \lbrace 1,2,...,n\rbrace$.
+    \item Para un conjunto cualquiera $A$, representamos su cardinalidad por $|A|$.
+    \item Denotamos al ciclo de largo $k$ por $C_{k}$.
+    \item $\mathcal{M}_{n\times m}(\mathbb{R})$ corresponde a la matriz de $n$ filas y $m$ columnas definida sobre el cuerpo de los reales.
+    \item $\mathbbm{1}_{X}$ representa la función indicatriz. Es decir,
+    \[
+        \mathbbm{1}_{X}(y) = 
+        \begin{cases}
+            1 & \text{Si } y\in X\\
+            0 & \text{En otro caso.}
+        \end{cases}
+    \]
+    \item $\mathbbm{1}\in\mathcal{M}_{n\times 1}(\mathbb{R})$ representa el vector de solo entradas $1$.
+    \item $e_{i}\in\mathcal{M}_{n\times 1}(\mathbb{R})$ corresponde a un vector de la base canónica de $\mathbb{R}^{n}$, en donde todas sus entradas son cero salvo en la posición $i$, donde toma el valor $1$.
+    \item Dado un grafo $G = ([n], E)$ y un subconjuto de vértices $X\subset [n]$, se define
+    \[
+        v_X = \sum_{i\in X}e_{i}.
+    \]
+    \item $\Tr(A)$ representa la traza de la matriz cuadrada $A$. \hh{En esta sección debería poner la propiedad $\Tr(AB) = \Tr(BA)$?}
+    Esto sería para $A\in \mathcal{M}_{n\times m}(\mathbb{R})$ y  $B\in\mathcal{M}_{m\times n}(\mathbb{R})$,
+    \[
+        \Tr(AB) = \sum_{i=1}^{n} (AB)_{ii} = \sum_{i=1}^{n}\sum_{j=1}^{m} A_{ij}B_{ji} = \sum_{j=1}^{m}\sum_{i=1}^{n}B_{ij}A_{ji} = \Tr(BA).
+    \]
+    \item $A^{T}$ denota la matriz traspuesta de $A$.
+    \item
+    \begin{definicion}
+        Diremos que $\mathcal{P} = \lbrace X_1,X_2,...,X_k\rbrace$ es una \textbf{partición} del conjunto $X$ si:
+        \begin{enumerate}
+            \item $\bigcup_{i=1}^{k} X_i = X$.
+            \item $X_i \cap X_j = \emptyset$ para todo $i,j\in[k]$.
+        \end{enumerate}
+        Cuando $|X_1|\leq|X_2|\leq ...\leq |X_k| = |X_1| + 1$, llamaremos a $\mathcal{P}$ como una \textbf{equipartición}. En particular, cada parte posee $\lceil |X|/k \rceil$ o $\lfloor |X|/k\rfloor$ elementos.
+    \end{definicion}
+    \item $I_n \in \mathcal{M}_{n\times n}(\mathbb{R})$ denota la matriz identidad.
+\end{enumerate}
+
+\subsection{Nociones básicas}
+
+%%%% Definir grafo
+Un grafo es un par $G = (V,E)$, donde $V$ representa el conjunto de vértices (o \emph{nodos}, o \emph{puntos}), y $E\subseteq V\times V$ el conjunto de aristas (o \emph{líneas}). Usualmente para un grafo $G$ escribiremos $V(G)$ como el conjunto de vértices, $E(G)$ el conjunto de aristas, y sus respectivas cardinalidades como $\nu_G := |V(G)|$ y $e_G := |E(G)|$. Si tenemos una arista $e = uv\in E(G)$, entonces diremos que $u$ es \textbf{adyacente} a $v$, y que $u$ (o $v$) es \textbf{incidente} a $e$. \hh{Ingresar la imágen de un grafo justo abajo.}
+
+\hh{Justo después de la imagen} En algunas situaciones, el conjunto de vértices de un grafo será considerado ordenado. Es decir, para un grafo $G$ con $n$ vértices, el conjunto de vértices será interpretado por $V(G) = [n]$.
+
+%%%% Definición de densidad de aristas
+\begin{definicion} \label{e(X,Y)}
+    Sea $G = (V,E)$ un grafo y $X,Y\subset V$ subconjuntos no necesariamente disjuntos de $V$. Se define
+    \begin{equation} \label{e(X,Y)}
+     e(X,Y) := \Big|\lbrace (x,y)\in X\times Y : xy\in E\rbrace\Big|.
+    \end{equation}
+    
+    Cuando $X\cap Y = \emptyset$ cuenta el número de aristas entre $X$ e $Y$, y cuando $X\cap Y\not=\emptyset$ realiza un doble conteo sobre las aristas que se encuentran en $X\cap Y$.
+    Además, se define la \textbf{densidad de aristas} entre $X$ e $Y$ mediante
+    \begin{equation}
+        d(X,Y) := \frac{e(X,Y)}{|X||Y|}.
+    \end{equation} 
+\end{definicion}
+
+En un grafo $G$, la \textbf{vecindad} de un vértice $u\in V(G)$ estará definida de la siguiente manera,
+\begin{equation} \label{vecindad}
+    N(u) := \lbrace v\in V(G) : uv\in E(G)\rbrace.
+\end{equation}
+
+%%%% Definición grado y cogrado
+\begin{definicion}
+    Sea $G = (V,E)$ un grafo, el \textbf{grado} de un vértice $u\in V$ con respecto a algún conjunto de vértices $Y\subseteq V$ está definido por
+    \[ \deg(u;Y) := \sum_{v\in Y} \mathbbm{1}_{E}(uv). \]
+
+    En particular, cuando $Y = V$,
+    \[ \deg(u) = \sum_{v\in V} \mathbbm{1}_{E}(uv) = |N(u)|.\]
+
+    Se define también el \textbf{cogrado} de un par de vértices $u,v\in V$ mediante,
+    \[ \cod(u,v) = \sum_{w\in V} \mathbbm{1}_{E}(wu) \mathbbm{1}_{E}(wv)=|N(u)\cap N(v)|.\]
+\end{definicion}
+
+Más adelante, en la sección \ref{CGW}, se utilizará la siguiente relación entre el grado y el cogrado,
+\begin{equation} \label{relación grado-cogrado}
+    \sum_{u\in V} \deg(u;Y)^{2} = \sum_{v,v'\in Y\subseteq V} \cod(v,v').
+\end{equation} 
+
+En efecto,
+\begin{align*}
+    \sum_{u\in V} \deg(u;Y)^{2} &= \sum_{u\in V}\sum_{v,v'\in Y} \mathbbm{1}_{E}(uv) \mathbbm{1}_{E}(uv')\\
+    &= \sum_{v,v'\in Y}\sum_{u\in V} \mathbbm{1}_{E}(vu) \mathbbm{1}_{E}(v'u)\\
+    &= \sum_{v,v'\in Y}\cod(v,v').
+\end{align*}
+
+Si $Y = V$, entonces $\sum_{u\in V} \deg(u)^{2} = \sum_{u,v\in V}\cod(u,v)$.
+
+%%%% Suma grados = 2e
+\begin{prop}
+    Dado un grafo $G = (V,E)$, entonces
+    \begin{equation}
+        \sum_{u\in V}\deg (u) = 2e_G.
+    \end{equation}
+\end{prop}
+
+%%%% Demostración suma grados = 2e
+\begin{proof}
+    Cada arista $uv\in E$ será contada dos veces en la suma, una contribución por $u$ y otra por $v$.
+\end{proof}\medskip
+
+%%%% Definición: Grafo bipartito
+\begin{definicion}
+    Un grafo $G = (V,E)$ se dice \textbf{$k$-partito} si existe una partición de su conjunto de vértices en $k$ conjuntos disjuntos $V_1, V_2, ... ,V_k$ tal que $uv\in E$ si y solamente si $u\in V_j$ y $v\in V_j$, con $i\not=j$. Cuando un grafo es $2$-partito, se le llamará \textbf{bipartito}.
+\end{definicion}
+
+
+Denotamos por $K_n$ al \textbf{grafo completo} de $n$ vértices, y $K_{n,m}$ como el \textbf{grafo bipartito completo} con $n$ vértices en una parte y $m$ vértices en la otra parte. Los grafos anteriores se caracterizan por poseer todas posibles conexiones entre los vértices, es decir, todos los pares de vértices son adyacentes y sus aristas son exactamente $e_{K_n} = \tbinom{n}{2}$ y $e_{K_{n,m}} = n\cdot m$. Llamaremos por \textbf{grafo $d$-regular} a aquel que presenta todos sus vértices con grado $d$. 
+
+%%%% Definición caminata, caminata cerrada, camino y ciclos
+\begin{definicion}
+    Dado un grafo $G$ con  $n\geq k$ vértices, se define
+    \begin{itemize}
+        % Caminata
+        \item Una \textbf{caminata} es una secuencia de vértices no necesariamente distintos $v_0,v_1,...,v_k$ y  una secuencia de aristas $v_{i}v_{i+1}\in E(G)$.
+        % Camino
+        \item Un \textbf{camino} es una caminata con todos los vértices $v_i$ distintos.
+        % Ciclo
+        \item Un \textbf{ciclo} es un camino con $k\geq 2$, en el cual además $v_{0}v_{k}\in E(G)$. En específico, $v_0, v_1,...,v_k,v_0$ es un ciclo.
+    \end{itemize}
+
+    Se dirá que una caminata o camino son \textbf{cerrados} si $v_0 = v_k$. Además, el \textbf{largo} de una caminata, camino o ciclo será determinado por la cantidad de aristas que éstos posean.
+\end{definicion}
+
+\hh{Insertar un ejemplo de cada una de las anteriores.}
+
+%%%% Definición isomorfismo de grafos
+\begin{definicion}
+    Sean $G_1 = (V_1, E_1)$ y $G_2 = (V_2, E_2)$ grafos. Un \textbf{isomorfismo} $\varphi : G_1 \to G_2$ es una biyección desde $V_1$ hasta $V_2$ tal que $uv\in E_1$ si y solamente si $\varphi(u)\varphi(v)\in E_2$. Diremos que $G_1$ es isomorfo a $G_2$ si existe un isomorfismo entre ellos.
+\end{definicion}
+
+Observe que un isomorfismo establece una relación de equivalencia de grafos. Es decir,
+\begin{itemize}
+    \item Todo grafo es isomorfo con sí mismo.
+    \item Si $G_1$ es isomorfo a $G_2$, entonces $G_2$ es isomorfo con $G_1$.
+    \item Si $G_1$ es isomorfo a $G_2$ y $G_2$ es isomorfo a $G_3$, entonces $G_1$ es isomorfo con $G_3$.
+\end{itemize}
+
+%%%% Definir subgrafo
+Dado dos grafos $H$ y $G$, diremos que $H$ es \textbf{subgrafo} de $G$ si se puede obtener $H$ a partir de $G$ únicamente eliminado algunos vértices y aristas. Formalmente, $H$ es subgrafo de $G$ si $V(H)\subseteq V(G)$ y $E(H)\subseteq E(G)$.
+
+%%%% Definición copia
+\begin{definicion}
+    Sean $H$ y $G$ grafos,
+    \begin{itemize}
+        \item Una \textbf{copia} de $H$ en $G$ es un subgrafo de $G$ isomorfo a $H$.
+        \item Una \textbf{copia etiquetada} de $H$ en $G$ es una aplicación inyectiva\footnote{La aplicación inyectiva mapea preservando las aristas de $H$ en $G$.} $\varphi : V(H)\to V(G)$ tal que $\varphi(u)\varphi(v)\in E(G)$ cada vez que $uv\in E(H)$.
+        \item Una \textbf{copia inducida} de $H$ en $G$ es una aplicación inyectiva $\varphi : V(H)\to V(G)$ tal que $\varphi(u)\varphi(v)\in E(G)$ si y solamente si $uv\in E(H)$.
+    \end{itemize}
+\end{definicion}
+
+En general se utilizarán copias etiquetadas en el desarrollo de este documento, denotamos entonces por $\tbinom{G}{H}$ al conjunto de copias etiquetadas de $H$ en $G$. Para ejemplificar la última definición, si un grafo posee $\ell$ copias de $K_3$, entonces existen $6\ell$ copias etiquetadas de $K_3$.
+
+\subsection{Álgebra lineal y teoría espectral de grafos} \label{Sección AL}
+
+%%%% Enunciar desigualdad de Cauchy-Schwarz y sus dos versiones
+Muchas veces, en la teoría de grafos extremal y en combinatoria, la desigualdad de Cauchy-Schwarz juega un papel fundamental en la prueba de algunos resultados.
+
+\begin{prop} (Desigualdad de Cauchy-Schwarz)
+    Sean $a,b\in \mathbb{R}^{k}$, entonces se satisface
+    \begin{equation*}
+        \sum_{i=1}^{k}a_{i}^{2}\sum_{i=1}^{k}b_i^{2} \geq \left( \sum_{i=1}^{k}a_{i}b_{i}\right)^{2}.
+    \end{equation*}
+\end{prop}
+
+En lo que respecta a este trabajo, la desigualdad de Cauchy-Schwarz será utilizada como alguna de las siguientes variantes. Por un lado, si uno de los vectores se identifica con el vector constante $b_i = 1$ para todo $i\in [k]$, entonces
+\begin{equation} \label{CS_versión1}
+    \sum_{i=1}^{k}a_{i}^{2} \geq \frac{1}{k}\left( \sum_{i=1}^{k} a_{i}\right)^{2}.
+\end{equation}
+
+Por otro lado, para los reales $\alpha_1,...,\alpha_k > 0$ y $\beta_1,...\beta_k \geq 0$, consideramos $a_i = \sqrt{\alpha_i}$ y $b_i = \frac{\beta_i}{\sqrt{\alpha_i}}$ para obtener
+\begin{equation} \label{Desigualdad_from_CS}
+    \sum_{i=1}^{k} \frac{\beta_{i}^{2}}{\alpha_i} \geq \frac{\left( \sum_{i = 1}^{k} \beta_i\right)^{2}}{\sum_{i=1}^{k}\alpha_i}.
+\end{equation}\medskip 
+
+%%%% Enunciar matriz de adyacencia
+Una manera muy útil de representar un grafo es mediante una matriz cuadrada binaria, asignando $1$ para las conexiones de vértices y $0$ en la ausencia de aristas. Bajo esta representación se consigue una visión clara y eficiente de las relaciones de un grafo, y se goza de las propiedades que nos ofrece el álgebra lineal.
+
+%%%% Definición formal matriz de adyacencia
+\begin{definicion}
+    Dado un grafo $G$ sobre $n$ vértices, se define su \textbf{matriz de adyacencia} $A_{G}\in \mathcal{M}_{n\times n}(\mathbb{R})$ de la siguiente manera,
+    \begin{equation*}
+        a_{ij} =
+        \begin{cases}
+            1 & \mathrm{si}\  ij\in E(G)\\
+            0 & \mathrm{en\ otro\ caso.}
+        \end{cases}
+    \end{equation*}
+    Cuando el contexto sea claro, la matriz de adyacencia será representada simplemente por $A$.
+\end{definicion}
+
+Observe que la representación anterior resulta en una matriz simétrica. Además, para un grafo $G = ([n], E)$ cuya matriz de adyacencia es $A$, podemos obtener un vector con los grados de cada vértice del grafo aplicando el operador $A$ al vector de $1$-entradas $\mathbbm{1}\in\mathcal{M}_{n\times 1}$, es decir,
+\begin{equation} \label{A1=Mdeg}
+    A\mathbbm{1} = 
+    \begin{pmatrix}
+        \deg(1) \\
+        \vdots \\
+        \deg(n)
+    \end{pmatrix}.
+\end{equation}
+
+Otro aspecto interesante de la matriz de adyacencia es que nos permite reescribir la definición \ref{e(X,Y)} en función de ella. En efecto, consideramos la matriz de adyacencia $A$ del grafo $G = ([n], E)$ y los vértices $i,j\in [n]$. Luego, por la construcción de $A$,
+\begin{equation*}
+    e(\lbrace i\rbrace, \lbrace j\rbrace) = e_{i}^{T} A e_{j} = 
+    \begin{cases}
+        1 & \text{si } i=j \\
+        0 & \text{En otro caso.}
+    \end{cases}
+\end{equation*}
+
+Entonces para los conjuntos $X,Y\subset [n]$, se obtiene por linealidad,
+\begin{equation} \label{e(X,Y)=espectral}
+    e(X,Y) = \sum_{i\in X}\sum_{j\in Y} e_{i}^{T} A e_{j} = v_{X}^{T} A v_{Y}.
+\end{equation}
+
+Donde $v_{X}, v_{Y}\in\mathcal{M}_{n\times 1}(\mathbb{R})$ son vectores que toman el valor $1$ en la $k$-ésima posición cuando $k\in X$ o $k\in Y$ respectivamente, en otro caso adoptan el valor $0$. También pueden ser representados mediante
+\begin{equation*}
+    v_X = \sum_{i\in X}e_{i}\ \ \text{,}\ \ v_Y = \sum_{j\in Y}e_{j}.
+\end{equation*}
+
+Una de las aplicaciones de la matriz de adyacencia, quizás no tan intuitiva, es que su $t$-ésima potencia revela la cantidad de caminatas de largo $t$ que existen entre todos los pares de vértices del grafo.
+
+%%%% Lema: Potencia matriz de adyacencia
+\begin{prop} \label{potencia_matriz_adyacencia = caminatas}
+    Sea $A$ la matriz de adyacencia de grafo $G = ([n], E)$. La $(i,j)$-ésima entrada $a_{ij}^{(t)}$ de $A^{t}$, cuenta la cantidad de caminatas de largo $t$ que comienzan y terminan en los vértices $i$ y $j$ respectivamente.
+\end{prop}
+%%%% Demostración Lema : Potencia matriz de adyacencia
+\begin{proof}
+    Cuando $t=1$, existe una caminata de largo $1$ que conecta los vértices $i$ y $j$ si y solamente si $a_{ij}^{(1)} = 1$. Ahora, asuma que el lema se cumple para algún $t > 1$ fijo. Note que cualquier caminata de largo $t+1$ entre $i$ y $j$ contiene una caminata de largo $t$ desde $i$ hasta un vecino de $j$, digamos $k$. Entonces si $k\in N(j)$, por la asunción del lema, el número de caminatas de largo $t$ entre $i$ y $k$ es $a_{ik}^{(t)}$. Por lo tanto, la cantidad total de caminatas de largo $t+1$ desde $i$ hasta $t$ es
+    \begin{equation*}
+        \displaystyle\sum_{k\in V} a_{ik}^{(t)}\mathbbm{1}_{N(j)}(k) = \displaystyle\sum_{\ell=1}^{n}a_{i\ell}^{(t)}a_{\ell j} = a_{ij}^{(t+1)}.
+    \end{equation*}
+\end{proof}
+
+Si $A$ es la matriz de adyacencia del grafo $G = ([n], E)$, entonces la cantidad de caminatas cerradas de largo $k$ que existen en el grafo viene dada por $\Tr(A^{k}) = \sum_{i=1}^{n}a_{ii}^{(k)}$. Por lo anterior, note que $\Tr(A^{2}) = 2e_G$. A continuación, gracias a la simetría de la matriz $A$, se estudiarán algunas de sus propiedades espectrales.\medskip
+
+Recordamos que un vector $v\in \mathbb{R}^{n}$ es un vector propio de una matriz $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ con valor propio $\lambda\in \mathbb{R}$ si $Av=\lambda v$. Esto significa que $\lambda$ es un valor propio si y solo si $\lambda I_{n} - A$ es una matriz singular. Así, los valores propios vienen dados por las raíces del polinomio característico $\det(xI_{n} - A)$. Cuando se haga referencia a los valores y vectores propios de $G$, siempre será con respecto a su matriz de adyacencia $A$.\medskip
+
+Tomando en consideración la igualdad \eqref{A1=Mdeg}, note en particular que si $G$ es un grafo $d$-regular, entonces $d$ es el valor propio asociado al vector propio normalizado de $1$-entradas de la matriz de adyacencia de $A$.
+
+%%%% Teorema espectral
+\begin{teorema} (Teorema espectral)
+    Sea $A\in\mathcal{M}_{n\times n}(\mathbb{R})$ una matriz real simétrica. Entonces existen matrices $P$ ortogonal y $D$ diagonal tales que
+    \begin{equation} \label{Descomposición espectral}
+        A = PDP^{T} = \sum_{i=1}^{n}\lambda_{i}v_{i}v_{i}^{T}.
+    \end{equation}
+    En donde la matriz diagonal $D$ está compuesta por los valores propios $\lambda_i \in\mathbb{R}$ de $A$, y las columnas de $P$ son los vectores propios normalizados $v_{i}\in\mathbb{R}^{n}$ de $A$.
+\end{teorema}
+
+Un aspecto importante de las matrices reales simétricas es que los vectores propios asociados a diferentes valores propios son ortogonales. En efecto, considere la matriz real simétrica $A\in\mathcal{M}_{n\times n}(\mathbb{R})$ y asuma que $Av=\lambda v$ y $A\omega = \mu\omega$. Si $\lambda \not= \omega$,
+\begin{align*}
+    \lambda \langle v,\omega\rangle &= \langle \lambda v,\omega\rangle\\
+    &= \langle Av,\omega \rangle\\
+    &= \langle v,A^{T} \omega \rangle\\
+    &= \langle v,A\omega \rangle\\
+    &= \langle v,\mu\omega \rangle\\
+    &= \mu \langle v,\omega\rangle.
+\end{align*}
+
+Entonces $\lambda \langle v,\omega \rangle = \mu \langle u,\omega \rangle$ si y solamente si $\langle v,\omega\rangle=0$. De esta manera, los vectores propios asociados a la matriz $A$ forman una base ortonormal\footnote{La base será ortonormal debido a que siempre podemos utilizar el proceso Gram-Schmidt.} de $\mathbb{R}^{n}$, satisfaciendo
+\begin{equation*}
+    v_{i}^{T} v_j = \langle v_i, v_j\rangle = 
+    \begin{cases}
+        1 & \text{si } $i=j$\\
+        0 & \text{En otro caso.}
+    \end{cases}
+\end{equation*}
+
+La descomposición espectral \eqref{Descomposición espectral} nos permite trabajar eficientemente con las potencias de toda matriz real simétrica, puesto a que el problema se reduce a calcular la potencia de una matriz diagonal. Para visualizar este hecho, observe en primera instancia,
+\begin{align*}
+    A^{2} &= (PDP^{T})(PDP^{T})\\
+    &= PD(P^{T}P)DP^{T}\\
+    &= PD^{2}P^{T}.
+\end{align*}
+
+Luego, de manera inductiva se obtiene que $A^{k} = PD^{k}P^{T}$. A continuación se mostrará la relación entre la traza de una matriz real simétrica y sus valores propios.
+
+%%%% Proposición: traza = suma valores propios
+\begin{prop} \label{lema_2} %% CAMBIAR EL LABEL!!!
+    La traza de una matriz simétrica $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ es igual a la suma de sus autovalores.
+\end{prop}
+
+%%%% Demostración : traza = suma valores propios
+\begin{proof}
+    Sea $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ una matriz simétrica. Se escribe la traza estratégicamente de la siguiente manera,
+    \[ 
+        \Tr (A) = \sum_{i = 1}^{n} e_{i}^{T} A e_{i}.
+    \]
+
+    Así, utilizando la descomposición espectral,
+    \begin{align*}
+        \Tr(A) &= \sum_{i = 1}^{n}e_{i}^{T} \left( \sum_{j = 1}^{n} \lambda_{j}v_{j}v_{j}^{T} \right) e_{i}\\
+        &= \sum_{i = 1}^{n}\sum_{j = 1}^{n} \lambda_{j} e_{i}^{T} v_{j} v_{j}^{T} e_{i}\\
+        &= \sum_{i = 1}^{n}\sum_{j = 1}^{n} \lambda_{j} \langle e_{i}, v_{j}\rangle \langle v_{j}, e_{i}\rangle\\
+        &= \sum_{j = 1}^{n} \lambda_{j} \norm{v_j}^{2}\\
+        &= \sum_{j = 1}^{n} \lambda_{j}.
+    \end{align*}
+\end{proof}
+
+%%%% Corolario: Traza potencia k
+\begin{corolario} \label{Tr_Ak}
+    Sea $A \in\mathcal{M}_{n\times n}(\mathbb{R})$ una matriz simétrica y $\lambda_1 ,...,\lambda_n$ sus autovalores, entonces se cumple $\Tr(A^{k}) = \sum_{i = 1}^{n}\lambda_{i}^{k}$.
+\end{corolario}
+
+%%%% Demostración corolario traza potencia k
+\begin{proof}
+    Utilizando que la traza de la multiplicación de dos matrices es invariante bajo orden del producto, 
+    \begin{align*}
+        \Tr(A^{k}) &= \Tr([PDP^{T}]^{k})\\
+        &= \Tr(P[D^{k}P^{T}])\\
+        &= \Tr([D^{k}P^{T}]P)\\
+        &= \Tr(D^{k})\\
+        &= \sum_{i = 1}^{n}\lambda_{i}^{k}.
+    \end{align*}
+\end{proof}
+
+El último resultado es interesante debido a que podemos expresar la cantidad de caminatas cerradas de largo $k$ en un grafo mediante únicamente la suma de la $k$-ésima potencia de los valores propios de su matriz de adyacencia.\medskip
+
+El siguiente teorema nos entrega una caracterización de cada uno de los valores propios de una matriz real simétrica.
+
+%%%% Teorema: Courant-Fischer
+\begin{teorema} \label{Teo Courant-Fischer}(Teorema de Courant-Fischer)
+    Sea $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ una matriz real simétrica, cuyos valores propios son $\lambda_1 \geq \lambda_2 \geq ...\geq \lambda_n$, y $\lbrace v_1, v_2,..., v_n \rbrace$ sus vectores propios que forman una base ortonormal de $\mathbb{R}^{n}$. Entonces,
+    \begin{itemize}
+        \item[(i)] \[
+                \lambda_k = \inf_{\substack{x\perp \lbrace v_1,...,v_{k-1}\rbrace \\ x\not= 0}} \frac{\langle x, Ax\rangle}{\langle x,x\rangle}.
+              \]
+        \item[(ii)] \[
+                \lambda_k = \sup_{\substack{x\perp \lbrace v_{k+1},...,v_n\rbrace \\ x\not= 0}} \frac{\langle x, Ax\rangle}{\langle x,x\rangle}.
+              \]
+    \end{itemize}
+\end{teorema}
+
+Este teorema nos abre paso al siguiente resultado sobre el primer valor propio de un grafo.
+
+%%%% Proposición : Primer autovalor >= promedio grados
+\begin{prop}\label{cota_primer_autovalor}
+    El primer autovalor de la matriz de adyacencia de un grafo es al menos el promedio de los grados. En particular, cuando el grafo es $d$-regular, el primer autovalor coincide con $d$.
+\end{prop}
+
+%%%% Demostración : Primer autovalor >= promedio grados
+\begin{proof}
+    Sea $A$ la matriz de adyacencia de el grafo $G = ([n], E)$, y denotamos por $\mathbbm{1}\in \mathbb{R}^{n}$ al vector de con únicamente entradas 1. Desarrollando en base al teorema de Courant-Fischer,
+    \begin{equation*}
+        \lambda_1 = \sup_{\substack{x\in \mathbb{R}^{n} \\ x\not= 0}} \frac{\langle x, Ax\rangle}{\langle x, x\rangle}
+        \geq \frac{\langle \mathbbm{1}, A\mathbbm{1} \rangle}{\langle \mathbbm{1}, \mathbbm{1} \rangle}
+        = \frac{2e_G}{n}\\
+        = \dfrac{\sum_{x\in V(G)} \deg(x)}{n}.
+   \end{equation*}
+\end{proof}
+
+
+%\newpage
+%Como ya mencionamos en la introducción, un grafo pseudo aleatorio es un objeto determinístico que luce como un grafo aleatorio. Pongámonos en la situación de que queremos generar un grafo aleatorio sobre $n$ vértices; quizás la manera más sencilla es el proceso de considerar todos los posibles pares $(u,v)$ de vértices en $G$, y decidir independientemente con probabilidad $1/2$ si $(u,v)$ es una arista o no. \\
+%
+%Formalmente hablando, un \emph{grafo aleatorio} $G(n,p)$ es el espacio de probabilidad de todos los grafos etiquetados sobre $n$ vértices $[n]:=\lbrace 1,...,n\rbrace$, donde para cada par $1\leq i < j\leq n$, $(i,j)$ es una arista de $G(n,p)$ con probabilidad $p=p(n)$ independiente de cualquier otra arista. En otras palabras, la probabilidad de un grafo $G=([n],E)$ de estar en $G(n,p)$ es $Pr[G]= p^{|E(G)|}(1-p)^{\tbinom{n}{2}-|E(G)|}$.\\
+%
+%Un resultado de esta área que nos ayudará más adelante con la pseudo-aleatoriedad es el siguiente:\\
+%
+%\begin{flushleft}
+%    \textbf{Teorema 1.-} Sea $p=p(n)\leq 0.99$, entonces casi seguramente $G\in G(n,p)$ es tal que si:
+%        \begin{enumerate}
+%            \item[i)] $U\subset V(G)$ es cualquier subconjunto de vértices de $G$, entonces
+%            $$\left| e(U) - p\binom{|U|}{2} \right| = O(u^{3/2}p^{1/2}\log^{1/2}(2n/u)),$$
+%            donde $e(U)$ es el número de pares $(i,j)\in U\times U$ tales que $(i,j)\in E(G)$.
+%            \item[ii)] $U,W\subset V(G)$ subconjuntos disjuntos de vértices de $G$ que satisfacen $|U|\leq |W|$, entonces:
+%            $$\left| e(U,W)-p|U||W|\right| = O(u^{1/2}wp^{1/2}\log^{1/2}(2n/w)),$$
+%            donde $e(U,W)$ es el número de pares $(i,j)\in U\times W$ tales que $(i,j)\in E(G)$.
+%        \end{enumerate}
+%\end{flushleft}
+%Sin entrar en detalles con respecto a los términos de errores, el espíritu de este teorema es que dado un grafo $G\in G(n,p)$, entonces la densidad de aristas en cualquier subconjunto de vértices de $G$ es razonablemente similar a la de $G$. Más aún, note que las cantidades $e(U)$ y $e(U,W)$ son binomialmente distribuidas como variables aleatorias con parámetros $\left(\binom{|U|}{2},p\right)$, y $\left(|U||W|,p\right)$ respectivamente.
+%
+%\section{Definiciones y conceptos basicos}
+%
+%\hh{Lo siguientes solo serán definiciones y resultados sueltos para en un futuro cercano ser reordenado en el documento}.
+%
+%
+%\hh{La siguiente definición y teorema hacen recen referencia a la desigualdad de Jensen, cual será utilizada más adelante en la sección de regularidad}
+%
+%%%%% Definición función convexa
+%\begin{definicion}
+%    Sea $f:\mathbb{R}\to \mathbb{R}$ una función. Diremos que $f$ es \textbf{convexa} si para todo $x,y\in\mathbb{R}$ y $t\in [0,1]$ se verifica que
+%    \begin{equation*}
+%        f(tx +(t-1)y) \leq tf(x) + (1-t)f(y).
+%    \end{equation*}
+%\end{definicion}
+%
+%%%%% Teorema: Desigualdad de Jensen
+%\begin{teorema} \label{Teo_Desigualdad_Jensen} (Desigualdad de Jensen) 
+%    Sea $f:\mathbb{R}\to \mathbb{R}$ una función convexa. Para todo $n\in \mathbb{N}$ y $t_i\in \mathbb{R}$, con $i\in [n]$, tales que $t_i \geq 0$ y $\sum_{i = 1}^{n}t_i = 1$, se satisface
+%    \begin{equation} \label{Formula_Desigualdad_Jensen}
+%        f\left( \sum_{i = 1}^{n} t_i x_i\right) \leq \sum_{i = 1}^{n} t_i f(x_i),\ \ \forall x_i\in \mathbb{R}.
+%    \end{equation}
+%\end{teorema}
+%
+%%%%% Demostración: Desigualdad de Jensen
+%\begin{proof}
+%    Razonaremos por inducción sobre $n$. Cuando $n = 1$, entonces $t_1 = 1$ y el resultado ocurre trivialmente. También es verdad cuando $n = 2$ por la convexidad de $f$.
+%    Asumiendo que \eqref{Formula_Desigualdad_Jensen} se cumple para algún $n \geq 2$ fijo y que $t_{n+1} \not=1$ (en caso contrario, los otros $t_i = 0$ cuando $i\in [n]$, y por consecuencia se satisface \eqref{Formula_Desigualdad_Jensen}), el resultado se consigue de utilizar la convexidad de $f$ y la hipótesis inductiva,
+%    \begin{align*}
+%        f\left( \sum_{i = 1}^{n+1} t_ix_i\right) &= f\left( (1 - t_{n+1})\sum_{i = 1}^{n} \frac{t_i}{1 - t_{n+1}}x_i + t_{n+1}x_{n+1}\right)\\
+%        &\leq (1-t_{n+1})f\left( \sum_{i = 1}^{n} \frac{t_i}{1 - t_{n+1}}\right) + t_{n+1}f(x_{n+1})\\
+%        &\leq (1 - t_{n+1})\sum_{i = 1}^{n} \frac{t_i}{1-t_{n+1}}f(x_i) + t_{n+1}f(x_{n+1})\\
+%        &= \sum_{i = 1}^{n+1}t_if(x_i).
+%    \end{align*}
+%\end{proof}
+%
+%Sabemos que para una variable aleatoria $X$ con función de probabilidad $\mathbb{P}(X = x_i)$  con $i\in [n]$, su esperanza matemática está definida por
+%\[ \mathbb{E}[X] = \sum_{i = 1}^{n} \mathbb{P}(X = x_i)x_i.\]
+%Ahora, como $\sum_{i = 1}^{n}\mathbb{P}(X = x_i) =1$ y $\mathbb{P}(X = x_i) \geq 0$, podemos usar la desigualdad de Jensen eligiendo la función convexa $f(x) = x^{2}$ para obtener
+%\begin{equation} \label{Jensen_implicación}
+%    f\left( \sum_{i = 1}^{n} \mathbb{P}(X = x_i)x_i\right) \leq \sum_{i = 1}^{n} \mathbb{P}(X = x_i)f(x_i) \Rightarrow \mathbb{E}[X]^{2} \leq \mathbb{E}[X^{2}].
+%\end{equation}
+%\hh{Pregunta: Debería eliminar la implicancia y dejar solo el resultado? R: agregar un "Es decir,". De todas maneras debo adaptar la demostración de regularidad para no utilizar notación se probabilidad.}
+%    \begin{align*}
+%        f\left( \sum_{i = 1}^{n+1} t_ix_i\right) &= f\left( (1 - t_{n+1})\sum_{i = 1}^{n} \frac{t_i}{1 - t_{n+1}}x_i + t_{n+1}x_{n+1}\right)\\
+%        &\leq (1-t_{n+1})f\left( \sum_{i = 1}^{n} \frac{t_i}{1 - t_{n+1}}\right) + t_{n+1}f(x_{n+1})\\
+%        &\leq (1 - t_{n+1})\sum_{i = 1}^{n} \frac{t_i}{1-t_{n+1}}f(x_i) + t_{n+1}f(x_{n+1})\\
+%        &= \sum_{i = 1}^{n+1}t_if(x_i).
+%    \end{align*}
+%\end{proof}
+%
+%Sabemos que para una variable aleatoria $X$ con función de probabilidad $\mathbb{P}(X = x_i)$  con $i\in [n]$, su esperanza matemática está definida por
+%\[ \mathbb{E}[X] = \sum_{i = 1}^{n} \mathbb{P}(X = x_i)x_i.\]
+%Ahora, como $\sum_{i = 1}^{n}\mathbb{P}(X = x_i) =1$ y $\mathbb{P}(X = x_i) \geq 0$, podemos usar la desigualdad de Jensen eligiendo la función convexa $f(x) = x^{2}$ para obtener
+%\begin{equation} \label{Jensen_implicación}
+%    f\left( \sum_{i = 1}^{n} \mathbb{P}(X = x_i)x_i\right) \leq \sum_{i = 1}^{n} \mathbb{P}(X = x_i)f(x_i) \Rightarrow \mathbb{E}[X]^{2} \leq \mathbb{E}[X^{2}].
+%\end{equation}
+%\hh{Pregunta: Debería eliminar la implicancia y dejar solo el resultado? R: agregar un "Es decir,". De todas maneras debo adaptar la demostración de regularidad para no utilizar notación se probabilidad.}
+%    \begin{align*}
+%        f\left( \sum_{i = 1}^{n+1} t_ix_i\right) &= f\left( (1 - t_{n+1})\sum_{i = 1}^{n} \frac{t_i}{1 - t_{n+1}}x_i + t_{n+1}x_{n+1}\right)\\
+%        &\leq (1-t_{n+1})f\left( \sum_{i = 1}^{n} \frac{t_i}{1 - t_{n+1}}\right) + t_{n+1}f(x_{n+1})\\
+%        &\leq (1 - t_{n+1})\sum_{i = 1}^{n} \frac{t_i}{1-t_{n+1}}f(x_i) + t_{n+1}f(x_{n+1})\\
+%        &= \sum_{i = 1}^{n+1}t_if(x_i).
+%    \end{align*}
+%\end{proof}
+%
+%Sabemos que para una variable aleatoria $X$ con función de probabilidad $\mathbb{P}(X = x_i)$  con $i\in [n]$, su esperanza matemática está definida por
+%\[ \mathbb{E}[X] = \sum_{i = 1}^{n} \mathbb{P}(X = x_i)x_i.\]
+%Ahora, como $\sum_{i = 1}^{n}\mathbb{P}(X = x_i) =1$ y $\mathbb{P}(X = x_i) \geq 0$, podemos usar la desigualdad de Jensen eligiendo la función convexa $f(x) = x^{2}$ para obtener
+%\begin{equation} \label{Jensen_implicación}
+%    f\left( \sum_{i = 1}^{n} \mathbb{P}(X = x_i)x_i\right) \leq \sum_{i = 1}^{n} \mathbb{P}(X = x_i)f(x_i) \Rightarrow \mathbb{E}[X]^{2} \leq \mathbb{E}[X^{2}].
+%\end{equation}
+%\hh{Pregunta: Debería eliminar la implicancia y dejar solo el resultado? R: agregar un "Es decir,". De todas maneras debo adaptar la demostración de regularidad para no utilizar notación se probabilidad.}
+%    \begin{align*}
+%        f\left( \sum_{i = 1}^{n+1} t_ix_i\right) &= f\left( (1 - t_{n+1})\sum_{i = 1}^{n} \frac{t_i}{1 - t_{n+1}}x_i + t_{n+1}x_{n+1}\right)\\
+%        &\leq (1-t_{n+1})f\left( \sum_{i = 1}^{n} \frac{t_i}{1 - t_{n+1}}\right) + t_{n+1}f(x_{n+1})\\
+%        &\leq (1 - t_{n+1})\sum_{i = 1}^{n} \frac{t_i}{1-t_{n+1}}f(x_i) + t_{n+1}f(x_{n+1})\\
+%        &= \sum_{i = 1}^{n+1}t_if(x_i).
+%    \end{align*}
+%\end{proof}
+%
+%Sabemos que para una variable aleatoria $X$ con función de probabilidad $\mathbb{P}(X = x_i)$  con $i\in [n]$, su esperanza matemática está definida por
+%\[ \mathbb{E}[X] = \sum_{i = 1}^{n} \mathbb{P}(X = x_i)x_i.\]
+%Ahora, como $\sum_{i = 1}^{n}\mathbb{P}(X = x_i) =1$ y $\mathbb{P}(X = x_i) \geq 0$, podemos usar la desigualdad de Jensen eligiendo la función convexa $f(x) = x^{2}$ para obtener
+%\begin{equation} \label{Jensen_implicación}
+%    f\left( \sum_{i = 1}^{n} \mathbb{P}(X = x_i)x_i\right) \leq \sum_{i = 1}^{n} \mathbb{P}(X = x_i)f(x_i) \Rightarrow \mathbb{E}[X]^{2} \leq \mathbb{E}[X^{2}].
+%\end{equation}
+%\hh{Pregunta: Debería eliminar la implicancia y dejar solo el resultado? R: agregar un "Es decir,". De todas maneras debo adaptar la demostración de regularidad para no utilizar notación se probabilidad.}
+%
+\section{Teorema de Chung, Graham y Wilson} \label{CGW}
+
+\subsection{Enunciado y demostración}
+
+Ya entendiendo la noción y características de un grafo aleatorio \hh{(Quedamos en hacer previamente una sección de grafos aleatorios verdad?)}, recordemos que una estructura casi-aleatoria es un objeto que luce aleatorio dentro de un marco determinístico. Con esta intuición, damos un paso adelante y definimos formalmente la noción de casi-aleatoriedad.\medskip
+
+\begin{definicion} \label{casi-aleatoriedad}
+    Sea $p\in(0,1)$ y $(G_n)_{n\to\infty}$ una secuencia de grafos, en donde cada $G_n$ posee $n$ vértices. Diremos que el grafo $G_n$ es \textbf{casi-aleatorio} si en todo $X\subset V(G_n)$ se encuentra una distribución uniforme en las aristas, i.e,
+    \begin{equation*}
+        \Big| e(X) - p\tbinom{|X|}{2} \Big| = o(n^{2})\ ,\ \forall X\in V(G).
+    \end{equation*}
+\end{definicion}\medskip
+
+%Luego, para cada par de vértices $(x,y)\in V(G)$ establecemos $s(x,y)$ como el número de vértices de $G$ unidos a $x$ e $y$ de la misma forma: o a ambos o a ninguno. En otras palabras,
+%        $$s(x,y) = \left| \lbrace z\in V(G)\ : \ a_{xz}=a_{yz}\rbrace\right|\ ,\ \ \forall x,y\in V(G)$$
+
+El siguiente célebre teorema establece, desde diferentes puntos de vista de las matemáticas, una serie de propiedades equivalentes a la condición de casi-aleatoriedad de un grafo.\medskip
+
+%% Enunciado Teorema Chung, Graham y Wilson
+\begin{teorema} \label{Teorema CGW} (Chung, Graham y Wilson.) 
+    Sea $p\in (0,1)$ fijo. Para cualquier secuencia de grafos $(G_{n})_{n \to \infty}$ con $|V(G_n)|= n$ y $e_{G_n}= (p + o(1))\tbinom{n}{2}$, las siguientes propiedades son equivalentes:\medskip
+
+    \begin{enumerate}
+        \item[\makebox[0.5cm]{$\disc_p$:} Para todo $X,Y\subseteq V(G_n)$,
+        \[
+            \Big| e(X, Y)- p|X||Y| \Big| = o(n^{2}).
+        \]
+        
+        \item[\makebox[1.0cm]{$\discp_p$:} Para todo $X\subseteq V(G_n)$, 
+        
+        \[
+            \Big| e(X) - p \tbinom{|X|}{2}\Big| = o(n^{2})\ ,\ \ \forall X \subseteq V(G_n).
+        \]
+        
+        \item[\makebox[1.0cm]{$\Count_p$:} Para cada grafo $H$, la cantidad de copias etiquetadas de $H$ en $G_n$ está dada por
+        
+        \[
+            \left|\tbinom{G_n}{H}\right| = \left(p^{e(H)} + o(1)\right) n^{v(H)}.
+        \]
+        
+        \item[\makebox[1.0cm]{$\Count_{C4,p}$:} La cantidad de copias etiquetadas de ciclos de orden 4 es
+        
+        \[
+            \left|\tbinom{G_n}{C_4}\right| = (p^{4} + o(1)) n^{4}.
+        \]
+        
+        \item[\makebox[1.0cm]{$\codeg_p$:} 
+        
+        \[
+            \displaystyle\sum_{u,v\in V(G_n)}\Big| \cod(u,v)-p^{2}n\Big| = o(n^3).
+        \]
+
+        \item[\makebox[1.0cm]{$\eig_p$:} Si $\lambda_1 \geq \cdots \geq \lambda_n$ son los autovalores de de la matriz de adyacencia de $G_n$, entonces
+        
+        \[
+            \lambda_1 = pn + o(n)\ \ \text{,}\ \ \ \displaystyle\max_{i\not= 1}|\lambda _{i}| = o(n).
+        \]
+    \end{enumerate}
+\end{teorema}\medskip
+
+Para una comprensión e intuición inicial del teorema, las propiedades fueron enunciadas utilizando notación asintótica. Equivalentemente, para cada una de las propiedades anteriores, es posible reescribir su hipótesis utilizando una versión cuantitativa con un parámetro de error $\varepsilon$ para un grafo en específico. Por ejemplo, dado un grafo $G$, la propiedad $\disc_p$ puede ser replanteada de la siguiente manera:\medskip
+\begin{equation*}
+  \disc_p(\varepsilon):\ \ \ e(X,Y) = p|X||Y| \pm \varepsilon n^2 , \ \ \forall X,Y \subseteq V(G).  
+\end{equation*}
+
+De manera general, diremos que una secuencia de grafos $(G_n)_{n\to\infty}$ con $|V(G_n)| = n$ satisface la propiedad $P_{x_1,...,x_k}$\footnote{Los parámetros $x_1,...,x_k$ pueden ser de distinta naturaleza, dependiendo de la propiedad simbolizada. En las propiedades del Teorema \ref{Teorema CGW} se utiliza $k=1$ con $x_1 = p$ salvo en la propiedad $\Count_{C4,p}$, en donde $k=2$.} si para cada elección de $\varepsilon >0$, existe algún $n_0 \in \mathbb{N}$ tal que el grafo $G_n$ con $n\geq n_0$ vértices satisface $P_{x_1,...,x_k}(\varepsilon)$. Más aún, la secuencia de grafos $(G_n)_{n\to\infty}$ satisface la propiedad $Q_{y_1,...,y_\ell}$ cada vez que cumpla con $P_{x_1,...,x_k}$ si y solamente si $P_{x_1,...,x_k}(\varepsilon) \Rightarrow Q_{y_1,...,y_\ell}(\delta)$. Es decir, para todo $\varepsilon > 0$ existe $\delta > 0$ y $n_0\in\mathbb{N}$ tal que el grafo $G_n$ con $n\geq n_0$ vértices cumple con $Q_{y_1,...,y_\ell}(\delta)$ siempre que satisfaga la propiedad $P_{x_1,...,x_k}(\varepsilon)$.\medskip
+
+Se desarrollará la demostración formal del teorema de Chung, Graham y Wilson utilizando notación $\varepsilon , \delta$, mostrando que cada par de propiedades $P_{x_1,...,x_k}$ y $Q_{y_1,...,y_\ell}$ son equivalentes entre sí con un cambio polinomial en el error. Esto es, $P_{x_1,...,x_k}(\varepsilon) \Rightarrow Q_{y_1,...,y_\ell}(C\varepsilon^{c})$ para algún par de constantes $C,c > 0$.
+
+\begin{flushleft}
+    \Large
+    \textbf{Demostración Teorema 2 (Chung, Graham y Wilson).}\\
+    \normalsize
+\end{flushleft}
+
+La demostración de este teorema será descompuesta en ocho proposiciones, las cuales mostrarán la equivalencia entre todas las propiedades de la siguiente manera:
+
+\begin{equation} \label{Ciclo demo CGW}
+    \begin{aligned}
+        &\discp_p & \overset{\mathrm{Prop.}\  \ref{discp => count}.}{\Longrightarrow} & \ \ \Count_p & \overset{\mathrm{Prop.}\ \ref{count => C4}.}{\Longrightarrow} & \ \ \Count_{C4,p} & \overset{\mathrm{Prop.}\ \ref{eig => C4}.\ \mathrm{y}\ \ref{C4 => eig}.}{\Longleftrightarrow} & \ \ \eig_p\\
+        &\ \ \big\Updownarrow \overset{\mathrm{Prop.}\ \ref{disc => discp}\ \mathrm{y}\ \ref{discp => disc}.}{}\ & \ & \ & \ & \ \ \ \ \ \ \ \big\Downarrow \overset{\mathrm{Prop.}\ \ref{C4 => codeg}.}{}& \ & \ \\
+        &\disc_p &\ &\ \ \overset{\mathrm{Prop.}\ \ref{codeg => disc}.}{\Longleftarrow} &\ &\ \ \ \codeg_p.
+    \end{aligned}
+\end{equation}
+
+Con esto, damos paso a las pruebas de cada proposición.\medskip
+
+%%% Proposición: DISC_p => DISC_p'
+\begin{prop} \label{disc => discp}
+    Para todo $\varepsilon > 0$ y $p\in(0,1)$, existe $\delta > 0$ y $n_0\in\mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices satisface $\discp_p (\varepsilon)$ cada vez que cumpla con $\disc_p (\delta)$. En particular, 
+    \[
+        \disc_p \Rightarrow \discp_p.
+    \]
+\end{prop}
+
+%%% Demostración DISC_p => DISC_p'
+\begin{proof}
+    Sea $\varepsilon > 0$, $p\in (0,1)$, $\delta = \frac{\varepsilon}{2}$ y $n_0 \in \mathbb{N}$ suficientemente grande. Dado un grafo $G$ sobre $n\geq n_0$ vértices que satisface $\disc_p(\delta)$ y $X\subset V(G)$, utilizamos la propiedad $\disc_p(\delta)$ para obtener el resultado de la siguiente manera:
+    \[
+        e(X) = p\dfrac{|X|^{2}}{2} \pm \delta n^{2} = p\tbinom{|X|}{2} \pm 2\delta n^{2}.
+    \]
+    Las igualdades anteriores consideran $e(X,X) = 2e(X)$, por definición, y la aproximación  $\tbinom{|X|}{2}= \frac{|X|^2}{2} \pm \delta n^2$.
+\end{proof}\medskip
+
+%%%%%%%%%% Proposición: DISC_p' => DISC_p
+\begin{prop} \label{discp => disc}
+    Para todo $\varepsilon > 0$ y $p\in(0,1)$, existe $\delta > 0$ y $n_0\in\mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices satisface $\disc_p (\varepsilon)$ cada vez que cumpla con $\discp_p (\delta)$. En particular,
+    \[
+        \discp_p \Rightarrow \disc_p.
+    \]
+\end{prop}
+
+%%%%%%%%%% Demostración DISC_p' => DISC_p
+\begin{proof}
+    Sea $\varepsilon > 0$, $p\in (0,1)$, $\delta = \frac{\varepsilon}{4}$ y $n_0\in\mathbb{N}$ suficientemente grande. Consideramos el grafo $G$ sobre $n\geq n_0$ vértices que satisface $\discp_p(\delta)$.
+
+    En primera instancia, llevaremos el conteo de aristas que existen entre pares de subconjuntos de vértices, a un conteo equivalente mediante la combinación aditiva de las aristas que se encuentran en un subconjunto único de vértices. Es decir, para $X,Y\subset V(G)$,
+    \begin{equation} \label{polarización_aristas}
+        e(X,Y) = e(X\cup Y) + e(X\cap Y) - e(X\setminus Y) - e(Y\setminus X).    
+    \end{equation}
+
+    Observe que con esta configuración, el conteo de las aristas entre $X$ e $Y$ es doble cuando los vértices que componen las aristas pertenecen a $X\cap Y$. Ahora, utilizamos la propiedad $\discp_p(\delta)$ sobre la identidad \eqref{polarización_aristas} para conseguir el resultado,
+    
+    \begin{align*}
+        e(X,Y) &= p\left( \tbinom{|X\cup Y|}{2} + \tbinom{|X\cap Y|}{2} - \tbinom{|X\setminus Y|}{2} - \tbinom{|Y\setminus X|}{2} \right) \pm 4\delta n^{2} \\
+        &= p|X||Y| \pm 4\delta n^{2} \\
+        &= p|X||Y| \pm \varepsilon n^{2}.
+    \end{align*}
+\end{proof}\medskip
+
+%%%%%%%%%% Proposición: DISC'_P => COUNT_P
+\begin{prop} \label{discp => count}
+    Para todo $\varepsilon > 0$ y $p\in(0,1)$, existe $\delta > 0$ y $n_0\in\mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices satisface $\Count_p (\varepsilon)$ cada vez que cumpla con $\discp_p (\delta)$. En otras palabras,
+    \[
+        \discp_p \Rightarrow \Count_p.
+    \]
+\end{prop}
+
+%%%%%%%%%% Demostración DISC'_P => COUNT_P
+\begin{proof}
+    Sea $\varepsilon > 0$, $p\in (0,1)$ y $H$ un grafo sobre $\ell$ vértices, elegimos $\delta = \frac{\varepsilon}{6\ell^{2}}$ y $n_0\in \mathbb{N}$ suficientemente grande. Dado el grafo $G=(V,E)$ con $n\geq n_0$ vértices que satisface $\discp_p(\delta)$, se busca probar que $G$ también cumple con la propiedad $\Count_p(\varepsilon)$.
+
+    Para todo grafo $F$ con $\ell$ vértices y $e_F \geq 1$ aristas, razonaremos por inducción sobre su cantidad de aristas para probar que,
+    \begin{equation} \label{ind_count}
+        \left| \tbinom{G}{F}\right| = p^{e_F}n^{\ell} \pm 4e_F \delta n^{\ell}.
+    \end{equation}
+
+    Una vez probada la ecuación \eqref{ind_count}, el resultado seguirá de tomar $F = H$ y la elección de $\delta$ para conseguir las siguientes desigualdades,
+    \begin{equation*}
+        4e_F \delta n^{\ell} \leq 4\tbinom{\ell}{2}\delta n^{\ell} \leq 4\delta\left( \frac{\ell^{2}}{2} + \delta\ell^{2}\right)n^{\ell} \leq 6\delta\ell^{2}n^{\ell} = \varepsilon n^{\ell}.
+    \end{equation*}
+
+    Cuando $e_F = 1$, $\left| \tbinom{G}{F}\right|$ es el número de pares ordenados de vértices de $G$ que forman una arista junto a cualquier combinación de $\ell -2$ vértices para completar una copia de $F$. Esto es,
+    \begin{equation*}
+        \left| \tbinom{G}{F}\right| = 2e_G(n-2)(n-3)\cdots(n-\ell + 1).
+    \end{equation*}
+    
+    Luego, si aplicamos la propiedad $\discp_p(\delta)$ sobre $V$, tendremos que la cantidad de aristas es
+    \begin{equation*}
+        e_G = \frac{pn(n-1)}{2} \pm \delta n^{2}.
+    \end{equation*}
+
+    Así, con $\left| \tbinom{G}{F}\right| = pn^{\ell} \pm 4\delta n^{\ell}$, se prueba el caso inicial de la inducción.
+    \medskip
+
+    Ahora, sea $F$ un grafo con $e_F > 1$ aristas y asumiremos que se satisface \eqref{ind_count} para cualquier grafo con una cantidad de aristas menor que $e_F$. Para desarrollar la inducción, vamos a considerar la siguiente notación:
+    \begin{enumerate}
+        \item[i)] $F^{-} := ([\ell], E(F)\setminus ij)$, es el grafo producido por eliminar la arista $ij$ de $F$.
+        \item[ii)] $F^{*} := F[[\ell]\setminus \lbrace i,j\rbrace]$, es el grafo inducido por $[\ell]\setminus \lbrace i,j\rbrace$, i.e, grafo producido de eliminar los vértices de $ij$ en $F$. 
+    \end{enumerate}
+
+    Sea $T^{-}$ una copia etiquetada de $F^{-}$ en $G$, es decir, $T^{-}$ se corresponde con una aplicación inyectiva $f: V(F^{-}) \to V(T^{-})\subseteq V$ tal que $f(u)f(v)\in E(T^{-})$ cada vez que $uv\in E(F^{-})$. Se define entonces $e_{T^{-}}$ como la tupla $(f(i), f(j))$ resultante de la imagen de los vértices $i,j\in V(F^{-})$.
+
+    Escribiremos la cantidad de copias de $F$ en $G$ de manera conveniente y se utilizará la hipótesis de inducción como se muestra a continuación:
+    \begin{align} \label{count_G_F}
+        \left| \tbinom{G}{F}\right| &= \sum_{T^{-}\in \tbinom{G}{F^{-}}} \mathbbm{1}_{E}(e_{T^{-}})\nonumber \\
+        &= \sum_{T^{-}\in \tbinom{G}{F^{-}}} \left[ \mathbbm{1}_{E}(e_{T^{-}}) + p - p\right]\nonumber \\
+        &= \sum_{T^{-}\in \tbinom{G}{F^{-}}} p + \sum_{T^{-}\in \tbinom{G}{F^{-}}} \left[ \mathbbm{1}_{E}(e_{T^{-}}) -p\right]\nonumber \\
+        &= p\left|\tbinom{G}{F^{-}}\right| +  \sum_{T^{-}\in \tbinom{G}{F^{-}}} \left[ \mathbbm{1}_{E}(e_{T^{-}}) -p\right]\nonumber \\
+        &= p^{e_F}n^{\ell} + \sum_{T^{-}\in \tbinom{G}{F^{-}}} \left[ \mathbbm{1}_{E}(e_{T^{-}}) -p\right] \pm 4(e_F - 1)\delta n^{\ell}.
+    \end{align}
+    
+    Ahora, es suficiente probar que el segundo sumando de la desigualdad \eqref{count_G_F} es pequeña. Sea $T^{*}$ una copia de $F^{*}$, y denotando por $F_{i}^{*}$ y $F_{j}^{*}$ a los grafos resultantes de eliminar de $F^{-}$ los vértices $j$ e $i$ respectivamente, se definen los siguientes conjuntos:
+    \[A_{i}^{T^{*}} := \lbrace v\in V\ :\ T^{*}\ \text{con}\ v\ \text{forma una copia de}\ F_{i}^{*}\rbrace \]
+    \[A_{j}^{T^{*}} := \lbrace v\in V\ :\ T^{*}\ \text{con}\ v\ \text{forma una copia de}\ F_{j}^{*}\rbrace .\]
+
+    Los conjuntos anteriores, por construcción, son tales que para cada tupla $(a,b)\in A_{i}^{T^{*}}\times A_{j}^{T^{*}}$ añadida a $T^{*}$ se obtiene una copia de $F^{-}$. Así, reescribiendo el segundo sumando de la igualdad \eqref{count_G_F} convenientemente y utilizando la propiedad $\discp_p(\delta)$,
+    \begin{align*}
+        \left| \sum_{T^{-}\in \tbinom{G}{F^{-}}} \left[\mathbbm{1}_{E}(e_{T^{-}}) - p\right]\right|
+        &=  \left| \sum_{T^{*}\in \tbinom{G}{F^{*}}}\sum_{f\in A_{i}^{T^{*}}\times A_{j}^{T^{*}}} \left[ \mathbbm{1}_{E}(f) - p\right]\right| \\
+        &\leq \sum_{T^{*}\in \tbinom{G}{F^{*}}} \left| \sum_{f\in A_{i}^{T^{*}}\times A_{j}^{T^{*}}} \left[ \mathbbm{1}_{E}(f) - p\right]\right|\\
+        &= \sum_{T^{*}\in \tbinom{G}{F^{*}}} \left| e(A_{i}^{T^{*}}, A_{j}^{T^{*}}) - p| A_{i}^{T^{*}} | | A_{j}^{T^{*}}|\right|\\
+        &\leq \sum_{T^{*}\in \tbinom{G}{F^{*}}} \delta n^{2}\\
+        %&\leq  n^{\ell -2}\delta n^{2}\\
+        &\leq 4\delta n^{\ell}.
+    \end{align*}
+
+    De esta manera, tomando la elección de $\delta$ y $F=H$ se obtiene el resultado.    
+\end{proof}\medskip
+
+%%%%%%%%%% Proposición: COUNT_p => COUNT_C4,p
+\begin{prop} \label{count => C4}
+    Para todo $\varepsilon > 0$ y $p\in (0,1)$, existe $\delta > 0$ y $n_0\in \mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices satisface $\Count_{C_4,p} (\varepsilon)$ cada vez que cumpla con $\Count_p(\delta)$. En otras palabras,
+    \[
+        \Count_p \Rightarrow \Count_{C_4,p}.
+    \]
+\end{prop}
+
+%%%%%%%%%% Demostración COUNT_p => COUNT_C4,p
+\begin{proof}
+    Se trata de un caso particular de $\Count_p$, en donde $H = C4$ y $\delta = \epsilon$.
+\end{proof}\medskip
+
+%%%%%%%%%% Proposición: COUNT_C4_p => CODEG_p
+\begin{prop} \label{C4 => codeg}
+    Para todo $\varepsilon > 0$ y $p\in (0,1)$, existe $\delta > 0$ y $n_0\in \mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas satisface $\codeg_p (\varepsilon)$ cada vez que cumpla con $\Count_{C_4,p}(\delta)$. En particular,
+    \[
+        \Count_{C_4,p} \Rightarrow \codeg_p.
+    \]
+\end{prop}
+
+%%%%%%%%%% Demostración COUNT_C4_p => CODEG_p
+\begin{proof}
+    Dado $\varepsilon > 0$ y $p\in (0,1)$, elegimos $\delta = \frac{\varepsilon^{2}}{16}$ y $n_0\in\mathbb{N}$ suficientemente grande. Consideramos el grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas que satisface $\Count_{C_4,p}(\delta)$, buscando probar que también cumple con $\codeg_p(\varepsilon)$.
+
+    La clave de esta demostración radica en encontrar una buena cota para $\sum_{u,v\in V(G)} \cod(u,v)$ y $\sum_{u,v\in V(G)} \cod(u,v)^{2}$, y la utilización apropiada de la desigualdad de Cauchy-Schwarz.
+    
+    Por un lado, utilizando que $\sum_{u,v\in V(G)} \cod(u,v) = \sum_{x\in V(G)} \deg(x)^{2}$,
+    \begin{align*}
+        \displaystyle\sum_{u,v\in V(G)} \cod(u,v) &= \displaystyle\sum_{x\in V(G)} \deg(x)^{2}\\
+        &\overset{\mathrm{CS}}{\geq} \dfrac{1}{n}\left( \displaystyle\sum_{x\in V(G)} \deg(x)\right)^{2}\\
+        &= \dfrac{4e_G^{2}}{n}\\
+        &\geq \dfrac{4}{n}\left( \dfrac{pn^{2}}{2} - \delta n^{2}\right)^{2}\\
+        &\geq p^{2}n^{3} - 4\delta n^{3}.
+    \end{align*}
+
+    Por otro lado, usando $\Count_{C_4,p}$, 
+     \begin{equation*}
+         \displaystyle\sum_{u,v\in V(G)} \cod(u,v)^{2} = \left|\tbinom{G}{C_4}\right| \pm \delta n^{4} \leq p^{4}n^{4} + 2\delta n^{4}.
+     \end{equation*}
+
+     Con estas herramientas, se obtiene el resultado de la siguiente manera:
+
+     \begin{align*}
+         \displaystyle\sum_{u,v\in V(G)} \Big|\cod(u,v) - p^{2}n\Big| &\overset{\mathrm{CS}}{\leq} n\left(\displaystyle\sum_{u,v\in V(G)} (\cod(u,v) - p^{2}n)^{2} \right)^{1/2}\\
+         &= n\left(\displaystyle\sum_{u,v\in V(G)} \cod(u,v)^{2} - 2p^{2}n\displaystyle\sum_{u,v\in V(G)} \cod(u,v) + \displaystyle\sum_{u,v\in V(G)} p^{4}n^{2} \right)^{1/2}\\
+         &\leq n\left(p^{4}n^{4} + 2\delta n^{4} + 2p^{2}n(4\delta n^{3} - p^{2}n^{3}) + p^{4}n^{4} \right)^{1/2}\\
+         &= n((2 + 8p^{2})\delta n^{4})^{1/2}\\
+         %&\leq 10^{1/2}\delta^{1/2}n^{3}\\
+         &\leq 4\delta^{1/2}n^{3}.
+     \end{align*}
+\end{proof}\medskip
+
+%%%%%%%%%% Proposición: CODEG_p => DISC_p
+\begin{prop} \label{codeg => disc}
+    Para todo $\varepsilon > 0$ y $p\in (0,1)$, existe $\delta > 0$ y $n_0\in \mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas satisface $\disc_p (\varepsilon)$ cada vez que cumpla con $\codeg_p(\delta)$. En particular,
+    \[
+        \codeg_p \Rightarrow \disc_p.
+    \]
+\end{prop}
+
+%%%%%%%%%% Demostración CODEG_p => DISC_p
+\begin{proof}
+    Dado $\varepsilon > 0$, $p\in (0,1)$, seleccionamos $\delta = \frac{\varepsilon^{4}}{81}$ y $n_0\in\mathbb{N}$ suficientemente grande. Sea $G$ un grafo de $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas que satisface la propiedad $\codeg_p (\delta)$.
+    
+    Note que al cumplirse la propiedad $\codeg_p(\delta)$, existe una concentración de los grados de los vértices de $G$. En efecto, usando que $\sum_{x\in V(G)} \deg(x)^{2} = \sum_{u,v\in V(G)} \cod(u,v)$,
+    \begin{align*}
+        \displaystyle\sum_{x\in V(G)} \Big|\deg(x) - pn\Big| &\overset{\mathrm{CS}}{\leq} n^{1/2}\left( \displaystyle\sum_{x\in V(G)} (\deg(x) - pn)^{2}\right)^{1/2}\\
+        &= n^{1/2}\left( \displaystyle\sum_{x\in V(G)} \deg(x)^{2} -2pn\displaystyle\sum_{x\in V(G)} \deg(x) + p^{2}n^{3}\right)^{1/2}\\
+        &= n^{1/2}\left( \left(\displaystyle\sum_{u,v\in V(G)} \cod(u,v) - p^{2}n\right) -4pn e_G + 2p^{2}n^{3} \right)^{1/2}\\
+        &\leq n^{1/2}\left( \left(\displaystyle\sum_{u,v\in V(G)} \Big|\cod(u,v) - p^{2}n\Big|\right) + 4pn\left( \delta n^{2} - \frac{pn^{2}}{2}\right) + 2p^{2}n^{3}\right)^{1/2}\\
+        &\leq n^{1/2}\left( 2p^{2}n^{3} - 2p^{2}n^{3} + 4p\delta n^{3} + \delta n^{3}\right)^{1/2}\\
+        %&< (5\delta)^{1/2}n^{2}\\
+        &< 3\delta^{1/2}n^{2}.
+    \end{align*}
+
+    Considerando $X,Y\in V(G)$, se reescribe la expresión de la propiedad $\disc_p$ de forma conveniente y acotamos en primera instancia usando la desigualdad de Cauchy-Schwarz,
+    \begin{equation} \label{ec_prop_6}
+        \Big|e(X,Y) - p|X||Y|\Big| = \left| \displaystyle\sum_{x\in X} (\deg(x;Y) - p|Y|)\right| \overset{c-s}{\leq} n^{1/2}\left( \displaystyle\sum_{x\in X} (\deg(x;Y) - p|Y|)^{2}\right)^{1/2}.
+    \end{equation}
+
+    Observe que al aplicar la desigualdad de Cauchy-Schwarz en \eqref{ec_prop_6}, se consigue que el argumento de la suma sea siempre no negativo, permitiendo extender el dominio de la suma de $X$ a $V(G)$. Así, continuando con la ecuación \eqref{ec_prop_6}, se prueba el resultado con la siguiente cadena de desigualdades:
+    \begin{align*}
+        \Big|e(X,Y) - p|X||Y|\Big| &\leq n^{1/2}\left( \displaystyle\sum_{x\in V(G)} (\deg(x;Y) - p|Y|)^{2}\right)^{1/2}\\
+        &= n^{1/2}\left( \displaystyle\sum_{x\in V(G)} \deg(x; Y)^{2} - 2p|Y|\displaystyle\sum_{x\in V(G)} \deg(x;Y) + \displaystyle\sum_{x\in V(G)} p^{2}|Y|^{2}\right)^{1/2}\\
+        &= n^{1/2}\left( 2p^{2}n|Y|^{2} - p^{2}n|Y|^{2} + 2p|Y| |Y|pn  - 2p|Y| |Y|pn +  \displaystyle\sum_{y,y'\in Y} \cod(y, y') - 2p|Y|\displaystyle\sum_{y\in Y} \deg(y) \right)^{1/2}\\
+        &= n^{1/2}\left( \displaystyle\sum_{y,y'\in Y} (\cod(y,y') - p^{2}n) - 2p|Y|\displaystyle\sum_{y\in Y} (\deg(y) - pn) \right)^{1/2}\\
+        &\leq n^{1/2}\left( \left|\displaystyle\sum_{y,y'\in Y} (\cod(y,y') - p^{2}n)\right| + \left|2p|Y|\displaystyle\sum_{y\in Y} (\deg(y) - pn)\right| \right)^{1/2}\\
+        &\leq n^{1/2}\left( \displaystyle\sum_{u,v\in V(G)} \Big|\cod(u,v) - p^{2}n\Big| + 2p|Y|\displaystyle\sum_{x\in V(G)} \Big|\deg(x) - pn\Big|\right)^{2}\\
+        &\leq n^{1/2}\left( \delta n^{3} + 6p\delta^{1/2}n^{3}\right)^{1/2}\\
+        %&\leq 7^{1/2}\delta^{1/4}n^{2}
+        &< 3\delta^{1/4}n^{2}.
+    \end{align*} 
+\end{proof}\medskip
+
+%%%%%%%%%% Proposición: EIG_p => COUNT_C4,p
+\begin{prop} \label{eig => C4}
+    Para todo $\varepsilon > 0$ y $p\in (0,1)$, existe $\delta > 0$ y $n_0\in \mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas satisface $\Count_{C_4,p} (\varepsilon)$ cada vez que cumpla con $\eig_p(\delta)$. En particular,
+    \[
+        \eig_p \Rightarrow \Count_{C_4,p}.
+    \]
+\end{prop}
+
+%%%%%%%%%% Demostración EIG_p => COUNT_C4,p
+\begin{proof}
+    Dado $\varepsilon > 0$ y $p\in (0,1)$, se elige $\delta = \frac{\varepsilon}{20}$ y $n_0\in\mathbb{N}$ suficientemente grande. Consideramos el grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas que satisface la propiedad $\eig_p (\delta)$, $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ como la matriz de adyacencia de $G$, y $\lambda_1 \geq \cdots \geq \lambda_n$ los valores propios de $A$.
+
+    En primer lugar, observe que la cantidad de copias etiquetadas de caminatas cerradas de largo 4 que no son $C_4$ en $G$ se encuentran dentro de un error\footnote{Asintóticamente, se encuentran dentro de un error $O(n^{3})$.} $\delta n^{4}$ del número de copias etiquetadas de $C_4$ en $G$. Luego, utilizando el Lema~\ref{potencia_matriz_adyacencia = caminatas} y el Corolario~\ref{Tr_Ak},
+    \begin{align} \label{ec_prop_7.1}
+        \left|\tbinom{G}{C_4}\right| &= \Tr(A^{4}) \pm \delta n^{4} \nonumber\\
+        &= \sum_{i = 1}^{n} \lambda_{i}^{4} \pm \delta n^{4} \nonumber\\
+        &= \lambda_{1}^{4} + \sum_{i = 2}^{n} \lambda_{i}^{4} \pm \delta n^{4}.
+    \end{align}
+
+    Ahora, notando que $\Tr(A^{2}) = 2e_G$ y usando $\eig_p (\delta)$,
+    \begin{equation} \label{ec_prop_7.2}
+        \sum_{i = 2}^{n} \lambda_{i}^{4} \leq \max_{i \not = 1}\lambda_{i}^{2}\sum_{i = 1}^{n} \lambda_{i}^{2} \leq \delta n^{2}\Tr(A^{2}) \leq \delta n^{2}(pn^{2} + 2\delta n^{2}) \leq 3\delta n^{4}.
+    \end{equation}
+
+    Finalmente, se concluye tras usar la propiedad $\eig_p (\delta)$ sobre el primer autovalor y la cota mostrada en \eqref{ec_prop_7.2}. Continuamos desde la ecuación \eqref{ec_prop_7.1},
+    \[
+        \left|\tbinom{G}{C_4}\right| = \lambda_{1}^{4} + \sum_{i = 2}^{n}\lambda_{i}^{4} \pm \delta n^{4} \leq p^{4}n^{4} + 20\delta n^{4}.
+    \]
+\end{proof}\medskip
+
+%%%%%%%%%% Proposición: COUNT_C4,p => EIG_p
+\begin{prop} \label{C4 => eig}
+     Para todo $\varepsilon > 0$ y $p\in (0,1)$, existe $\delta > 0$ y $n_0\in\mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas satisface $\eig_p(\varepsilon)$ cada vez que cumpla la propiedad $\Count_{C_4, p}(\delta)$. Es decir,
+     \[
+        \Count_{C_4,p} \Rightarrow \eig_p .
+    \]
+\end{prop}
+
+%%%%%%%%%% Demostración COUNT_C4,p => EIG_p
+\begin{proof}
+    Sea $\varepsilon > 0$ y $p\in (0,1)$, escogemos $\delta = \frac{\varepsilon^{4}}{4}$ y $n_0\in\mathbb{N}$ suficientemente grande. Sea también $G$ un grafo sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas que satisface la propiedad $\Count_{C_4, p}(\delta)$, $A\in\mathcal{M}_{n\times n}(\mathbb{R})$ la matriz de adyacencia de $G$, y $\lambda_1 \geq \cdots \geq \lambda_n$ los valores propios de $A$.
+
+    En lo que respecta al primer autovalor, sabemos por un lado que éste es al menos el promedio de los grados gracias al Lema~\ref{cota_primer_autovalor}. Es decir,
+    \begin{equation} \label{cota1_lambda1}
+        \lambda_1 \geq \frac{\sum_{x\in V(G)}\deg(x)}{n} = \frac{2e_G}{n} = \frac{2}{n}\left( \frac{pn^{2}}{2} \pm \delta n^{2}\right) \geq pn - 2\delta n.
+    \end{equation}
+
+    Por otro lado, mediante el Lema~\ref{potencia_matriz_adyacencia = caminatas}, el Corolario~\ref{Tr_Ak} y la propiedad $\Count_{C_4,p}(\delta)$,
+    \begin{equation} \label{cota2_lambda1}
+        \lambda_{1}^{4} \leq \sum_{i = 1}^{n}\lambda_{i}^{4} = \Tr(A^{4}) = \left| \tbinom{G}{C_4}\right| \pm \delta n^{4} \leq p^{4}n^{4} + 2\delta n.
+    \end{equation}
+
+    La desigualdad \eqref{cota2_lambda1} implica que $\lambda_1 \leq pn + (2\delta)^{1/4} n$, y en combinación con la cota vista en $\eqref{cota1_lambda1}$, se obtiene que $\lambda_1 = pn \pm (2\delta)^{1/4} n$.\medskip
+
+    Adicionalmente, por las cotas vistas anteriormente,
+    \begin{align*}
+        \max_{i\not= 1} |\lambda_1|^{4} &\leq \sum_{i = 2}^{n} \lambda_{i}^{4} + \lambda_1^{4} - \lambda_1^{4} \\
+        &= \Tr(A^{4}) - \lambda_{1}^{4}\\
+        &\leq p^{4}n^{4}  + 2\delta n^{2} - p^{4}n^{4} + 2\delta n^{4}\\
+        &= 4\delta n^{4}.
+    \end{align*}
+
+    De esta manera, se logra probar el resultado determinando que $\displaystyle\max_{i \not= 1}|\lambda_i| \leq (4\delta)^{1/4}n$. 
+\end{proof}\medskip
+
+\subsection{Aspectos adicionales} \hh{Quizás cambiar el nombre de la subsección.}\medskip
+
+La noción inicial de un grafo $G$ casi-aleatorio presentada en la Definición \ref{casi-aleatoriedad} $(\discp_p)$ contempla verificar si todos los subconjuntos $X\subset V(G)$ satisfacen su condición para determinar la casi-aleatoriedad de un grafo, i.e, se debe corroborar en $2^{|X|}$ conjuntos. Por esto, resulta sorprendente que la propiedad aparentemente más débil $\Count_{C4,p}$ sea una caracterización equivalente a todas las condiciones de casi-aleatoriedad que establece el teorema, verificándose de manera polinomial.\medskip
+
+Una pregunta natural al observar la propiedad $\Count_{C4,p}$ es, ¿Podemos debilitar la condición con un conteo esperado de copias etiquetadas de $K_3$?. La respuesta es no, de hecho, la propiedad puede ser extendida a $\Count_{C_{2t},p}$ con $t\geq 2$. Es decir, para el grafo $G$,
+\[
+    \Count_{C_{2t},p} :\ \left| \tbinom{G}{C_{2t}}\right| = \left( p^{2t} + o(1)\right)n^{2t}\ ,\ \forall t\geq 2.
+\]
+
+%%%% Proposición: Count_{C_2t,p} <=> EIG_p
+\begin{prop}
+    Sea $p\in (0,1)$ y $(G_n)_{n\to\infty}$ una secuencia de grafos con $|V(G_n)| = n$ vértices y $e_{G_n} = (p + o(1))\tbinom{n}{2}$ aristas, entonces las propiedades $\Count_{C_{2t},p}$ y $\eig_p$ son equivalentes.
+\end{prop}
+
+%%%% Demostración: Count_{C_2t,p} <=> EIG_p
+\begin{proof}
+    Este resultado es una consecuencia directa de las demostraciones de la Proposición \ref{eig => C4} y \ref{C4 => eig} tras notar el siguiente par de observaciones. En primer lugar, la cantidad de copias etiquetadas caminatas cerradas de largo $2t$ que no son $C_{2t}$ en $G_n$ están dentro de un error $O(n^{2t - 1})$, i.e,
+    \[
+        \Tr(A^{2t}) = \sum_{i=1}^{n} \lambda_{i}^{2t} = \left| \tbinom{G_n}{C_{2t}}\right| + O(n^{2t -1}).
+    \]
+
+    También, se debe modificar la cota presentada en la ecuación \eqref{ec_prop_7.2} de la siguiente manera:
+    \[
+        \sum_{i=2}^{n}\lambda_{i}^{2t} \leq \max_{i\not=1}\lambda_{i}^{2(t-1)}\sum_{i=1}^{n} \lambda_{i}^{2} = \max_{i\not=1}\lambda_{i}^{2t-2} \Tr(A^{2}).
+    \]
+\end{proof}\medskip
+
+Es importante destacar que los ciclos de orden par preservan una contribución positiva en la suma de cada uno de los autovalores de $G$, eliminando la posibilidad de cancelaciones entre ellos.\medskip
+
+A continuación, se expone la construcción de un contraejemplo de un grafo que posee la cantidad de copias etiquetadas esperadas de $K_3$\footnote{Como lo haría en un grafo aleatorio con alta probabilidad. \hh{Esto creo que es mentira, pero no sé como escribirlo.}}, pero no cumple las condiciones para ser casi-aleatorio. La idea de la construcción consiste en la combinación de dos grafos, uno con una cantidad mayor que la esperada de copias etiquetadas de $K_3$, y otro con una cantidad menor. Consideramos entonces independientemente los grafos completos $K_{n_1}$ y $K_{n_2, n_2}$ tales que su unión disjunta forma el grafo $G = K_{n_1}\cup K_{n_2, n_2}$ con $n_1 + 2n_2 = n$ vértices, y observe que la cantidad de sus aristas y copias etiquetadas de $K_3$ respectivas son:\medskip
+\begin{equation*}
+    \begin{aligned}
+        &e_{K_{n_1}} \approx \frac{n_{1}^{2}}{2} &\ \  , &\ \ \left| \tbinom{K_{n_1}}{K_3}\right| \approx n_{1}^{3}\ \ , \\
+        &e_{K_{n_2, n_2}} \approx \frac{(n-n_1)^{2}}{4} &\ \  , &\ \ \left| \tbinom{K_{n_2, n_2}}{K_3}\right| = 0.
+    \end{aligned}
+\end{equation*}\medskip
+
+Ahora, se encuentra el parámetro $p\in(0,1)$ de manera tal que el grafo $G$ posea la cantidad esperada con alta probabilidad de aristas y copias etiquetadas de $K_3$ acorde a un grafo aleatorio con densidad $p$. Para ello, se plantea el siguiente sistema de ecuaciones:\medskip
+\begin{equation*}
+    \begin{cases}
+        p\frac{n^{2}}{2} = \frac{n_{1}^{2}}{2} + \frac{(n-n_1)^{2}}{4}\\
+        p^{3}n^{3} = n_{1}^{3}.
+    \end{cases}
+\end{equation*}\medskip
+
+Resolviendo el sistema anterior, se obtiene que $p=\frac{1}{3}$ y $n_1 = n_2 = \frac{n}{3}$. Dicha configuración, en efecto, presenta
+\begin{equation*}
+    e_G = \binom{\frac{n}{3}}{2} + \frac{n^{2}}{9} = \frac{1}{3}\binom{n}{2} + o(n^{2}),
+\end{equation*}
+Como también,
+\begin{equation*}
+    \left| \tbinom{G}{K_3}\right| = \left(\frac{n}{3}\right)^{3} + o(n^{3}) = \left(\frac{1}{3}\right)^{3}n^{3} + o(n^{3}).
+\end{equation*}\medskip
+
+Sin embargo, el grafo $G$ no es casi-aleatorio debido a que no existen aristas entre $K_{n_1}$ y $K_{n_2, n_2}$ ni dentro de los conjuntos que conforman a $K_{n_2, n_2}$.\medskip
+
+Es posible replantear el Teorema \ref{Teorema CGW} para grafos bipartitos como se muestra a continuación.
+
+%%%% Teorema : Versión bipartita Chung-Graham y Wilson.
+\begin{teorema} \label{Teorema CGW Bipartito} (Chung, Graham y Wilson, versión bipartita)
+    Sea $p\in (0,1)$ fijo y una secuencia $(G_n)_{n\to\infty}$ de grafos bipartitos $G_n$ con $n$ vértices, cuya partición de vértices es $V(G) = U\cup W$ y su cantidad de aristas es $e_{G_n} = (p + o(1))|U||W|$. Entonces, asumiendo que $|U|,|W|\to\infty$, las siguientes propiedades son equivalentes:\medskip
+
+    \begin{enumerate}
+        % BI-DISC
+        \item[\makebox[0.5cm]{$\bidisc_p$:} Para todo $X\subset U$ e $Y\subset W$,
+        \[
+            \Big| e(X,Y) - p|X||Y|\Big| = o(|U||W|).
+        \]
+
+        % BI-COOUNT
+        \item[\makebox[0.5cm]{$\bicount_p$:} Para todo grafo bipartito $H$ con partición de vértices $S\cup T$, el número de copias etiquetadas de $H$ en $G_n$ mapeando $S$ en $U$, y $T$ en $W$ es:
+        \[
+            \left( p^{e_H} + o(1)\right)|U|^{|S|}|W|^{|T|}.
+        \]
+
+        % BI-COUNT C4
+        \item[\makebox[0.5cm]{$\bicount_{C_4, p}$:} La cantidad de copias etiquetadas de caminatas cerradas de largo 4 en $G_n$ comenzando en $U$ es:
+        \[
+            \left( p^{4} + o(1)\right)|U|^{2} |W|^{2}.
+        \]
+
+        % IZQ-CODEG
+        \item[\makebox[0.5cm]{$\izcodeg_p$:} 
+        \[
+            \sum_{u,v\in U} \Big| \cod(u,v) - p^{2}|W|\Big| = o(|U|^{2}|W|).
+        \]
+
+        % DER-CODEG
+        \item[\makebox[0.5cm]{$\dercodeg_p$:}
+        \[
+            \sum_{u,v\in W} \Big| \cod(u,v) - p^{2}|U|\Big| = o(|U||W|^{2}).
+        \]
+
+        % BI-EIG
+        \item[\makebox[0.5cm]{$\bieig_p$:} Sean $\lambda_1 \geq \lambda_2 \geq ...\geq \lambda_n$ los autovalores asociados a la matriz de adyacencia del grafo $G_n$, entonces
+        \[
+            \lambda_1 = (p + o(1))\sqrt{|U||W|}\ \ \text{,}\ \ \ \displaystyle\max_{i\not= 1}|\lambda _{i}| = o(\sqrt{|U||W|}).
+        \]
+    \end{enumerate}
+\end{teorema}\medskip
+
+Veremos que existe una relación directa entre los Teoremas \ref{Teorema CGW} y \ref{Teorema CGW Bipartito} por medio de un determinado producto tensor entre grafos.\medskip
+
+%%%% Definición: Producto tensor
+\begin{definicion}
+    Dado los grafos $G$ y $H$, el \textbf{producto tensor} $G\times H$ es un grafo tal que:
+    \begin{itemize}
+        \item[i)] El conjunto de vértices del grafo $G\times H$ es el producto cartesiano $V(G)\times V(H)$, y
+        \item[ii)] los vértices $(g,h)$ y $(g',h')$ son adyacentes en $G\times H$ si y solo si $g$ es adyacente con $h$ en $G$, y $g'$ es adyacente con $h'$ en $H$.
+    \end{itemize}
+\end{definicion}\medskip
+
+Observe que el producto tensor de todo grafo $G$ con el grafo completo $K_2$ transforma a $G$ en un grafo bipartito. Dicha transformación es conocida como el \textbf{cubrimiento doble bipartito} de $G$. Por ejemplo, si consideramos los grafos $G = (\lbrace u,v,w\rbrace, \lbrace uv, uw, vw\rbrace)$ y $K_2 = (\lbrace 0,1\rbrace, \lbrace 01\rbrace)$, el producto tensor resultante es\medskip
+\begin{equation*}
+    G\times K_2 = \left(
+    \left\lbrace
+        \begin{array}{c}
+             (u,0) , (u,1)\\
+             (v,0) , (v,1)\\
+             (w,0) , (w,1)
+        \end{array}
+    \right\rbrace,
+    \left\lbrace
+        \begin{array}{c}
+            (u,0)(v,1) , (u,1)(v,0)\\
+            (u,0)(w,1) , (u,1)(w,0)\\
+            (v,0)(w,1) , (v,1)(w,0)
+        \end{array}
+    \right\rbrace
+    \right).
+\end{equation*}\medskip
+
+Con la observación anterior es posible demostrar que todo grafo $G$ satisface cada propiedad del Teorema \ref{Teorema CGW} si y solo si $G\times K_2$ satisface su respectiva propiedad bipartita del Teorema \ref{Teorema CGW Bipartito}.
+
+
+%%%% Enunciado Expander Mixing Lemma
+\begin{teorema} \label{Expander Mixing Lemma} (Expander Mixing Lemma)
+    Sea $G = ([n], E)$ un grafo $d$-regular. Consideramos $d=\lambda_1 \geq \lambda_2\geq...\geq\lambda_n$ los valores propios asociados a la matriz de adyacencia $A$ de $G$, y denotamos
+    \[
+        \lambda = \max_{i\not= 1}|\lambda_i|.
+    \]
+    Entonces, para cada $X,Y\subset [n]$,
+    \begin{equation} \label{resultado EML}
+        \left| e(X,Y) - d\frac{|X||Y|}{n}\right| \leq \lambda \sqrt{|X||Y|\left( 1 - \frac{|X|}{n}\right)\left( 1 - \frac{|Y|}{n}\right)}.
+    \end{equation}
+\end{teorema}
+
+%%%% Demostración Expander Mixing Lemma
+\begin{proof}
+    Sea $\mathcal{B} = \lbrace v_1,...,v_n\rbrace$ la base ortonormal de $\mathbb{R}^{n}$ compuesta por los vectores propios de $A$. Utilizando la descomposición espectral, denotamos
+    \begin{equation*}
+        A_1 = \lambda_1 v_1 v_{1}^{T}\ \ \text{y}\ \ \Delta = \sum_{i=2}^{n} \lambda_i v_i v_{i}^{T},
+    \end{equation*}
+    De manera que $A = A_1 + \Delta$. Como vimos en la igualdad \eqref{e(X,Y)=espectral} de la sección \ref{Sección AL}, para todo $X,Y\subset [n]$, podemos escribir
+    \begin{equation} \label{1ra ec EML}
+        e(X,Y) = v_{X}^{T} A v_Y = v_{X}^{T} A_1 v_Y + v_{X}^{T} \Delta v_Y.
+    \end{equation}
+
+    En la expresión anterior se espera que el primer sumando sea el término principal, mientras que el segundo el factor de error. Ahora, representamos los vectores $v_X$ y $v_Y$ según la base $\mathcal{B}$. Es decir,
+    \begin{equation*}
+        v_X = \sum_{i=1}^{n} \alpha_i v_i\ \ \text{y}\ \ v_Y = \sum_{i=1}^{n} \beta_i v_i.
+    \end{equation*}
+
+    Donde $\alpha_i = v_{X}^{T}v_i$ y $\beta_i = v_{Y}^{T} v_i$. Con esto, note que,
+    \begin{align*}
+        \norm{\alpha_i}^{2} &= \sum_{i=1}^{n}\alpha_{i}^{2}\\
+        &= \sum_{i=1}^{n} \langle v_X, v_i\rangle^{2}\\
+        &= \sum_{i=1}^{n} \langle \sum_{j\in X}\mathbbm{1}_{j}, v_i\rangle^{2}\\
+        &= \sum_{i=1}^{n}\sum_{j=1}^{n} \langle \mathbbm{1}_{j}, v_i\rangle^{2}\mathbbm{1}_{X}(i)\\
+        &= \sum_{i=1}^{n} \norm{v_i}^{2}\mathbbm{1}_{X}(i)\\
+        &= |X|.
+    \end{align*}
+
+    Análogamente, $\norm{\beta_i}^{2} = \sum_{i=1}^{n} \beta_{i}^{2} = |Y|$.\medskip
+
+    Se estudian los sumandos de la igualdad \eqref{1ra ec EML} por separado. Por un lado,
+    \begin{equation} \label{1er sumando EML}
+        \begin{split}
+            v_{X}^{T} A_1 v_Y &= \left( \sum_{i=1}^{n}\alpha_i v_i\right)^{T}\left( \lambda_1 v_1 v_{1}^{T}\right)\left( \sum_{j=1}^{n} \beta_j v_j\right)\\
+            &= \lambda_1 \left( \sum_{i=1}^{n} \alpha_i v_{i}^{T}\right)\left( v_1 v_{1}^{T}\right)\left( \sum_{j=1}^{n}\beta_j v_j\right)\\
+            &= \lambda_1 \sum_{i=1}^{n}\sum_{j=1}^{n} \alpha_i \beta_j \left( v_{i}^{T} v_1\right)\left(v_{1}^{T} v_j \right)\\
+            &= \lambda_1\alpha_1\beta_1 .
+        \end{split}
+    \end{equation}
+
+    Por otro lado, de la misma manera que el cálculo anterior,
+    \begin{equation} \label{2do sumando EML}
+        v_{X}^{T} \Delta v_Y = \left( \sum_{i=1}^{n}\alpha_i v_i\right)^{T}\left( \sum_{j=2}^{n}\lambda_j v_j v_{j}^{T}\right) \left( \sum_{k=1}^{n} \beta_k v_k\right) = \sum_{i=1}^{n}\lambda_i\alpha_i\beta_i .
+    \end{equation}
+
+    Dado que $G$ es un grafo $d$-regular, $\lambda_1 = d$ y $v_1 = \frac{1}{\sqrt{n}}(1,...,1)^{T}$ son valor y vector propio respectivamente de $A$. En consecuencia,
+    \begin{equation*}
+        \alpha_1 = \frac{|X|}{\sqrt{n}}\ \ \text{y}\ \ \beta_1 = \frac{|Y|}{\sqrt{n}}.
+    \end{equation*}
+
+    Así, la ecuación \eqref{1er sumando EML} resulta en $v_{X}^{T} A_1 v_Y = d\frac{|X||Y|}{n}$. Para el término de error, desarrollamos el valor absoluto de la ecuación \eqref{2do sumando EML} usando la desigualdad de Cauchy-Schwarz y recordando la definición de $\lambda$.
+    \begin{align*}
+        \left| v_{X}^{T} \Delta v_Y\right| &= \left| \sum_{i=2}^{n} \lambda_i\alpha_i\beta_i \right|\\
+        &\leq \lambda \left| \sum_{i=1}^{n} \alpha_i\beta_i \right|\\
+        &\overset{\mathrm{CS}}{\leq} \lambda \sqrt{\sum_{i=2}^{n}\alpha_{i}^{2} \sum_{i=2}\beta_{i}^{2}}\\
+        &= \lambda \sqrt{\left( \norm{\alpha_i}^{2} - \alpha_{1}^{2}\right)\left( \norm{\beta_i}^{2} - \beta_{1}^{2}\right)}\\
+        &= \lambda \sqrt{|X||Y|\left( 1- \frac{|X|}{n} \right)\left( 1 - \frac{|Y|}{n} \right)}.
+    \end{align*}
+
+    Finalmente, el resultado se obtiene directamente de tomar el valor absoluto de la ecuación \eqref{1ra ec EML} de la siguiente manera,
+    \[
+        \left| e(X,Y) - v_{X}^{T}A_1 v_Y\right| = \left| v_{X}^{T}\Delta v_Y\right|.
+    \]
+\end{proof}
+
+\section{Lema de regularidad de Szemerédi}
+
+\hh{Aquí debo ingresar una breve descripción del lema de regularidad de Szemerédi y la fuerza que toma al combinarlo con el teorema de Chung-Graham-Wilson y comentar la aplicación que se mostrará. (Quizás también hablar de las dos demostraciones de este lema, usual y espectral.)}
+
+\subsection{Enunciado y demostración}\medskip
+
+Trataremos el concepto de regularidad de una manera un poco diferente a como es tradicionalmente conocida. En particular, vamos a permitir intersección entre pares de subconjuntos de vértices de un grafo en las futuras definiciones.\medskip
+
+%%%% Definición par \varepsilon - regular
+\begin{definicion}
+    Sea $G$ un grafo y $X,Y \subset V(G)$ subconjuntos no necesariamente disjuntos. Diremos que $(X,Y)$ es un \textbf{par $\varepsilon$-regular} en $G$ si para todo $A\subset X$ y $B\subset Y$ con $|A| \geq \varepsilon |X|$ y $|B|\geq \varepsilon |Y|$, se cumple
+    \[
+    \Big| d(A,B) - d(X,Y)\Big| \leq \varepsilon
+    \]
+    Cuando $(X,Y)$ no es un par $\varepsilon$-regular, entonces la irregularidad es evidenciada por algún $A\subseteq X$ y $B\subseteq Y$ que satisfacen $|A| \geq \varepsilon |X|$ y $|B|\geq \varepsilon |Y|$, pero $\Big| d(A,B) - d(X,Y)\Big| > \varepsilon$.
+\end{definicion}\medskip
+
+Notaremos que la noción de un par $\varepsilon$-regular es una analogía de la propiedad $\disc_p(\varepsilon)$ para grafos bipartitos. Es decir, si $G$ es tal que $V(G) = U\cup W$ y $p\in (0,1)$,\medskip
+
+\begin{equation*}
+    \Big| e(X,Y) - p|X||Y|\Big| = o(|U||W|)\ ,\ \forall X\subset U,\ \forall Y\subset W.
+\end{equation*}\medskip
+
+En efecto, si $(U,W)$ es un par $\varepsilon$-regular, todo $A\subset U$ y $B\subset W$ tales que $|A|\geq\varepsilon |U|$ y $|B|\geq\varepsilon |W|$ satisfacen\medskip
+
+\begin{align*}
+    e(A,B) = d(U,W)|A||B| \pm \varepsilon|A||B| = d(U,W)|A||B| \pm \varepsilon|U||W|.
+\end{align*}\medskip
+
+Ahora bien, si al menos uno de los subconjuntos de la condición de un par $\varepsilon$-regular no es suficientemente grande, digamos $|A| < \varepsilon|X|$, entonces\medskip
+
+\begin{align*}
+    d(U,W)|A||B| - \varepsilon |U||W| < 0 \leq e(A,B) \leq |A||B| \leq \varepsilon |U||W| < d(U,W)|A||B| + \varepsilon|U||W|.
+\end{align*}\medskip
+
+De esta manera, tomando $p = d(U,W)$, se obtiene la analogía planteada.\medskip
+
+Por otro lado, con el espíritu del Teorema \ref{Teorema CGW}, se puede expresar un resultado análogo a la propiedad $\Count_p(\varepsilon)$ utilizando el concepto de par $\varepsilon$-regular. En específico, si deseamos contar la cantidad de $K_3$ en un grafo, el siguiente lema muestra la analogía de la propiedad $\Count_p$ con $H = K_3$.\medskip
+
+%%%% Lema: Lema de conteo de triángulos
+\begin{lema} \label{Triangle_Counting_Lemma} (Lema de conteo de triángulos)
+    Sea $\varepsilon > 0$, $G = (V,E)$ un grafo, y los conjuntos no necesariamente disjuntos $X,Y,Z\subset V$ tales que los pares $(X,Y), (Y,Z)$ y $(X,Z)$ son $\varepsilon$-regular. Entonces,
+    \begin{equation*}
+        |\lbrace (x,y,z)\in X\times Y\times Z : xy,xz,yz\in E\rbrace| = d(X,Y)d(X,Z)d(Y,Z)|X||Y||Z| \pm 3\varepsilon |X||Y||Z|.
+    \end{equation*}
+\end{lema}
+
+%%%% Demostración Teorema: Lema de conteo de triángulos
+\begin{proof}
+    Se realizará un proceso inductivo similar al visto en la demostración de la Proposición \ref{discp => count} sobre la cantidad de aristas del grafo $K_3 = ([3], \lbrace 12, 23, 13\rbrace)$. Cuando el grafo no posee aristas, entonces\medskip
+    
+    \begin{equation*}
+        |\lbrace (x,y,z)\in X\times Y\times Z : xy,xz,yz\not\in E\rbrace| = |X||Y||Z|.
+    \end{equation*}\medskip
+
+    También, recordando que la condición de un par $\varepsilon$-regular es equivalente a $\bidisc_p (\varepsilon)$ para algún $p\in(0,1)$, cuando el grafo presenta una arista,\medskip
+    
+    \begin{equation*}
+        |\lbrace (x,y,z)\in X\times Y\times Z : xy\in E\rbrace| = \left( d(X,Y)|X||Y| \pm \varepsilon|X||Y| \right)|Z|.
+    \end{equation*}\medskip
+
+    Ahora, se asume la hipótesis inductiva de la siguiente manera:\medskip
+    
+    \begin{equation*}
+        |\lbrace (x,y,z)\in X,Y,Z : xy,yz\in E\rbrace| = d(X,Y)d(Y,Z)|X||Y||Z| \pm 2\varepsilon |X||Y||Z|.
+    \end{equation*}\medskip
+
+    Continuando inductivamente,\medskip
+    
+    \begin{align} \label{2doSum_TCL}
+        |\lbrace (x,y,z)\in X\times Y\times Z : xy,yz,xz\in E\rbrace| &= \sum_{T^{-}} \left[ \mathbbm{1}_{E}(e^{-}) + d(X,Z) - d(X,Z) \right]\nonumber \\
+        &= d(X,Y)d(Y,Z)d(X,Z)|X||Y||Z| \nonumber\\
+        &\ \ \ + \sum_{T^{-}} \left( \mathbbm{1}_{E}(e^{-}) - d(X,Z)\right) \pm 2\varepsilon |X||Y||Z|.
+    \end{align}\medskip
+
+    En donde $T^{-}$ se corresponde con una copia etiquetada del grafo $([3], \lbrace 12, 23\rbrace)$ en $G$ bajo la aplicación inyectiva $\varphi : [3]\to V(T^{-})\subset V$, y $e^{-} = \varphi(1)\varphi(3)$. Nos falta probar que el segundo sumando de la igualdad \eqref{2doSum_TCL} se corresponde con un factor de error, para esto, sea $T^{*}$ una copia del grafo singleton $\lbrace 2\rbrace$ en $G$ y considere los conjuntos\medskip
+    
+    \[
+        A_{1}^{T^{*}} = \lbrace x\in X: T^{*} \text{ con } x \text{ forma una copia de } (\lbrace 1,2\rbrace, \lbrace 12\rbrace) \text{ en } G\rbrace.
+    \]
+    \[
+        A_{3}^{T^{*}} = \lbrace z\in Z: T^{*} \text{ con } z \text{ forma una copia de } (\lbrace 2,3\rbrace, \lbrace 23\rbrace) \text{ en } G\rbrace.
+    \]\medskip
+
+    De esta manera, dada la equivalencia de la condición del par $(X,Z)$ $\varepsilon$-regular con $\bidisc_{d(X,Z)}(\varepsilon)$, se consigue la siguiente desigualdad:\medskip
+    
+    \begin{align*}
+        \left| \sum_{T^{-}} \left( \mathbbm{1}_{E}(e^{-})\right) - d(X,Z)\right| &\leq \sum_{T^{*}} \left| \sum_{f\in A_{1}^{T^{*}}\times A_{3}^{T^{*}}} \left( \mathbbm{1}_{E}(f) - d(X,Z)\right)\right|\\
+        &= \sum_{T^{*}} \left| e(A_{1}^{T^{*}}, A_{3}^{T^{*}}) - d(X,Z)|A_{1}^{T^{*}}||A_{3}^{T^{*}}|\right|\\
+        &\leq \sum_{T^{*}} \varepsilon |X||Z|\\
+        &\leq \varepsilon |X||Y||Z|.
+    \end{align*}\medskip
+
+    Finalmente, aplicando la última desigualdad en la ecuación \eqref{2doSum_TCL} se prueba lo prometido.
+\end{proof}\medskip
+
+En la demostración anterior solo fue necesario utilizar que los pares $(X,Y)$ y $(X,Z)$ son $\varepsilon$-regular, por lo que es interesante destacar que uno de los pares de conjuntos de vértices puede no ser $\varepsilon$-regular para el que lema de conteo de triángulos funcione.\medskip
+
+Bajo el mismo planteamiento de la inducción vista en la demostración del Lema \ref{Triangle_Counting_Lemma} (y Proposición \ref{discp => count}), es posible generalizar el resultado para contar apropiadamente cualquier grafo $H$. Enunciamos sin demostración.\medskip
+
+%%%% Teorema: Lema de conteo de grafos
+\begin{lema} \label{Lema_Conteo_Grafos} (Lema de conteo de grafos)
+    Sea $\varepsilon > 0$, $H$ un grafo sobre $k$ vértices, y $G$ un grafo de $n$ vértices con los subconjuntos disjuntos $V_1 ,..., V_k\subset V(G)$ tales que los pares $(V_i, V_j)$ son $\varepsilon$-regular siempre que $ij\in E(H)$. Entonces, la cantidad de tuplas $(v_1,...,v_k)\in V_1\times\cdots\times V_k$ tales que $v_i v_j\in E(G)$ cada vez que $ij\in E(H)$ es\medskip
+    
+    \begin{equation*}
+        \left( \prod_{ij\in E(H)} d(V_i, V_j)\right) \left( \prod_{\ell=1}^{k}|V_{\ell}|\right) \pm e_H\cdot \varepsilon \prod_{\ell = 1}^{k}|V_{\ell}|.
+    \end{equation*}
+\end{lema}\medskip
+
+%Una consecuencia interesante de la definición anterior, es que la mayoría de los vértices tienen aproximadamente el mismo grado. Plasmamos este hecho en la siguiente proposición.\medskip
+%
+%%%%% Proposición: consecuencia grado par \epsilon regular
+%\begin{prop} \label{consc_par_regular}
+%    Sea $G$ un grafo y $X,Y\subset V(G)$ subconjuntos de vértices tales que $(X,Y)$ es un par $\varepsilon$-regular. Entonces menos de $\varepsilon |X|$ vértices en $X$ tienen menos de $(d(X,Y) - \varepsilon)|Y|$ vecinos en $Y$. De igual manera, menos de $\varepsilon |Y|$ vértices en $Y$ poseen menos de $(d(X,Y) - \varepsilon)|X|$ vecinos en $X$.
+%\end{prop}
+%
+%%%%% Demostración: consecuencia grado par \epsilon regular
+%\begin{proof}
+%    Suponga que existe un conjunto $A\subset X$ con al menos $\varepsilon |X|$ vértices y que posee menos de $(d(X,Y) - \varepsilon)|Y|$ vecinos en $Y$. Esto significa que se satisface,
+%    \[
+%        d(A,Y)|Y| < (d(X,Y) - \varepsilon)|Y|.
+%    \]
+%    Se sigue directamente que $|d(X,Y) - d(A,Y)| > \varepsilon$, contradiciendo la hipótesis del par $\varepsilon$-regular. La otra afirmación es completamente análoga.
+%\end{proof}\medskip
+%
+%\hh{Escribo también la negación?, es decir, más de $\varepsilon |X|$ vértices tienen a lo más $(d(X,Y) + \varepsilon)|Y|$ vecinos.}
+
+Ya conociendo el concepto de regularidad entre pares de subconjuntos de vértices, estudiamos la regularidad en una partición del conjunto de vértices del grafo.\medskip
+
+%%%% Definición partición \varepsilon - regular
+\begin{definicion}
+    Dado un grafo $G$, una partición $\mathcal{P} = \lbrace V_1,...,V_{k}\rbrace$ del conjunto de vértices $V(G)$ es una \textbf{partición $\varepsilon$-regular} si 
+    \[
+    \sum_{\substack{ (i,j)\in [k]^{2} \\ (V_{i}, V_{j})\ \mathrm{no}\ \varepsilon-\mathrm{regular}}} |V_i||V_j| \leq \varepsilon |V(G)|^{2}.
+    \]
+    Es decir, todos los pares de subconjuntos de vértices en la partición son $\varepsilon$-regular salvo una fracción $\varepsilon$ de pares de vértices.
+
+    %% Ojo: Descomentar si quiero incorporar el conjunto excepcional.
+    %Más aún, si consideramos una partición $\mathcal{P} = \lbrace V_0, V_1,...,V_k\rbrace$ del conjunto de vértices $V(G)$, en donde $V_0$ es un conjunto excepcional (podría ser vacío), diremos que es una partioción $\varepsilon$-regular  de $G$ si satisface las siguientes condiciones:
+    %\begin{enumerate}
+    %    \item[i)] $|V_0| \leq \varepsilon |V(G)|$.
+    %    \item[ii)] $|V_1| = \cdots = |V_k| = \frac{k}{n}$.
+    %    \item[iii)] $\Big| (i,j)\in [k]^{2} : 1\leq i < j \leq k\ \text{y}\ (V_i, V_j)\ \text{no es par}\ \varepsilon\text{-regular}\Big| \leq \varepsilon k^{2}$. 
+    %\end{enumerate}
+\end{definicion}\medskip
+%El papel que juega el subconjunto $V_0$ es únicamente por conveniencia; permite que los otros elementos de la partición posean exactamente el mismo tamaño.
+%\hh{Vale la pena incluir el conjunto excepcional para obtener el resultado del lema de regularidad en partes del mismo tamaño?, ¡desarrollaré la demostración sin utilizar este conjunto de primeras!!}
+
+Note que si una partición $\varepsilon$-regular de $k$ partes es en particular una equipartición, entonces a lo más $\varepsilon k^{2}$ pares de elementos de la partición no son $\varepsilon$-regular.\medskip
+
+Ya con todo lo necesario, se introduce el lema de regularidad de Szemerédi. Intuitivamente, el lema permite particionar el conjunto de vértices de todo grafo en una cantidad finita de partes, satisfaciendo que la mayoría de los pares de partes son regulares. Enunciamos el célebre lema y daremos prueba formal más adelante.\medskip
+
+%%%% Enunciado Lema de regularidad de Szemerédi
+\begin{teorema} \label{szemeredi_regularity_lemma} (Lema de regularidad de Szemerédi)
+    Para todo $\varepsilon > 0$, existe un entero $M = M(\varepsilon)$ tal que todo grafo admite una partición $\varepsilon$-regular de a lo más $M$ partes.
+\end{teorema}\medskip
+
+Para dar prueba a este teorema, utilizaremos una técnica llamada \emph{argumento de incremento de energía}. Para todo grafo $G$, la técnica funciona algorítmicamente de la siguiente manera:\medskip
+
+%%%% Algoritmo incremento de energía
+\begin{enumerate}
+    \item Comenzar con la partición trivial de $V(G)$, i.e, $\mathcal{P} = \lbrace V(G)\rbrace$.
+
+    \item Mientras la partición actual $\mathcal{P}$ no es $\varepsilon$-regular:
+    \begin{itemize}
+        \item[(a)] Para cada par $(V_i, V_j)$ no $\varepsilon$-regular, encontrar los subconjuntos $A^{ij}\subset V_i$ y $A^{ji}\subset V_j$ que evidencian la irregularidad de cada par.
+
+        \item[(b)] \label{Paso 2b} Refinar $\mathcal{P}$ utilizando simultáneamente los conjuntos $A^{ij}$ y $A^{ji}$ encontrados de cada par $(V_i, V_j)$ no $\varepsilon$-regular para obtener $\mathcal{Q}$. 
+
+        \item[(c)] Actualizar $\mathcal{P}$ con $\mathcal{Q}$. 
+    \end{itemize}
+\end{enumerate}\medskip
+
+Siendo $\mathcal{P}$ y $\mathcal{Q}$ dos particiones de un mismo conjunto de vértices, diremos que $\mathcal{Q}$ refina a $\mathcal{P}$ si cada parte de $\mathcal{Q}$ está contenida en una parte de $\mathcal{P}$. En lo que resta de esta sección mostraremos que el algoritmo tiene un fin y entrega una partición $\varepsilon$-regular en un número de iteraciones que solo depende de $\varepsilon$.\medskip
+
+%%%% Definición Energía 
+\begin{definicion} (Energía)
+    Sea $G$ un grafo sobre $n$ vértices y $X,Y\subset V(G)$. Se define en primer lugar
+    \[
+    q(X,Y) := \frac{|X||Y|}{n^{2}}d(X,Y)^{2} = \frac{e(X,Y)^{2}}{n^{2}|X||Y|}.
+    \]
+    Luego, para particiones $\mathcal{P}_{X} = \lbrace X_1,...,X_k\rbrace$ de $X$ y $\mathcal{P}_{Y} = \lbrace Y_1,...,Y_\ell\rbrace$ de $Y$, se define
+    \[
+    q(\mathcal{P}_{X}, \mathcal{P}_{Y}) := \sum_{i = 1}^{k}\sum_{j = 1}^{\ell} q(X_i, Y_j).
+    \]
+    Finalmente, para una partición $\mathcal{P} = \lbrace V_1,...,V_k \rbrace$, se define la \textbf{energía} mediante
+    \[
+    q(\mathcal{P}) := \sum_{i = 1}^{k}\sum_{j = 1}^{k}q(V_i, V_j) = \sum_{i = 1}^{k}\sum_{j = 1}^{k} \frac{|V_i||V_j|}{n^{2}}d(V_i, V_j)^{2}. 
+    \]
+\end{definicion}\medskip
+
+Observe que toda partición $\mathcal{P}$ de $V(G)$ siempre se tendrá que $0\leq q(\mathcal{P}) \leq 1$. En efecto,
+\begin{align*}
+    q(\mathcal{P}) &= \sum_{i = 1}^{k}\sum_{j = 1}^{k}\frac{|V_i||V_j|}{n^{2}}d(V_i,V_j)^{2}\\
+    &\leq \frac{1}{n^{2}}\sum_{i = 1}^{k}|V_i|\sum_{j = 1}^{k}|V_j|\\
+    &= 1.
+\end{align*}\medskip
+
+La última observación es crucial en la demostración del Teorema \ref{szemeredi_regularity_lemma}, puesto que los Lemas \ref{energia_no_decrece}, \ref{Energy boost un conjunto} y \ref{Energy boost particiones} nos asegurarán que la energía de una partición nunca decrece bajo refinamiento. Por consecuencia, el algoritmo de la técnica \emph{argumento de incremento de energía} tendrá un fin, entregando una partición $\varepsilon$-regular.\medskip
+
+El siguiente lema muestra que la energía no disminuye al particionar o refinar arbitrariamente un conjunto o partición respectivamente.\medskip
+
+%%%% Lema: la energía nunca decrece bajo refinamiento
+\begin{lema} \label{energia_no_decrece}
+    Sea $G$ un grafo, $X,Y\subset V(G)$, $\mathcal{P}_{X}$ y $\mathcal{P}_{Y}$ particiones de $X$ e $Y$ respectivamente, entonces $q(\mathcal{P}_{X}, \mathcal{P}_{Y}) \geq q(X,Y)$. Además, dadas dos particiones de vértices $\mathcal{P}$ y $\mathcal{P'}$ de $G$, $q(\mathcal{P}) \leq q(\mathcal{P'})$ cada vez que $\mathcal{P'}$ refina a $\mathcal{P}$. 
+\end{lema}
+
+%%%% Demostración nueva lema: la energía nunca decrece bajo refinamiento}
+\begin{proof}
+    Consideramos un grafo $G$ sobre $n$ vértices, los conjuntos $X,Y\subset V(G)$, y las particiones $\mathcal{P}_{X} = \lbrace X_1,...,X_k\rbrace$ y $\mathcal{P}_{Y} = \lbrace Y_1,...,Y_\ell\rbrace$ de $X$ e $Y$ respectivamente. En primera instancia, utilizamos la desigualdad \eqref{Desigualdad_from_CS} para probar que $q(\mathcal{P}_{X}, \mathcal{P}_{Y}) \geq q(X,Y)$. En efecto,
+    \begin{equation} \label{q(P_X,P_Y) >= q(X,Y)}
+        \begin{split}
+            q(\mathcal{P}_{X}, \mathcal{P}_{Y}) &= \sum_{i = 1}^{k}\sum_{j = 1}^{\ell} q(X_{i}, Y_{j})\\
+            &= \frac{1}{n^{2}} \sum_{i = 1}^{k}\sum_{j = 1}^{\ell} \frac{e(X_i,Y_j)^{2}}{|X_i||Y_j|}\\
+            &\overset{\eqref{Desigualdad_from_CS}}{\geq} \frac{1}{n^{2}}\frac{\left( \sum_{i = 1}^{k}\sum_{j = 1}^{\ell} e(X_i,Y_j)\right)^{2}}{\sum_{i = 1}^{k}\sum_{j = 1}^{\ell} |X_i||Y_j|}\\
+            &= \frac{1}{n^{2}} \frac{e(X,Y)^{2}}{\left( \sum_{i = 1}^{k} |X_i| \right)\left( \sum_{j = 1}^{\ell} |Y_j|\right)}\\
+            &= \frac{e(X,Y)^{2}}{n^{2}|X||Y|}\\
+            &= q(X,Y).    
+        \end{split}
+    \end{equation}
+
+    Sea ahora la partición $\mathcal{P} = \lbrace V_1,...,V_k\rbrace$ de $V(G)$ y $\mathcal{P}' = \lbrace \mathcal{P}'_{V_1},...,\mathcal{P}'_{V_k}\rbrace$ un refinamiento de $\mathcal{P}$. Podemos utilizar el resultado probado previamente para determinar que,
+    \begin{equation*}
+        q(\mathcal{P}) = \sum_{i=1}^{k}\sum_{j=1}^{k} q(V_i,V_j) \overset{\eqref{q(P_X,P_Y) >= q(X,Y)}}{\leq} \sum_{i=1}^{k}\sum_{j=1}^{k} q(\mathcal{P}'_{V_i}, \mathcal{P}'_{V_j}).
+    \end{equation*}
+\end{proof}\medskip
+
+%%%% Demostración antigua lema: la energía nunca decrece bajo refinamiento
+%\begin{proof} \hh{Antigua}
+%    Consideramos un grafo $G$ sobre $n$ vértices, los conjuntos $X,Y\subset V(G)$, y las particiones $\mathcal{P}_{X} = \lbrace X_1,...,X_k\rbrace$ y $\mathcal{P}_{Y} = \lbrace Y_1,...,Y_\ell\rbrace$ de $X$ e $Y$ respectivamente. Vamos a definir una variable aleatoria $Z$ seleccionando vértices $x\in X$ e $y\in Y$ independientemente y siguiendo una distribución uniforme. Supondremos entonces que $X_i \in \mathcal{P}_{X}$ e $Y_j \in \mathcal{P}_{Y}$ son aquellos elementos de las particiones que contienen a $x$ e $y$ respectivamente, y con ello, establecemos la variable aleatoria $Z := d(X_i, Y_j)$.
+%
+%    Estudiaremos los dos primeros momentos de $Z$,
+%    \begin{align} \label{primer_momento_Z}
+%        \mathbb{E}[Z] &= \sum_{i = 1}^{k}\sum_{j = 1}^{\ell} \frac{|X_i|}{|X|}\frac{|Y_j|}{|Y|}d(X_i, Y_j) \nonumber\\
+%        &= \sum_{i = 1}^{k}\sum_{j = 1}^{\ell} \frac{e(X_i, Y_j)}{|X||Y|}\\
+%        &= d(X,Y) = \sqrt{\frac{n^{2}}{|X||Y|} q(X,Y)}. \nonumber
+%    \end{align}
+%
+%    También, 
+%    \begin{equation} \label{segundo_momento_Z}
+%        \mathbb{E}[Z^{2}] = \sum_{i = 1}^{k}\sum_{j = 1}^{\ell} \frac{|X_i|}{|X|}\frac{|Y_j|}{|Y|}d(X_i,Y_j)^{2} = \frac{n^{2}}{|X||Y|}q(\mathcal{P}_X, \mathcal{P}_Y).
+%    \end{equation}
+%
+%    Así, producto de la desigualdad de Jensen utilizando la función convexa $f(x) = x^{2}$ vista en \ref{Jensen_implicación}, tendremos que $\mathb{E}[Z^{2}]\geq \mathbb{E}[Z]^{2}$ implica directamente que $q(\mathcal{P}_X, \mathcal{P}_Y) \geq q(X,Y)$.
+%
+%    Por otro lado, elegimos una partición $\mathcal{P} = \lbrace V_1,...,V_k\rbrace$ de $V(G)$ y suponemos que $\mathcal{P'}$ refina a cada elemento $V_i\in \mathcal{P}$ en una nueva partición $\mathcal{P'}_{V_i} = \lbrace V'_{i_1},...,V'_{i_m}\rbrace$, de tal forma que $\mathcal{P'} = \mathcal{P'}_{V_1}\cup \cdots \cup \mathcal{P'}_{V_k}$. Entonces, si aplicamos el resultado recien probado sobre cada elemento de $\mathcal{P}$,
+%    \begin{equation*}
+%        q(\mathcal{P}) = \sum_{i = 1}^{k}\sum_{j = 1}^{k} q(V_i,V_j) \leq \sum_{i = 1}^{k}\sum_{j = 1}^{k} q(\mathcal{P'}_{V_i}, \mathcal{P'}_{V_j}) = q(\mathcal{P'}).
+%    \end{equation*}
+%\end{proof}
+
+Ahora, veremos que refinar un par $(X,Y)$ no $\varepsilon$-regular de un grafo $G$, mediante los subconjuntos que evidencian su irregularidad, provoca un aumento estricto en la energía.\medskip
+
+%%%% Lema: Energy Boost
+\begin{lema} \label{Energy boost un conjunto}
+    Sea $\varepsilon > 0$, $G$ un grafo de $n$ vértices y $X,Y\subset V(G)$. Si $(X,Y)$ no es un par $\varepsilon$-regular, existen particiones $\mathcal{P}_{X} = \lbrace X_1, X_2\rbrace$ de $X$ y $\mathcal{P}_{Y} = \lbrace Y_1, Y_2\rbrace$ de $Y$ tales que
+    \[
+        q(\mathcal{P}_{X}, \mathcal{P}_{Y}) > q(X,Y) + \varepsilon^{4}\frac{|X||Y|}{n^{2}}.
+    \]
+\end{lema}
+
+%%%% Demostración Energy boost
+\begin{proof}
+    Dado $\varepsilon > 0$, consideramos un grafo $G$ sobre $n$ vértices y $X,Y\subset V(G)$ tales que el par $(X,Y)$ no es $\varepsilon$-regular. Existen entonces los subconjuntos $X_1 \subset X$ e $Y_1 \subset Y$ que evidencian la irregularidad del par $(X,Y)$ y son tales que
+    \begin{equation} \label{condición tamaño conjunto regularidad}
+        |X_1| \geq \varepsilon |X|\ \ \text{y}\ \ |Y_1| \geq \varepsilon |Y|.
+    \end{equation}
+    
+    Se definen adicionalmente los conjuntos $X_2 := X\setminus X_1$ y $Y_2 := Y\setminus Y_1$, y $\eta := d(X_1, Y_1) - d(X,Y)$, cual por definición de par $\varepsilon$-regular, satisface
+    \begin{equation} \label{|eta| > epsilon}
+        \left| \eta\right| > \varepsilon.
+    \end{equation}
+
+    Por un lado, observe la siguiente descomposición,
+    \begin{align*}
+        e(X,Y) &= e(X_1, Y) + e(X_2, Y)\\
+        &= e(X_1, Y_1) + e(X_1, Y_2) + e(X_2, Y_1) + e(X_2, Y_2).
+    \end{align*}
+
+    De esta manera,
+    \begin{equation} \label{descomposición suma aristas}
+        \sum_{i+j>2} e(X_i, Y_j) = e(X,Y) - e(X_1, Y_1).
+    \end{equation}
+
+    Por otro lado, se tiene que,
+    \begin{align*}
+        |X||Y| &= (|X_1| + |X_2|)(|Y_1| + |Y_2|)\\
+        &= |X_1||Y_1| + |X_1||Y_2| + |X_2||Y_1| + |X_2||Y_2|.
+    \end{align*}
+
+    Así,
+    \begin{equation} \label{descomposición multiplicación conjuntos}
+        \sum_{i+j > 2} |X_i||Y_j| = |X||Y| - |X_1||Y_1| .
+    \end{equation}
+
+    Ahora, definiendo las particiones $\mathcal{P}_{X} = \lbrace X_1, X_2\rbrace$ de $X$ y $\mathcal{P}_{Y} = \lbrace Y_1, Y_2\rbrace$ de $Y$, desarrollamos,
+    \begin{align} \label{Primer cálculo energy boost}
+        q(\mathcal{P}_{X}, \mathcal{P}_{Y}) &= \sum_{i=1}^{2}\sum_{j=1}^{2} q(X_i, Y_j) \nonumber\\
+        &= \sum_{i=1}^{2}\sum_{j=1}^{2} \frac{e(X_i, Y_j)^{2}}{n^{2}|X_i||Y_j|} \nonumber\\
+        &= \frac{1}{n^{2}}\left( \frac{e(X_1, Y_1)^{2}}{|X_i||Y_j|} + \sum_{i+j > 2} \frac{e(X_i, Y_j)^{2}}{|X_i||Y_j|}\right) \nonumber\\
+        &\overset{\eqref{Desigualdad_from_CS}}{\geq} \frac{1}{n^{2}}\left( \frac{e(X_1, Y_1)^{2}}{|X_1||Y_1|} + \frac{\left( \sum_{i+j > 2} e(X_i, Y_j)\right)^{2}}{\sum_{i+j > 2} |X_i||Y_j|}\right) \nonumber\\
+        &\overset{\eqref{descomposición suma aristas}\ \text{y}\ \eqref{descomposición multiplicación conjuntos}}{=} \frac{1}{n^{2}}\left( \frac{e(X_1, Y_1)^{2}}{|X_1||Y_1|} + \frac{\left( e(X,Y) - e(X_1, Y_1)\right)^{2}}{|X||Y| - |X_1||Y_1|}\right).
+    \end{align}
+
+    Luego, por definición, note que
+    \begin{equation} \label{e(X_1,Y_1) = ...}
+        e(X_1, Y_1) = \frac{|X_1||Y_1| e(X,Y)}{|X||Y|} + \eta |X_1||Y_1|.
+    \end{equation}
+
+    Con esto, se continúa el cálculo desde la desigualdad \eqref{Primer cálculo energy boost} como sigue, \hh{Me podré saltar un espacio más pequeño abajo?}
+    \begin{align} \label{Segundo cálculo energy boost}
+        n^{2}q(\mathcal{P}_{X}, \mathcal{P}_{Y}) &\geq \frac{e(X_1, Y_1)^{2}}{|X_1||Y_1|} + \frac{\left( e(X,Y) - e(X_1, Y_1)\right)^{2}}{|X||Y| - |X_1||Y_1|}\nonumber\\
+        \begin{split}
+            &\overset{\eqref{e(X_1,Y_1) = ...}}{=} \frac{1}{|X_1||Y_1|}\left( \frac{|X_1||Y_1|e(X,Y)}{|X||Y|} + \eta |X_1||Y_1|\right)^{2} \\
+            &\qquad + \frac{1}{|X||Y| - |X_1||Y_1|}\left( \frac{|X||Y| - |X_1||Y_1|}{|X||Y|}e(X,Y) - \eta |X_1||Y_1|\right)^{2}    
+        \end{split}\nonumber\\
+        \intertext{}
+        \begin{split}
+            &= \frac{|X_1||Y_1|}{|X|^{2}|Y|^{2}}e(X,Y)^{2} + 2\frac{|X_1||Y_1|}{|X||Y|}\eta e(X,Y) + \eta^{2}|X_1||Y_1| \\
+            &\qquad + \frac{|X||Y| - |X_1||Y_1|}{|X|^{2}|Y|^{2}}e(X,Y)^{2} - 2\frac{|X_1||Y_1|}{|X||Y|}\eta e(X,Y) + \frac{\eta^{2} |X_1|^{2}|Y_1|^{2}}{|X||Y| - |X_1||Y_1|}    
+        \end{split}\nonumber\\
+        \intertext{ }
+        &= \frac{e(X,Y)^{2}}{|X||Y|} + \eta^{2}|X_1||Y_1|\left( 1 + \frac{|X_1||Y_1|}{|X||Y| - |X_1||Y_1|}\right)\nonumber\\
+        &\geq \frac{e(X,Y)^{2}}{|X||Y|} + \eta^{2}|X_1||Y_1|.
+    \end{align}
+
+    Finalmente, utilizando las cotas \eqref{condición tamaño conjunto regularidad} y \eqref{|eta| > epsilon}, podemos concluir desde la desigualdad \eqref{Segundo cálculo energy boost},
+    \begin{align*}
+        q(\mathcal{P}_{X}, \mathcal{P}_{Y}) &= \frac{e(X,Y)^{2}}{n^{2}|X||Y|} + \eta^{2}\frac{|X_1||Y_1|}{n^{2}}\\
+        &= q(X,Y) + \eta^{2}\frac{|X_1||Y_1|}{n^{2}}\\
+        &> q(X,Y) + \varepsilon^{4}\frac{|X||Y|}{n^{2}}.
+    \end{align*}
+\end{proof}\medskip
+
+%%%% Demostración Energy boost
+%\begin{proof} \hh{Antigua}
+%    Consideramos $G$ un grafo sobre $n$ vértices, $X,Y\subset V(G)$ tales que el par $(X,Y)$ no es $\varepsilon$-regular, y $A\subset X$ y $B\subset Y$ subconjuntos con $|A| \geq \varepsilon|X|$ y $|B| \geq \varepsilon |Y|$ que evidencian la irregularidad del par $(X,Y)$. Para las particiones $\mathcal{P}_{X} = \lbrace A, X\setminus A\rbrace$ de $X$ y $\mathcal{P}_{Y} = \lbrace B, Y\setminus B\rbrace$ de $Y$, del mismo modo que en la demostración del lema \ref{energia_no_decrece}, se define la variable aleatoria $Z := d(X_i, Y_j)$.
+%
+%    Analizaremos la varianza de $Z$. Por un lado, se sabe que $\var[Z] = \mathbb{E}[Z^{2}] - \mathbb{E}[Z]^{2}$, y utilizando los resultados \ref{primer_momento_Z} y \ref{segundo_momento_Z} se obtiene
+%    \begin{equation} \label{Var_Z_1}
+%        \var[Z] = \frac{n^{2}}{|X||Y|}\left( q(\mathcal{P}_{X}, \mathcal{P}_Y) - q(X,Y)\right).
+%    \end{equation}
+%
+%    Por otro lado, también se conoce que $\var[Z] = \mathbb{E}[(Z - \mathbb{E}[Z])^{2}]$. Si aislamos el evento en que un vértice se encuentre en $A$ y el otro en $B$ y utilizamos la definición de un par $\varepsilon$-regular junto con el resultado \ref{primer_momento_Z},
+%    \begin{equation} \label{Var_Z_2}
+%        \var[Z] \geq \frac{|A|}{|X|}\frac{|B|}{|Y|}\left( d(A,B) - d(X,Y)\right)^{2} > \varepsilon \cdot \varepsilon \cdot \varepsilon^{2}.
+%    \end{equation} \hh{Este último paso no lo entiendo del todo bien :c}
+%
+%    Finalmente, comparando los resultados \ref{Var_Z_1} y \ref{Var_Z_2} de la varianza, se termina la prueba al obtener
+%    \begin{equation*}
+%        q(\mathcal{P}_{X}, \mathcal{P}_Y) > q(X,Y) + \varepsilon^{4}\frac{|X||Y|}{n^{2}}.
+%    \end{equation*}
+%\end{proof}
+
+Vimos que particionar cualquier par de conjuntos no $\varepsilon$-regular por medio de sus subconjuntos que evidencian la irregularidad produce un aumento en la energía. Entonces, haciendo alusión al paso \ref{Paso 2b}(b) del algoritmo de la técnica \emph{argumento de incremento de energía}, se mostrará que refinar simultáneamente todos los pares de conjuntos no $\varepsilon$-regular de un grafo produce un aumento estricto de al menos $\varepsilon^{5}$ en la energía.\medskip
+
+%%%% Lema: Energy boost para particiones
+\begin{lema} \label{Energy boost particiones}
+    Sea $\varepsilon > 0$, un grafo $G$ y una partición $\mathcal{P} = \lbrace V_1,...V_k\rbrace$ no $\varepsilon$-regular de $V(G)$. Entonces existe un refinamiento $\mathcal{Q}$ de $\mathcal{P}$, en el que cada $V_i$ se particiona en a lo más $2^{k}$ partes y es tal que
+    \begin{equation*}
+        q(\mathcal{Q}) > q(\mathcal{P}) + \varepsilon^{5}.
+    \end{equation*}
+\end{lema}
+
+%%%% Demostración energy boost para particiones
+\begin{proof}
+    Sea $\varepsilon > 0$ y $\mathcal{P} = \lbrace V_1,...,V_k\rbrace$ una partición no $\varepsilon$-regular del conjunto de $n$ vértices de un grafo $G$ . Sabemos que para todos los $(i,j)\in [k]^{2}$ tales que el par $(V_i, V_j)$ no es $\varepsilon$-regular, existen los subconjuntos $A^{ij}\subset V_i$ y $A^{ji}\subset V_j$ testigos de su irregularidad. Observe que para cada $V_i$, podemos encontrar a lo más $k$ conjuntos no vacíos $A^{ij}$ que evidencian la irregularidad de los pares $(V_i, V_j)$ no $\varepsilon$-regular. Consideremos ahora la partición $\mathcal{Q} = \lbrace Q_1,...,Q_k\rbrace$ que refina a $\mathcal{P}$, en la que cada $Q_i$ es una partición resultante de dividir el conjunto $V_i$ según la intersección de todos los subconjuntos no vacíos $A^{ij}$ que atestiguan la irregularidad de los pares $(V_i, V_j)$ no $\varepsilon$-regular. En consecuencia, $|Q_i| \leq 2^{k}$.
+
+    Por simplicidad en la notación, se define $\Theta := \lbrace (i,j)\in [k]^{2} : (V_i,V_j)\ \text{es}\ \varepsilon\text{-regular}\rbrace$. Luego, como la partición $\mathcal{P}$ no es $\varepsilon$-regular, se cumple la desigualdad
+    \begin{equation} \label{condición partición no regular}
+        \sum_{(i,j)\not\in \Theta} \frac{|V_i||V_j|}{n^{2}} > \varepsilon.
+    \end{equation}
+
+    Así, junto a los lemas probados previamente, damos prueba al resultado de la siguiente manera,
+    \begin{align*}
+        q(\mathcal{Q}) &= \sum_{(i,j)\in [k]^{2}} q(\mathcal{Q}_i, \mathcal{Q}_j) \\
+        &= \sum_{(i,j)\in \Theta} q(\mathcal{Q}_i, \mathcal{Q}_j) + \sum_{(i,j)\not\in \Theta} q(\mathcal{Q}_i, \mathcal{Q}_j)\\
+        &\overset{\text{Lema \ref{energia_no_decrece}}}{\geq} \sum_{(i,j)\in \Theta} q(V_i, V_j) + \sum_{(i,j)\not\in \Theta} q(\lbrace A^{ij}, V_i\setminus A^{ij}\rbrace, \lbrace A^{ji}, V_{j}\setminus A^{ji}\rbrace)\\
+        &\overset{\text{Lema \ref{Energy boost un conjunto}}}{\geq} \sum_{(i,j)\in \Theta} q(V_i, V_j) + \sum_{(i,j)\not\in \Theta} \left( q(V_i, V_j) + \varepsilon^{4}\frac{|V_i||V_j|}{n^{2}} \right)\\
+        &= \sum_{(i,j)\in [k]^{2}} q(V_i, V_j) + \sum_{(i,j)\not\in \Theta} \varepsilon^{4}\frac{|V_i||V_j|}{n^{2}}\\
+        &\overset{\eqref{condición partición no regular}}{\geq} q(\mathcal{P}) + \varepsilon^{5}.
+    \end{align*}
+
+    \hh{Cambiar por $>$ en la última línea y donde dice lema 5, cuando lo cambio se me descuadra :c}
+\end{proof}\medskip
+
+Ya con todo lo necesario, damos prueba formal al Teorema \ref{szemeredi_regularity_lemma} mediante la técnica de \emph{argumento de incremento de energía}.\medskip
+
+%%%% Demostración Lema de regularidad de Szemerédi
+\begin{proof}[Demostración del Teorema \ref{szemeredi_regularity_lemma}]
+    Dado $\varepsilon > 0$ y un grafo $G$, elegimos inicialmente la partición trivial del conjunto de vértices $\mathcal{P} = \lbrace V(G)\rbrace$. Ahora, iterativamente (actualizando $\mathcal{P}$), aplicaremos el Lema \ref{Energy boost particiones} cada vez que la partición actual no sea $\varepsilon$-regular. Observe que por cada aplicación del Lema \ref{Energy boost particiones} se consigue un aumento de al menos $\varepsilon^{5}$ en la energía, y como la energía de toda partición está acotada superiormente por 1, el proceso iterativo terminará luego de a lo más $\varepsilon^{-5}$ pasos. El resultado será necesariamente una partición $\varepsilon$-regular debido a la cota de la energía. 
+
+    Para una partición no $\varepsilon$-regular con $k$ elementos, el Lema \ref{Energy boost particiones} encuentra un refinamiento de a lo más $k2^{k}$ partes. Dicho refinamiento será producido en cada iteración del algoritmo de \emph{argumento de incremento de energía}, y la cantidad de partes producidas las acotaremos crudamente en cada paso por $k2^{k} < 2^{2^{k}}$. Comenzando con la partición trivial de una parte, ejemplificaremos con las tres primeras iteraciones del algoritmo para mostrar la cantidad de partes producidas en cada paso tras aplicar el Lema \ref{Energy boost particiones}.
+    
+    \begin{equation*}
+        \begin{aligned}
+            1^{\text{\underline{ra}}}\ \text{Iteración:}\quad & 1 & \to\quad & 2 < 2^{2} & \text{partes.}\\
+            2^{\text{\underline{da}}}\ \text{Iteración:}\quad & 2^{2} & \to\quad & \left( 2^{2}\right)2^{\left(  2^{2}\right)}  <  2^{2^{2^{2}}} & \text{partes.}\\
+            3^{\text{\underline{ra}}}\ \text{Iteración:}\quad & 2^{2^{2^{2}}} & \to\quad & \left( 2^{2^{2^{2}}} \right)2^{\left( 2^{2^{2^{2}}} \right)} < 2^{2^{2^{2^{2^{2}}}}} & \text{partes.}
+        \end{aligned}
+    \end{equation*}
+
+    Así, como el algoritmo debe luego de a lo más $\varepsilon^{-5}$ iteraciones, la cantidad de partes al final de proceso será
+    \begin{equation*}
+        M(\varepsilon) \leq \left. 2^{2^{\cdot^{\cdot^{\cdot^{2}}}}}\right\rbrace\ \text{Altura }2\varepsilon^{-5}.
+    \end{equation*}
+\end{proof}\medskip
+
+Desde ahora en adelante, vamos a definir y consirar una \emph{torre de altura $k$} de la siguiente manera,
+\begin{equation}
+    \mathrm{torre}(k) := \left.2^{2^{\cdot^{\cdot^{\cdot^{2}}}}}\right\rbrace \text{Altura } k.
+\end{equation}\medskip
+
+\hh{En esta parte me gustaría dejar un comentario sobre lo grande que es la cota y el resultado que encontró Gowers en 1997 de cota inferior, pero no lo entiendo :c}\medskip
+
+Una de las peculiaridades del lema de regularidad de Szemerédi es la flexibilidad que posee su enunciado, adaptando su aplicación a diferentes contextos. Por ejemplo, si en la demostración del Teorema \ref{szemeredi_regularity_lemma} tomamos una partición inicial arbitraria en vez de la partición trivial del conjunto de vértices del grafo, se logra obtener la siguiente variante del lema de regularidad.\medskip
+
+%%%% Teorema: Lema de regularidad, partición inicial
+\begin{teorema} \label{Regularidad_part_ini} (Regularidad de Szemerédi - Partición inicial arbitraria)
+    Para todo $\varepsilon > 0$, existe un entero $M=M(\varepsilon)$ tal que todo grafo $G$ con una partición inicial $\mathcal{P}_0$ de $V(G)$ admite una partición $\varepsilon$-regular $\mathcal{P}$ de $V(G)$ que refina cada parte de $\mathcal{P}_0$ en a lo más $M$ partes.
+\end{teorema}\medskip
+
+Es posible fortalecer un poco más el lema de regularidad exigiendo que el resultado sea una equipartición del conjunto de vértices de un grafo $G$. Es decir, una partición $\mathcal{P} = \lbrace V_1,...,V_k \rbrace$ tal que $|V_1|\leq |V_2|\leq ...\leq |V_k| = |V_1| +1$.\medskip
+
+%%%% Teorema: Lema de regularidad, equipartición
+\begin{teorema} \label{Regularidad_equipart} (Regularidad de Szemerédi - Equipartición)
+    Para todo $\varepsilon > 0$ y $m_0\in\mathbb{N}$, existe un entero $M = M(\varepsilon)$ tal que todo grafo admite una equipartición $\varepsilon$-regular de su conjunto de vértices de $k$ partes, con $m_0\leq k\leq M$. 
+\end{teorema}\medskip
+
+\fs{Comentar que cuando tenemos esta versión del teorema (que es la clásica), entonces la definición de una partición $\varepsilon$-regular se traduce en $...\leq\varepsilon k^{2}$. También hablar un poco de $m_0$, cual ayuda a que ninguna de las partes sea demasiado grande.}\medskip
+
+La idea de la demostración del Teorema \ref{Regularidad_equipart} consiste en modificar el algoritmo de la técnica de argumento de incremento de energía, de manera que en cada iteración del refinamiento se logre obtener una equipartición. Este procedimiento conservará el incremento de energía en cada paso y  terminará con una equipartición del conjunto de vértices de un grafo cualquiera. Para todo grafo $G$, la modificación del algoritmo es la siguiente:\medskip
+
+
+
+%%%% Algoritmo modificado argumento de incremento de la energía para equiparticiones
+\begin{enumerate}
+    % !er paso
+    \item Comenzar con una equipartición inicial arbitraria $\mathcal{P}$ de $V(G)$ con $m_0$ partes.
+    % 2do paso
+    \item Mientras la partición actual $\mathcal{P}$ no es $\varepsilon$-regular:
+    \begin{itemize}
+        \item[(a)] Para cada par $(V_i, V_j)$ no $\varepsilon$-regular, encontrar los subconjuntos $A^{ij}\subset V_i$ y  $A^{ji}\subset V_j$ que evidencian la irregularidad de cada par.
+
+        \item[(b)] \label{paso_2b_mod} Refinar $\mathcal{P}$ usando simultáneamente los conjuntos $A^{ij}$ y $A^{ji}$ para obtener la partición $\mathcal{Q}$, cual divide cada parte de $\mathcal{P}$ en a lo más $2^{|\mathcal{P}|}$ partes.
+
+        \item[(c)] \label{paso_3c_mod} Modificar la partición $\mathcal{Q}$ refinando, si es posible, cada uno de sus elementos para formar partes iguales de tamaño $|V(G)|/m$ utilizando alguna elección apropiada del entero $m=m(|Q|,\varepsilon)$. Luego, los elementos de $\mathcal{Q}$ que no fueron refinados previamente a causa de su bajo tamaño y los conjuntos de vértices residuales del refinamiento anterior, deben ser combinados y posteriormente dividir el resultado en partes iguales de tamaño $|V(G)|/m$.
+
+        \item[(d)] Actualizar $\mathcal{P}$ con la modificación de $\mathcal{Q}$. 
+    \end{itemize}
+\end{enumerate}\medskip
+
+El algoritmo anterior obtiene una equipartición del conjunto de vértices del grafo $G$. En lo que respecta a la energía del proceso, el paso \ref{paso_2b_mod}(b) conserva un aumento de al menos $\varepsilon^{5}$ en cada iteración. El paso \ref{paso_3c_mod}(c) podría ocasionar una baja en la energía, sin embargo, no debería ser significativa con una elección de $m$ suficientemente grande.\footnote{\hh{Aquí quiero hacer un comentario/ejemplo de $m$. Yufei sugiere $m= \lfloor 100|\mathcal{Q}\varepsilon^{-5}|\rfloor$, pero tampoco lo entiendo mucho.}} En resumidas cuentas, el proceso anterior aumenta la energía en cada iteración en al menos $\varepsilon^{5}/2$, logrando terminar luego de a lo más $2\varepsilon^{-5}$ pasos con una equipartición de a lo más $\mathrm{torre}(\varepsilon^{-5})$ partes.
+
+\subsection{Aplicaciones}
+
+Usualmente las aplicaciones del lema de regularidad de Szemerédi son desarrolladas en base a los siguientes pasos:
+\begin{enumerate}
+    % Partición
+    \item Obtener una \textbf{partición} del conjunto de vértices del grafo con el lema de regularidad.
+    % Limpiar
+    \item \textbf{Limpiar} el grafo eliminando aristas con mal comportamiento según el problema. Generalmente, se eliminan las aristas entre los pares de partes que presentan:
+    \begin{itemize}
+        \item[i)] Irregularidad.
+        \item[ii)] Baja densidad.
+        \item[iii)] Al menos una de las partes es demasiada pequeña.
+    \end{itemize}
+    % Contar
+    \item \label{paso3_reg} \textbf{Contar} un determinado patrón en el grafo limpio utilizando algún lema de conteo.
+\end{enumerate}\medskip
+
+Teniendo esta fórmula en mente, damos paso a la primera aplicación del lema de regularidad, cual plantea intuitivamente que todo grafo con \emph{pocos} triángulos puede convertirse en un grafo libre de triángulos eliminando \emph{pocas} aristas. Formalmente, \medskip
+
+%%%% Teorema: Lema de eliminación de triángulos
+\begin{teorema} \label{Enunciado TRL} (Lema de eliminación de triángulos)
+    Para todo $\varepsilon > 0$, existe $\delta > 0$ y $n_0\in \mathbb{N}$ tal que todo grafo sobre $n\geq n_0$ vértices con a lo más $\delta n^{3}$ triángulos se puede hacer libre de triángulos eliminando a lo más $\varepsilon n^{2}$ aristas.
+\end{teorema}
+
+%%%% Demostración Teorema: Lema de eliminación de triángulos
+\begin{proof}
+
+    Dado $\varepsilon > 0$, elija $\varepsilon_r = \frac{1}{4}\left(  \frac{\varepsilon}{3}\right)^{3}$ y  utilice el Teorema \ref{szemeredi_regularity_lemma} para obtener la constante $M=M(\varepsilon_r)$. Considere además $\delta = \frac{1}{2}\frac{\varepsilon_{r}^{4}}{M^{3}}$ y $n_0\in\mathbb{N}$ suficientemente grande, de manera tal que el grafo $G = (V,E)$ con $n\geq n_0$ vértices posee a lo más $\varepsilon n^{3}$ triángulos. Luego, nuevamente por el Teorema \ref{szemeredi_regularity_lemma}, se asegura la existencia de una partición $\varepsilon_r$-regular $\mathcal{P} = \lbrace V_1,...,V_M \rbrace$.\medskip
+
+    Para limpiar el grafo, para cada $(i,j)\in [M]^{2}$, se eliminan todas las aristas entre $V_i$ y $V_j$ cuando\medskip
+    
+    \begin{itemize}
+        \item[(a)] ($V_i , V_j$) no es un par $\varepsilon_r$-regular,
+        \item[(b)] $d(V_i, V_j) < (4\varepsilon_r)^{1/3}$, o
+        \item[(c)] $\min\lbrace |V_i||V_j|\rbrace < \frac{n}{M}\varepsilon_r$.
+    \end{itemize}\medskip
+
+    De esta manera, como la partición es $\varepsilon_r$-regular, las aristas removidas por la condición (a) son a lo más\medskip
+    
+    \begin{equation*}
+        \sum_{\substack{(i,j)\in [M]^{2} \\ (V_i , V_j) \text{ no } \varepsilon_r\text{-regular}}} |V_i||V_j|\leq \varepsilon_r n^{2}.
+    \end{equation*}\medskip
+
+    Las aristas eliminadas en los conjuntos de baja densidad por la condición (b) son a lo más\medskip
+
+    \begin{equation*}
+        \sum_{\substack{(i,j)\in [M]^{2} \\ d(V_i, V_j) < (4\varepsilon_r)^{1/3}}} d(V_i, V_j)|V_i||V_j| < (4\varepsilon_r)^{1/3} \sum_{(i,j)\in [M]^{2}} |V_i||V_j| = (4\varepsilon_r)^{1/3} n^{2}.
+    \end{equation*}\medskip
+
+    Por último, debido a que cada vértice de $G$ puede ser adyacente con a lo más $\frac{n}{M}\varepsilon_r$ vértices en a lo más $M$ subconjuntos demasiado pequeños, las aristas removidas por (c) son a lo más\medskip
+
+    \begin{equation*}
+        M\cdot \frac{n}{M}\varepsilon_r \cdot n = \varepsilon_r n^{2}.
+    \end{equation*}\medskip
+
+    En total, en la limpieza, se eliminan a lo más $\varepsilon n^{2}$ aristas.\medskip
+
+    Ahora, nos falta probar que el grafo limpio $G' = (V, E')$ es libre de triángulos. Para esto, observe que la condición de eliminación de aristas (a) nos asegura que cada par $(V_i , V_j)$ es $\varepsilon_r$-regular, y que se satisface la hipótesis del lema de conteo de grafos. Entonces, si luego de la limpieza del grafo aún existe un triángulo $(x,y,z)\in V_i\times V_j\times V_\ell$, el Lema \ref{Triangle_Counting_Lemma} nos dice que incluso hay más triángulos. En particular, gracias a la eliminación de las aristas por la condición (b) y (c),\medskip
+
+    \begin{align*}
+        \left| \lbrace (x,y,z)\in V_i\times V_j\times V_\ell : xy,yz,xz\in E'\rbrace\right| &\geq d(V_i, V_j)d(V_i, V_\ell)d(V_j, V_\ell)|V_i||V_j||V_\ell| - 3\varepsilon_r |V_i||V_j||V_\ell|\\
+        &\geq \varepsilon_r |V_i| |V_j| |V_\ell|\\
+        &\geq \frac{\varepsilon^{4} n^{3}}{M^{3}}\\
+        &> \delta n^{3}.
+    \end{align*}\medskip
+
+    Finalmente, con nuestra elección de $\delta$, el resultado se prueba formulando la siguiente contradicción: si existe un triángulo en el grafo limpio $G'$, el lema de conteo de triángulos nos dice que en realidad existen más de $\delta n^{3}$ triángulos. No obstante, el grafo original posee a lo más $\delta n^{3}$ triángulos, por lo que se concluye que el grafo $G'$ obtenido desde $G$ es libre de triángulos removiendo a lo más $\varepsilon n^{2}$ aristas.
+\end{proof}\medskip
+
+Denotaremos por $k$-PA a una prograsión aritmética de $k$ elementos. En particular, diremos que un conjunto de números naturales $A$ es libre de 3-PA si no existen los elementos $x,x+y,x+2y\in A$, con $y\not= 0$. Cuando $y= 0$, diremos que la 3-PA es trivial.\medskip
+
+%%%% Teorema: Roth
+\begin{teorema} \label{Teorema Roth} (Teorema de Roth)
+    Para todo $\varepsilon > 0$, existe $n_0\in\mathbb{N}$ tal que si el conjunto $A\subset [n]$ posee $|A|\geq \varepsilon n$ elementos, entonces $A$ contiene una $\mathrm{3}$-$\mathrm{PA}$ no trivial cada vez que $n\geq n_0$.
+\end{teorema}
+
+%%%% Demostración: Teorema de Roth
+\begin{proof}
+    Sea $\varepsilon > 0$ y el conjunto $A\subset [n]$ con $|A|\geq\varepsilon n$ elementos. La idea es construir un grafo $3$-partito de manera conveniente para posteriormente utilizar el lema de eliminación de triángulos. Considere el grafo 3-partito $G = (V,E)$ con partición de vértices $V = V_1 \cup V_2 \cup V_3$, en donde $V_1 = [n]$, $V_2 = [2n]$ y $V_3 = [3n]$, y son disjuntos entre cada par de ellos. Así, $G$ tiene $6n$ vértices, y se definen las aristas de la siguiente manera:\medskip
+
+    \begin{enumerate}
+        \item Existe una arista desde $i\in V_1$ hasta $j\in V_2$ si y solamente si $j-i\in A$.
+        \item Existe una arista desde $j\in V_2$ hasta $k\in V_3$ si y solamente si $k-j\in A$.
+        \item Existe una arista desde $i\in V_1$ hasta $k\in V_3$ si y solamente si $\frac{k-i}{2}\in A$.
+    \end{enumerate}\medskip
+
+    Luego, la tupla $(i,j,k)\in V_1\times V_2\times V_3$ define un triángulo en $G$ si y solamente si $j-i\in A$, $k-j\in A$ y $\frac{k-i}{2}\in A$, o bien, $\left\lbrace j-i, \frac{k-i}{2}, k-j\right\rbrace$ es una $3$-PA en $A$ con diferencia $\frac{k-2j+i}{2}$. En específico, diremos que un triángulo $(i,j,k)\in V_1\times V_2\times V_3$ es trivial en $G$ si para algún $a\in A$ se satisface que $j-i = \frac{k-i}{2} = k-j = a$.\medskip
+
+    Ahora, observando que cada triángulo trivial se puede identificar con el par $(i,a)\in V_1 \times A$, la cantidad de triángulos triviales es exactamente $n|A| \geq \varepsilon n^{2}$. Además, por construcción, no existen triángulos triviales que compartan una arista, por lo que no se puede eliminar dos triángulos triviales removiendo solo una arista. En consecuencia, debemos eliminar al menos $\varepsilon n^{2} = \frac{\varepsilon}{36}(6n)^{2}$ aristas para hacer de $G$ libre de triángulos.\medskip
+
+    Utilizando el lema eliminación de triángulos eligiendo $\varepsilon_0 = \frac{\varepsilon}{36}$, existen $\delta_0 > 0$ y $n'_0\in\mathbb{N}$ tal que el grafo $G$ con $6n \geq n'_0$ vértices y a lo más $\delta_0 (6n)^{3}$ triángulos, se convierte en libre de triángulos eliminando a lo más $\varepsilon_0 (6n)^{2}$ aristas. Entonces, estableciendo $\delta = 216\delta_0$, note que existen como máximo $\delta n^{3} - \varepsilon n^{2}$ triángulos no triviales. Sabiendo esto, aseguramos la existencia de un triángulo no trivial cuando $n > \frac{\varepsilon + 1}{\delta}$. En efecto,\medskip
+    
+    \begin{equation*}
+        n > \frac{\varepsilon + 1}{\delta} \ \Rightarrow\  \delta n - \varepsilon > 1 \ \Rightarrow\  n^{2}(\delta n - \varepsilon) > 1.
+    \end{equation*}\medskip
+
+    Finalmente, el resultado queda demostrado tomando $n_0 > \max\left\lbrace \frac{n'_0}{6}, \frac{\varepsilon + 1}{\delta}\right\rbrace$ suficientemente grande.
+\end{proof}\medskip
+
+%%%% Definición: Emparejamiento
+\begin{definicion}
+    Dado un grafo $G = (V,E)$, un un conjunto $M\subseteq E$ es un \textbf{emparejamiento} en $G$ si no existen un par de aristas en $M$ que compartan algún vértice. %Es decir, si denotamos por $V(M)$ al conjunto de vértices correspondiente a $M$, cada elemento de $V(M)$ tiene grado $1$.
+    Diremos que $M$ es un \textbf{emparejamiento inducido} si es un emparejamiento y toda arista de $G$ con un vértice en $V(M)$ es una arista en $M$.
+\end{definicion}
+
+\fs{Usar $k$ o $M$ para la cantidad de partes?, aquí se me confunde con el emparejamiento, pero en TRL y demo espectral de regularidad usé $M$ como las partes. De momento en esta parte lo dejaré con $k$.}
+
+%%%% Teorema: Emparejamiento inducido
+\begin{teorema}  \label{Teo_emp_ind} (Emparejamiento inducido)
+    Para todo $\varepsilon > 0$, existe $n_0\in \mathbb{N}$ tal que todo grafo $G = (V,E)$ de $n\geq n_0$ vértices que está compuesto por la unión de $n$ emparejamientos inducidos, posee a lo más $\varepsilon n^{2}$ aristas.
+\end{teorema}
+
+%%%% Demostración: Emparejamiento inducido
+\begin{proof}
+    Dado $\varepsilon > 0$, aplique el Teorema \ref{szemeredi_regularity_lemma} con $\varepsilon_r = \frac{\varepsilon}{10}$ para obtener la constante $M(\varepsilon_r)$. Considere $n_0\in\mathbb{N}$ suficientemente grande, y asuma que el grafo $G = (V,E)$ con $n\geq n_0$ vértices y compueston por $n$ emparejamientos inducidos satisface $e_G > \varepsilon n$. Nuevamente, por el Teorema \ref{szemeredi_regularity_lemma}, se asegura la existencia de la partición $\mathcal{P} = \lbrace V_1,...,V_k\rbrace$ con $k\leq M(\varepsilon)$ partes que es $\varepsilon_r$-regular.\medskip
+    
+    Para cada $(i,j)\in [k]^{2}$ se eliminan todas las aristas entre los conjuntos $V_i$ y $V_j$ cuando éstos presenten irregularidad, densidad menor que $2\varepsilon_r$, o al menos uno de los conjuntos es menor que $\frac{n}{k}\varepsilon_r$. En total, el proceso de limpieza remueve a lo más $4\varepsilon_r n^{2}$ aristas de $G$ para obtener un nuevo grafo $G'$. En consecuencia,\medskip
+    
+    \begin{equation*}
+        e_G' \geq e_G - 4\varepsilon_r n^{2} > \varepsilon n^{2} - \frac{4}{10}\varepsilon n^{2} > \frac{\varepsilon}{2}n^{2}.
+    \end{equation*}\medskip
+
+    Ahora, observe que debe existir un emparejamiento inducido $M$ en $G'$ con al menos $\frac{\varepsilon}{2}n$ aristas (y al menos $\varepsilon n$ vértices). De no ser así, todos los emparejamientos tendrán a lo más $\frac{\varepsilon}{2}n$ aristas, por lo que $e_G' < \frac{\varepsilon}{2}n^{2}$.\medskip
+
+    Se define $U_i := V_i \cap V(M)$ como el subconjunto de vértices de $M$ que comparte elementos con $V_i$, y $U := \displaystyle\bigcup_{i\in [k]} \lbrace U_i : |U_i| \geq \varepsilon_r |V_i|\rbrace$. Es decir, $U$ es la unión de todos los conjuntos $U_i \subset V(M)$ que comparten una fracción suficientemente grande de vértices con $V_i$. Note que podemos obtener el conjunto $U$ removiendo a lo más $\varepsilon_r n = \frac{\varepsilon}{10}n$ vértices de $V(M)$, pues\medskip
+
+    \begin{equation*}
+        \sum_{i\in [k]} |U_i| < \sum_{i\in [k]} \varepsilon_r |V_i| = \frac{\varepsilon}{10} n.
+    \end{equation*}\medskip
+
+    De esta manera, recordando que $|V(M)| \geq \varepsilon n$, se determina que $|U| > \varepsilon n - \frac{\varepsilon}{10}n = \frac{9}{10}\varepsilon n$. Además, como también $|M| \geq \frac{\varepsilon}{2}n$, debe existir al menos un vértice en $U$ que sea parte de una arista en $M$. Luego, dada la limpieza de $G$, dicha arista debe pertenecer a algún par $U_t\times U_\ell$ que satisfacen $|U_k| \geq \varepsilon_r |V_k|$ y  $|U_\ell| \geq \varepsilon_r |V_\ell|$, y son tales que 
+    su correspondiente par $(V_t, V_\ell)$ es $\varepsilon_r$-regular con densidad $d(V_t, V_\ell) \geq 2\varepsilon_r$. Entonces, por regularidad,
+
+    \begin{equation} \label{eq1_emp_ind}
+        d(U_t, U_\ell) = d(V_t, V_\ell) \pm \varepsilon_r \geq 2\varepsilon_r - \varepsilon_r = \varepsilon_r.
+    \end{equation}\medskip
+
+    Ahora, como que $M$ es un emparejamiento inducido, todo par de subconjuntos $A,B\subset V(M)$ debe satisfacer\medskip
+
+    \begin{equation*}
+        e(A,B) \leq \min\lbrace |A|, |B|\rbrace.
+    \end{equation*}\medskip
+
+    Sin embargo, la desigualdad \eqref{eq1_emp_ind} implica que\medskip
+
+    \begin{align*}
+        e(U_t, U_\ell) &= d(U_t, U_\ell)|U_t||U_\ell|\\
+        &\geq |U_t||U_\ell| \varepsilon_r\\
+        &\geq |U_t| |V_\ell| \varepsilon_{r}^{2}\\
+        &\geq |U_t|\frac{n}{k}\varepsilon_{r}^{3}\\
+        &> |U_t|.
+    \end{align*}\medskip
+
+    La desigualdad anterior nos dice que existe una arista entre $U_k$ y $U_\ell$ que no pertenece a $M$, por lo que se contradice la hipótesis de que $M$ es un emparejamiento inducido. 
+\end{proof}\medskip
+
+\fs{Comentar que el siguiente teorema será utilizado para demostrar alternativamente el Teorema de Roth.}
+
+
+%%%% Teorema: Esquina (Ajtai-Szemerédi)
+\begin{teorema} \label{Corner_Theorem} (Ajtai-Szemerédi)
+    Para todo $\varepsilon > 0$, existe $n_0\in\mathbb{N}$ tal que siempre que $n\geq n_0$, todo subconjunto $S\subset [n]^{2}$ con $|S| \geq \varepsilon n^{2}$ posee elementos de la forma $\lbrace (a,b), (a+d, b), (a, b+d)\rbrace$ para algún $a,b,d \in \mathbb{N}$, con $d \not= 0$.
+\end{teorema}
+
+%%%% Demostración: Esquina (Ajtai-Szemerédi)
+\begin{proof}
+    Sea $\varepsilon > 0$, $n_0\in\mathbb{N}$ suficientemente grande tal que $n\geq n_0$, y $S\subset [n]^{2}$ un subconjunto con al menos $\varepsilon n^{2}$ elementos. Vamos a construir un grafo bipartito $G = (U\cup W, E)$ con conjunto de vértices $U = \lbrace u_1,...,u_n\rbrace$ y  $W = \lbrace w_1,...,w_n\rbrace$ definiendo las aristas de la siguiente manera:\medskip
+
+    \[
+        u_i w_j\in E \Longleftrightarrow (i,j)\in S.
+    \]\medskip
+
+    Interpretando a $[n]^{2}$ como una grilla bidimensional, se puede definir una relación entre pares de aristas en $G$ en función de la distancia que abarca la suma de las coordenadas de sus respectivos pares en $S$. Esto es,\medskip
+
+    \[
+        u_i w_j \sim u_k w_\ell \Longleftrightarrow i + j = k + \ell = q.
+    \]\medskip
+
+    \fs{Dibujito con 2 ejemplos de $q$.}
+    Observe que para cada $2\leq q\leq 2n$ se define un emparejamiento en $G$ debido a que no existen aristas que compartan un vértice, por lo que las clases de equivalencia (cada una asociada a algún $q$) de la relación forman una partición de emparejamientos de $E$. En efecto, suponga que las aristas que pertenecen a la misma clase $u_i w_j$ y $u_k w_j$ comparten el vértice $w_j$. Entonces, como $i+j = k+j$, se determina que $u_i = u_k$ y se concluye que $u_i w_j$ y $u_k w_j$ son la misma arista.\medskip
+
+    Luego, como $e_G = |S| \geq \varepsilon n^{2}$, el Teorema \ref{Teo_emp_ind} asegura que existe al menos un emparejamiento no inducido. Esto significa que en un emparejamiento que contiene las aristas con la relación $u_i w_j \sim u_k w_\ell$ puede existir el trío de aristas $u_i w_j$, $u_k w_\ell$ y $u_i w_\ell$. Así, para algún $d\in \mathbb{N}$, $(i,j)$, $(k,\ell)$ y $(i,\ell)$ elementos de $S$ que satisfacen\medskip
+
+    \[
+        k - i = j - \ell = d.
+    \]\medskip
+
+    Finalmente, el resultado se consigue tomando $(i,\ell)$ = $(a,b)$ para obtener $j = b + d$ y $k = a + d$. \fs{Poner dibujito de la esquina}
+\end{proof}\medskip
+
+\fs{Comentar que el Teorema de la esquina nos entrega otro camino para demostrar el Teorema de Roth.}\medskip
+
+\begin{proof}[Segunda demostración Teorema \ref{Teorema Roth}]
+    Dado $\varepsilon > 0$, escogemos $n_0\in\mathbb{N}$ suficientemente grande. Para $n\geq n_0$, sea $A\subset [n]$ un conjunto que posee al menos $\varepsilon n$ elementos. Se define el siguiente conjunto:\medskip
+    
+    \[
+        B = \lbrace (x,y)\in [2n]^{2} : x-y\in A\rbrace,
+    \]\medskip
+    
+    Observe que cada $a\in A$ da lugar a exactamente $n$ elementos en $B$ con $x-y=a$, permitiendo determinar que $|B| = n|A| \geq \varepsilon n^{2}$. Luego, el Teorema \ref{Corner_Theorem} asegura la existencia de elementos de la forma $\lbrace (a,b), (a, b+d), (a+d,b)\rbrace$ en $B$. Por consecuencia, se encuentra una 3-PA no trivial en $A$ tomando $x = a-b$, e $y = d$.
+\end{proof}\medskip
+
+\fs{Explicar que ahora vamos a demostrar con teoría espectral el lema de regularidad de Szemerédi. Comentar también que esta versión la realizó Terence Tao.}\medskip
+
+%%%% Demostración espectral: Lema de regularidad Szemerédi
+\begin{proof}[Demostración espectral Teorema \ref{szemeredi_regularity_lemma}] 
+    Sea $\varepsilon > 0$, $G = ([n],E)$ un grafo y $T$ su matriz de adyacencia. Consideramos además $\lbrace u_1,...,u_n\rbrace$ la base ortonormal de $\mathbb{R}^{n}$ formada por los vectores propios de $T$, y $|\lambda_1| \geq ... \geq |\lambda_n|$ los valores propios de $T$ ordenados de manera decreciente.\medskip
+
+    Por la Proposición \ref{potencia_matriz_adyacencia = caminatas} y el Corolario \ref{Tr_Ak}, se satisface\medskip
+
+    \begin{equation} \label{eq_1 Spectral_Proof}
+        \Tr(T) = \sum_{i=1}^{n} \lambda_{1}^{2} =  2e_G \leq n^{2}.
+    \end{equation}\medskip
+
+    De esta manera, al notar que $i\lambda_{i}^{2} \leq \sum_{j=1}^{i} \lambda_{j}^{2} \leq n^{2}$, es posible acotar cada valor propio de la siguiente manera:\medskip
+
+    \begin{equation} \label{eq_2 Spectral_Proof}
+        \lambda_{i} \leq \frac{n}{\sqrt{i}}\ ,\ \forall i\in [n].
+    \end{equation}\medskip
+
+    Al final de esta demostración se entregará una función $f:\mathbb{N}\to \mathbb{N}$ que depende únicamente de $\varepsilon$ y que satisface $f(i) > i$. Denotando por $f^{(k)}$ a la $k$-ésima composición de $f$ con ella misma, consideramos una partición de $[n]$ en intervalos de la forma $[f^{(k-1)}(1), f^{k}(1)]$, para $k\in \lbrace 1,...,\frac{1}{\varepsilon^{3}}\rbrace$. Con esta construcción, debe existir un natural $\ell = f^{(k-1)}(1)$ que cumple con\medskip
+
+    \begin{equation} \label{eq_3 Spectral_Proof}
+        \sum_{\ell \leq j < f(\ell)} |\lambda_j|^{2} \leq \varepsilon^{3}n^{2}.
+    \end{equation}\medskip
+
+    De lo contrario, la suma de $|\lambda_j|^{2}$ sobre todos los intervalos definidos es estrictamente mayor que $\varepsilon^{3}n^{2}$. Así, como son $\frac{1}{\varepsilon^{3}}$ intervalos, se contradice la desigualdad \eqref{eq_1 Spectral_Proof}, pues\medskip
+
+    \begin{equation*}
+        \sum_{j=1}^{n} |\lambda_j|^{2} > \frac{1}{\varepsilon^{3}}\cdot \varepsilon^{3}n^{2} = n^{2}.
+    \end{equation*}\medskip
+
+    Ahora, usando el natural $\ell$, separamos la matriz $T$ en tres partes. En específico,\medskip
+
+    \begin{equation*}
+        T = T_1 + T_2 + T_3.
+    \end{equation*}\medskip
+
+    Se interpretará $T_1$ como la componente \emph{estructural},\medskip
+
+    \begin{equation*}
+        T_1 := \sum_{i < \ell} \lambda u_i u_{i}^{T},
+    \end{equation*}\medskip
+
+    $T_2$ como la componente de \emph{error},\medskip
+
+    \begin{equation*}
+        T_2 := \sum_{\ell \leq i < f(\ell)} \lambda_i u_i u_{i}^{T},
+    \end{equation*}\medskip
+
+    y $T_3$ como la componente \emph{casi-aleatoria},\medskip
+
+    \begin{equation*}
+        T_3 := \sum_{i \geq f(\ell)} \lambda_i u_i u_{i}^{T}.
+    \end{equation*}\medskip
+
+    Pensamos cada vector propio de $T$ como una función $u_i : [n]\to \mathbb{R}$. En otras palabras, todo vector propio asigna un \emph{peso} a cada vértice de $G$.\medskip
+
+    \textbf{Analizamos} $\mathbf{T_1}$. La idea es particionar el conjunto de vértices $[n]$ de manera tal que $T_1$ es aproximadamente constante en la mayoría de las partes. Veremos que el número de partes será $O_{\ell, \varepsilon}(1)$, es decir, un valor constante que depende solo de $\ell$ y $\varepsilon$.\medskip
+
+    Para cada $i\in [\ell - 1]$ ordenamos de manera creciente los vértices de $G$ según la asignación de \emph{pesos} que otorga $u_i (\cdot)$. En primera instancia, se agrupa en un conjunto excepcional a aquellos vértices que presenten un \emph{peso} demasiado grande en magnitud. Dicho conjunto se define de la siguiente manera:\medskip
+
+    \begin{equation*}
+        V_{0}^{i} := \left\lbrace k\in [n]: |u_i (k)| > \sqrt{\frac{\ell}{\varepsilon}} n^{-1/2}\right\rbrace.
+    \end{equation*}\medskip
+
+    Dado que $\norm{u_i} = 1$, cada $V_{0}^{i}$ no puede tener muchos elementos. En efecto, al observar que\medskip
+
+    \begin{equation*}
+        |V_{0}^{i}|\left( \sqrt{\frac{\ell}{\varepsilon}}n^{-1/2}\right)^{2} < \sum_{k=1}^{n} u_{i}(k)^{2} = \norm{u_i}^{2} = 1,
+    \end{equation*}\medskip
+
+    es posible determinar que $|V_{0}^{i}| < \frac{\varepsilon}{\ell}n$.\medskip
+
+    Aquellos vértices que no están en $V_{0}^{i}$, serán agrupados particionando la recta de largo $2\sqrt{\frac{\ell}{\varepsilon}}n^{-1/2}$ en subintervalos de tamaño a lo más $\left( \frac{\varepsilon^{3/2}}{\ell^{3/2}}\right)n^{-1/2}$. Esta configuración provoca gráficamente el siguiente esquema para cada $u_i (\cdot)$.\medskip
+
+    \fs{Poner dibujito...}\medskip
+
+    Por consecuencia, para $i\in [\ell -1]$, la cantidad de partes que genera cada $u_{i}(\cdot)$ son a lo más\medskip
+
+    \begin{equation*}
+        \frac{
+            2\sqrt{\frac{\ell}{\varepsilon}} n^{-1/2}
+        }{
+            \frac{\varepsilon^{3/2}}{\ell^{3/2}} n^{-1/2}
+        } = \frac{2\ell^{2}}{\varepsilon^{2}} = O_{\ell, \varepsilon}(1).
+    \end{equation*}\medskip
+
+    
+    Para conseguir la partición deseada de $[n]$, por un lado, se toma la unión de todos los conjuntos excepcionales $V_{0}^{i}$ para dar lugar al conjunto $V_0$ de tamaño a lo más $(\ell - 1)\cdot \frac{\varepsilon n}{\ell} < \varepsilon n$. Por otro lado, combine las particiones generadas por los $\ell - 1$ primeros vectores propios mediante un refinamiento usual. Así, se consigue una partición del conjunto de vértices de $G$ de la forma $[n] = V_0 \cup V_1 \cup ...\cup V_{M}$. Dada la construcción, la cantidad de partes que se obtienen son\medskip
+
+    \begin{equation} \label{eq_4 Spectral_Proof}
+        M(\varepsilon) \leq \left( \frac{2\ell^{2}}{\varepsilon^{2}}\right)^{\ell}
+    \end{equation}\medskip
+
+    Ahora, intuitivamente, se mostrará que los valores de la matriz $T_1$ en cada bloque $V_i \times V_j$ son aproximadamente constante, i.e, no varían más que $o_{\varepsilon}(1)$. Para esto, como se hizo con los vectores propios, pensamos la matriz de adyacencia como una función $T: [n]\times [n]\to \mathbb{R}$ para identificar sus entradas. De esta manera, para cada $i,j\in [M]$, $a,c\in V_i$, y $b,d\in V_j$,\medskip
+
+    \begin{align*}
+        \left| T_1(a,b) - T_1(c,d)\right| &= \left| \sum_{i < \ell} \lambda_i u_i(a) u_i(b) - \lambda_i u_i(c) u_i(d)\right|\\
+        &\leq \sum_{i < \ell} \left| \lambda_i\right| \left| u_i(a) u_i(b) - u_i(c)u_i(b) + u_i(c)u_i(b) - u_i(c)u_i(d)\right|\\
+        &\leq \sum_{i < \ell} \left| \lambda_1\right| \left| u_i(b)(u_i(a) - u_i(c)) + u_i(c)(u_i(b) - u_i(d))\right|\\
+        &\leq \sum_{i < \ell} n \left| u_i(b)\right| \left| u_i(a) - u_i(c)\right| + n\left| u_i(c)\right| \left| u_i(b) - u_i(d)\right|\\
+        &\leq \ell n\left( 2\sqrt{\frac{\ell}{\varepsilon}} n^{-1/2}\cdot \frac{\varepsilon^{3/2}}{\ell^{3/2}} n^{-1/2} + 2\sqrt{\frac{\ell}{\varepsilon}} n^{-1/2}\cdot \frac{\varepsilon^{3/2}}{\ell^{3/2}} n^{-1/2}\right)\\
+        &= 4\varepsilon.
+    \end{align*}\medskip
+
+    Luego, para $i,j\in [M]$, defina $d_{ij}$ como el promedio de los valores del bloque $V_i \times V_j$ en $T_1$ y observe que se satisface\medskip
+
+    \begin{equation*}
+        \left| T_1(a,b) -d_{ij}\right| \leq 4\varepsilon\ ,\ \forall a\in V_1, \forall b\in V_j.
+    \end{equation*}\medskip
+
+    En efecto, como $d_{ij}$ es un promedio, deben existir los pares $(x_0, y_0), (x_1,y_1)\in V_i \times V_j$ tales que $T_1 (x_0, y_0) \leq d_{ij}$ y $T_1 (x_1,y_1) \geq d_{ij}$. Luego, si $\left| T_1 (a,b) - d_{ij}\right| > 4\varepsilon$, entonces se encuentra una contradicción al determinar que $T_1 (a,b) - T_1 (x_0, y_0) > 4\varepsilon$, o bien $T_1 (a,b) - T_1 (x_1, y_1) < -4\varepsilon$.\medskip
+
+    Usando lo anterior y la desigualdad triangular, para todo $A\subset V_i$ y $B\subset V_j$, obtenemos la siguiente cota.\medskip
+
+    \begin{align} \label{eq_5 Spectral_Proof}
+        \left| v_{A}^{T} (T_1 - d_{ij}\mathbbm{1}_{n\times n}) v_B\right| &\leq \sum_{a\in A}\sum_{b\in B} \left| T_1 (a,b) - d_{ij}\right| \nonumber\\
+        &\leq 4\varepsilon |A||B|\\
+        &\leq 4\varepsilon |V_i| |V_j|\nonumber.
+    \end{align}\medskip
+
+    \textbf{Analizamos} $\mathbf{T_2}$. Observe en primer lugar, por construcción,\medskip
+
+    \begin{equation*}
+        \Tr (T_{2}^{2}) = \sum_{\ell \leq j < f(\ell)} \lambda_{j}^{2} \leq \varepsilon^{3}n^{2}.
+    \end{equation*}\medskip
+
+    Adicionalmente, por la ortonormalidad de la base,\medskip
+
+    \begin{align*}
+        \sum_{a,b\in [n]} T_2 (a,b)^{2} &= \sum_{a,b\in [n]} \left( \sum_{\ell \leq i < f(\ell)} \lambda_i u_i(a) u_i(b)\right)^{2}\\
+        &= \sum_{a,b\in [n]} \sum_{\ell \leq i,j < f(\ell)} \lambda_i \lambda_j u_i(a) u_j(a) u_i(b) u_j(b)\\
+        &= \sum_{\ell \leq i,j < f(\ell)} \lambda_i \lambda_j \sum_{a\in [n]} u_i(a) u_j(a) \sum_{b\in [n]} u_i(b) u_j(b)\\
+        &= \sum_{\ell \leq i < f(\ell)} \lambda_{i}^{2} \norm{u_i}^{4}\\
+        &= \Tr (T_{2}^{2}).
+    \end{align*}\medskip
+
+    Entonces, dada la igualdad anterior, se determina que\medskip
+
+    \begin{equation} \label{eq_6 Spectral_Proof}
+        \sum_{a,b\in [n]} T_{2}(a,b)^{2} \leq \varepsilon^{3}n^{2}.
+    \end{equation}\medskip
+
+    Ahora, defina el conjunto $\Theta_1 \subset [M]^{2}$ de manera tal que todo par $(i,j)\not\in \Theta_1$ satisface\medskip
+
+    \begin{equation} \label{eq_7 Spectral_Proof}
+        \sum_{a\in V_i} \sum_{b\in V_j} T_{2}(a,b)^{2} \leq \varepsilon |V_i| |V_j|.
+    \end{equation}\medskip
+
+    Más aún, para los pares $(i,j)\in \Theta_1$, la desigualdad \eqref{eq_6 Spectral_Proof} en particular establece que\medskip
+
+    \begin{equation*}
+        \varepsilon^{3} n^{2} \geq \sum_{(i,j)\in \Theta_1} \sum_{a\in V_i} \sum_{b\in V_j} T_{2}(a,b)^{2} > \varepsilon \sum_{(i,j)\in \Theta_1} |V_i| |V_j|.
+    \end{equation*}\medskip
+
+    Por consecuencia,\medskip
+
+    \begin{equation} \label{eq_8 Spectral_Proof}
+        \sum_{(i,j)\in \Theta_1} |V_i| |V_j| \leq \varepsilon^{2} n^{2}.
+    \end{equation}\medskip
+
+    De esta manera, para $(i,j)\not\in \Theta_1$, $A\subset V_i$ y $B\subset V_j$, utilizamos la desigualdad \eqref{eq_7 Spectral_Proof} y Cauchy-Schwarz para conseguir\medskip
+
+    \begin{align*}
+    \left| v_{A}^{T} T_2 v_B\right|^{2} &= \left| \sum_{a\in A}\sum_{b\in B} T_{2}(a,b)\right|^{2}\\
+    &\overset{\mathrm{C-S}}{\leq} \left( \sum_{a\in A}\sum_{b\in B} T_{2}(a,b)^{2}\right)|A||B|\\
+    &\leq \varepsilon^{2} |V_i| |V_j| |A| |B|\\
+    &\leq \varepsilon^{2} |V_i|^{2} |V_j|^{2}.
+    \end{align*}\medskip
+
+    Así, se obtiene la cota asociada a $T_2$.\medskip
+
+    \begin{equation} \label{eq_9 Spectral_Proof}
+        |v_{A}^{T} T_2 v_B| \leq \varepsilon |V_i| |V_j|.
+    \end{equation}\medskip
+
+    \textbf{Analizamos} $\mathbf{T_3}$. Note que el valor propio más grande en magnitud de $T_3$ es $\lambda_{f(\ell)}$. Entonces, utilizando el operador norma \fs{Definir...} de la matriz $T_3$ y el Teorema \ref{Teo Courant-Fischer},\medskip
+
+    \begin{equation*}
+        \frac{\norm{T_3 v_B}}{\norm{v_B}} \leq \sup_{\substack{x\in \mathbb{R}^{n} \\ x\not= 0}} \frac{\norm{T_3 x}}{\norm{x}} = \left|\lambda_{f(\ell)}\right| \leq \frac{n}{\sqrt{f(\ell)}}.
+    \end{equation*}\medskip
+
+    Como resultado,\medskip
+
+    \begin{equation*}
+        \norm{T_3 v_B} \leq \norm{v_B}\frac{n}{\sqrt{f(\ell)}}.
+    \end{equation*}\medskip
+
+    Usando la desigualdad anterior junto a Cauchy-Schwarz se obtiene la siguiente cota para $T_3$.\medskip
+
+    \begin{align} \label{eq_10 Spectral_Proof}
+        \left| v_{A}^{T} T_3 v_B\right| &= \left| \langle v_A, T_3 v_B \rangle \right| \nonumber\\
+        &\overset{\mathrm{C-S}}{\leq} \norm{v_A} \norm{T_3 v_B} \nonumber\\
+        &\leq \norm{v_A} \norm{v_B} \frac{n}{\sqrt{f(\ell)}} \\
+        &= \sqrt{|A| |B|} \frac{n}{\sqrt{f(\ell)}} \nonumber\\
+        &\leq \frac{n^{2}}{\sqrt{f(\ell)}}.\nonumber
+    \end{align}\medskip
+
+    Ya con el control de $T_1$, $T_2$ y $T_3$, nos enfocamos en estudiar $G$ de manera global. Consideramos $\Theta \subset \lbrace 0,1,...,M\rbrace^{2}$ definido de la siguiente manera:\medskip
+
+    \begin{equation*}
+        \Theta := \left\lbrace (i,j)\in \lbrace 0,1,...,M\rbrace^{2} : (i,j)\in \Theta_1\  \vee\  i = 0\  \vee\  j = 0\  \vee\  \min\lbrace |V_i|, |V_j|\rbrace\leq \frac{\varepsilon n}{M}\right\rbrace.
+    \end{equation*}\medskip
+
+    Con esta definición, la desigualdad \eqref{eq_8 Spectral_Proof}, y recordando que $|V_0| < \varepsilon n$,\medskip
+
+    \begin{align*}
+        \sum_{(i,j)\in \Theta} |V_i| |V_j| &= \sum_{(i,j)\in \Theta_1} |V_i| |V_j| + \sum_{j=0}^{M} |V_0| |V_j| + \sum_{i=0}^{M} |V_i| |V_0| + \sum_{|V_i| \leq \frac{\varepsilon n}{M}} |V_i| |V_j| + \sum_{|V_j|\leq \frac{\varepsilon n}{M}} |V_i| |V_j| \\
+        &\leq \sum_{(i,j)\in \Theta_1} |V_i| |V_j| + 2|V_0|n + 2\sum_{|V_i|\leq \frac{\varepsilon n}{M}} |V_i| n \\
+        &\leq \varepsilon^{2} n^{2} + 2\varepsilon n^{2} + 2M\frac{\varepsilon}{M} n^{2}\\
+        &\leq 5\varepsilon n^{2}.
+    \end{align*}\medskip
+
+    Al ver la cota anterior, $\Theta$ se interpreta como un conjunto excepcional de pocos elementos que contiene los malos casos. Ahora bien, si $(i,j)\not\in \Theta$, todo $A\subset V_i$ y $B\subset V_j$ satisfacen la desigualdad\medskip
+
+    \begin{align} \label{eq_11 Spectral_Proof}
+        \Big| e(A,B) - d_{ij}|A||B|\Big| &= \left| v_{A}^{T}(T - d_{ij}\mathbbm{1}_{n\times n}) v_B \right|\nonumber\\
+        &\leq \left| v_{A}^{T} (T_1 -d_{ij}\mathbbm{1}_{n\times n}) v_B\right| + \left| v_{A}^{T} T_2 v_B\right| + \left| v_{A}^{T} T_3 v_B\right|\nonumber\\
+        &\leq 4\varepsilon |V_i| |V_j| + \varepsilon |V_i| |V_j| + \frac{n^{2}}{\sqrt{f(\ell)}}.
+    \end{align}\medskip
+
+    Observando la desigualdad en \eqref{eq_11 Spectral_Proof}, para $(i,j)\not\in \Theta$, se necesita que $\frac{n^{2}}{\sqrt{f(\ell)}} \leq \varepsilon |V_i| |V_j|$ para asegurar que la partición $\lbrace V_0, V_1,..., V_M\rbrace$ de $[n]$ es $(6\varepsilon)$-regular. Para esto, gracias a que $|V_i|, |V_j|\geq \frac{\varepsilon n}{M}$, se cumple la desigualdad $\frac{\varepsilon^{2} n^{2}}{M^{2}} \leq |V_i| |V_j|$, y por consecuencia\medskip
+
+    \begin{equation*}
+        \frac{n^{2}}{\sqrt{f(\ell)}} \leq \frac{M^{2} |V_i| |V_j|}{\varepsilon^{2}\sqrt{f(\ell)}}.
+    \end{equation*}\medskip
+
+    Finalmente, para obtener la partición $(6\varepsilon)$-regular del conjunto de vértices del grafo $G$, es suficiente asumir que $\frac{1}{\sqrt{f(\ell)}} \leq \frac{\varepsilon^{3}}{M^{2}}$. Así, recordando la cota vista en \eqref{eq_4 Spectral_Proof}, basta elegir\medskip
+
+    \begin{equation*}
+        f(x) \geq \frac{1}{\varepsilon^{6}}\left( \frac{2x^{2}}{\varepsilon^{2}}\right)^{4x}.
+    \end{equation*}
+    \end{proof}
+
+
+\section{Bibliografía}
+\begin{enumerate}
+    \item[[1]] Krivelevich, M., & Sudakov, B. (2006). Pseudo-random Graphs. In Bolyai Society Mathematical Studies (pp. 199–262). Springer Berlin Heidelberg.
+    \item[[2]] Chung, F. R. K., Graham, R. L., & Wilson, R. M. (1989). Quasi-random graphs. Combinatorica. An International Journal on Combinatorics and the Theory of Computing.
+    \item[[3]] Chan, T. F. N., Král’, D., Noel, J. A., Pehova, Y., Sharifzadeh, M., & Volec, J. (2020). Characterization of quasirandom permutations by a pattern sum. Random Structures & Algorithms.
+    \item[[4]] Hàn, H., Kiwi, M., & Pavez-Signé, M. (2021). Quasi-random words and limits of word sequences. Journal Europeen de Combinatoire [European Journal of Combinatorics].
+\end{enumerate}
+
+
+
+\end{document}
