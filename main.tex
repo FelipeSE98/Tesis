@@ -7,6 +7,9 @@
 \usepackage{bbm}
 \usepackage{amsmath}
 \usepackage{stackrel}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{caption}
 
 \usepackage[utf8]{inputenc}
 %\usepackage[vietnam]{babel}
@@ -14,6 +17,9 @@
 
 \newcommand{\hh}[1]{{\color{red} * #1 *}}
 \newcommand{\fs}[1]{{\color{blue}* #1 *}}
+
+%%%% Ajustamos el margen y el font de la descripción de cada figura.
+\captionsetup[figure]{margin=50pt, justification=justified}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Para teoremas, proposición y demnostración
@@ -195,54 +201,113 @@ El objeto de estudio principal en este trabajo son las palabras pseudo-aleatoria
 \subsection{Nociones básicas}
 
 %%%% Definir grafo
-Un grafo es un par $G = (V,E)$, donde $V$ representa el conjunto de vértices (o \emph{nodos}, o \emph{puntos}), y $E\subseteq V\times V$ el conjunto de aristas (o \emph{líneas}). Usualmente para un grafo $G$ escribiremos $V(G)$ como el conjunto de vértices, $E(G)$ el conjunto de aristas, y sus respectivas cardinalidades como $\nu_G := |V(G)|$ y $e_G := |E(G)|$. Si tenemos una arista $e = uv\in E(G)$, entonces diremos que $u$ es \textbf{adyacente} a $v$, y que $u$ (o $v$) es \textbf{incidente} a $e$. \hh{Ingresar la imágen de un grafo justo abajo.}
+Un grafo es un par $G = (V,E)$, donde $V$ representa el conjunto de vértices (o \emph{nodos}, o \emph{puntos}), y $E\subseteq V\times V$ el conjunto de
+aristas (o \emph{líneas}). Dado un grafo $G$, se escribe $V(G)$ como su conjunto de vértices, $E(G)$ como su conjunto de aristas, y sus respectivas
+cardinalidades como $\nu_G := |V(G)|$ y $e_G := |E(G)|$.\medskip
 
-\hh{Justo después de la imagen} En algunas situaciones, el conjunto de vértices de un grafo será considerado ordenado. Es decir, para un grafo $G$ con $n$ vértices, el conjunto de vértices será interpretado por $V(G) = [n]$.
+%%%% Ejemplo grafo
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+        % vértices
+        \node[fill=black, circle, inner sep=1pt, minimum size=4pt, label={180:$\mathbf{2}$}] (2) at (-1.5, 0) {};
+        \node[fill=black, circle, inner sep=1pt, minimum size=4pt, label={180:$\mathbf{1}$}] (1) at (-1.5, -1.5) {};
+        \node[fill=black, circle, inner sep=1pt, minimum size=4pt, label={0:$\mathbf{3}$}] (3) at (0, 0) {};
+        \node[fill=black, circle, inner sep=1pt, minimum size=4pt, label={0:$\mathbf{5}$}] (5) at (1.8, 0) {};
+        \node[fill=black, circle, inner sep=1pt, minimum size=4pt, label={0:$\mathbf{4}$}] (4) at (1.8, -1.5) {};
+
+        % aristas
+        \draw[line width=1.2] (1) -- (2);
+        \draw[line width=1.2] (2) -- (3);
+        \draw[line width=1.2] (1) -- (3);
+        \draw[line width=1.2] (5) -- (4);
+    \end{tikzpicture}
+    \caption{Ejemplo de un grafo con conjunto de vértices $V = \lbrace 1,2,3,4,5\rbrace$ y conjunto de aristas $E = \lbrace 12,23,13,45\rbrace$.}
+\end{figure}\medskip
+
+Siendo $u,v\in V(G)$ dos vértices del grafo $G$, se dirá que $u$ y es \textbf{adyacente} con $v$ (o viceversa) si y solamente si $uv\in E(G)$. Además, si $e= u,v\in E(G)$,
+entonces se dice que los vértices $u$ y $v$ son \textbf{incidentes} a $e$. En algunas ocaciones el conjunto de vértices de un grafo será considerado ordenado, es decir, 
+$V(G) = [n]$ cuando el grafo $G$ posee $n$ vértices.\medskip
 
 %%%% Definición de densidad de aristas
 \begin{definicion} \label{e(X,Y)}
-    Sea $G = (V,E)$ un grafo y $X,Y\subset V$ subconjuntos no necesariamente disjuntos de $V$. Se define
+    Sea $G = (V,E)$ un grafo, y $X,Y\subset V$ subconjuntos no necesariamente disjuntos de $V$. Se define\medskip
+
     \begin{equation} \label{e(X,Y)}
-     e(X,Y) := \Big|\lbrace (x,y)\in X\times Y : xy\in E\rbrace\Big|.
-    \end{equation}
+        e(X,Y) := \Big|\lbrace (x,y)\in X\times Y : xy\in E\rbrace\Big|.
+    \end{equation}\medskip
     
-    Cuando $X\cap Y = \emptyset$ cuenta el número de aristas entre $X$ e $Y$, y cuando $X\cap Y\not=\emptyset$ realiza un doble conteo sobre las aristas que se encuentran en $X\cap Y$.
-    Además, se define la \textbf{densidad de aristas} entre $X$ e $Y$ mediante
+    Cuando $X\cap Y = \emptyset$, $e(X,Y)$ cuenta el número de aristas entre $X$ e $Y$, y cuando $X\cap Y\not=\emptyset$ realiza un doble conteo sobre las aristas que se encuentran en $X\cap Y$.
+    Además, se define la \textbf{densidad de aristas} entre $X$ e $Y$ mediante\medskip
+
     \begin{equation}
         d(X,Y) := \frac{e(X,Y)}{|X||Y|}.
     \end{equation} 
-\end{definicion}
+\end{definicion}\medskip
 
-En un grafo $G$, la \textbf{vecindad} de un vértice $u\in V(G)$ estará definida de la siguiente manera,
+%%%% Definición vecinandad
+En un grafo $G$, la \textbf{vecindad} de un vértice $u\in V(G)$ se define como el conjunto de todos los vértices que están
+conectados directamente con $u$ por medio de una arista. Es decir,\medskip
+
 \begin{equation} \label{vecindad}
     N(u) := \lbrace v\in V(G) : uv\in E(G)\rbrace.
-\end{equation}
+\end{equation}\medskip
+
+Este concepto resulta relevante para trabajr y comprender las conexiones locales de un grafo. Con esto, se introducen conceptos
+relacionados con la madida de conectividad de cada vértice.\medskip
 
 %%%% Definición grado y cogrado
 \begin{definicion}
-    Sea $G = (V,E)$ un grafo, el \textbf{grado} de un vértice $u\in V$ con respecto a algún conjunto de vértices $Y\subseteq V$ está definido por
-    \[ \deg(u;Y) := \sum_{v\in Y} \mathbbm{1}_{E}(uv). \]
+    Sea $G = (V,E)$ un grafo, el \textbf{grado} de un vértice $u\in V$ con respecto a algún conjunto de vértices $Y\subseteq V$ está definido por\medskip
 
-    En particular, cuando $Y = V$,
-    \[ \deg(u) = \sum_{v\in V} \mathbbm{1}_{E}(uv) = |N(u)|.\]
+    \[ 
+        \deg(u;Y) := \sum_{v\in Y} \mathbbm{1}_{E}(uv). 
+    \]\medskip
 
-    Se define también el \textbf{cogrado} de un par de vértices $u,v\in V$ mediante,
-    \[ \cod(u,v) = \sum_{w\in V} \mathbbm{1}_{E}(wu) \mathbbm{1}_{E}(wv)=|N(u)\cap N(v)|.\]
-\end{definicion}
+    En particular, cuando $Y = V$,\medskip
 
-Más adelante, en la sección \ref{CGW}, se utilizará la siguiente relación entre el grado y el cogrado,
-\begin{equation} \label{relación grado-cogrado}
-    \sum_{u\in V} \deg(u;Y)^{2} = \sum_{v,v'\in Y\subseteq V} \cod(v,v').
-\end{equation} 
+    \[
+         \deg(u) = \sum_{v\in V} \mathbbm{1}_{E}(uv) = |N(u)|.
+    \]\medskip
 
-En efecto,
-\begin{align*}
+    Se define también el \textbf{cogrado} de un par de vértices $u,v\in V$ mediante,\medskip
+
+    \[
+         \cod(u,v) = \sum_{w\in V} \mathbbm{1}_{E}(wu) \mathbbm{1}_{E}(wv)=|N(u)\cap N(v)|.
+    \]
+\end{definicion}\medskip
+
+Es importante destacar que existe una relación intrínseca entre los conceptos de grado y cogrado, cual será de
+utilidad en la sección \ref*{CGW}.\medskip
+
+%%%% Proposición: Relación grado-cogrado
+\begin{prop} \label{Prop: grado-cogrado}
+    Sea $G = (V,E)$ un grafo e $Y\subset V$ un subconjunto de vértices, entonces\medskip
+
+    \[
+        \sum_{u\in V} \deg(u;Y)^{2} = \sum_{v,v'\in Y\subseteq V} \cod(v,v').
+    \]
+\end{prop}
+%%%% Demostración Proposición: Relación grado-cogrado
+\begin{proof}
+   Utilizando las respectivas definiciones de grado y cogrado, el resultado se obtiene de 
+   seguir el siguiente cálculo:\medskip
+
+   \begin{align*}
     \sum_{u\in V} \deg(u;Y)^{2} &= \sum_{u\in V}\sum_{v,v'\in Y} \mathbbm{1}_{E}(uv) \mathbbm{1}_{E}(uv')\\
     &= \sum_{v,v'\in Y}\sum_{u\in V} \mathbbm{1}_{E}(vu) \mathbbm{1}_{E}(v'u)\\
     &= \sum_{v,v'\in Y}\cod(v,v').
 \end{align*}
+\end{proof}\medskip
 
-Si $Y = V$, entonces $\sum_{u\in V} \deg(u)^{2} = \sum_{u,v\in V}\cod(u,v)$.
+Observe que en particular, cuando $Y=V$, se satisface\medskip
+
+\begin{equation} \label{grado-cogrado}
+    \sum_{u\in V} \deg(u)^{2} = \sum_{u,v\in V}\cod(u,v).
+\end{equation}\medskip
+
+Otra propiedad elemental que se utilizará a menudo, es la conexión entre la suma del grado de todos los vértices
+y la cantidad de aristas de un grafo.\medskip
 
 %%%% Suma grados = 2e
 \begin{prop}
@@ -257,10 +322,44 @@ Si $Y = V$, entonces $\sum_{u\in V} \deg(u)^{2} = \sum_{u,v\in V}\cod(u,v)$.
     Cada arista $uv\in E$ será contada dos veces en la suma, una contribución por $u$ y otra por $v$.
 \end{proof}\medskip
 
-%%%% Definición: Grafo bipartito
-\begin{definicion}
-    Un grafo $G = (V,E)$ se dice \textbf{$k$-partito} si existe una partición de su conjunto de vértices en $k$ conjuntos disjuntos $V_1, V_2, ... ,V_k$ tal que $uv\in E$ si y solamente si $u\in V_j$ y $v\in V_j$, con $i\not=j$. Cuando un grafo es $2$-partito, se le llamará \textbf{bipartito}.
-\end{definicion}
+A continuación, se enuncian algunos grafos especiales que son contemplados en este documento.
+Diremos que un grafo $G = (V,E)$ es $\mathbf{k}$\textbf{-partito} si existe una partición de $V$ en $k$ 
+subconjuntos disjuntos $V_1,V_2,...,V_k$ tales que $uv\in E$ si y solamente si $u\in V_i$ y $v\in V_j$, con $i\not=j$.
+En particular, cuando un grafo es 2-partito lo llamaremos \textbf{bipartito}.\medskip
+
+%%%% Ejemplo grafo 3-partito
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+        % Conjunto 1
+        \foreach \x in {1,2,3}
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (A\x) at (\x,2) {};
+
+        % Conjunto 2
+        \foreach \y in {1,2,3,4}
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (B\y) at (\y-0.5,0) {};
+
+        % Conjunto 3
+        \foreach \z in {1,2,3}
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (C\z) at (\z+1, -2) {};
+
+        % Conexiones
+        \draw (A1) -- (B1);
+        \draw (A2) -- (B2);
+        \draw (A3) -- (B3);
+        \draw (A2) -- (B4);
+        
+        \draw (B1) -- (C2);
+        \draw (B2) -- (C3);
+        \draw (B3) -- (C1);
+
+        \draw (C1) -- (A2);
+        \draw (C2) -- (A3);
+        \draw (C3) -- (A1);
+    \end{tikzpicture}
+    \caption{Ejemplo de un grafo 3-partito.}
+\end{figure}
+
 
 
 Denotamos por $K_n$ al \textbf{grafo completo} de $n$ vértices, y $K_{n,m}$ como el \textbf{grafo bipartito completo} con $n$ vértices en una parte y $m$ vértices en la otra parte. Los grafos anteriores se caracterizan por poseer todas posibles conexiones entre los vértices, es decir, todos los pares de vértices son adyacentes y sus aristas son exactamente $e_{K_n} = \tbinom{n}{2}$ y $e_{K_{n,m}} = n\cdot m$. Llamaremos por \textbf{grafo $d$-regular} a aquel que presenta todos sus vértices con grado $d$. 
