@@ -35,6 +35,19 @@
 \providecommand{\abs}[1]{\lvert#1\rvert}
 \providecommand{\norm}[1]{\lVert#1\rVert}
 
+\newcommand{\K}[2][5]{
+    \begin{tikzpicture}
+        \def\ang{360/#2}
+        % Dibujar vértices como círculos negros
+        \foreach \i in {1,...,#2}
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt] at (\ang*\i:#1) {};
+        % Dibujar aristas
+        \foreach \i in {1,...,#2}
+            \foreach \j in {1,...,#2}
+                \draw (\ang*\i:#1) -- (\ang*\j:#1);
+    \end{tikzpicture}
+}
+
 
 % Palabras recurrentes Chung,Graham y Wilson
 \newcommand{\disc}{\mathrm{DISC}}
@@ -233,7 +246,7 @@ $V(G) = [n]$ cuando el grafo $G$ posee $n$ vértices.\medskip
 \begin{definicion} \label{e(X,Y)}
     Sea $G = (V,E)$ un grafo, y $X,Y\subset V$ subconjuntos no necesariamente disjuntos de $V$. Se define\medskip
 
-    \begin{equation} \label{e(X,Y)}
+    \begin{equation} \label{eq e(X,Y)}
         e(X,Y) := \Big|\lbrace (x,y)\in X\times Y : xy\in E\rbrace\Big|.
     \end{equation}\medskip
     
@@ -267,13 +280,13 @@ relacionados con la madida de conectividad de cada vértice.\medskip
     En particular, cuando $Y = V$,\medskip
 
     \[
-         \deg(u) = \sum_{v\in V} \mathbbm{1}_{E}(uv) = |N(u)|.
+        \deg(u) = \sum_{v\in V} \mathbbm{1}_{E}(uv) = |N(u)|.
     \]\medskip
 
     Se define también el \textbf{cogrado} de un par de vértices $u,v\in V$ mediante,\medskip
 
     \[
-         \cod(u,v) = \sum_{w\in V} \mathbbm{1}_{E}(wu) \mathbbm{1}_{E}(wv)=|N(u)\cap N(v)|.
+        \cod(u,v) = \sum_{w\in V} \mathbbm{1}_{E}(wu) \mathbbm{1}_{E}(wv)=|N(u)\cap N(v)|.
     \]
 \end{definicion}\medskip
 
@@ -290,10 +303,10 @@ utilidad en la sección \ref*{CGW}.\medskip
 \end{prop}
 %%%% Demostración Proposición: Relación grado-cogrado
 \begin{proof}
-   Utilizando las respectivas definiciones de grado y cogrado, el resultado se obtiene de 
-   seguir el siguiente cálculo:\medskip
+    Utilizando las respectivas definiciones de grado y cogrado, el resultado se obtiene de 
+    seguir el siguiente cálculo:\medskip
 
-   \begin{align*}
+    \begin{align*}
     \sum_{u\in V} \deg(u;Y)^{2} &= \sum_{u\in V}\sum_{v,v'\in Y} \mathbbm{1}_{E}(uv) \mathbbm{1}_{E}(uv')\\
     &= \sum_{v,v'\in Y}\sum_{u\in V} \mathbbm{1}_{E}(vu) \mathbbm{1}_{E}(v'u)\\
     &= \sum_{v,v'\in Y}\cod(v,v').
@@ -358,55 +371,183 @@ En particular, cuando un grafo es 2-partito lo llamaremos \textbf{bipartito}.\me
         \draw (C3) -- (A1);
     \end{tikzpicture}
     \caption{Ejemplo de un grafo 3-partito.}
-\end{figure}
+\end{figure}\medskip
 
+Un \textbf{grafo completo} de $n$ vértices, denotado por $K_n$, es un grafo en el cual todos sus vértices son adyacentes entre ellos, es decir, todo par de vértices en el grafo posee una arista que los conecta. Similarmente, se denota por $K_{n,m}$ al \textbf{grafo bipartito completo} con $n$ y $m$ elementos en sus respectivos conjuntos de vérrtices. De esta manera, observe que la cantidad de aristas en los grafos anteriores son exactamente $e_{K_n} = \tbinom{n}{2}$ y $e_{K_{n,m}} = n\cdot m$. Por otro lado, un grafo $\mathbf{d}$\textbf{-regular} es aquel que presenta todos sus vértices con grado $d$.\medskip
 
+% Ejemplos grafos especiales
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+        \begin{scope}[shift={(0,0)}] % NO PUEDO CORRERLO UN POQUITO A LA IZQ.
+            % Grafo completo: K_6
+        \K[1.6]{6}    
+        \end{scope}
 
-Denotamos por $K_n$ al \textbf{grafo completo} de $n$ vértices, y $K_{n,m}$ como el \textbf{grafo bipartito completo} con $n$ vértices en una parte y $m$ vértices en la otra parte. Los grafos anteriores se caracterizan por poseer todas posibles conexiones entre los vértices, es decir, todos los pares de vértices son adyacentes y sus aristas son exactamente $e_{K_n} = \tbinom{n}{2}$ y $e_{K_{n,m}} = n\cdot m$. Llamaremos por \textbf{grafo $d$-regular} a aquel que presenta todos sus vértices con grado $d$. 
+        \begin{scope}[shift={(-2cm,0)}]
+            % Grafo completo bipartito: K_{3,5}
+            % Definir los vértices de la primera bipartición (A)
+            \foreach \i in {1,2,3}{
+                \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (A\i) at (-1,\i -0.7) {};
+            }
+        
+
+            % Definir los vértices de la segunda bipartición (B)
+            \foreach \i in {1,...,5}{
+                \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (B\i) at (1,\i - 0.5 - 1.3) {};
+            }
+        
+
+            % Conectar cada nodo de A con cada nodo de B
+            \foreach \i in {1,2,3}{
+                \foreach \j in {1,...,5}{
+                    \draw (A\i) -- (B\j);
+                }
+            }
+        \end{scope}
+        
+        \begin{scope}[shift={(6cm,1.4cm)}]
+            % Grafo 3-regular
+            \foreach \x [count=\i] in {18,90,162,234,306}{
+                \coordinate (i\i) at (\x:1cm) {};
+                \coordinate (o\i) at (\x:1.8cm) {};
+                \draw (\x:1cm) -- (\x:1.8cm);
+            }
+
+            \draw (o1) -- (o2) -- (o3) -- (o4)-- (o5)--(o1);
+            \draw (i1) -- (i3) -- (i5) -- (i2)-- (i4)--(i1);
+
+            \foreach \x [count=\i] in {18,90,162,234,306}{
+                \node[fill=black, circle, inner sep=2pt, minimum size=4pt] at (\x:1cm){};
+                \node[fill=black, circle, inner sep=2pt, minimum size=4pt] at (\x:1.8cm){};
+            }  
+        \end{scope}
+    \end{tikzpicture}
+    \caption{Ejemplos grafos $K_{3,5}$, $K_6$ y 3-regular.}
+\end{figure}\medskip
+
+Otro concepto relevante en este trabajo son las diferentes nociones de rutas que se pueden encontrar siguiendo una secuencia de determinadas aristas de un grafo.\medskip
 
 %%%% Definición caminata, caminata cerrada, camino y ciclos
 \begin{definicion}
     Dado un grafo $G$ con  $n\geq k$ vértices, se define
     \begin{itemize}
         % Caminata
-        \item Una \textbf{caminata} es una secuencia de vértices no necesariamente distintos $v_0,v_1,...,v_k$ y  una secuencia de aristas $v_{i}v_{i+1}\in E(G)$.
+        \item Una \textbf{caminata} es una secuencia de vértices no necesariamente distintos $v_0,v_1,...,v_k$ tales que $v_{i}v_{i+1}\in E(G)$ para todo $i\in [k]$. Si $v_0 = v_k$, se dice que es una \textbf{caminata cerrada}. El \textbf{largo} de una caminata está determinado por la cantidad de aristas que ésta posea.
         % Camino
         \item Un \textbf{camino} es una caminata con todos los vértices $v_i$ distintos.
         % Ciclo
-        \item Un \textbf{ciclo} es un camino con $k\geq 2$, en el cual además $v_{0}v_{k}\in E(G)$. En específico, $v_0, v_1,...,v_k,v_0$ es un ciclo.
+        \item Un \textbf{ciclo} es un camino con $k\geq 2$, en el cual además $v_{0}v_{k}\in E(G)$. En específico, $v_0, v_1,...,v_k,v_0$ es un ciclo. Se denota por $C_k$ al ciclo de largo $k$.
     \end{itemize}
+\end{definicion}\medskip
 
-    Se dirá que una caminata o camino son \textbf{cerrados} si $v_0 = v_k$. Además, el \textbf{largo} de una caminata, camino o ciclo será determinado por la cantidad de aristas que éstos posean.
-\end{definicion}
+% Ejemplos de caminata, camino y ciclo.
+\begin{figure}[h]
+    \centering
+    % minipage de grafo
+    \begin{minipage}{0.35\textwidth}
+        \centering
+        \begin{tikzpicture}
+            % vértices
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={90:$\mathbf{2}$}] (2) at (-0.8,0.4) {};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={0:$\mathbf{3}$}] (3) at (0.8, 0.4) {};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={270:$\mathbf{5}$}] (5) at (-0.8,-1.2) {};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={0:$\mathbf{6}$}] (6) at (0.8,-1.2) {};
 
-\hh{Insertar un ejemplo de cada una de las anteriores.}
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={180:$\mathbf{1}$}] (1) at (-2,1.1) {};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={180:$\mathbf{4}$}] (4) at (-2,-1.9) {};
+
+            % Aristas
+            \draw[line width=1.2] (1) -- (2) -- (3) -- (6) -- (5) -- (4);
+            \draw[line width=1.2] (5) -- (2);
+        \end{tikzpicture}
+    \end{minipage}
+    % minipage ejemplos concretos
+    \begin{minipage}{0.15\linewidth}
+        \begin{align*}
+            &125456 \sim \text{caminata de largo 5.}\\
+            &\\
+            &1236 \sim \text{camino de largo 3.}\\
+            &\\
+            &23652 \sim \text{ciclo de largo 4.}
+        \end{align*}
+    \end{minipage}
+    \caption{Ejemplo de caminata, camino y ciclo.}
+    \label{ej caminos}
+\end{figure}\medskip
+
+Ahora, con ideas de posteriormente estudiar propiedades estructurales de los grafos, se introduce el concepto de isomorfismo entre grafos. Este último establece una correspondencia biyectiva entre los conjunto de vértices de dos grafos que preserva las relaciones de adyacencia.\medskip
 
 %%%% Definición isomorfismo de grafos
 \begin{definicion}
     Sean $G_1 = (V_1, E_1)$ y $G_2 = (V_2, E_2)$ grafos. Un \textbf{isomorfismo} $\varphi : G_1 \to G_2$ es una biyección desde $V_1$ hasta $V_2$ tal que $uv\in E_1$ si y solamente si $\varphi(u)\varphi(v)\in E_2$. Diremos que $G_1$ es isomorfo a $G_2$ si existe un isomorfismo entre ellos.
-\end{definicion}
+\end{definicion}\medskip
 
-Observe que un isomorfismo establece una relación de equivalencia de grafos. Es decir,
+% Ejemplo Isomorfismo
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.49\linewidth}
+        \centering
+        % G_1
+        \begin{tikzpicture}[baseline,scale=0.8]
+            %\draw[step=0.5cm, gray, very thin] (-3,-3) grid (3,3);
+            % Comienza ecuación
+            \node at (-3,0) {$G_1=$};
+            % Vértices 
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={180:$\mathbf{3}$}]  (3) at (-1.5,0) {};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={0:$\mathbf{4}$}]  (4) at (1.5,0) {};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={90:$\mathbf{1}$}]  (1) at (0,1.7) {};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={270:$\mathbf{5}$}]  (5) at (0,-2) {};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={90:$\mathbf{2}$}]  (2) at (3,2) {};
+            % Aristas
+            \draw[line width=1.2] (3) -- (1) -- (4) -- (2);
+            \draw[line width=1.2] (1) -- (5);
+        \end{tikzpicture}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.49\linewidth}
+        \centering
+        % G_2
+        \begin{tikzpicture}[baseline,scale=0.8]
+            \node at (-3,0) {$G_2=$};
+            % Vértices
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={180:$\mathbf{b}$}]  (b) at (-1.5,0) {};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={0:$\mathbf{d}$}]  (d) at (1.5,0) {};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={90:$\mathbf{a}$}]  (a) at (0,1.7) {};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={270:$\mathbf{e}$}]  (e) at (0,-2) {};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={270:$\mathbf{c}$}]  (c) at (0,0) {};
+            % Aristas
+            \draw[line width=1.2] (e) -- (b) -- (a) -- (d);
+            \draw[line width=1.2] (a) -- (c);
+        \end{tikzpicture}
+    \end{minipage}
+    \caption{Ejemplo de grafos isomorfos mediante la función $\varphi : V(G_1)\to V(G_2)$ definida por $\varphi(1)=a$, $\varphi(2)=e$, $\varphi(3)=c$, $\varphi(4)=b$ y $\varphi(5)=d$.}
+\end{figure}\medskip
+
+Observe que un isomorfismo establece una relación de equivalencia entre grafos. Es decir,\medskip
+
 \begin{itemize}
-    \item Todo grafo es isomorfo con sí mismo.
-    \item Si $G_1$ es isomorfo a $G_2$, entonces $G_2$ es isomorfo con $G_1$.
-    \item Si $G_1$ es isomorfo a $G_2$ y $G_2$ es isomorfo a $G_3$, entonces $G_1$ es isomorfo con $G_3$.
-\end{itemize}
+    \item Todo grafo es isomorfo con él mismo (\emph{reflexividad}).
+    \item Si $G_1$ es isomorfo a $G_2$, entonces $G_2$ es isomorfo con $G_1$ (\emph{simetría}).
+    \item Si $G_1$ es isomorfo a $G_2$ y $G_2$ es isomorfo a $G_3$, entonces $G_1$ es isomorfo con $G_3$ (\emph{transitividad}).
+\end{itemize}\medskip
 
 %%%% Definir subgrafo
-Dado dos grafos $H$ y $G$, diremos que $H$ es \textbf{subgrafo} de $G$ si se puede obtener $H$ a partir de $G$ únicamente eliminado algunos vértices y aristas. Formalmente, $H$ es subgrafo de $G$ si $V(H)\subseteq V(G)$ y $E(H)\subseteq E(G)$.
+Dado dos grafos $H$ y $G$, diremos que $H$ es \textbf{subgrafo} de $G$ si se puede obtener $H$ a partir de $G$ únicamente eliminado algunos vértices y aristas. Formalmente, $H$ es subgrafo de $G$ si $V(H)\subseteq V(G)$ y $E(H)\subseteq E(G)$.\medskip
+
+Por último, es necesario comprender los diferentes puntos de vista que se pueden adoptar en la noción de una \emph{copia} de un grafo.\medskip
 
 %%%% Definición copia
 \begin{definicion}
     Sean $H$ y $G$ grafos,
     \begin{itemize}
         \item Una \textbf{copia} de $H$ en $G$ es un subgrafo de $G$ isomorfo a $H$.
-        \item Una \textbf{copia etiquetada} de $H$ en $G$ es una aplicación inyectiva\footnote{La aplicación inyectiva mapea preservando las aristas de $H$ en $G$.} $\varphi : V(H)\to V(G)$ tal que $\varphi(u)\varphi(v)\in E(G)$ cada vez que $uv\in E(H)$.
+        \item Una \textbf{copia etiquetada} de $H$ en $G$ es una aplicación inyectiva $\varphi : V(H)\to V(G)$ tal que $\varphi(u)\varphi(v)\in E(G)$ cada vez que $uv\in E(H)$.
         \item Una \textbf{copia inducida} de $H$ en $G$ es una aplicación inyectiva $\varphi : V(H)\to V(G)$ tal que $\varphi(u)\varphi(v)\in E(G)$ si y solamente si $uv\in E(H)$.
     \end{itemize}
-\end{definicion}
+\end{definicion}\medskip
 
-En general se utilizarán copias etiquetadas en el desarrollo de este documento, denotamos entonces por $\tbinom{G}{H}$ al conjunto de copias etiquetadas de $H$ en $G$. Para ejemplificar la última definición, si un grafo posee $\ell$ copias de $K_3$, entonces existen $6\ell$ copias etiquetadas de $K_3$.
+Para reforzar el concepto recién visto, si un grafo posee $\ell$ copias de $K_3$, entonces el grafo cuenta con $6\ell$ copias etiquetadas de $K_3$. En lo que concierne a este trabajo, se estudiarán propiedades relacionadas con la cantidad de copias etiquetadas de algún grafo determinado. Por esto, denotamos por $\tbinom{G}{H}$ al conjunto de copias etiquetadas de $H$ en $G$.\medskip
 
 \subsection{Álgebra lineal y teoría espectral de grafos} \label{Sección AL}
 
@@ -888,7 +1029,7 @@ Con esto, damos paso a las pruebas de cada proposición.\medskip
 
     Sea $T^{-}$ una copia etiquetada de $F^{-}$ en $G$, es decir, $T^{-}$ se corresponde con una aplicación inyectiva $f: V(F^{-}) \to V(T^{-})\subseteq V$ tal que $f(u)f(v)\in E(T^{-})$ cada vez que $uv\in E(F^{-})$. Se define entonces $e_{T^{-}}$ como la tupla $(f(i), f(j))$ resultante de la imagen de los vértices $i,j\in V(F^{-})$.
 
-    Escribiremos la cantidad de copias de $F$ en $G$ de manera conveniente y se utilizará la hipótesis de inducción como se muestra a continuación:
+    Escribiremos la cantidad de copias etiquetadas de $F$ en $G$ de manera conveniente y se utilizará la hipótesis de inducción como se muestra a continuación:
     \begin{align} \label{count_G_F}
         \left| \tbinom{G}{F}\right| &= \sum_{T^{-}\in \tbinom{G}{F^{-}}} \mathbbm{1}_{E}(e_{T^{-}})\nonumber \\
         &= \sum_{T^{-}\in \tbinom{G}{F^{-}}} \left[ \mathbbm{1}_{E}(e_{T^{-}}) + p - p\right]\nonumber \\

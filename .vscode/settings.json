@@ -1,4 +1,6 @@
 {
     "bitoAI.codeCompletion.enableAutoCompletion": true,
-    "bitoAI.codeCompletion.enableCommentToCode": true
+    "bitoAI.codeCompletion.enableCommentToCode": true,
+    "indentRainbow.colorOnWhiteSpaceOnly": true,
+    "indentRainbow.indicatorStyle": "light"
 }
