@@ -10,6 +10,7 @@
 \usepackage{tikz}
 \usepackage{graphicx}
 \usepackage{caption}
+\usepackage{kbordermatrix}
 
 \usepackage[utf8]{inputenc}
 %\usepackage[vietnam]{babel}
@@ -549,31 +550,34 @@ Por último, es necesario comprender los diferentes puntos de vista que se puede
 
 Para reforzar el concepto recién visto, si un grafo posee $\ell$ copias de $K_3$, entonces el grafo cuenta con $6\ell$ copias etiquetadas de $K_3$. En lo que concierne a este trabajo, se estudiarán propiedades relacionadas con la cantidad de copias etiquetadas de algún grafo determinado. Por esto, denotamos por $\tbinom{G}{H}$ al conjunto de copias etiquetadas de $H$ en $G$.\medskip
 
-\subsection{Álgebra lineal y teoría espectral de grafos} \label{Sección AL}
+\subsection{Álgebra lineal y teoría espectral de grafos} \label{Sección AL}\medskip
 
 %%%% Enunciar desigualdad de Cauchy-Schwarz y sus dos versiones
-Muchas veces, en la teoría de grafos extremal y en combinatoria, la desigualdad de Cauchy-Schwarz juega un papel fundamental en la prueba de algunos resultados.
+Muchas veces, en la teoría de grafos extremal y en combinatoria, la desigualdad de Cauchy-Schwarz juega un papel fundamental en la prueba de algunos resultados.\medskip
 
 \begin{prop} (Desigualdad de Cauchy-Schwarz)
     Sean $a,b\in \mathbb{R}^{k}$, entonces se satisface
     \begin{equation*}
         \sum_{i=1}^{k}a_{i}^{2}\sum_{i=1}^{k}b_i^{2} \geq \left( \sum_{i=1}^{k}a_{i}b_{i}\right)^{2}.
     \end{equation*}
-\end{prop}
+\end{prop}\medskip
 
-En lo que respecta a este trabajo, la desigualdad de Cauchy-Schwarz será utilizada como alguna de las siguientes variantes. Por un lado, si uno de los vectores se identifica con el vector constante $b_i = 1$ para todo $i\in [k]$, entonces
+En lo que respecta a este trabajo, la desigualdad de Cauchy-Schwarz será utilizada como alguna de las siguientes variantes. Por un lado, si uno de los vectores se identifica con el vector constante $b_i = 1$ para todo $i\in [k]$, entonces\medskip
+
 \begin{equation} \label{CS_versión1}
     \sum_{i=1}^{k}a_{i}^{2} \geq \frac{1}{k}\left( \sum_{i=1}^{k} a_{i}\right)^{2}.
-\end{equation}
+\end{equation}\medskip
 
-Por otro lado, para los reales $\alpha_1,...,\alpha_k > 0$ y $\beta_1,...\beta_k \geq 0$, consideramos $a_i = \sqrt{\alpha_i}$ y $b_i = \frac{\beta_i}{\sqrt{\alpha_i}}$ para obtener
+Por otro lado, para los reales $\alpha_1,...,\alpha_k > 0$ y $\beta_1,...\beta_k \geq 0$, consideramos $a_i = \sqrt{\alpha_i}$ y $b_i = \frac{\beta_i}{\sqrt{\alpha_i}}$ para obtener\medskip
+
 \begin{equation} \label{Desigualdad_from_CS}
     \sum_{i=1}^{k} \frac{\beta_{i}^{2}}{\alpha_i} \geq \frac{\left( \sum_{i = 1}^{k} \beta_i\right)^{2}}{\sum_{i=1}^{k}\alpha_i}.
 \end{equation}\medskip 
 
 %%%% Enunciar matriz de adyacencia
-Una manera muy útil de representar un grafo es mediante una matriz cuadrada binaria, asignando $1$ para las conexiones de vértices y $0$ en la ausencia de aristas. Bajo esta representación se consigue una visión clara y eficiente de las relaciones de un grafo, y se goza de las propiedades que nos ofrece el álgebra lineal.
+Una manera muy útil de representar un grafo es mediante una matriz cuadrada binaria, asignando $1$ para las conexiones de vértices y $0$ en la ausencia de aristas. Bajo esta representación se consigue una visión clara y eficiente de las relaciones de un grafo, y se goza de las propiedades que nos ofrece el álgebra lineal.\medskip
 
+\newpage
 %%%% Definición formal matriz de adyacencia
 \begin{definicion}
     Dado un grafo $G$ sobre $n$ vértices, se define su \textbf{matriz de adyacencia} $A_{G}\in \mathcal{M}_{n\times n}(\mathbb{R})$ de la siguiente manera,
@@ -585,38 +589,77 @@ Una manera muy útil de representar un grafo es mediante una matriz cuadrada bin
         \end{cases}
     \end{equation*}
     Cuando el contexto sea claro, la matriz de adyacencia será representada simplemente por $A$.
-\end{definicion}
+\end{definicion}\medskip
 
-Observe que la representación anterior resulta en una matriz simétrica. Además, para un grafo $G = ([n], E)$ cuya matriz de adyacencia es $A$, podemos obtener un vector con los grados de cada vértice del grafo aplicando el operador $A$ al vector de $1$-entradas $\mathbbm{1}\in\mathcal{M}_{n\times 1}$, es decir,
+%%%% Ejemplo de matriz de adyacencia de un grafo.
+\renewcommand{\kbldelim}{(}
+\renewcommand{\kbrdelim}{)}
+\begin{figure}[h]
+    \centering
+    % Grafo
+    \begin{minipage}{0.49\linewidth}
+        \centering
+        \begin{tikzpicture}
+            \node at (-2.5,-1.1) {$G = $};
+            % Vértices
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={270:$\mathbf{3}$}] (3) at (-0.5, -0.7) {};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={290:$\mathbf{4}$}] (4) at (1.5, -0.7) {};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={90:$\mathbf{1}$}] (1) at (-1, 0.8) {};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={90:$\mathbf{2}$}] (2) at (2, 0.8) {};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={270:$\mathbf{5}$}] (5) at (-1.5, -1.7) {};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={270:$\mathbf{6}$}] (6) at (1, -2.2) {};
+            % Aristas
+            \draw[line width=1.2] (1) -- (2) -- (4) -- (3) -- (1) -- (5) -- (3);
+            \draw[line width=1.2] (1) -- (4) -- (6) -- (3);
+        \end{tikzpicture}
+    \end{minipage}
+    \hfill
+    % Matriz
+    \begin{minipage}{0.49\linewidth}
+        \centering
+        \begin{equation*}
+            A_G = \kbordermatrix{
+                & \mathbf{1} & \mathbf{2} & \mathbf{3} & \mathbf{4} & \mathbf{5} & \mathbf{6} \\
+                \mathbf{1} & 0 & 1 & 1 & 1 & 1 & 0 \\
+                \mathbf{2} & 1 & 0 & 0 & 1 & 0 & 0 \\
+                \mathbf{3} & 1 & 0 & 0 & 1 & 1 & 1 \\
+                \mathbf{4} & 1 & 1 & 1 & 0 & 0 & 1 \\
+                \mathbf{5} & 1 & 0 & 1 & 0 & 0 & 0 \\
+                \mathbf{6} & 0 & 0 & 1 & 1 & 0 & 0
+            }
+        \end{equation*}
+    \end{minipage}
+    \caption{Ejemplo de representación mediante la matriz de adyacencia de un grafo.}
+\end{figure}\medskip
+
+Observe que la representación anterior resulta en una matriz simétrica. Además, en todo grafo $G = ([n], E)$, cuya matriz de adyacencia es $A$, se puede obtener un vector con los grados de cada vértice del grafo aplicando el operador $A$ al vector de $1$-entradas $\mathbbm{1}\in\mathcal{M}_{n\times 1}$. Es decir,\medskip
+
 \begin{equation} \label{A1=Mdeg}
     A\mathbbm{1} = 
     \begin{pmatrix}
         \deg(1) \\
         \vdots \\
         \deg(n)
-    \end{pmatrix}.
-\end{equation}
+    \end{pmatrix}
+\end{equation}.\medskip
 
-Otro aspecto interesante de la matriz de adyacencia es que nos permite reescribir la definición \ref{e(X,Y)} en función de ella. En efecto, consideramos la matriz de adyacencia $A$ del grafo $G = ([n], E)$ y los vértices $i,j\in [n]$. Luego, por la construcción de $A$,
+Un aspecto interesante de ésta, es que nos permite reescribir la definición \ref{e(X,Y)} en función de ella. Para ver esto, consideramos la matriz de adyacencia $A$ del grafo $G = ([n], E)$, y los vértices $i,j\in [n]$. Luego, por la construcción de $A$,\medskip
+
 \begin{equation*}
     e(\lbrace i\rbrace, \lbrace j\rbrace) = e_{i}^{T} A e_{j} = 
     \begin{cases}
         1 & \text{si } i=j \\
         0 & \text{En otro caso.}
     \end{cases}
-\end{equation*}
+\end{equation*}\medskip
 
-Entonces para los conjuntos $X,Y\subset [n]$, se obtiene por linealidad,
+Entonces, por linealidad, se extiende el resultado anterior sobre cualquier conjunto $X,Y\subset [n]$.\medskip
+
 \begin{equation} \label{e(X,Y)=espectral}
     e(X,Y) = \sum_{i\in X}\sum_{j\in Y} e_{i}^{T} A e_{j} = v_{X}^{T} A v_{Y}.
-\end{equation}
+\end{equation}\medskip
 
-Donde $v_{X}, v_{Y}\in\mathcal{M}_{n\times 1}(\mathbb{R})$ son vectores que toman el valor $1$ en la $k$-ésima posición cuando $k\in X$ o $k\in Y$ respectivamente, en otro caso adoptan el valor $0$. También pueden ser representados mediante
-\begin{equation*}
-    v_X = \sum_{i\in X}e_{i}\ \ \text{,}\ \ v_Y = \sum_{j\in Y}e_{j}.
-\end{equation*}
-
-Una de las aplicaciones de la matriz de adyacencia, quizás no tan intuitiva, es que su $t$-ésima potencia revela la cantidad de caminatas de largo $t$ que existen entre todos los pares de vértices del grafo.
+Es importante destacar que la matriz de adyacencia no solo describe las conexiones entre cada par de vértices en un grafo, sino que también revela la cantidad exacta de caminatas que existen entre dos vértices de un largo determinado. En específico, la posición $ij$ de la $t$-ésima potencia de la matriz de adyacencia de un grafo guarda la cantidad de caminatas de largo $k$ entre los vértices $i$ y $j$.\medskip
 
 %%%% Lema: Potencia matriz de adyacencia
 \begin{prop} \label{potencia_matriz_adyacencia = caminatas}
@@ -628,13 +671,13 @@ Una de las aplicaciones de la matriz de adyacencia, quizás no tan intuitiva, es
     \begin{equation*}
         \displaystyle\sum_{k\in V} a_{ik}^{(t)}\mathbbm{1}_{N(j)}(k) = \displaystyle\sum_{\ell=1}^{n}a_{i\ell}^{(t)}a_{\ell j} = a_{ij}^{(t+1)}.
     \end{equation*}
-\end{proof}
+\end{proof}\medskip
 
-Si $A$ es la matriz de adyacencia del grafo $G = ([n], E)$, entonces la cantidad de caminatas cerradas de largo $k$ que existen en el grafo viene dada por $\Tr(A^{k}) = \sum_{i=1}^{n}a_{ii}^{(k)}$. Por lo anterior, note que $\Tr(A^{2}) = 2e_G$. A continuación, gracias a la simetría de la matriz $A$, se estudiarán algunas de sus propiedades espectrales.\medskip
+Como consecuencia de la proposición anterior, para cualquier grafo $G = ([n], E)$ con matriz de adyacencia $A$, se puede representar la cantidad total de caminatas cerradas de largo $t$ en el grafo por medio de la traza, $\Tr(A^{t}) = \sum_{i=1}^{n}a_{ii}^{(t)}$. Con esto, note que $\Tr(A^{2}) = 2e_G$.\medskip
 
 Recordamos que un vector $v\in \mathbb{R}^{n}$ es un vector propio de una matriz $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ con valor propio $\lambda\in \mathbb{R}$ si $Av=\lambda v$. Esto significa que $\lambda$ es un valor propio si y solo si $\lambda I_{n} - A$ es una matriz singular. Así, los valores propios vienen dados por las raíces del polinomio característico $\det(xI_{n} - A)$. Cuando se haga referencia a los valores y vectores propios de $G$, siempre será con respecto a su matriz de adyacencia $A$.\medskip
 
-Tomando en consideración la igualdad \eqref{A1=Mdeg}, note en particular que si $G$ es un grafo $d$-regular, entonces $d$ es el valor propio asociado al vector propio normalizado de $1$-entradas de la matriz de adyacencia de $A$.
+Dicho esto, tomando en consideración la igualdad \eqref{A1=Mdeg}, note en particular que si $G$ es un grafo $d$-regular, entonces $d$ es el valor propio asociado al vector propio normalizado de $1$-entradas de la matriz de adyacencia de $A$.\medskip
 
 %%%% Teorema espectral
 \begin{teorema} (Teorema espectral)
@@ -643,9 +686,10 @@ Tomando en consideración la igualdad \eqref{A1=Mdeg}, note en particular que si
         A = PDP^{T} = \sum_{i=1}^{n}\lambda_{i}v_{i}v_{i}^{T}.
     \end{equation}
     En donde la matriz diagonal $D$ está compuesta por los valores propios $\lambda_i \in\mathbb{R}$ de $A$, y las columnas de $P$ son los vectores propios normalizados $v_{i}\in\mathbb{R}^{n}$ de $A$.
-\end{teorema}
+\end{teorema}\medskip
 
-Un aspecto importante de las matrices reales simétricas es que los vectores propios asociados a diferentes valores propios son ortogonales. En efecto, considere la matriz real simétrica $A\in\mathcal{M}_{n\times n}(\mathbb{R})$ y asuma que $Av=\lambda v$ y $A\omega = \mu\omega$. Si $\lambda \not= \omega$,
+Un aspecto importante de las matrices reales simétricas es que los vectores propios asociados a diferentes valores propios son ortogonales. En efecto, considere la matriz real simétrica $A\in\mathcal{M}_{n\times n}(\mathbb{R})$ y asuma que $Av=\lambda v$ y $A\omega = \mu\omega$. Si $\lambda \not= \omega$,\medskip
+
 \begin{align*}
     \lambda \langle v,\omega\rangle &= \langle \lambda v,\omega\rangle\\
     &= \langle Av,\omega \rangle\\
@@ -653,7 +697,7 @@ Un aspecto importante de las matrices reales simétricas es que los vectores pro
     &= \langle v,A\omega \rangle\\
     &= \langle v,\mu\omega \rangle\\
     &= \mu \langle v,\omega\rangle.
-\end{align*}
+\end{align*}\medskip
 
 Entonces $\lambda \langle v,\omega \rangle = \mu \langle u,\omega \rangle$ si y solamente si $\langle v,\omega\rangle=0$. De esta manera, los vectores propios asociados a la matriz $A$ forman una base ortonormal\footnote{La base será ortonormal debido a que siempre podemos utilizar el proceso Gram-Schmidt.} de $\mathbb{R}^{n}$, satisfaciendo
 \begin{equation*}
