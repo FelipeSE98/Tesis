@@ -466,11 +466,11 @@ Otro concepto relevante en este trabajo son las diferentes nociones de rutas que
     % minipage ejemplos concretos
     \begin{minipage}{0.15\linewidth}
         \begin{align*}
-            &125456 \sim \text{caminata de largo 5.}\\
+            &125456 \equiv \text{caminata de largo 5.}\\
             &\\
-            &1236 \sim \text{camino de largo 3.}\\
+            &1236 \equiv \text{camino de largo 3.}\\
             &\\
-            &23652 \sim \text{ciclo de largo 4.}
+            &23652 \equiv \text{ciclo de largo 4.}
         \end{align*}
     \end{minipage}
     \caption{Ejemplo de caminata, camino y ciclo.}
@@ -632,7 +632,7 @@ Una manera muy útil de representar un grafo es mediante una matriz cuadrada bin
     \caption{Ejemplo de representación mediante la matriz de adyacencia de un grafo.}
 \end{figure}\medskip
 
-Observe que la representación anterior resulta en una matriz simétrica. Además, en todo grafo $G = ([n], E)$, cuya matriz de adyacencia es $A$, se puede obtener un vector con los grados de cada vértice del grafo aplicando el operador $A$ al vector de $1$-entradas $\mathbbm{1}\in\mathcal{M}_{n\times 1}$. Es decir,\medskip
+Observe que la representación anterior resulta siempre en una matriz simétrica, es decir, $A_{G}^{T} = A_G$. Además, en todo grafo $G = ([n], E)$, cuya matriz de adyacencia es $A$, se puede obtener un vector con los grados de cada vértice del grafo aplicando el operador $A$ al vector de $1$-entradas $\mathbbm{1}\in\mathcal{M}_{n\times 1}$. Es decir,\medskip
 
 \begin{equation} \label{A1=Mdeg}
     A\mathbbm{1} = 
@@ -667,17 +667,69 @@ Es importante destacar que la matriz de adyacencia no solo describe las conexion
 \end{prop}
 %%%% Demostración Lema : Potencia matriz de adyacencia
 \begin{proof}
-    Cuando $t=1$, existe una caminata de largo $1$ que conecta los vértices $i$ y $j$ si y solamente si $a_{ij}^{(1)} = 1$. Ahora, asuma que el lema se cumple para algún $t > 1$ fijo. Note que cualquier caminata de largo $t+1$ entre $i$ y $j$ contiene una caminata de largo $t$ desde $i$ hasta un vecino de $j$, digamos $k$. Entonces si $k\in N(j)$, por la asunción del lema, el número de caminatas de largo $t$ entre $i$ y $k$ es $a_{ik}^{(t)}$. Por lo tanto, la cantidad total de caminatas de largo $t+1$ desde $i$ hasta $t$ es
+    Cuando $t=1$, existe una caminata de largo $1$ que conecta los vértices $i$ y $j$ si y solamente si $a_{ij}^{(1)} = 1$. Ahora, asuma que el lema se cumple para algún $t > 1$ fijo. Note que cualquier caminata de largo $t+1$ entre $i$ y $j$ contiene una caminata de largo $t$ desde $i$ hasta un vecino de $j$, digamos $k$. Entonces si $k\in N(j)$, por la asunción del lema, el número de caminatas de largo $t$ entre $i$ y $k$ es $a_{ik}^{(t)}$. Por lo tanto, el número total de caminatas de largo $t+1$ desde $i$ hasta $t$ es exactamente
     \begin{equation*}
         \displaystyle\sum_{k\in V} a_{ik}^{(t)}\mathbbm{1}_{N(j)}(k) = \displaystyle\sum_{\ell=1}^{n}a_{i\ell}^{(t)}a_{\ell j} = a_{ij}^{(t+1)}.
     \end{equation*}
 \end{proof}\medskip
 
-Como consecuencia de la proposición anterior, para cualquier grafo $G = ([n], E)$ con matriz de adyacencia $A$, se puede representar la cantidad total de caminatas cerradas de largo $t$ en el grafo por medio de la traza, $\Tr(A^{t}) = \sum_{i=1}^{n}a_{ii}^{(t)}$. Con esto, note que $\Tr(A^{2}) = 2e_G$.\medskip
+Como consecuencia de la proposición anterior, en cualquier grafo $G = ([n], E)$ con matriz de adyacencia $A$, se puede representar la cantidad total de caminatas cerradas de largo $t$ en el grafo por medio de la traza, $\Tr(A^{t}) = \sum_{i=1}^{n}a_{ii}^{(t)}$. Con esto, note que $\Tr(A^{2}) = 2e_G$.\medskip
 
-Recordamos que un vector $v\in \mathbb{R}^{n}$ es un vector propio de una matriz $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ con valor propio $\lambda\in \mathbb{R}$ si $Av=\lambda v$. Esto significa que $\lambda$ es un valor propio si y solo si $\lambda I_{n} - A$ es una matriz singular. Así, los valores propios vienen dados por las raíces del polinomio característico $\det(xI_{n} - A)$. Cuando se haga referencia a los valores y vectores propios de $G$, siempre será con respecto a su matriz de adyacencia $A$.\medskip
+Por otro lado, recuerde que $v\in \mathbb{R}^{n}$ es un vector propio de alguna matriz $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ con valor propio $\lambda\in \mathbb{R}$ si $Av=\lambda v$. Esto significa que $\lambda$ es un valor propio si y solo si $\lambda I_{n} - A$ es una matriz singular. Así, los valores propios vienen dados por las raíces del polinomio característico $\det(xI_{n} - A)$. En este trabajo, cuando se haga referencia a los valores y vectores propios de un grafo $G$, siempre será con respecto a su matriz de adyacencia $A$.\medskip
 
-Dicho esto, tomando en consideración la igualdad \eqref{A1=Mdeg}, note en particular que si $G$ es un grafo $d$-regular, entonces $d$ es el valor propio asociado al vector propio normalizado de $1$-entradas de la matriz de adyacencia de $A$.\medskip
+Por ejemplo, si $G$ es un grafo $d$-regular, entonces con la igualdad \eqref{A1=Mdeg} se puede deducir que $d$ es el valor propio asociado al vector propio normalizado de $1$-entradas de la matriz de adyacencia $A_G$.\medskip
+
+%%%% Proposición: VP relaes y vectores ortogonales.
+\begin{prop}
+    Sea $A\in\mathcal{M}_{n\times n}(\mathbb{R})$ una matriz real simétrica, entonces todos sus valores propios son reales. Además, si dos vectores propios están asociados a distintos valores propios, entonces éstos son ortogonales. Más aún, el conjunto de todos los vectores propios definen| una base ortonormal de $\mathbb{R}^{n}$.
+\end{prop}
+%%%% Demostración
+\begin{proof}
+    Se comienza probando que los valores propios de $A$ son reales. Sea $\lambda$ un valor propio de $A$ y $x\not=0$ su correspondiente vector propio, satisfaciendo $Ax = \lambda x$. Tomando su conjugado, se obtiene paralelamente que\medskip
+
+    \begin{equation*}
+        \begin{aligned}
+            Ax &= \lambda x & \hspace{2cm}  A\overline{x} &= \overline{\lambda}\overline{x}\\
+            &\Downarrow & \hspace{2cm} & \Downarrow\\
+            \overline{x}^{T}Ax &= \lambda\norm{x}^{2} & \hspace{2cm} x^{T}A\overline{x} &= \overline{\lambda}\norm{x}^{2}. 
+        \end{aligned}
+    \end{equation*}\medskip
+
+    Además, como $A$ es simétrica,\medskip
+
+    \begin{equation*}
+        \overline{x}^{T}Ax = (Ax)^{T}\overline{x} = x^{T}A\overline{x}.
+    \end{equation*}\medskip
+
+    Así, ya que $x\not=0$, debe ocurrir que $\lambda = \overline{\lambda}$, permitiendo concluir que todos los valores propios de $A$ son números reales.\medskip
+
+    Por otro lado, considere $u,v\in \mathbb{R}^{n}$ vectores propios distintos de $A$ asociados a los valores propios $\lambda,\mu\in\mathbb{R}\setminus\lbrace 0\rbrace$ respectivamente. Calculamos como sigue,\medskip
+
+    \begin{align*}
+        \lambda \langle u,v\rangle &= \langle \lambda u,v\rangle\\
+        &= \langle Au,v \rangle\\
+        &= \langle u,A^{T} v \rangle\\
+        &= \langle u,Av \rangle\\
+        &= \langle u,\mu v \rangle\\
+        &= \mu \langle u,v\rangle.
+    \end{align*}\medskip
+
+    De esta manera, $\lambda\langle u,v\rangle = \mu\langle u,v\rangle$ si y solamente si $\langle u,v\rangle = 0$. Ya probada la ortogonalidad de los vectores propios de $A$, defina $\mathcal{B} = \lbrace u_1, u_2,...,u_n\rbrace$ como el conjunto de vectores propios normalizados de $A$ para probar que $\mathcal{B}$ constituye una base ortonormal de $\mathbb{R}^{n}$. Para esto, sean $c_1,...,c_n\in\mathbb{R}^{n}$ tales que\medskip
+
+    \begin{equation*}
+        c_1 u_1 + c_2 u_2 + ... + c_n u_n = 0.
+    \end{equation*}\medskip
+    
+    Entonces, para algún $i\in[n]$, multiplicando por la izquierda la igualdad anterior por $u_{i}^{T}$,\medskip
+    
+    \begin{equation*}
+        u_{i}^{T} (c_1 u_1 + ... + c_n u_n) = c_i v_{i}^{T}v_i = c_i = 0.
+    \end{equation*}\medskip
+
+    Así, queda demostrado que $\mathcal{B}$ es una base ortonormal de $\mathbb{R}^{n}$.
+\end{proof}\medskip
+
+A continuación se enunciará sin demostración uno de los teoremas más relevantes del álgebra lineal, el \emph{teorema espectral}. Con él, podremos representar una matriz de adyacencia por medio de dos matrices que dependen únicamente de sus valores y vectores propios para obtener propiedades desde una perspectiva espectral. También, se estudiará la estrecha relación que posee la traza de la matriz de adyacencia de un grafo con sus valores propios.\medskip
 
 %%%% Teorema espectral
 \begin{teorema} (Teorema espectral)
@@ -688,48 +740,31 @@ Dicho esto, tomando en consideración la igualdad \eqref{A1=Mdeg}, note en parti
     En donde la matriz diagonal $D$ está compuesta por los valores propios $\lambda_i \in\mathbb{R}$ de $A$, y las columnas de $P$ son los vectores propios normalizados $v_{i}\in\mathbb{R}^{n}$ de $A$.
 \end{teorema}\medskip
 
-Un aspecto importante de las matrices reales simétricas es que los vectores propios asociados a diferentes valores propios son ortogonales. En efecto, considere la matriz real simétrica $A\in\mathcal{M}_{n\times n}(\mathbb{R})$ y asuma que $Av=\lambda v$ y $A\omega = \mu\omega$. Si $\lambda \not= \omega$,\medskip
+De cara a la cantidad de caminatas entre dos vértices de un grafo, la descomposición espectral \eqref{Descomposición espectral} nos permite trabajar eficientemente con las potencias de su respectiva matriz de adyacencia, puesto a que el problema se reduce a calcular la potencia de la matriz diagonal de valores propios. Para visualizar este hecho, observe en primera instancia,\medskip
 
-\begin{align*}
-    \lambda \langle v,\omega\rangle &= \langle \lambda v,\omega\rangle\\
-    &= \langle Av,\omega \rangle\\
-    &= \langle v,A^{T} \omega \rangle\\
-    &= \langle v,A\omega \rangle\\
-    &= \langle v,\mu\omega \rangle\\
-    &= \mu \langle v,\omega\rangle.
-\end{align*}\medskip
-
-Entonces $\lambda \langle v,\omega \rangle = \mu \langle u,\omega \rangle$ si y solamente si $\langle v,\omega\rangle=0$. De esta manera, los vectores propios asociados a la matriz $A$ forman una base ortonormal\footnote{La base será ortonormal debido a que siempre podemos utilizar el proceso Gram-Schmidt.} de $\mathbb{R}^{n}$, satisfaciendo
-\begin{equation*}
-    v_{i}^{T} v_j = \langle v_i, v_j\rangle = 
-    \begin{cases}
-        1 & \text{si } $i=j$\\
-        0 & \text{En otro caso.}
-    \end{cases}
-\end{equation*}
-
-La descomposición espectral \eqref{Descomposición espectral} nos permite trabajar eficientemente con las potencias de toda matriz real simétrica, puesto a que el problema se reduce a calcular la potencia de una matriz diagonal. Para visualizar este hecho, observe en primera instancia,
 \begin{align*}
     A^{2} &= (PDP^{T})(PDP^{T})\\
     &= PD(P^{T}P)DP^{T}\\
     &= PD^{2}P^{T}.
-\end{align*}
+\end{align*}\medskip
 
-Luego, de manera inductiva se obtiene que $A^{k} = PD^{k}P^{T}$. A continuación se mostrará la relación entre la traza de una matriz real simétrica y sus valores propios.
+Luego, de manera inductiva se obtiene que $A^{k} = PD^{k}P^{T}$. Adicionalmente, se expone la relación que guarda la traza de una matriz real simétrica con sus valores propios.\medskip
 
 %%%% Proposición: traza = suma valores propios
-\begin{prop} \label{lema_2} %% CAMBIAR EL LABEL!!!
-    La traza de una matriz simétrica $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ es igual a la suma de sus autovalores.
+\begin{prop} \label{Tr = autvalor}
+    La traza de toda matriz simétrica $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ es igual a la suma de sus autovalores.
 \end{prop}
 
 %%%% Demostración : traza = suma valores propios
 \begin{proof}
-    Sea $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ una matriz simétrica. Se escribe la traza estratégicamente de la siguiente manera,
+    Sea $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ una matriz simétrica. Se escribe la traza estratégicamente de la siguiente manera,\medskip
+
     \[ 
         \Tr (A) = \sum_{i = 1}^{n} e_{i}^{T} A e_{i}.
-    \]
+    \]\medskip
 
-    Así, utilizando la descomposición espectral,
+    Así, se concluye utilizando la descomposición espectral,\medskip
+
     \begin{align*}
         \Tr(A) &= \sum_{i = 1}^{n}e_{i}^{T} \left( \sum_{j = 1}^{n} \lambda_{j}v_{j}v_{j}^{T} \right) e_{i}\\
         &= \sum_{i = 1}^{n}\sum_{j = 1}^{n} \lambda_{j} e_{i}^{T} v_{j} v_{j}^{T} e_{i}\\
@@ -737,7 +772,9 @@ Luego, de manera inductiva se obtiene que $A^{k} = PD^{k}P^{T}$. A continuación
         &= \sum_{j = 1}^{n} \lambda_{j} \norm{v_j}^{2}\\
         &= \sum_{j = 1}^{n} \lambda_{j}.
     \end{align*}
-\end{proof}
+\end{proof}\medskip
+
+Es posible extender este resultado sobre cualquier potencia de la matriz real simétrica.\medskip
 
 %%%% Corolario: Traza potencia k
 \begin{corolario} \label{Tr_Ak}
@@ -746,7 +783,8 @@ Luego, de manera inductiva se obtiene que $A^{k} = PD^{k}P^{T}$. A continuación
 
 %%%% Demostración corolario traza potencia k
 \begin{proof}
-    Utilizando que la traza de la multiplicación de dos matrices es invariante bajo orden del producto, 
+    El resultado sigue de utilizar que la traza de la multiplicación de dos matrices es invariante bajo orden del producto,\medskip
+
     \begin{align*}
         \Tr(A^{k}) &= \Tr([PDP^{T}]^{k})\\
         &= \Tr(P[D^{k}P^{T}])\\
@@ -754,9 +792,9 @@ Luego, de manera inductiva se obtiene que $A^{k} = PD^{k}P^{T}$. A continuación
         &= \Tr(D^{k})\\
         &= \sum_{i = 1}^{n}\lambda_{i}^{k}.
     \end{align*}
-\end{proof}
+\end{proof}\medskip
 
-El último resultado es interesante debido a que podemos expresar la cantidad de caminatas cerradas de largo $k$ en un grafo mediante únicamente la suma de la $k$-ésima potencia de los valores propios de su matriz de adyacencia.\medskip
+\fs{Aquí quedé...}El último resultado es interesante debido a que podemos expresar la cantidad de caminatas cerradas de largo $k$ en un grafo mediante únicamente la suma de la $k$-ésima potencia de los valores propios de su matriz de adyacencia.\medskip
 
 El siguiente teorema nos entrega una caracterización de cada uno de los valores propios de una matriz real simétrica.
 
