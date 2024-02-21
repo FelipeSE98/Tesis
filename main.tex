@@ -681,7 +681,7 @@ Por ejemplo, si $G$ es un grafo $d$-regular, entonces con la igualdad \eqref{A1=
 
 %%%% Proposición: VP relaes y vectores ortogonales.
 \begin{prop}
-    Sea $A\in\mathcal{M}_{n\times n}(\mathbb{R})$ una matriz real simétrica, entonces todos sus valores propios son reales. Además, si dos vectores propios están asociados a distintos valores propios, entonces éstos son ortogonales. Más aún, el conjunto de todos los vectores propios definen| una base ortonormal de $\mathbb{R}^{n}$.
+    Sea $A\in\mathcal{M}_{n\times n}(\mathbb{R})$ una matriz real simétrica, entonces todos sus valores propios son reales. Además, si dos vectores propios están asociados a distintos valores propios, entonces éstos son ortogonales. Más aún, el conjunto de todos los vectores propios definen  una base ortonormal de $\mathbb{R}^{n}$.
 \end{prop}
 %%%% Demostración
 \begin{proof}
@@ -794,41 +794,41 @@ Es posible extender este resultado sobre cualquier potencia de la matriz real si
     \end{align*}
 \end{proof}\medskip
 
-\fs{Aquí quedé...}El último resultado es interesante debido a que podemos expresar la cantidad de caminatas cerradas de largo $k$ en un grafo mediante únicamente la suma de la $k$-ésima potencia de los valores propios de su matriz de adyacencia.\medskip
-
-El siguiente teorema nos entrega una caracterización de cada uno de los valores propios de una matriz real simétrica.
+Con este hecho, obtener la cantidad de caminatas cerradas de largo $k$ entre dos vértices de un grafo se reduce únicamente a calcular la suma de la $k$-ésima potencia de todos sus valores propios. Dichos valores propios pueden ser caracterízados explícitamente por medio del \emph{teorema de Courant-Fischer}. Se enuncia sin demostración.\medskip
 
 %%%% Teorema: Courant-Fischer
 \begin{teorema} \label{Teo Courant-Fischer}(Teorema de Courant-Fischer)
-    Sea $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ una matriz real simétrica, cuyos valores propios son $\lambda_1 \geq \lambda_2 \geq ...\geq \lambda_n$, y $\lbrace v_1, v_2,..., v_n \rbrace$ sus vectores propios que forman una base ortonormal de $\mathbb{R}^{n}$. Entonces,
+    Sea $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ una matriz real simétrica, cuyos valores propios son $\lambda_1 \geq \lambda_2 \geq ...\geq \lambda_n$, y $\lbrace v_1, v_2,..., v_n \rbrace$ sus vectores propios que forman una base ortonormal de $\mathbb{R}^{n}$. Entonces,\medskip
+
     \begin{itemize}
         \item[(i)] \[
                 \lambda_k = \inf_{\substack{x\perp \lbrace v_1,...,v_{k-1}\rbrace \\ x\not= 0}} \frac{\langle x, Ax\rangle}{\langle x,x\rangle}.
-              \]
+                \]
         \item[(ii)] \[
                 \lambda_k = \sup_{\substack{x\perp \lbrace v_{k+1},...,v_n\rbrace \\ x\not= 0}} \frac{\langle x, Ax\rangle}{\langle x,x\rangle}.
-              \]
+                    \]
     \end{itemize}
-\end{teorema}
+\end{teorema}\medskip
 
-Este teorema nos abre paso al siguiente resultado sobre el primer valor propio de un grafo.
+Usualmente el primer autovalor de todo grafo juega un papel protagónico en algunas de sus propiedades. Para los fines de este trabajo, es necesario establecer una cota inferior del primer autovalor.\medskip
 
 %%%% Proposición : Primer autovalor >= promedio grados
 \begin{prop}\label{cota_primer_autovalor}
     El primer autovalor de la matriz de adyacencia de un grafo es al menos el promedio de los grados. En particular, cuando el grafo es $d$-regular, el primer autovalor coincide con $d$.
 \end{prop}
-
 %%%% Demostración : Primer autovalor >= promedio grados
 \begin{proof}
-    Sea $A$ la matriz de adyacencia de el grafo $G = ([n], E)$, y denotamos por $\mathbbm{1}\in \mathbb{R}^{n}$ al vector de con únicamente entradas 1. Desarrollando en base al teorema de Courant-Fischer,
+    Considerando $A$ como la matriz de adyacencia del grafo $G = ([n], E)$, se desarrolla en función del Teorema \ref{Teo Courant-Fischer},\medskip
+
     \begin{equation*}
         \lambda_1 = \sup_{\substack{x\in \mathbb{R}^{n} \\ x\not= 0}} \frac{\langle x, Ax\rangle}{\langle x, x\rangle}
         \geq \frac{\langle \mathbbm{1}, A\mathbbm{1} \rangle}{\langle \mathbbm{1}, \mathbbm{1} \rangle}
         = \frac{2e_G}{n}\\
         = \dfrac{\sum_{x\in V(G)} \deg(x)}{n}.
-   \end{equation*}
-\end{proof}
+    \end{equation*}\medskip
 
+    \fs{Me queda un poquito de dudas para agregar la parte del grafo $d$-regular, de hecho, creo que solo lo necesito para el expander mixing lemma y aún no sé como hilar CGW con EML.}
+\end{proof}\medskip
 
 %\newpage
 %Como ya mencionamos en la introducción, un grafo pseudo aleatorio es un objeto determinístico que luce como un grafo aleatorio. Pongámonos en la situación de que queremos generar un grafo aleatorio sobre $n$ vértices; quizás la manera más sencilla es el proceso de considerar todos los posibles pares $(u,v)$ de vértices en $G$, y decidir independientemente con probabilidad $1/2$ si $(u,v)$ es una arista o no. \\
