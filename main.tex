@@ -938,14 +938,69 @@ Usualmente el primer autovalor de todo grafo juega un papel protagónico en algu
 %\end{equation}
 %\hh{Pregunta: Debería eliminar la implicancia y dejar solo el resultado? R: agregar un "Es decir,". De todas maneras debo adaptar la demostración de regularidad para no utilizar notación se probabilidad.}
 %
-\section{Teorema de Chung, Graham y Wilson} \label{CGW}
+\section{Teorema de Chung, Graham y Wilson} \label{CGW}\medskip
 
-\subsection{Enunciado y demostración}
+\subsection{Grafos aleatorios}\medskip
 
-Ya entendiendo la noción y características de un grafo aleatorio \hh{(Quedamos en hacer previamente una sección de grafos aleatorios verdad?)}, recordemos que una estructura casi-aleatoria es un objeto que luce aleatorio dentro de un marco determinístico. Con esta intuición, damos un paso adelante y definimos formalmente la noción de casi-aleatoriedad.\medskip
+El objetivo de esta subsección es proporcionar un breve contexto teórico para abordar más adelante la noción y propiedades de los grafos \emph{casi-aleatorios}. Para esto, se asumirán los conceptos asociados a la teoría de la probabilidad.\medskip
+
+En primera instancia se puede pensar en un \emph{grafo aleatorio} sobre $n$ vértices como la selección de un subconjunto de $E(K_n)$ de manera aleatoria. El cómo se selecciona dicho subconjunto determina el tipo de modelo de grafo aleatorio. Existen dos tipos de modelos clásicos; \emph{modelo uniforme} $G(n,m)$ propuesto por Paul Erdős y Alfréd Réyni \fs{referencia} y el \emph{modelo binomial} $G(n,p)$, propuesto por Gilbert \fs{referencia}. Veremos que ambos modelos representan un espacio de probabilidad.\medskip
+
+En el modelo uniforme $G(n,m)$, cada posible grafo sobre $n$ vértices y $0\leq m\leq\tbinom{n}{2}$ aristas es elegido aleatoriamente con la misma probabilidad. Observe que cada grafo en $G(n,m)$ corresponde a la selección de $m$ aristas de las $\tbinom{n}{2}$ que hay en $K_n$, por lo que existen  $\binom{\tbinom{n}{2}}{m}$ grafos con $n$ vértices y $m$ aristas.\medskip
+
+\begin{definicion} (Modelo uniforme)
+    Sea $G^{m}_{n}$ el conjunto de todos los grafos sobre $n$ vértices enumerados y $m$ aristas. Se define $G(n,m)$ como el espacio de probabilidad $\left( G^{m}_{n}, \mathcal{P}(G^{m}_{n}), \mathbb{P}\right)$, con\medskip
+
+    \begin{equation*}
+        \mathbb{P}\left( G(n,m) = G \right) = \binom{\tbinom{n}{2}}{m}^{-1}\ \ ,\ \ \forall G\in G^{m}_{n}.
+    \end{equation*}
+\end{definicion}\medskip
+
+Si bien el modelo anterior resulta bastante intuitivo, eventualmente puede traer dificultades para realizar determinados cálculos debido a que la elección de las aristas no son indepentientes unas de otras. El problema es solventado con el modelo de grafo aleatorio binomial, cual considera una elección de aristas independientes unas de otras.\medskip
+
+\begin{definicion} (Modelo binomial)
+    Sea $G^{n}$ el conjunto de todos los grafos sobre $n$ vértices enumerados, y $p\in (0,1)$\footnote{$p$ podría depender de $n$, $p=p(n)$.}. Se define $G(n,p)$ como el espacio de probabilidad $\left( G^{n}, \mathcal{P}(G^{n}), \mathbb{P}\right)$, con\medskip
+
+    \begin{equation*}
+        \mathbb{P}\left(G(n,p) = G\right) = p^{e_G}(1-p)^{\tbinom{n}{2} - e_G}\ \ ,\ \ \forall G\in G(n,p).
+    \end{equation*}
+\end{definicion}\medskip
+
+En esta tesis adoptaremos el \textbf{modelo binomial} como referencia para trabajar más adelante con el concepto de un grafo \emph{casi-aleatorio}. Una de las características más importantes de este modelo es que podemos conocer la distribución de aristas que existen en cada subconjunto de vértices.\medskip
+
+%%%% Proposición: Distribución de aristas grafo aleatorio binomial
+\begin{prop}
+    Sea $p\in (0,1)$, $G\in G(n,p)$ y $U\subset V(G)$. Entonces la cantidad de aristas esperadas en $U$ es $p\tbinom{|U|}{2}$. 
+\end{prop}
+%%%% Demostración
+\begin{proof}
+    Enumere las aristas del grafo completo $K_{|U|}$ desde $1$ hasta $\tbinom{|U|}{2}$ y, para cada arista $1\leq i\leq \tbinom{|U|}{2}$, considere $X_i$ como la siguiente variable aleatoria indicadora:\medskip
+
+    \begin{equation*}
+        X_i =
+        \begin{cases}
+            1 & \mathrm{si}\ i\in E(G)\\
+            0 & \mathrm{en\ otro\ caso.}
+        \end{cases}.
+    \end{equation*}\medskip
+
+    Así, la variable aleatoria $X = \sum_{i=1}^{\tbinom{|U|}{2}} X_i$ cuenta el número total de aristas que existen en $U$. Finalmente,\medskip
+
+    \begin{align*}
+        \mathbb{E}(X) &= \sum_{i=1}^{\tbinom{|U|}{2}} \mathbb{E} (X_i)\\
+        &= \sum_{i=1}^{\tbinom{|U|}{2}} \mathbb{P} (X_i = 1)\\
+        &= \sum_{i=1}^{\tbinom{|U|}{2}} p\\
+        &= p\tbinom{|U|}{2}.
+    \end{align*}
+\end{proof}\medskip
+
+\subsection{Enunciado y demostración}\medskip
+
+Ya familiarizados con la noción de un grafo aleatorio, intuitivamente, diremos que un grafo casi-aleatorio es aquel que luce como uno verdaderamente aleatorio dentro de un marco determinístico. Formalmente:\medskip 
 
 \begin{definicion} \label{casi-aleatoriedad}
-    Sea $p\in(0,1)$ y $(G_n)_{n\to\infty}$ una secuencia de grafos, en donde cada $G_n$ posee $n$ vértices. Diremos que el grafo $G_n$ es \textbf{casi-aleatorio} si en todo $X\subset V(G_n)$ se encuentra una distribución uniforme en las aristas, i.e,
+    Sea $p\in(0,1)$ y $(G_n)_{n\to\infty}$ una secuencia de grafos, en donde cada $G_n$ posee $n$ vértices. Entonces el grafo $G_n$ es \textbf{casi-aleatorio} si en todo subconjunto $X\subset V(G_n)$ se encuentra una distribución de aristas similar, i.e,\medskip
+
     \begin{equation*}
         \Big| e(X) - p\tbinom{|X|}{2} \Big| = o(n^{2})\ ,\ \forall X\in V(G).
     \end{equation*}
