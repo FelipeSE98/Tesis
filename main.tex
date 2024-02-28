@@ -996,7 +996,7 @@ En esta tesis adoptaremos el \textbf{modelo binomial} como referencia para traba
 
 \subsection{Enunciado y demostración}\medskip
 
-Ya familiarizados con la noción de un grafo aleatorio, intuitivamente, diremos que un grafo casi-aleatorio es aquel que luce como uno verdaderamente aleatorio dentro de un marco determinístico. Formalmente:\medskip 
+Ya familiarizados con la noción de un grafo aleatorio, intuitivamente, diremos que un grafo casi-aleatorio es aquel que luce como uno verdaderamente aleatorio dentro de un marco determinístico. En otras palabras, es casi-aleatorio si asintóticamente satisface las propiedades que posee un grafo aleatorio casi seguramente. Formalmente:\medskip 
 
 \begin{definicion} \label{casi-aleatoriedad}
     Sea $p\in(0,1)$ y $(G_n)_{n\to\infty}$ una secuencia de grafos, en donde cada $G_n$ posee $n$ vértices. Entonces el grafo $G_n$ es \textbf{casi-aleatorio} si en todo subconjunto $X\subset V(G_n)$ se encuentra una distribución de aristas similar, i.e,\medskip
@@ -1006,46 +1006,44 @@ Ya familiarizados con la noción de un grafo aleatorio, intuitivamente, diremos 
     \end{equation*}
 \end{definicion}\medskip
 
-%Luego, para cada par de vértices $(x,y)\in V(G)$ establecemos $s(x,y)$ como el número de vértices de $G$ unidos a $x$ e $y$ de la misma forma: o a ambos o a ninguno. En otras palabras,
-%        $$s(x,y) = \left| \lbrace z\in V(G)\ : \ a_{xz}=a_{yz}\rbrace\right|\ ,\ \ \forall x,y\in V(G)$$
-
-El siguiente célebre teorema establece, desde diferentes puntos de vista de las matemáticas, una serie de propiedades equivalentes a la condición de casi-aleatoriedad de un grafo.\medskip
+La definición anterior está basada en el modelo binomial según la distribución de aristas que se pueden encontrar en cualquiern subconjunto de vértices del grafo. Más adelante, en 1989, Chung, Graham y Wilson \fs{referencia} muestran que existen diversas maneras equivalentes de caracterizar la noción de un grafo casi-aleatorio desde diferentes perspectivas.\medskip
 
 %% Enunciado Teorema Chung, Graham y Wilson
-\begin{teorema} \label{Teorema CGW} (Chung, Graham y Wilson.) 
-    Sea $p\in (0,1)$ fijo. Para cualquier secuencia de grafos $(G_{n})_{n \to \infty}$ con $|V(G_n)|= n$ y $e_{G_n}= (p + o(1))\tbinom{n}{2}$, las siguientes propiedades son equivalentes:\medskip
+\begin{teorema} \label{Teorema CGW} (Chung, Graham y Wilson) 
+    Sea $p\in (0,1)$ fijo. Para cualquier secuencia de grafos $(G_{n})_{n \to \infty}$ sobre $|V(G_n)|= n$ vértices y $e_{G_n}= (p + o(1))\tbinom{n}{2}$ aristas, las siguientes propiedades son equivalentes:\medskip
 
     \begin{enumerate}
-        \item[\makebox[0.5cm]{$\disc_p$:} Para todo $X,Y\subseteq V(G_n)$,
+        \item[\makebox[0.5cm]{$\disc_p$:} Para todo $X,Y\subseteq V(G_n)$,\medskip
+        
         \[
             \Big| e(X, Y)- p|X||Y| \Big| = o(n^{2}).
-        \]
+        \]\medskip
         
-        \item[\makebox[1.0cm]{$\discp_p$:} Para todo $X\subseteq V(G_n)$, 
+        \item[\makebox[1.0cm]{$\discp_p$:} Para todo $X\subseteq V(G_n)$,\medskip 
         
         \[
             \Big| e(X) - p \tbinom{|X|}{2}\Big| = o(n^{2})\ ,\ \ \forall X \subseteq V(G_n).
-        \]
+        \]\medskip
         
-        \item[\makebox[1.0cm]{$\Count_p$:} Para cada grafo $H$, la cantidad de copias etiquetadas de $H$ en $G_n$ está dada por
+        \item[\makebox[1.0cm]{$\Count_p$:} Para cada grafo $H$, la cantidad de copias etiquetadas de $H$ en $G_n$ está dada por\medskip
         
         \[
             \left|\tbinom{G_n}{H}\right| = \left(p^{e(H)} + o(1)\right) n^{v(H)}.
-        \]
+        \]\medskip
         
-        \item[\makebox[1.0cm]{$\Count_{C4,p}$:} La cantidad de copias etiquetadas de ciclos de orden 4 es
+        \item[\makebox[1.0cm]{$\Count_{C4,p}$:} La cantidad de copias etiquetadas de ciclos de orden 4 es\medskip
         
         \[
             \left|\tbinom{G_n}{C_4}\right| = (p^{4} + o(1)) n^{4}.
-        \]
+        \]\medskip
         
-        \item[\makebox[1.0cm]{$\codeg_p$:} 
+        \item[\makebox[1.0cm]{$\codeg_p$:}\medskip 
         
         \[
             \displaystyle\sum_{u,v\in V(G_n)}\Big| \cod(u,v)-p^{2}n\Big| = o(n^3).
-        \]
+        \]\medskip
 
-        \item[\makebox[1.0cm]{$\eig_p$:} Si $\lambda_1 \geq \cdots \geq \lambda_n$ son los autovalores de de la matriz de adyacencia de $G_n$, entonces
+        \item[\makebox[1.0cm]{$\eig_p$:} Si $\lambda_1 \geq \cdots \geq \lambda_n$ son los autovalores de de la matriz de adyacencia de $G_n$, entonces\medskip
         
         \[
             \lambda_1 = pn + o(n)\ \ \text{,}\ \ \ \displaystyle\max_{i\not= 1}|\lambda _{i}| = o(n).
@@ -1053,22 +1051,25 @@ El siguiente célebre teorema establece, desde diferentes puntos de vista de las
     \end{enumerate}
 \end{teorema}\medskip
 
-Para una comprensión e intuición inicial del teorema, las propiedades fueron enunciadas utilizando notación asintótica. Equivalentemente, para cada una de las propiedades anteriores, es posible reescribir su hipótesis utilizando una versión cuantitativa con un parámetro de error $\varepsilon$ para un grafo en específico. Por ejemplo, dado un grafo $G$, la propiedad $\disc_p$ puede ser replanteada de la siguiente manera:\medskip
+Para una comprensión preeliminar, el Teorema \ref{Teorema CGW} fue enunciado utilizando notación asintótica. Sin embargo, con dicha formulación no queda del todo claro las dependencias cuantificadas de los errores entre cada una de las propiedades. Entonces, se replantea equivalentemente cada propiedad con una versión cuantitativa asociando algún parámetro de error $\varepsilon$ para todo grafo $G$ con un conjunto de vértices suficientemente grande.\medskip
+
+Por ejemplo, bajo los supuestos del Teorema \ref{Teorema CGW}, asuma que la sucesión de grafos $(G_n)_{n\to\infty}$ satisface $\disc_p$. Entonces, para todo $\varepsilon > 0$, existe $n_0 \in \mathbb{N}$ tal que el grafo $G$ sobre $n\geq n_0$ vértices satisface\medskip
+
 \begin{equation*}
-  \disc_p(\varepsilon):\ \ \ e(X,Y) = p|X||Y| \pm \varepsilon n^2 , \ \ \forall X,Y \subseteq V(G).  
-\end{equation*}
+    \disc_p(\varepsilon):\ \ \ e(X,Y) = p|X||Y| \pm \varepsilon n^2 , \ \ \forall X,Y \subseteq V(G).  
+\end{equation*}\medskip
 
-De manera general, diremos que una secuencia de grafos $(G_n)_{n\to\infty}$ con $|V(G_n)| = n$ satisface la propiedad $P_{x_1,...,x_k}$\footnote{Los parámetros $x_1,...,x_k$ pueden ser de distinta naturaleza, dependiendo de la propiedad simbolizada. En las propiedades del Teorema \ref{Teorema CGW} se utiliza $k=1$ con $x_1 = p$ salvo en la propiedad $\Count_{C4,p}$, en donde $k=2$.} si para cada elección de $\varepsilon >0$, existe algún $n_0 \in \mathbb{N}$ tal que el grafo $G_n$ con $n\geq n_0$ vértices satisface $P_{x_1,...,x_k}(\varepsilon)$. Más aún, la secuencia de grafos $(G_n)_{n\to\infty}$ satisface la propiedad $Q_{y_1,...,y_\ell}$ cada vez que cumpla con $P_{x_1,...,x_k}$ si y solamente si $P_{x_1,...,x_k}(\varepsilon) \Rightarrow Q_{y_1,...,y_\ell}(\delta)$. Es decir, para todo $\varepsilon > 0$ existe $\delta > 0$ y $n_0\in\mathbb{N}$ tal que el grafo $G_n$ con $n\geq n_0$ vértices cumple con $Q_{y_1,...,y_\ell}(\delta)$ siempre que satisfaga la propiedad $P_{x_1,...,x_k}(\varepsilon)$.\medskip
+De manera general, diremos que una secuencia de grafos $(G_n)_{n\to\infty}$ con $|V(G_n)| = n$ satisface la propiedad $P_{x_1,...,x_k}$\footnote{Los parámetros $x_1,...,x_k$ pueden ser de distinta naturaleza, dependiendo de la propiedad simbolizada. En las propiedades del Teorema \ref{Teorema CGW} se utiliza $k=1$ con $x_1 = p$ salvo en la propiedad $\Count_{C4,p}$, en donde $k=2$.} si para cada elección de $\varepsilon >0$, existe algún $n_0 \in \mathbb{N}$ tal que el grafo $G$ con $n\geq n_0$ vértices satisface $P_{x_1,...,x_k}(\varepsilon)$. Más aún, se dirá que la propiedad $Q_{y_1,...,y_\ell}$ implica la propiedad $P_{x_1,...,x_k}$ si y solamente si $P_{x_1,...,x_k}(\varepsilon)$ implica $Q_{y_1,...,y_\ell}$. Es decir, para todo $\varepsilon > 0$, existe $\delta > 0$ y $n_0\in\mathbb{N}$ tales que el grafo $G$ con $n\geq n_0$ vértices cumple con $Q_{y_1,...,y_\ell}(\delta)$ cada vez que satisfaga la propiedad $P_{x_1,...,x_k}(\varepsilon)$.\medskip
 
-Se desarrollará la demostración formal del teorema de Chung, Graham y Wilson utilizando notación $\varepsilon , \delta$, mostrando que cada par de propiedades $P_{x_1,...,x_k}$ y $Q_{y_1,...,y_\ell}$ son equivalentes entre sí con un cambio polinomial en el error. Esto es, $P_{x_1,...,x_k}(\varepsilon) \Rightarrow Q_{y_1,...,y_\ell}(C\varepsilon^{c})$ para algún par de constantes $C,c > 0$.
+Se desarrollará la demostración formal del teorema de Chung, Graham y Wilson utilizando notación $\varepsilon$-$\delta$, mostrando que cada par de propiedades $P_{x_1,...,x_k}$ y $Q_{y_1,...,y_\ell}$ son equivalentes entre sí con un cambio polinomial en el error. Esto es, $P_{x_1,...,x_k}(\varepsilon) \Rightarrow Q_{y_1,...,y_\ell}(C\varepsilon^{c})$ para algún par de constantes $C,c > 0$.\medskip
 
 \begin{flushleft}
     \Large
     \textbf{Demostración Teorema 2 (Chung, Graham y Wilson).}\\
     \normalsize
-\end{flushleft}
+\end{flushleft}\medskip
 
-La demostración de este teorema será descompuesta en ocho proposiciones, las cuales mostrarán la equivalencia entre todas las propiedades de la siguiente manera:
+La demostración de este teorema será descompuesta en ocho proposiciones, las cuales mostrarán la equivalencia entre todas las propiedades de la siguiente manera:\medskip
 
 \begin{equation} \label{Ciclo demo CGW}
     \begin{aligned}
@@ -1076,9 +1077,9 @@ La demostración de este teorema será descompuesta en ocho proposiciones, las c
         &\ \ \big\Updownarrow \overset{\mathrm{Prop.}\ \ref{disc => discp}\ \mathrm{y}\ \ref{discp => disc}.}{}\ & \ & \ & \ & \ \ \ \ \ \ \ \big\Downarrow \overset{\mathrm{Prop.}\ \ref{C4 => codeg}.}{}& \ & \ \\
         &\disc_p &\ &\ \ \overset{\mathrm{Prop.}\ \ref{codeg => disc}.}{\Longleftarrow} &\ &\ \ \ \codeg_p.
     \end{aligned}
-\end{equation}
+\end{equation}\medskip
 
-Con esto, damos paso a las pruebas de cada proposición.\medskip
+Así, damos paso a las pruebas de cada proposición.\medskip
 
 %%% Proposición: DISC_p => DISC_p'
 \begin{prop} \label{disc => discp}
@@ -1090,10 +1091,12 @@ Con esto, damos paso a las pruebas de cada proposición.\medskip
 
 %%% Demostración DISC_p => DISC_p'
 \begin{proof}
-    Sea $\varepsilon > 0$, $p\in (0,1)$, $\delta = \frac{\varepsilon}{2}$ y $n_0 \in \mathbb{N}$ suficientemente grande. Dado un grafo $G$ sobre $n\geq n_0$ vértices que satisface $\disc_p(\delta)$ y $X\subset V(G)$, utilizamos la propiedad $\disc_p(\delta)$ para obtener el resultado de la siguiente manera:
+    Sea $\varepsilon > 0$, $p\in (0,1)$, $\delta = \frac{\varepsilon}{2}$ y $n_0 \in \mathbb{N}$ suficientemente grande. Considere el grafo $G$ sobre $n\geq n_0$ vértices que satisface $\disc_p(\delta)$ y $X\subset V(G)$, entonces utilizamos la propiedad $\disc_p(\delta)$ para obtener el resultado de la siguiente manera:\medskip
+
     \[
         e(X) = p\dfrac{|X|^{2}}{2} \pm \delta n^{2} = p\tbinom{|X|}{2} \pm 2\delta n^{2}.
-    \]
+    \]\medskip
+
     Las igualdades anteriores consideran $e(X,X) = 2e(X)$, por definición, y la aproximación  $\tbinom{|X|}{2}= \frac{|X|^2}{2} \pm \delta n^2$.
 \end{proof}\medskip
 
@@ -1107,14 +1110,15 @@ Con esto, damos paso a las pruebas de cada proposición.\medskip
 
 %%%%%%%%%% Demostración DISC_p' => DISC_p
 \begin{proof}
-    Sea $\varepsilon > 0$, $p\in (0,1)$, $\delta = \frac{\varepsilon}{4}$ y $n_0\in\mathbb{N}$ suficientemente grande. Consideramos el grafo $G$ sobre $n\geq n_0$ vértices que satisface $\discp_p(\delta)$.
+    Sea $\varepsilon > 0$, $p\in (0,1)$, $\delta = \frac{\varepsilon}{4}$ y $n_0\in\mathbb{N}$ suficientemente grande. Consideramos el grafo $G$ sobre $n\geq n_0$ vértices que satisface $\discp_p(\delta)$.\medskip
 
-    En primera instancia, llevaremos el conteo de aristas que existen entre pares de subconjuntos de vértices, a un conteo equivalente mediante la combinación aditiva de las aristas que se encuentran en un subconjunto único de vértices. Es decir, para $X,Y\subset V(G)$,
+    En primera instancia, llevaremos el conteo de aristas que existen entre pares de subconjuntos de vértices, a un conteo equivalente mediante la combinación aditiva de las aristas que se encuentran en un subconjunto único de vértices. Es decir, para $X,Y\subset V(G)$,\medskip
+
     \begin{equation} \label{polarización_aristas}
         e(X,Y) = e(X\cup Y) + e(X\cap Y) - e(X\setminus Y) - e(Y\setminus X).    
-    \end{equation}
+    \end{equation}\medskip
 
-    Observe que con esta configuración, el conteo de las aristas entre $X$ e $Y$ es doble cuando los vértices que componen las aristas pertenecen a $X\cap Y$. Ahora, utilizamos la propiedad $\discp_p(\delta)$ sobre la identidad \eqref{polarización_aristas} para conseguir el resultado,
+    Observe que con esta configuración, el conteo de las aristas entre $X$ e $Y$ es doble cuando los vértices que componen las aristas pertenecen a $X\cap Y$. Luego, utilizamos la propiedad $\discp_p(\delta)$ sobre la identidad \eqref{polarización_aristas} para conseguir el resultado.\medskip
     
     \begin{align*}
         e(X,Y) &= p\left( \tbinom{|X\cup Y|}{2} + \tbinom{|X\cap Y|}{2} - \tbinom{|X\setminus Y|}{2} - \tbinom{|Y\setminus X|}{2} \right) \pm 4\delta n^{2} \\
@@ -1133,40 +1137,44 @@ Con esto, damos paso a las pruebas de cada proposición.\medskip
 
 %%%%%%%%%% Demostración DISC'_P => COUNT_P
 \begin{proof}
-    Sea $\varepsilon > 0$, $p\in (0,1)$ y $H$ un grafo sobre $\ell$ vértices, elegimos $\delta = \frac{\varepsilon}{6\ell^{2}}$ y $n_0\in \mathbb{N}$ suficientemente grande. Dado el grafo $G=(V,E)$ con $n\geq n_0$ vértices que satisface $\discp_p(\delta)$, se busca probar que $G$ también cumple con la propiedad $\Count_p(\varepsilon)$.
+    Sea $\varepsilon > 0$, $p\in (0,1)$ y $H$ un grafo sobre $\ell$ vértices, elegimos $\delta = \frac{\varepsilon}{6\ell^{2}}$ y $n_0\in \mathbb{N}$ suficientemente grande. Considere también el grafo $G = (V,E)$ con $n\geq n_0$ vértices que satisface la propiedad $\Count_{p}(\varepsilon)$.\medskip
 
-    Para todo grafo $F$ con $\ell$ vértices y $e_F \geq 1$ aristas, razonaremos por inducción sobre su cantidad de aristas para probar que,
+    Dado cualquier grafo $F$ con $\ell$ vértices y $e_F \geq 1$ aristas, razonamos por inducción sobre su cantidad de aristas para probar que\medskip
+
     \begin{equation} \label{ind_count}
         \left| \tbinom{G}{F}\right| = p^{e_F}n^{\ell} \pm 4e_F \delta n^{\ell}.
-    \end{equation}
+    \end{equation}\medskip
 
-    Una vez probada la ecuación \eqref{ind_count}, el resultado seguirá de tomar $F = H$ y la elección de $\delta$ para conseguir las siguientes desigualdades,
+    Una vez probada la ecuación \eqref{ind_count}, el resultado seguirá de tomar $F = H$ y la elección de $\delta$ para conseguir las siguientes desigualdades:\medskip
+
     \begin{equation*}
         4e_F \delta n^{\ell} \leq 4\tbinom{\ell}{2}\delta n^{\ell} \leq 4\delta\left( \frac{\ell^{2}}{2} + \delta\ell^{2}\right)n^{\ell} \leq 6\delta\ell^{2}n^{\ell} = \varepsilon n^{\ell}.
-    \end{equation*}
+    \end{equation*}\medskip
 
-    Cuando $e_F = 1$, $\left| \tbinom{G}{F}\right|$ es el número de pares ordenados de vértices de $G$ que forman una arista junto a cualquier combinación de $\ell -2$ vértices para completar una copia de $F$. Esto es,
+    Cuando $e_F = 1$, $\left| \tbinom{G}{F}\right|$ es el número de pares ordenados de vértices de $G$ que forman una arista junto a cualquier combinación de $\ell -2$ vértices para completar una copia de $F$. Es decir,\medskip
+
     \begin{equation*}
         \left| \tbinom{G}{F}\right| = 2e_G(n-2)(n-3)\cdots(n-\ell + 1).
-    \end{equation*}
+    \end{equation*}\medskip
     
-    Luego, si aplicamos la propiedad $\discp_p(\delta)$ sobre $V$, tendremos que la cantidad de aristas es
+    Luego, si aplicamos la propiedad $\discp_p(\delta)$ sobre $V$, tendremos que la cantidad de aristas es\medskip
+
     \begin{equation*}
         e_G = \frac{pn(n-1)}{2} \pm \delta n^{2}.
-    \end{equation*}
+    \end{equation*}\medskip
 
-    Así, con $\left| \tbinom{G}{F}\right| = pn^{\ell} \pm 4\delta n^{\ell}$, se prueba el caso inicial de la inducción.
-    \medskip
+    Así, con $\left| \tbinom{G}{F}\right| = pn^{\ell} \pm 4\delta n^{\ell}$, se prueba el caso inicial de la inducción.\medskip
 
-    Ahora, sea $F$ un grafo con $e_F > 1$ aristas y asumiremos que se satisface \eqref{ind_count} para cualquier grafo con una cantidad de aristas menor que $e_F$. Para desarrollar la inducción, vamos a considerar la siguiente notación:
+    Ahora, sea $F$ un grafo con $e_F > 1$ aristas y asumiremos que se satisface la ecuación \eqref{ind_count} sobre cualquier grafo con una cantidad de aristas menor que $e_F$. Entonces, para desarrollar la inducción, vamos a considerar la siguiente notación:\medskip
+
     \begin{enumerate}
         \item[i)] $F^{-} := ([\ell], E(F)\setminus ij)$, es el grafo producido por eliminar la arista $ij$ de $F$.
         \item[ii)] $F^{*} := F[[\ell]\setminus \lbrace i,j\rbrace]$, es el grafo inducido por $[\ell]\setminus \lbrace i,j\rbrace$, i.e, grafo producido de eliminar los vértices de $ij$ en $F$. 
-    \end{enumerate}
+    \end{enumerate}\medskip
 
-    Sea $T^{-}$ una copia etiquetada de $F^{-}$ en $G$, es decir, $T^{-}$ se corresponde con una aplicación inyectiva $f: V(F^{-}) \to V(T^{-})\subseteq V$ tal que $f(u)f(v)\in E(T^{-})$ cada vez que $uv\in E(F^{-})$. Se define entonces $e_{T^{-}}$ como la tupla $(f(i), f(j))$ resultante de la imagen de los vértices $i,j\in V(F^{-})$.
+    Sea $T^{-}$ una copia etiquetada de $F^{-}$ en $G$, es decir, $T^{-}$ se corresponde con una aplicación inyectiva $f: V(F^{-}) \to V(T^{-})\subseteq V$ tal que $f(u)f(v)\in E(T^{-})$ cada vez que $uv\in E(F^{-})$. De esta manera, se define $e_{T^{-}}$ como la tupla $(f(i), f(j))$ resultante de la imagen de los vértices $i,j\in V(F^{-})$.\medskip
 
-    Escribiremos la cantidad de copias etiquetadas de $F$ en $G$ de manera conveniente y se utilizará la hipótesis de inducción como se muestra a continuación:
+    \fs{Aquí quedé}Se escribe la cantidad de copias etiquetadas de $F$ en $G$ de manera conveniente y se utilizará la hipótesis de inducción como se muestra a continuación:
     \begin{align} \label{count_G_F}
         \left| \tbinom{G}{F}\right| &= \sum_{T^{-}\in \tbinom{G}{F^{-}}} \mathbbm{1}_{E}(e_{T^{-}})\nonumber \\
         &= \sum_{T^{-}\in \tbinom{G}{F^{-}}} \left[ \mathbbm{1}_{E}(e_{T^{-}}) + p - p\right]\nonumber \\
