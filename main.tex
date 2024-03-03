@@ -1112,7 +1112,7 @@ Así, damos paso a las pruebas de cada proposición.\medskip
 
 %%% Demostración DISC_p => DISC_p'
 \begin{proof}
-    Sea $\varepsilon > 0$, $p\in (0,1)$, $\delta = \frac{\varepsilon}{2}$ y $n_0 \in \mathbb{N}$ suficientemente grande. Considere el grafo $G$ sobre $n\geq n_0$ vértices que satisface $\disc_p(\delta)$ y $X\subset V(G)$, entonces utilizamos la propiedad $\disc_p(\delta)$ para obtener el resultado de la siguiente manera:\medskip
+    Sea $\varepsilon > 0$, $p\in (0,1)$, $\delta < \frac{\varepsilon}{2}$ y $n_0 \in \mathbb{N}$ suficientemente grande. Considere el grafo $G$ sobre $n\geq n_0$ vértices que satisface $\disc_p(\delta)$ y $X\subset V(G)$, entonces utilizamos la propiedad $\disc_p(\delta)$ para obtener el resultado de la siguiente manera:\medskip
 
     \[
         e(X) = p\dfrac{|X|^{2}}{2} \pm \delta n^{2} = p\tbinom{|X|}{2} \pm 2\delta n^{2}.
@@ -1132,7 +1132,7 @@ Así, damos paso a las pruebas de cada proposición.\medskip
 
 %%%%%%%%%% Demostración DISC_p' => DISC_p
 \begin{proof}
-    Sea $\varepsilon > 0$, $p\in (0,1)$, $\delta = \frac{\varepsilon}{4}$ y $n_0\in\mathbb{N}$ suficientemente grande. Consideramos el grafo $G$ sobre $n\geq n_0$ vértices que satisface $\discp_p(\delta)$.\medskip
+    Sea $\varepsilon > 0$, $p\in (0,1)$, $\delta < \frac{\varepsilon}{4}$ y $n_0\in\mathbb{N}$ suficientemente grande. Consideramos el grafo $G$ sobre $n\geq n_0$ vértices que satisface $\discp_p(\delta)$.\medskip
 
     En primera instancia, llevaremos el conteo de aristas que existen entre pares de subconjuntos de vértices, a un conteo equivalente mediante la combinación aditiva de las aristas que se encuentran en un subconjunto único de vértices. Es decir, para $X,Y\subset V(G)$,\medskip
 
@@ -1160,7 +1160,7 @@ Así, damos paso a las pruebas de cada proposición.\medskip
 
 %%%%%%%%%% Demostración DISC'_P => COUNT_P
 \begin{proof}
-    Sea $\varepsilon > 0$, $p\in (0,1)$ y $H$ un grafo sobre $\ell$ vértices, elegimos $\delta = \frac{\varepsilon}{6\ell^{2}}$ y $n_0\in \mathbb{N}$ suficientemente grande. Considere también el grafo $G = (V,E)$ con $n\geq n_0$ vértices que satisface la propiedad $\Count_{p}(\varepsilon)$.\medskip
+    Sea $\varepsilon > 0$, $p\in (0,1)$ y $H$ un grafo sobre $\ell$ vértices, elegimos $\delta < \frac{\varepsilon}{6\ell^{2}}$ y $n_0\in \mathbb{N}$ suficientemente grande. Considere también el grafo $G = (V,E)$ con $n\geq n_0$ vértices que satisface la propiedad $\Count_{p}(\varepsilon)$.\medskip
 
     Dado cualquier grafo $F$ con $\ell$ vértices y $e_F \geq 1$ aristas, razonamos por inducción sobre su cantidad de aristas para probar que\medskip
 
@@ -1171,7 +1171,7 @@ Así, damos paso a las pruebas de cada proposición.\medskip
     Una vez probada la ecuación \eqref{ind_count}, el resultado seguirá de tomar $F = H$ y la elección de $\delta$ para conseguir las siguientes desigualdades:\medskip
 
     \begin{equation*}
-        4e_F \delta n^{\ell} \leq 4\tbinom{\ell}{2}\delta n^{\ell} \leq 4\delta\left( \frac{\ell^{2}}{2} + \delta\ell^{2}\right)n^{\ell} \leq 6\delta\ell^{2}n^{\ell} = \varepsilon n^{\ell}.
+        4e_F \delta n^{\ell} \leq 4\tbinom{\ell}{2}\delta n^{\ell} \leq 4\delta\left( \frac{\ell^{2}}{2} + \delta\ell^{2}\right)n^{\ell} \leq 6\delta\ell^{2}n^{\ell} < \varepsilon n^{\ell}.
     \end{equation*}\medskip
 
     Cuando $e_F = 1$, $\left| \tbinom{G}{F}\right|$ es el número de pares ordenados de vértices de $G$ que forman una arista junto a cualquier combinación de $\ell -2$ vértices para completar una copia de $F$. Es decir,\medskip
@@ -1316,7 +1316,7 @@ Así, damos paso a las pruebas de cada proposición.\medskip
 
 %%%%%%%%%% Demostración COUNT_p => COUNT_C4,p
 \begin{proof}
-    Se trata de un caso particular de $\Count_p$, en donde $H = C4$ y $\delta = \epsilon$.
+    Se trata de un caso particular de $\Count_p$, en donde $H = C4$ y $\delta < \epsilon$.
 \end{proof}\medskip
 
 %%%%%%%%%% Proposición: COUNT_C4_p => CODEG_p
@@ -1330,7 +1330,7 @@ Así, damos paso a las pruebas de cada proposición.\medskip
 
 %%%%%%%%%% Demostración COUNT_C4_p => CODEG_p
 \begin{proof}
-    Dado $\varepsilon > 0$ y $p\in (0,1)$, elegimos $\delta = \frac{\varepsilon^{2}}{16}$ y $n_0\in\mathbb{N}$ suficientemente grande. También considere el grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas que satisface $\Count_{C_4,p}(\delta)$.\medskip
+    Dado $\varepsilon > 0$ y $p\in (0,1)$, elegimos $\delta < \frac{\varepsilon^{2}}{16}$ y $n_0\in\mathbb{N}$ suficientemente grande. También considere el grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas que satisface $\Count_{C_4,p}(\delta)$.\medskip
 
     La clave de esta demostración radica en encontrar una buena cota para $\sum_{u,v\in V(G)} \cod(u,v)$ y $\sum_{u,v\in V(G)} \cod(u,v)^{2}$, y la utilización apropiada de la desigualdad de Cauchy-Schwarz.\medskip
     
@@ -1373,7 +1373,7 @@ Así, damos paso a las pruebas de cada proposición.\medskip
 
 %%%%%%%%%% Demostración CODEG_p => DISC_p
 \begin{proof}
-    Dado $\varepsilon > 0$, $p\in (0,1)$, seleccionamos $\delta = \frac{\varepsilon^{4}}{81}$ y $n_0\in\mathbb{N}$ suficientemente grande. Sea $G$ un grafo de $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas que satisface la propiedad $\codeg_p (\delta)$.\medskip
+    Dado $\varepsilon > 0$, $p\in (0,1)$, seleccionamos $\delta < \frac{\varepsilon^{4}}{81}$ y $n_0\in\mathbb{N}$ suficientemente grande. Sea $G$ un grafo de $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas que satisface la propiedad $\codeg_p (\delta)$.\medskip
 
     En primera instancia note que la propiedad $\codeg_p(\delta)$ induce una concentración en los grados de los vértices de $G$. En efecto,\medskip
 
@@ -1419,7 +1419,7 @@ Así, damos paso a las pruebas de cada proposición.\medskip
 
 %%%%%%%%%% Demostración EIG_p => COUNT_C4,p
 \begin{proof}
-    Dado $\varepsilon > 0$ y $p\in (0,1)$, se elige $\delta = \frac{\varepsilon}{20}$ y $n_0\in\mathbb{N}$ suficientemente grande. Consideramos el grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas que satisface la propiedad $\eig_p (\delta)$, $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ como la matriz de adyacencia de $G$, y $\lambda_1 \geq \cdots \geq \lambda_n$ los valores propios de $A$.\medskip
+    Dado $\varepsilon > 0$ y $p\in (0,1)$, se elige $\delta < \frac{\varepsilon}{20}$ y $n_0\in\mathbb{N}$ suficientemente grande. Consideramos el grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas que satisface la propiedad $\eig_p (\delta)$, $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ como la matriz de adyacencia de $G$, y $\lambda_1 \geq \cdots \geq \lambda_n$ los valores propios de $A$.\medskip
 
     Observe que la cantidad de copias etiquetadas de caminatas cerradas de largo 4 que no son $C_4$ en $G$ se encuentran dentro de un error de a lo más $\delta n^{4}$ con respecto al número de copias etiquetadas de $C_4$ en $G$. De esta observación, utilizando el Lema~\ref{potencia_matriz_adyacencia = caminatas} y el Corolario~\ref{Tr_Ak},\medskip
 
@@ -1453,7 +1453,7 @@ Así, damos paso a las pruebas de cada proposición.\medskip
 
 %%%%%%%%%% Demostración COUNT_C4,p => EIG_p
 \begin{proof}
-    Sea $\varepsilon > 0$ y $p\in (0,1)$, escogemos $\delta = \frac{\varepsilon^{4}}{4}$ y $n_0\in\mathbb{N}$ suficientemente grande. Sea también $G$ un grafo sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas que satisface la propiedad $\Count_{C_4, p}(\delta)$, $A\in\mathcal{M}_{n\times n}(\mathbb{R})$ la matriz de adyacencia de $G$, y $\lambda_1 \geq \cdots \geq \lambda_n$ los valores propios de $A$.\medskip
+    Sea $\varepsilon > 0$ y $p\in (0,1)$, escogemos $\delta < \frac{\varepsilon^{4}}{4}$ y $n_0\in\mathbb{N}$ suficientemente grande. Sea también $G$ un grafo sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas que satisface la propiedad $\Count_{C_4, p}(\delta)$, $A\in\mathcal{M}_{n\times n}(\mathbb{R})$ la matriz de adyacencia de $G$, y $\lambda_1 \geq \cdots \geq \lambda_n$ los valores propios de $A$.\medskip
 
     En lo que respecta al primer autovalor, sabemos por un lado que éste es al menos el promedio de los grados gracias al Lema~\ref{cota_primer_autovalor}. Es decir,\medskip
 
@@ -1481,36 +1481,78 @@ Así, damos paso a las pruebas de cada proposición.\medskip
     De esta manera, se logra probar el resultado determinando que $\displaystyle\max_{i \not= 1}|\lambda_i| \leq (4\delta)^{1/4}n$. 
 \end{proof}\medskip
 
-\subsection{Aspectos adicionales} \hh{Quizás cambiar el nombre de la subsección.}\medskip
+\subsection{Aspectos adicionales}\medskip
 
-La noción inicial de un grafo $G$ casi-aleatorio presentada en la Definición \ref{casi-aleatoriedad} $(\discp_p)$ contempla verificar si todos los subconjuntos $X\subset V(G)$ satisfacen su condición para determinar la casi-aleatoriedad de un grafo, i.e, se debe corroborar en $2^{|X|}$ conjuntos. Por esto, resulta sorprendente que la propiedad aparentemente más débil $\Count_{C4,p}$ sea una caracterización equivalente a todas las condiciones de casi-aleatoriedad que establece el teorema, verificándose de manera polinomial.\medskip
+La noción inicial de un grafo casi-aleatorio por distribución de aristas presentada en la Definición \ref{casi-aleatoriedad} contempla verificar si todos los subconjuntos de vértices del grafo satisfacen su condición para determinar la casi-aleatoriedad de un grafo. Es decir, se debe corroborar sobre $2^{|X|}$ subconjuntos. Por esto, resulta sorprendente que la propiedad, aparentemente más débil, $\Count_{C_{4},p}$ sea una caracterización equivalente a todas las condiciones de casi-aleatoriedad que establece el teorema, puesto a que se verifica de manera polinomial. \fs{En verdad las otras también, pero siento que quizás le deba dar más énfasis a C4. Modifico el párrafo anterior??}\medskip
 
-Una pregunta natural al observar la propiedad $\Count_{C4,p}$ es, ¿Podemos debilitar la condición con un conteo esperado de copias etiquetadas de $K_3$?. La respuesta es no, de hecho, la propiedad puede ser extendida a $\Count_{C_{2t},p}$ con $t\geq 2$. Es decir, para el grafo $G$,
+Una pregunta natural al observar la propiedad $\Count_{C_{4},p}$ es: ¿Podemos debilitar la condición para un conteo esperado de copias etiquetadas de $K_3$?. La respuesta es no, de hecho, la propiedad puede ser extendida a $\Count_{C_{2t},p}$ con $t\geq 2$. Es decir, para el grafo $G$,\medskip
+
 \[
     \Count_{C_{2t},p} :\ \left| \tbinom{G}{C_{2t}}\right| = \left( p^{2t} + o(1)\right)n^{2t}\ ,\ \forall t\geq 2.
-\]
+\]\medskip
+
+Se expone un bosquejo de la demostración de la extensión de $\Count_{C_{4},p}$ a la propiedad $\Count_{C_{2t},p}$.\medskip
 
 %%%% Proposición: Count_{C_2t,p} <=> EIG_p
 \begin{prop}
     Sea $p\in (0,1)$ y $(G_n)_{n\to\infty}$ una secuencia de grafos con $|V(G_n)| = n$ vértices y $e_{G_n} = (p + o(1))\tbinom{n}{2}$ aristas, entonces las propiedades $\Count_{C_{2t},p}$ y $\eig_p$ son equivalentes.
-\end{prop}
+\end{prop}\medskip
 
 %%%% Demostración: Count_{C_2t,p} <=> EIG_p
 \begin{proof}
-    Este resultado es una consecuencia directa de las demostraciones de la Proposición \ref{eig => C4} y \ref{C4 => eig} tras notar el siguiente par de observaciones. En primer lugar, la cantidad de copias etiquetadas caminatas cerradas de largo $2t$ que no son $C_{2t}$ en $G_n$ están dentro de un error $O(n^{2t - 1})$, i.e,
+    Este resultado es una consecuencia directa de las demostraciones de la Proposición \ref{eig => C4} y \ref{C4 => eig} tras notar el siguiente par de observaciones. En primer lugar, la cantidad de copias etiquetadas caminatas cerradas de largo $2t$ que no son $C_{2t}$ en $G_n$ están dentro de un error $O(n^{2t - 1})$, es decir,\medskip
+
     \[
         \Tr(A^{2t}) = \sum_{i=1}^{n} \lambda_{i}^{2t} = \left| \tbinom{G_n}{C_{2t}}\right| + O(n^{2t -1}).
-    \]
+    \]\medskip
 
-    También, se debe modificar la cota presentada en la ecuación \eqref{ec_prop_7.2} de la siguiente manera:
+    También, se debe modificar la cota presentada en la ecuación \eqref{ec_prop_7.2} como sigue:\medskip
+
     \[
         \sum_{i=2}^{n}\lambda_{i}^{2t} \leq \max_{i\not=1}\lambda_{i}^{2(t-1)}\sum_{i=1}^{n} \lambda_{i}^{2} = \max_{i\not=1}\lambda_{i}^{2t-2} \Tr(A^{2}).
-    \]
+    \]\medskip
+
+    Con estas observaciones el resultado queda demostrado.
 \end{proof}\medskip
 
-Es importante destacar que los ciclos de orden par preservan una contribución positiva en la suma de cada uno de los autovalores de $G$, eliminando la posibilidad de cancelaciones entre ellos.\medskip
+Es importante destacar que la demostración anterior es funcional gracias a que los ciclos de orden par preservan una contribución positiva en la suma de cada uno de los autovalores de $G$, eliminando la posibilidad de cancelaciones entre ellos.\medskip
 
-A continuación, se expone la construcción de un contraejemplo de un grafo que posee la cantidad de copias etiquetadas esperadas de $K_3$\footnote{Como lo haría en un grafo aleatorio con alta probabilidad. \hh{Esto creo que es mentira, pero no sé como escribirlo.}}, pero no cumple las condiciones para ser casi-aleatorio. La idea de la construcción consiste en la combinación de dos grafos, uno con una cantidad mayor que la esperada de copias etiquetadas de $K_3$, y otro con una cantidad menor. Consideramos entonces independientemente los grafos completos $K_{n_1}$ y $K_{n_2, n_2}$ tales que su unión disjunta forma el grafo $G = K_{n_1}\cup K_{n_2, n_2}$ con $n_1 + 2n_2 = n$ vértices, y observe que la cantidad de sus aristas y copias etiquetadas de $K_3$ respectivas son:\medskip
+A continuación, se expone la construcción de un contraejemplo de un grafo que posee la cantidad de copias etiquetadas esperadas de $K_3$, pero no cumple las condiciones para ser casi-aleatorio. La idea de la construcción consiste en la combinación de dos grafos, uno con una cantidad mayor que la esperada de copias etiquetadas de $K_3$, y otro con una cantidad menor. Consideramos entonces independientemente los grafos completos $K_{n_1}$ y $K_{n_2, n_2}$ tales que su unión disjunta forma el grafo $G = K_{n_1}\cup K_{n_2, n_2}$ con $n_1 + 2n_2 = n$ vértices.\medskip
+
+%%%% Dibujo contraejemplo
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+        %\draw[step=0.5cm, gray, very thin] (-5,-3) grid (5,3);
+        %\node[fill=red, circle, inner sep=2pt, minimum size=4pt] at (0,0) {};
+        \node at (-3,0) {$G = $};
+        % K_n1
+        \node at (-1.5,1.2) {$K_{n_1}$};
+        \draw[line width=1.2pt] (-1.5,0) ellipse (0.8 and 0.8);
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (1) at (-1.75,-0.4) {};
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (2) at (-1.25, 0.25) {}; 
+        \draw (1) -- (2);
+
+        % K_n_2,n_2
+        \node at (2.5,0) {$K_{n_2,n_2}$};
+        \draw[line width=1.2pt] (1.2,0.7) ellipse (0.8 and 0.5);
+        \draw[line width=1.2pt] (1.2,-0.7) ellipse (0.8 and 0.5);
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (3) at (1.2,0.7) {};
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (4) at (1.2,-0.7) {};
+        \draw (3) -- (4);
+    \end{tikzpicture}
+    \label{Esquema_Contraejemplo}
+    \caption{Esquema de la configuración del grafo usado como contraejemplo. Aquí, 
+    \begin{tikzpicture}
+        %\draw[step=0.5cm, gray, very thin] (-1,0) grid (1,0);
+        \node[fill=black, circle,inner sep=1.5pt, minimum size=2pt] (a) at (0,0.06) {};
+        \node[fill=black, circle,inner sep=1.5pt, minimim size=2pt] (b) at (0.5,0.06) {};
+        \draw (a) -- (b);
+    \end{tikzpicture} representa las aristas permitidas dentro del grafo $G$.}
+\end{figure}\medskip
+
+Sobre $K_{n_1}$ y $K_{n_2, n_2}$, observe que la cantidad de sus aristas y copias etiquetadas de $K_3$ son:\medskip
+
 \begin{equation*}
     \begin{aligned}
         &e_{K_{n_1}} \approx \frac{n_{1}^{2}}{2} &\ \  , &\ \ \left| \tbinom{K_{n_1}}{K_3}\right| \approx n_{1}^{3}\ \ , \\
@@ -1518,7 +1560,8 @@ A continuación, se expone la construcción de un contraejemplo de un grafo que 
     \end{aligned}
 \end{equation*}\medskip
 
-Ahora, se encuentra el parámetro $p\in(0,1)$ de manera tal que el grafo $G$ posea la cantidad esperada con alta probabilidad de aristas y copias etiquetadas de $K_3$ acorde a un grafo aleatorio con densidad $p$. Para ello, se plantea el siguiente sistema de ecuaciones:\medskip
+Ahora, se encontrará el parámetro $p\in(0,1)$ de manera tal que el grafo $G$ posea la cantidad esperada de aristas y copias etiquetadas de $K_3$, acorde a un grafo aleatorio binomial con densidad $p$. Para ello, se plantea el siguiente sistema de ecuaciones:\medskip
+
 \begin{equation*}
     \begin{cases}
         p\frac{n^{2}}{2} = \frac{n_{1}^{2}}{2} + \frac{(n-n_1)^{2}}{4}\\
@@ -1526,125 +1569,139 @@ Ahora, se encuentra el parámetro $p\in(0,1)$ de manera tal que el grafo $G$ pos
     \end{cases}
 \end{equation*}\medskip
 
-Resolviendo el sistema anterior, se obtiene que $p=\frac{1}{3}$ y $n_1 = n_2 = \frac{n}{3}$. Dicha configuración, en efecto, presenta
+Resolviendo el sistema anterior, se obtiene que $p=\frac{1}{3}$ y $n_1 = n_2 = \frac{n}{3}$. Dicha configuración, en efecto, presenta\medskip
+
 \begin{equation*}
     e_G = \binom{\frac{n}{3}}{2} + \frac{n^{2}}{9} = \frac{1}{3}\binom{n}{2} + o(n^{2}),
-\end{equation*}
-Como también,
+\end{equation*}\medskip
+
+Como también,\medskip
+
 \begin{equation*}
     \left| \tbinom{G}{K_3}\right| = \left(\frac{n}{3}\right)^{3} + o(n^{3}) = \left(\frac{1}{3}\right)^{3}n^{3} + o(n^{3}).
 \end{equation*}\medskip
 
 Sin embargo, el grafo $G$ no es casi-aleatorio debido a que no existen aristas entre $K_{n_1}$ y $K_{n_2, n_2}$ ni dentro de los conjuntos que conforman a $K_{n_2, n_2}$.\medskip
 
-Es posible replantear el Teorema \ref{Teorema CGW} para grafos bipartitos como se muestra a continuación.
+%Es posible replantear el Teorema \ref{Teorema CGW} para grafos bipartitos como %se muestra a continuación.
+%
+%%%%% Teorema : Versión bipartita Chung-Graham y Wilson.
+%\begin{teorema} \label{Teorema CGW Bipartito} (Chung, Graham y Wilson, versión %bipartita)
+%    Sea $p\in (0,1)$ fijo y una secuencia $(G_n)_{n\to\infty}$ de grafos %bipartitos $G_n$ con $n$ vértices, cuya partición de vértices es $V(G) = %U\cup W$ y su cantidad de aristas es $e_{G_n} = (p + o(1))|U||W|$. %Entonces, asumiendo que $|U|,|W|\to\infty$, las siguientes propiedades son %equivalentes:\medskip
+%
+%    \begin{enumerate}
+%        % BI-DISC
+%        \item[\makebox[0.5cm]{$\bidisc_p$:} Para todo $X\subset U$ e $Y\subset %W$,
+%        \[
+%            \Big| e(X,Y) - p|X||Y|\Big| = o(|U||W|).
+%        \]
+%
+%        % BI-COOUNT
+%        \item[\makebox[0.5cm]{$\bicount_p$:} Para todo grafo bipartito $H$ con %partición de vértices $S\cup T$, el número de copias etiquetadas de %$H$ en $G_n$ mapeando $S$ en $U$, y $T$ en $W$ es:
+%        \[
+%            \left( p^{e_H} + o(1)\right)|U|^{|S|}|W|^{|T|}.
+%        \]
+%
+%        % BI-COUNT C4
+%        \item[\makebox[0.5cm]{$\bicount_{C_4, p}$:} La cantidad de copias %etiquetadas de caminatas cerradas de largo 4 en $G_n$ comenzando en %$U$ es:
+%        \[
+%            \left( p^{4} + o(1)\right)|U|^{2} |W|^{2}.
+%        \]
+%
+%        % IZQ-CODEG
+%        \item[\makebox[0.5cm]{$\izcodeg_p$:} 
+%        \[
+%            \sum_{u,v\in U} \Big| \cod(u,v) - p^{2}|W|\Big| = o(|U|^{2}|W|).
+%        \]
+%
+%        % DER-CODEG
+%        \item[\makebox[0.5cm]{$\dercodeg_p$:}
+%        \[
+%            \sum_{u,v\in W} \Big| \cod(u,v) - p^{2}|U|\Big| = o(|U||W|^{2}).
+%        \]
+%
+%        % BI-EIG
+%        \item[\makebox[0.5cm]{$\bieig_p$:} Sean $\lambda_1 \geq \lambda_2 %\geq ...\geq \lambda_n$ los autovalores asociados a la matriz de %adyacencia del grafo $G_n$, entonces
+%        \[
+%            \lambda_1 = (p + o(1))\sqrt{|U||W|}\ \ \text{,}\ \ \ %\displaystyle\max_{i\not= 1}|\lambda _{i}| = o(\sqrt{|U||W|}).
+%        \]
+%    \end{enumerate}
+%\end{teorema}\medskip
+%
+%Veremos que existe una relación directa entre los Teoremas \ref{Teorema CGW} y %\ref{Teorema CGW Bipartito} por medio de un determinado producto tensor entre %grafos.\medskip
+%
+%%%%% Definición: Producto tensor
+%\begin{definicion}
+%    Dado los grafos $G$ y $H$, el \textbf{producto tensor} $G\times H$ es un %grafo tal que:
+%    \begin{itemize}
+%        \item[i)] El conjunto de vértices del grafo $G\times H$ es el producto %cartesiano $V(G)\times V(H)$, y
+%        \item[ii)] los vértices $(g,h)$ y $(g',h')$ son adyacentes en $G\times %H$ si y solo si $g$ es adyacente con $h$ en $G$, y $g'$ es adyacente %con $h'$ en $H$.
+%    \end{itemize}
+%\end{definicion}\medskip
+%
+%Observe que el producto tensor de todo grafo $G$ con el grafo completo $K_2$ %transforma a $G$ en un grafo bipartito. Dicha transformación es conocida como %el \textbf{cubrimiento doble bipartito} de $G$. Por ejemplo, si consideramos %los grafos $G = (\lbrace u,v,w\rbrace, \lbrace uv, uw, vw\rbrace)$ y $K_2 = %(\lbrace 0,1\rbrace, \lbrace 01\rbrace)$, el producto tensor resultante %es\medskip
+%\begin{equation*}
+%    G\times K_2 = \left(
+%    \left\lbrace
+%        \begin{array}{c}
+%             (u,0) , (u,1)\\
+%             (v,0) , (v,1)\\
+%             (w,0) , (w,1)
+%        \end{array}
+%    \right\rbrace,
+%    \left\lbrace
+%        \begin{array}{c}
+%            (u,0)(v,1) , (u,1)(v,0)\\
+%            (u,0)(w,1) , (u,1)(w,0)\\
+%            (v,0)(w,1) , (v,1)(w,0)
+%        \end{array}
+%    \right\rbrace
+%    \right).
+%\end{equation*}\medskip
+%
+%Con la observación anterior es posible demostrar que todo grafo $G$ satisface %cada propiedad del Teorema \ref{Teorema CGW} si y solo si $G\times K_2$ %satisface su respectiva propiedad bipartita del Teorema \ref{Teorema CGW %Bipartito}.
 
-%%%% Teorema : Versión bipartita Chung-Graham y Wilson.
-\begin{teorema} \label{Teorema CGW Bipartito} (Chung, Graham y Wilson, versión bipartita)
-    Sea $p\in (0,1)$ fijo y una secuencia $(G_n)_{n\to\infty}$ de grafos bipartitos $G_n$ con $n$ vértices, cuya partición de vértices es $V(G) = U\cup W$ y su cantidad de aristas es $e_{G_n} = (p + o(1))|U||W|$. Entonces, asumiendo que $|U|,|W|\to\infty$, las siguientes propiedades son equivalentes:\medskip
-
-    \begin{enumerate}
-        % BI-DISC
-        \item[\makebox[0.5cm]{$\bidisc_p$:} Para todo $X\subset U$ e $Y\subset W$,
-        \[
-            \Big| e(X,Y) - p|X||Y|\Big| = o(|U||W|).
-        \]
-
-        % BI-COOUNT
-        \item[\makebox[0.5cm]{$\bicount_p$:} Para todo grafo bipartito $H$ con partición de vértices $S\cup T$, el número de copias etiquetadas de $H$ en $G_n$ mapeando $S$ en $U$, y $T$ en $W$ es:
-        \[
-            \left( p^{e_H} + o(1)\right)|U|^{|S|}|W|^{|T|}.
-        \]
-
-        % BI-COUNT C4
-        \item[\makebox[0.5cm]{$\bicount_{C_4, p}$:} La cantidad de copias etiquetadas de caminatas cerradas de largo 4 en $G_n$ comenzando en $U$ es:
-        \[
-            \left( p^{4} + o(1)\right)|U|^{2} |W|^{2}.
-        \]
-
-        % IZQ-CODEG
-        \item[\makebox[0.5cm]{$\izcodeg_p$:} 
-        \[
-            \sum_{u,v\in U} \Big| \cod(u,v) - p^{2}|W|\Big| = o(|U|^{2}|W|).
-        \]
-
-        % DER-CODEG
-        \item[\makebox[0.5cm]{$\dercodeg_p$:}
-        \[
-            \sum_{u,v\in W} \Big| \cod(u,v) - p^{2}|U|\Big| = o(|U||W|^{2}).
-        \]
-
-        % BI-EIG
-        \item[\makebox[0.5cm]{$\bieig_p$:} Sean $\lambda_1 \geq \lambda_2 \geq ...\geq \lambda_n$ los autovalores asociados a la matriz de adyacencia del grafo $G_n$, entonces
-        \[
-            \lambda_1 = (p + o(1))\sqrt{|U||W|}\ \ \text{,}\ \ \ \displaystyle\max_{i\not= 1}|\lambda _{i}| = o(\sqrt{|U||W|}).
-        \]
-    \end{enumerate}
-\end{teorema}\medskip
-
-Veremos que existe una relación directa entre los Teoremas \ref{Teorema CGW} y \ref{Teorema CGW Bipartito} por medio de un determinado producto tensor entre grafos.\medskip
-
-%%%% Definición: Producto tensor
-\begin{definicion}
-    Dado los grafos $G$ y $H$, el \textbf{producto tensor} $G\times H$ es un grafo tal que:
-    \begin{itemize}
-        \item[i)] El conjunto de vértices del grafo $G\times H$ es el producto cartesiano $V(G)\times V(H)$, y
-        \item[ii)] los vértices $(g,h)$ y $(g',h')$ son adyacentes en $G\times H$ si y solo si $g$ es adyacente con $h$ en $G$, y $g'$ es adyacente con $h'$ en $H$.
-    \end{itemize}
-\end{definicion}\medskip
-
-Observe que el producto tensor de todo grafo $G$ con el grafo completo $K_2$ transforma a $G$ en un grafo bipartito. Dicha transformación es conocida como el \textbf{cubrimiento doble bipartito} de $G$. Por ejemplo, si consideramos los grafos $G = (\lbrace u,v,w\rbrace, \lbrace uv, uw, vw\rbrace)$ y $K_2 = (\lbrace 0,1\rbrace, \lbrace 01\rbrace)$, el producto tensor resultante es\medskip
-\begin{equation*}
-    G\times K_2 = \left(
-    \left\lbrace
-        \begin{array}{c}
-             (u,0) , (u,1)\\
-             (v,0) , (v,1)\\
-             (w,0) , (w,1)
-        \end{array}
-    \right\rbrace,
-    \left\lbrace
-        \begin{array}{c}
-            (u,0)(v,1) , (u,1)(v,0)\\
-            (u,0)(w,1) , (u,1)(w,0)\\
-            (v,0)(w,1) , (v,1)(w,0)
-        \end{array}
-    \right\rbrace
-    \right).
-\end{equation*}\medskip
-
-Con la observación anterior es posible demostrar que todo grafo $G$ satisface cada propiedad del Teorema \ref{Teorema CGW} si y solo si $G\times K_2$ satisface su respectiva propiedad bipartita del Teorema \ref{Teorema CGW Bipartito}.
-
+Finalmente, se explora un caso siempre interesante de estudio, ya que simplifica varios cálculos y surge de manera recurrente en la vida cotidiana: un grafo $d$-regulrar. En nuestro contexto, se verá que toda secuencia $(G_n)_{n\to \infty}$ de grafos $d$-regular satisface la propiedad $\disc_{\frac{d}{n}}$ si y solo si cumple con $\eig_{\frac{d}{n}}$. Dicha equivalencia nace como una consecuencia del siguiente teorema.\medskip
 
 %%%% Enunciado Expander Mixing Lemma
 \begin{teorema} \label{Expander Mixing Lemma} (Expander Mixing Lemma)
-    Sea $G = ([n], E)$ un grafo $d$-regular. Consideramos $d=\lambda_1 \geq \lambda_2\geq...\geq\lambda_n$ los valores propios asociados a la matriz de adyacencia $A$ de $G$, y denotamos
+    Sea $G = ([n], E)$ un grafo $d$-regular, y $d=\lambda_1 \geq \lambda_2\geq...\geq\lambda_n$ los valores propios asociados a la matriz de adyacencia $A$ de $G$. Se denota:\medskip
+
     \[
         \lambda = \max_{i\not= 1}|\lambda_i|.
-    \]
-    Entonces, para cada $X,Y\subset [n]$,
+    \]\medskip
+
+    Entonces, para cada $X,Y\subset [n]$,\medskip
+
     \begin{equation} \label{resultado EML}
-        \left| e(X,Y) - d\frac{|X||Y|}{n}\right| \leq \lambda \sqrt{|X||Y|\left( 1 - \frac{|X|}{n}\right)\left( 1 - \frac{|Y|}{n}\right)}.
+        \left| e(X,Y) - \frac{d}{n}|X||Y|\right| \leq \lambda \sqrt{|X||Y|\left( 1 - \frac{|X|}{n}\right)\left( 1 - \frac{|Y|}{n}\right)}.
     \end{equation}
-\end{teorema}
+\end{teorema}\medskip
 
 %%%% Demostración Expander Mixing Lemma
 \begin{proof}
-    Sea $\mathcal{B} = \lbrace v_1,...,v_n\rbrace$ la base ortonormal de $\mathbb{R}^{n}$ compuesta por los vectores propios de $A$. Utilizando la descomposición espectral, denotamos
+    Sea $\mathcal{B} = \lbrace v_1,...,v_n\rbrace$ la base ortonormal de $\mathbb{R}^{n}$ compuesta por los vectores propios de $A$. Utilizando la descomposición espectral, se denota\medskip
+
     \begin{equation*}
         A_1 = \lambda_1 v_1 v_{1}^{T}\ \ \text{y}\ \ \Delta = \sum_{i=2}^{n} \lambda_i v_i v_{i}^{T},
-    \end{equation*}
-    De manera que $A = A_1 + \Delta$. Como vimos en la igualdad \eqref{e(X,Y)=espectral} de la sección \ref{Sección AL}, para todo $X,Y\subset [n]$, podemos escribir
+    \end{equation*}\medskip
+
+    de manera que $A = A_1 + \Delta$.\medskip
+    
+    Coforme a la ecuación \eqref{e(X,Y)=espectral}, para todo $X,Y\subset [n]$, se cumple la siguiente igualdad:\medskip
+
     \begin{equation} \label{1ra ec EML}
         e(X,Y) = v_{X}^{T} A v_Y = v_{X}^{T} A_1 v_Y + v_{X}^{T} \Delta v_Y.
-    \end{equation}
+    \end{equation}\medskip
 
-    En la expresión anterior se espera que el primer sumando sea el término principal, mientras que el segundo el factor de error. Ahora, representamos los vectores $v_X$ y $v_Y$ según la base $\mathcal{B}$. Es decir,
+    De la ecuación anterior se espera que el primer sumando sea el término principal, mientras que el segundo el factor de error. Para esto, se representan los vectores $v_X$ y $v_Y$ según la base $\mathcal{B}$. Es decir,\medskip
+
     \begin{equation*}
-        v_X = \sum_{i=1}^{n} \alpha_i v_i\ \ \text{y}\ \ v_Y = \sum_{i=1}^{n} \beta_i v_i.
-    \end{equation*}
+        v_X = \sum_{i=1}^{n} \alpha_i v_i\ \ \text{y}\ \ v_Y = \sum_{i=1}^{n} \beta_i v_i,
+    \end{equation*}\medskip
 
-    Donde $\alpha_i = v_{X}^{T}v_i$ y $\beta_i = v_{Y}^{T} v_i$. Con esto, note que,
+    donde $\alpha_i = v_{X}^{T}v_i$ y $\beta_i = v_{Y}^{T} v_i$. Con esto, se calcula:\medskip
+
     \begin{align*}
         \norm{\alpha_i}^{2} &= \sum_{i=1}^{n}\alpha_{i}^{2}\\
         &= \sum_{i=1}^{n} \langle v_X, v_i\rangle^{2}\\
@@ -1652,11 +1709,12 @@ Con la observación anterior es posible demostrar que todo grafo $G$ satisface c
         &= \sum_{i=1}^{n}\sum_{j=1}^{n} \langle \mathbbm{1}_{j}, v_i\rangle^{2}\mathbbm{1}_{X}(i)\\
         &= \sum_{i=1}^{n} \norm{v_i}^{2}\mathbbm{1}_{X}(i)\\
         &= |X|.
-    \end{align*}
+    \end{align*}\medskip
 
     Análogamente, $\norm{\beta_i}^{2} = \sum_{i=1}^{n} \beta_{i}^{2} = |Y|$.\medskip
 
-    Se estudian los sumandos de la igualdad \eqref{1ra ec EML} por separado. Por un lado,
+    Ahora, se estudian los sumandos de la igualdad \eqref{1ra ec EML} por separado. Por un lado,\medskip
+
     \begin{equation} \label{1er sumando EML}
         \begin{split}
             v_{X}^{T} A_1 v_Y &= \left( \sum_{i=1}^{n}\alpha_i v_i\right)^{T}\left( \lambda_1 v_1 v_{1}^{T}\right)\left( \sum_{j=1}^{n} \beta_j v_j\right)\\
@@ -1664,34 +1722,50 @@ Con la observación anterior es posible demostrar que todo grafo $G$ satisface c
             &= \lambda_1 \sum_{i=1}^{n}\sum_{j=1}^{n} \alpha_i \beta_j \left( v_{i}^{T} v_1\right)\left(v_{1}^{T} v_j \right)\\
             &= \lambda_1\alpha_1\beta_1 .
         \end{split}
-    \end{equation}
+    \end{equation}\medskip
 
-    Por otro lado, de la misma manera que el cálculo anterior,
+    Por otro lado, de la misma manera que el cálculo anterior,\medskip
+
     \begin{equation} \label{2do sumando EML}
         v_{X}^{T} \Delta v_Y = \left( \sum_{i=1}^{n}\alpha_i v_i\right)^{T}\left( \sum_{j=2}^{n}\lambda_j v_j v_{j}^{T}\right) \left( \sum_{k=1}^{n} \beta_k v_k\right) = \sum_{i=1}^{n}\lambda_i\alpha_i\beta_i .
-    \end{equation}
+    \end{equation}\medskip
 
-    Dado que $G$ es un grafo $d$-regular, $\lambda_1 = d$ y $v_1 = \frac{1}{\sqrt{n}}(1,...,1)^{T}$ son valor y vector propio respectivamente de $A$. En consecuencia,
+    Luego, dado que $G$ es un grafo $d$-regular, $\lambda_1 = d$ y $v_1 = \frac{1}{\sqrt{n}}(1,...,1)^{T}$ son valor y vector propio respectivamente de $A$. En consecuencia,\medskip
+
     \begin{equation*}
         \alpha_1 = \frac{|X|}{\sqrt{n}}\ \ \text{y}\ \ \beta_1 = \frac{|Y|}{\sqrt{n}}.
-    \end{equation*}
+    \end{equation*}\medskip
 
-    Así, la ecuación \eqref{1er sumando EML} resulta en $v_{X}^{T} A_1 v_Y = d\frac{|X||Y|}{n}$. Para el término de error, desarrollamos el valor absoluto de la ecuación \eqref{2do sumando EML} usando la desigualdad de Cauchy-Schwarz y recordando la definición de $\lambda$.
+    Así, la ecuación \eqref{1er sumando EML} resulta en $v_{X}^{T} A_1 v_Y = \frac{d}{n}|X||Y|$.\medskip
+
+    Para el término de error, recordando la definición de $\lambda$, se desarrolla el valor absoluto de la ecuación \eqref{2do sumando EML} usando la desigualdad de Cauchy-Schwarz.\medskip
+
     \begin{align*}
         \left| v_{X}^{T} \Delta v_Y\right| &= \left| \sum_{i=2}^{n} \lambda_i\alpha_i\beta_i \right|\\
-        &\leq \lambda \left| \sum_{i=1}^{n} \alpha_i\beta_i \right|\\
+        &\leq \lambda \left| \sum_{i=2}^{n} \alpha_i\beta_i \right|\\
         &\overset{\mathrm{CS}}{\leq} \lambda \sqrt{\sum_{i=2}^{n}\alpha_{i}^{2} \sum_{i=2}\beta_{i}^{2}}\\
         &= \lambda \sqrt{\left( \norm{\alpha_i}^{2} - \alpha_{1}^{2}\right)\left( \norm{\beta_i}^{2} - \beta_{1}^{2}\right)}\\
         &= \lambda \sqrt{|X||Y|\left( 1- \frac{|X|}{n} \right)\left( 1 - \frac{|Y|}{n} \right)}.
-    \end{align*}
+    \end{align*}\medskip
 
-    Finalmente, el resultado se obtiene directamente de tomar el valor absoluto de la ecuación \eqref{1ra ec EML} de la siguiente manera,
+    Finalmente, el resultado se obtiene directamente de tomar el valor absoluto de la ecuación \eqref{1ra ec EML} de la siguiente manera:\medskip
+
     \[
         \left| e(X,Y) - v_{X}^{T}A_1 v_Y\right| = \left| v_{X}^{T}\Delta v_Y\right|.
     \]
-\end{proof}
+\end{proof}\medskip
 
-\section{Lema de regularidad de Szemerédi}
+El teorema anterior permite asegurar que todo grafo $d$-regular $G = ([n],E)$ con un conjunto de vértices suficientemente grande que satisface la propiedad $\eig_{\frac{d}{n}}(\delta)$, también cumple con $\disc_{\frac{d}{n}}(\varepsilon)$. En efecto, para todo $\varepsilon > 0$ y $X,Y\subset [n]$, elija $n_0\in\mathbb{N}$ suficientemente grande y $\delta < \frac{\varepsilon n}{\sqrt{|X||Y|}}$. Entonces, si $G$ satisface la propiedad $\eig_{\frac{d}{n}}(\delta)$, por el Teorema \ref{Expander Mixing Lemma}:\medskip
+
+\begin{align*}
+    \left| e(X,Y) - \frac{d}{n}|X||Y| \right| &\leq \lambda \sqrt{|X||Y|\left( 1 - \frac{|X|}{n}\right)\left( 1 - \frac{|Y|}{n}\right)}\\
+    &< \delta n\sqrt{|X||Y|}\\
+    &< \varepsilon n^{2}.
+\end{align*}\medskip
+
+Finalmente, en un grafo $d$-regular, la equivalencia entre las propiedades $\eig_{\frac{d}{n}}$ y $\disc_{\frac{d}{n}}$ se completa por el camino de implicancias ya demostradas según el esquema \eqref{Ciclo demo CGW}.\medskip
+
+\section{Lema de regularidad de Szemerédi}\medskip
 
 \hh{Aquí debo ingresar una breve descripción del lema de regularidad de Szemerédi y la fuerza que toma al combinarlo con el teorema de Chung-Graham-Wilson y comentar la aplicación que se mostrará. (Quizás también hablar de las dos demostraciones de este lema, usual y espectral.)}
 
