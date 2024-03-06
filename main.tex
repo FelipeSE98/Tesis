@@ -1236,7 +1236,7 @@ Así, damos paso a las pruebas de cada proposición.\medskip
     %    \end{tikzpicture}
     %\end{figure}\medskip
 
-    Sea $T^{-}$ una copia etiquetada de $F^{-}$ en $G$, es decir, $T^{-}$ se corresponde con una aplicación inyectiva $f: V(F^{-}) \to V(T^{-})\subseteq V$ tal que $f(u)f(v)\in E(T^{-})$ cada vez que $uv\in E(F^{-})$. De esta manera, se define $e_{T^{-}}$ como la tupla $(f(i), f(j))$ resultante de la imagen de los vértices $i,j\in V(F^{-})$.\medskip
+    Sea $T^{-}$ una copia etiquetada de $F^{-}$ en $G$, es decir, $T^{-}$ se corresponde con una aplicación inyectiva $f: V(F^{-}) \to V(T^{-})\subseteq V$ tal que $f(u)f(v)\in E(T^{-})$ cada vez que $uv\in E(F^{-})$. De esta manera, se define $e_{T^{-}}$ como la tupla \fs{Es una tupla?, es una arista?}$(f(i), f(j))$ resultante de la imagen de los vértices $i,j\in V(F^{-})$.\medskip
 
     Se escribe la cantidad de copias etiquetadas de $F$ en $G$ de manera conveniente y se utilizará la hipótesis de inducción como se muestra a continuación:\medskip
 
@@ -1771,24 +1771,26 @@ Finalmente, en un grafo $d$-regular, la equivalencia entre las propiedades $\eig
 
 \subsection{Enunciado y demostración}\medskip
 
-Trataremos el concepto de regularidad de una manera un poco diferente a como es tradicionalmente conocida. En particular, vamos a permitir intersección entre pares de subconjuntos de vértices de un grafo en las futuras definiciones.\medskip
+Se tratará el concepto de regularidad de una manera un poco diferente a como es tradicionalmente conocida. En particular, se permite intersección entre pares de subconjuntos de vértices de un grafo en las futuras definiciones.\medskip
 
 %%%% Definición par \varepsilon - regular
 \begin{definicion}
-    Sea $G$ un grafo y $X,Y \subset V(G)$ subconjuntos no necesariamente disjuntos. Diremos que $(X,Y)$ es un \textbf{par $\varepsilon$-regular} en $G$ si para todo $A\subset X$ y $B\subset Y$ con $|A| \geq \varepsilon |X|$ y $|B|\geq \varepsilon |Y|$, se cumple
+    Sea $G$ un grafo y $X,Y \subset V(G)$ subconjuntos no necesariamente disjuntos. Diremos que $(X,Y)$ es un \textbf{par $\varepsilon$-regular} en $G$ si para todo $A\subset X$ y $B\subset Y$ con $|A| \geq \varepsilon |X|$ y $|B|\geq \varepsilon |Y|$, se cumple\medskip
+
     \[
     \Big| d(A,B) - d(X,Y)\Big| \leq \varepsilon
-    \]
+    \]\medskip
+
     Cuando $(X,Y)$ no es un par $\varepsilon$-regular, entonces la irregularidad es evidenciada por algún $A\subseteq X$ y $B\subseteq Y$ que satisfacen $|A| \geq \varepsilon |X|$ y $|B|\geq \varepsilon |Y|$, pero $\Big| d(A,B) - d(X,Y)\Big| > \varepsilon$.
 \end{definicion}\medskip
 
-Notaremos que la noción de un par $\varepsilon$-regular es una analogía de la propiedad $\disc_p(\varepsilon)$ para grafos bipartitos. Es decir, si $G$ es tal que $V(G) = U\cup W$ y $p\in (0,1)$,\medskip
+Notaremos que la noción de un par $\varepsilon$-regular es, de hecho, una analogía de la propiedad $\disc_p(\varepsilon)$ para grafos bipartitos. Es decir, si $G$ es tal que $V(G) = U\cup W$ y $p\in (0,1)$, se cumple\medskip
 
-\begin{equation*}
+\begin{equation} \label{BIDISC}
     \Big| e(X,Y) - p|X||Y|\Big| = o(|U||W|)\ ,\ \forall X\subset U,\ \forall Y\subset W.
-\end{equation*}\medskip
+\end{equation}\medskip
 
-En efecto, si $(U,W)$ es un par $\varepsilon$-regular, todo $A\subset U$ y $B\subset W$ tales que $|A|\geq\varepsilon |U|$ y $|B|\geq\varepsilon |W|$ satisfacen\medskip
+En efecto, si $(U,W)$ es un par $\varepsilon$-regular, entonces todo $A\subset U$ y $B\subset W$ tales que $|A|\geq\varepsilon |U|$ y $|B|\geq\varepsilon |W|$ satisfacen\medskip
 
 \begin{align*}
     e(A,B) = d(U,W)|A||B| \pm \varepsilon|A||B| = d(U,W)|A||B| \pm \varepsilon|U||W|.
@@ -1802,15 +1804,16 @@ Ahora bien, si al menos uno de los subconjuntos de la condición de un par $\var
 
 De esta manera, tomando $p = d(U,W)$, se obtiene la analogía planteada.\medskip
 
-Por otro lado, con el espíritu del Teorema \ref{Teorema CGW}, se puede expresar un resultado análogo a la propiedad $\Count_p(\varepsilon)$ utilizando el concepto de par $\varepsilon$-regular. En específico, si deseamos contar la cantidad de $K_3$ en un grafo, el siguiente lema muestra la analogía de la propiedad $\Count_p$ con $H = K_3$.\medskip
+Por otro lado, con el espíritu del Teorema \ref{Teorema CGW}, es posible expresar un resultado análogo a la propiedad $\Count_p(\varepsilon)$ utilizando el concepto de par $\varepsilon$-regular. Dicho resultado, para $H=K_3$ es conocido como el lema de conteo de triángulos.\medskip
 
 %%%% Lema: Lema de conteo de triángulos
 \begin{lema} \label{Triangle_Counting_Lemma} (Lema de conteo de triángulos)
-    Sea $\varepsilon > 0$, $G = (V,E)$ un grafo, y los conjuntos no necesariamente disjuntos $X,Y,Z\subset V$ tales que los pares $(X,Y), (Y,Z)$ y $(X,Z)$ son $\varepsilon$-regular. Entonces,
+    Sea $\varepsilon > 0$, $G = (V,E)$ un grafo, y los conjuntos no necesariamente disjuntos $X,Y,Z\subset V$ tales que los pares $(X,Y), (Y,Z)$ y $(X,Z)$ son $\varepsilon$-regular. Entonces,\medskip
+
     \begin{equation*}
         |\lbrace (x,y,z)\in X\times Y\times Z : xy,xz,yz\in E\rbrace| = d(X,Y)d(X,Z)d(Y,Z)|X||Y||Z| \pm 3\varepsilon |X||Y||Z|.
     \end{equation*}
-\end{lema}
+\end{lema}\medskip
 
 %%%% Demostración Teorema: Lema de conteo de triángulos
 \begin{proof}
@@ -1826,13 +1829,13 @@ Por otro lado, con el espíritu del Teorema \ref{Teorema CGW}, se puede expresar
         |\lbrace (x,y,z)\in X\times Y\times Z : xy\in E\rbrace| = \left( d(X,Y)|X||Y| \pm \varepsilon|X||Y| \right)|Z|.
     \end{equation*}\medskip
 
-    Ahora, se asume la hipótesis inductiva de la siguiente manera:\medskip
+    Ahora, se plantea la hipótesis inductiva de la siguiente manera:\medskip
     
     \begin{equation*}
         |\lbrace (x,y,z)\in X,Y,Z : xy,yz\in E\rbrace| = d(X,Y)d(Y,Z)|X||Y||Z| \pm 2\varepsilon |X||Y||Z|.
     \end{equation*}\medskip
 
-    Continuando inductivamente,\medskip
+    Defina  $e^{-} = \varphi(1)\varphi(3)$, y $T^{-}$ como el grafo correspondido a una copia etiquetada del grafo $([3],\lbrace 12,23\rbrace)$ en $G$ bajo la apliación inyectiva $\varphi : [3]\to V(T^{-})\subset V$. Con esto, se desarrolla inductivamente como sigue:\medskip
     
     \begin{align} \label{2doSum_TCL}
         |\lbrace (x,y,z)\in X\times Y\times Z : xy,yz,xz\in E\rbrace| &= \sum_{T^{-}} \left[ \mathbbm{1}_{E}(e^{-}) + d(X,Z) - d(X,Z) \right]\nonumber \\
@@ -1840,7 +1843,7 @@ Por otro lado, con el espíritu del Teorema \ref{Teorema CGW}, se puede expresar
         &\ \ \ + \sum_{T^{-}} \left( \mathbbm{1}_{E}(e^{-}) - d(X,Z)\right) \pm 2\varepsilon |X||Y||Z|.
     \end{align}\medskip
 
-    En donde $T^{-}$ se corresponde con una copia etiquetada del grafo $([3], \lbrace 12, 23\rbrace)$ en $G$ bajo la aplicación inyectiva $\varphi : [3]\to V(T^{-})\subset V$, y $e^{-} = \varphi(1)\varphi(3)$. Nos falta probar que el segundo sumando de la igualdad \eqref{2doSum_TCL} se corresponde con un factor de error, para esto, sea $T^{*}$ una copia del grafo singleton $\lbrace 2\rbrace$ en $G$ y considere los conjuntos\medskip
+    En este punto, nos falta probar que el segundo sumando de la igualdad \eqref{2doSum_TCL} se corresponde con un factor de error, para esto, sea $T^{*}$ una copia del grafo singleton $\lbrace 2\rbrace$ en $G$, y considere los siguientes conjuntos:\medskip
     
     \[
         A_{1}^{T^{*}} = \lbrace x\in X: T^{*} \text{ con } x \text{ forma una copia de } (\lbrace 1,2\rbrace, \lbrace 12\rbrace) \text{ en } G\rbrace.
@@ -1849,7 +1852,7 @@ Por otro lado, con el espíritu del Teorema \ref{Teorema CGW}, se puede expresar
         A_{3}^{T^{*}} = \lbrace z\in Z: T^{*} \text{ con } z \text{ forma una copia de } (\lbrace 2,3\rbrace, \lbrace 23\rbrace) \text{ en } G\rbrace.
     \]\medskip
 
-    De esta manera, dada la equivalencia de la condición del par $(X,Z)$ $\varepsilon$-regular con $\bidisc_{d(X,Z)}(\varepsilon)$, se consigue la siguiente desigualdad:\medskip
+    De esta manera, dada la equivalencia de la condición del par $(X,Z)$ $\varepsilon$-regular con versión bipartita de la propiedad $\disc_{d(X,Z)}(\varepsilon)$ vista en \eqref{BIDISC}, se consigue la siguiente desigualdad:\medskip
     
     \begin{align*}
         \left| \sum_{T^{-}} \left( \mathbbm{1}_{E}(e^{-})\right) - d(X,Z)\right| &\leq \sum_{T^{*}} \left| \sum_{f\in A_{1}^{T^{*}}\times A_{3}^{T^{*}}} \left( \mathbbm{1}_{E}(f) - d(X,Z)\right)\right|\\
@@ -1861,9 +1864,9 @@ Por otro lado, con el espíritu del Teorema \ref{Teorema CGW}, se puede expresar
     Finalmente, aplicando la última desigualdad en la ecuación \eqref{2doSum_TCL} se prueba lo prometido.
 \end{proof}\medskip
 
-En la demostración anterior solo fue necesario utilizar que los pares $(X,Y)$ y $(X,Z)$ son $\varepsilon$-regular, por lo que es interesante destacar que uno de los pares de conjuntos de vértices puede no ser $\varepsilon$-regular para el que lema de conteo de triángulos funcione.\medskip
+En la demostración anterior solo fue necesario utilizar que los pares $(X,Y)$ y $(X,Z)$ son $\varepsilon$-regular, por lo que es interesante destacar que uno de los pares de conjuntos de vértices podría no ser necesariamente un par $\varepsilon$-regular para el que lema de conteo de triángulos funcione correctamente.\medskip
 
-Bajo el mismo planteamiento de la inducción vista en la demostración del Lema \ref{Triangle_Counting_Lemma} (y Proposición \ref{discp => count}), es posible generalizar el resultado para contar apropiadamente cualquier grafo $H$. Enunciamos sin demostración.\medskip
+Bajo el mismo planteamiento de la inducción vista en la demostración del Lema \ref{Triangle_Counting_Lemma} (y Proposición \ref{discp => count}), es posible generalizar el resultado para contar apropiadamente cualquier grafo $H$. Se enuncia sin demostración.\medskip
 
 %%%% Teorema: Lema de conteo de grafos
 \begin{lema} \label{Lema_Conteo_Grafos} (Lema de conteo de grafos)
@@ -1896,10 +1899,12 @@ Ya conociendo el concepto de regularidad entre pares de subconjuntos de vértice
 
 %%%% Definición partición \varepsilon - regular
 \begin{definicion}
-    Dado un grafo $G$, una partición $\mathcal{P} = \lbrace V_1,...,V_{k}\rbrace$ del conjunto de vértices $V(G)$ es una \textbf{partición $\varepsilon$-regular} si 
+    Dado un grafo $G$, una partición $\mathcal{P} = \lbrace V_1,...,V_{k}\rbrace$ del conjunto de vértices $V(G)$ es una \textbf{partición $\varepsilon$-regular} si\medskip
+
     \[
     \sum_{\substack{ (i,j)\in [k]^{2} \\ (V_{i}, V_{j})\ \mathrm{no}\ \varepsilon-\mathrm{regular}}} |V_i||V_j| \leq \varepsilon |V(G)|^{2}.
-    \]
+    \]\medskip
+
     Es decir, todos los pares de subconjuntos de vértices en la partición son $\varepsilon$-regular salvo una fracción $\varepsilon$ de pares de vértices.
 
     %% Ojo: Descomentar si quiero incorporar el conjunto excepcional.
@@ -1915,14 +1920,14 @@ Ya conociendo el concepto de regularidad entre pares de subconjuntos de vértice
 
 Note que si una partición $\varepsilon$-regular de $k$ partes es en particular una equipartición, entonces a lo más $\varepsilon k^{2}$ pares de elementos de la partición no son $\varepsilon$-regular.\medskip
 
-Ya con todo lo necesario, se introduce el lema de regularidad de Szemerédi. Intuitivamente, el lema permite particionar el conjunto de vértices de todo grafo en una cantidad finita de partes, satisfaciendo que la mayoría de los pares de partes son regulares. Enunciamos el célebre lema y daremos prueba formal más adelante.\medskip
+Ya con todo lo necesario, se introduce el lema de regularidad de Szemerédi. Intuitivamente, el lema permite particionar el conjunto de vértices de todo grafo en una cantidad finita de partes, satisfaciendo que la mayoría de sus pares de partes son $\varepsilon$-regular. Enunciamos el célebre lema, y se dará prueba formal más adelante.\medskip
 
 %%%% Enunciado Lema de regularidad de Szemerédi
 \begin{teorema} \label{szemeredi_regularity_lemma} (Lema de regularidad de Szemerédi)
     Para todo $\varepsilon > 0$, existe un entero $M = M(\varepsilon)$ tal que todo grafo admite una partición $\varepsilon$-regular de a lo más $M$ partes.
 \end{teorema}\medskip
 
-Para dar prueba a este teorema, utilizaremos una técnica llamada \emph{argumento de incremento de energía}. Para todo grafo $G$, la técnica funciona algorítmicamente de la siguiente manera:\medskip
+Para dar prueba a este teorema, se utilizará una técnica llamada \emph{argumento de incremento de energía}. Para todo grafo $G$, la técnica funciona algorítmicamente de la siguiente manera:\medskip
 
 %%%% Algoritmo incremento de energía
 \begin{enumerate}
@@ -1938,25 +1943,31 @@ Para dar prueba a este teorema, utilizaremos una técnica llamada \emph{argument
     \end{itemize}
 \end{enumerate}\medskip
 
-Siendo $\mathcal{P}$ y $\mathcal{Q}$ dos particiones de un mismo conjunto de vértices, diremos que $\mathcal{Q}$ refina a $\mathcal{P}$ si cada parte de $\mathcal{Q}$ está contenida en una parte de $\mathcal{P}$. En lo que resta de esta sección mostraremos que el algoritmo tiene un fin y entrega una partición $\varepsilon$-regular en un número de iteraciones que solo depende de $\varepsilon$.\medskip
+Siendo $\mathcal{P}$ y $\mathcal{Q}$ dos particiones de un mismo conjunto de vértices, diremos que $\mathcal{Q}$ refina a $\mathcal{P}$ si cada parte de $\mathcal{Q}$ está contenida en una parte de $\mathcal{P}$. En lo que resta de esta sección mostraremos que el algoritmo tiene un fin, y que entrega una partición $\varepsilon$-regular en un número de iteraciones que solo depende de $\varepsilon$.\medskip
 
 %%%% Definición Energía 
 \begin{definicion} (Energía)
-    Sea $G$ un grafo sobre $n$ vértices y $X,Y\subset V(G)$. Se define en primer lugar
+    Sea $G$ un grafo sobre $n$ vértices y $X,Y\subset V(G)$. Se define en primer lugar\medskip
+
     \[
     q(X,Y) := \frac{|X||Y|}{n^{2}}d(X,Y)^{2} = \frac{e(X,Y)^{2}}{n^{2}|X||Y|}.
-    \]
-    Luego, para particiones $\mathcal{P}_{X} = \lbrace X_1,...,X_k\rbrace$ de $X$ y $\mathcal{P}_{Y} = \lbrace Y_1,...,Y_\ell\rbrace$ de $Y$, se define
+    \]\medskip
+
+    Luego, para particiones $\mathcal{P}_{X} = \lbrace X_1,...,X_k\rbrace$ de $X$ y $\mathcal{P}_{Y} = \lbrace Y_1,...,Y_\ell\rbrace$ de $Y$, se define\medskip
+
     \[
     q(\mathcal{P}_{X}, \mathcal{P}_{Y}) := \sum_{i = 1}^{k}\sum_{j = 1}^{\ell} q(X_i, Y_j).
-    \]
-    Finalmente, para una partición $\mathcal{P} = \lbrace V_1,...,V_k \rbrace$, se define la \textbf{energía} mediante
+    \]\medskip
+
+    Finalmente, para una partición $\mathcal{P} = \lbrace V_1,...,V_k \rbrace$, se define la \textbf{energía} mediante\medskip
+
     \[
     q(\mathcal{P}) := \sum_{i = 1}^{k}\sum_{j = 1}^{k}q(V_i, V_j) = \sum_{i = 1}^{k}\sum_{j = 1}^{k} \frac{|V_i||V_j|}{n^{2}}d(V_i, V_j)^{2}. 
     \]
 \end{definicion}\medskip
 
-Observe que toda partición $\mathcal{P}$ de $V(G)$ siempre se tendrá que $0\leq q(\mathcal{P}) \leq 1$. En efecto,
+Observe que en toda partición $\mathcal{P}$ de $V(G)$, siempre se tendrá que $0\leq q(\mathcal{P}) \leq 1$. En efecto,\medskip
+
 \begin{align*}
     q(\mathcal{P}) &= \sum_{i = 1}^{k}\sum_{j = 1}^{k}\frac{|V_i||V_j|}{n^{2}}d(V_i,V_j)^{2}\\
     &\leq \frac{1}{n^{2}}\sum_{i = 1}^{k}|V_i|\sum_{j = 1}^{k}|V_j|\\
@@ -1970,11 +1981,12 @@ El siguiente lema muestra que la energía no disminuye al particionar o refinar 
 %%%% Lema: la energía nunca decrece bajo refinamiento
 \begin{lema} \label{energia_no_decrece}
     Sea $G$ un grafo, $X,Y\subset V(G)$, $\mathcal{P}_{X}$ y $\mathcal{P}_{Y}$ particiones de $X$ e $Y$ respectivamente, entonces $q(\mathcal{P}_{X}, \mathcal{P}_{Y}) \geq q(X,Y)$. Además, dadas dos particiones de vértices $\mathcal{P}$ y $\mathcal{P'}$ de $G$, $q(\mathcal{P}) \leq q(\mathcal{P'})$ cada vez que $\mathcal{P'}$ refina a $\mathcal{P}$. 
-\end{lema}
+\end{lema}\medskip
 
 %%%% Demostración nueva lema: la energía nunca decrece bajo refinamiento}
 \begin{proof}
-    Consideramos un grafo $G$ sobre $n$ vértices, los conjuntos $X,Y\subset V(G)$, y las particiones $\mathcal{P}_{X} = \lbrace X_1,...,X_k\rbrace$ y $\mathcal{P}_{Y} = \lbrace Y_1,...,Y_\ell\rbrace$ de $X$ e $Y$ respectivamente. En primera instancia, utilizamos la desigualdad \eqref{Desigualdad_from_CS} para probar que $q(\mathcal{P}_{X}, \mathcal{P}_{Y}) \geq q(X,Y)$. En efecto,
+    Considere un grafo $G$ sobre $n$ vértices, los conjuntos $X,Y\subset V(G)$, y las particiones $\mathcal{P}_{X} = \lbrace X_1,...,X_k\rbrace$ y $\mathcal{P}_{Y} = \lbrace Y_1,...,Y_\ell\rbrace$ de $X$ e $Y$ respectivamente. En primera instancia, se utiliza la desigualdad \eqref{Desigualdad_from_CS} para probar que $q(\mathcal{P}_{X}, \mathcal{P}_{Y}) \geq q(X,Y)$. Para esto, se desarrolla como sigue:\medskip
+
     \begin{equation} \label{q(P_X,P_Y) >= q(X,Y)}
         \begin{split}
             q(\mathcal{P}_{X}, \mathcal{P}_{Y}) &= \sum_{i = 1}^{k}\sum_{j = 1}^{\ell} q(X_{i}, Y_{j})\\
@@ -1984,9 +1996,10 @@ El siguiente lema muestra que la energía no disminuye al particionar o refinar 
             &= \frac{e(X,Y)^{2}}{n^{2}|X||Y|}\\
             &= q(X,Y).    
         \end{split}
-    \end{equation}
+    \end{equation}\medskip
 
-    Sea ahora la partición $\mathcal{P} = \lbrace V_1,...,V_k\rbrace$ de $V(G)$ y $\mathcal{P}' = \lbrace \mathcal{P}'_{V_1},...,\mathcal{P}'_{V_k}\rbrace$ un refinamiento de $\mathcal{P}$. Podemos utilizar el resultado probado previamente para determinar que,
+    Sea ahora la partición $\mathcal{P} = \lbrace V_1,...,V_k\rbrace$ de $V(G)$ y $\mathcal{P}' = \lbrace \mathcal{P}'_{V_1},...,\mathcal{P}'_{V_k}\rbrace$ un refinamiento de $\mathcal{P}$. Entonces, se utiliza el resultado probado previamente para completar el resultado:\medskip
+
     \begin{equation*}
         q(\mathcal{P}) = \sum_{i=1}^{k}\sum_{j=1}^{k} q(V_i,V_j) \overset{\eqref{q(P_X,P_Y) >= q(X,Y)}}{\leq} \sum_{i=1}^{k}\sum_{j=1}^{k} q(\mathcal{P}'_{V_i}, \mathcal{P}'_{V_j}).
     \end{equation*}
@@ -2020,20 +2033,23 @@ Ahora, veremos que refinar un par $(X,Y)$ no $\varepsilon$-regular de un grafo $
 
 %%%% Lema: Energy Boost
 \begin{lema} \label{Energy boost un conjunto}
-    Sea $\varepsilon > 0$, $G$ un grafo de $n$ vértices y $X,Y\subset V(G)$. Si $(X,Y)$ no es un par $\varepsilon$-regular, existen particiones $\mathcal{P}_{X} = \lbrace X_1, X_2\rbrace$ de $X$ y $\mathcal{P}_{Y} = \lbrace Y_1, Y_2\rbrace$ de $Y$ tales que
+    Sea $\varepsilon > 0$, $G$ un grafo de $n$ vértices y $X,Y\subset V(G)$. Si $(X,Y)$ no es un par $\varepsilon$-regular, existen particiones $\mathcal{P}_{X} = \lbrace X_1, X_2\rbrace$ de $X$ y $\mathcal{P}_{Y} = \lbrace Y_1, Y_2\rbrace$ de $Y$ tales que\medskip
+
     \[
         q(\mathcal{P}_{X}, \mathcal{P}_{Y}) > q(X,Y) + \varepsilon^{4}\frac{|X||Y|}{n^{2}}.
     \]
-\end{lema}
+\end{lema}\medskip
 
 %%%% Demostración Energy boost
 \begin{proof}
-    Dado $\varepsilon > 0$, consideramos un grafo $G$ sobre $n$ vértices y $X,Y\subset V(G)$ tales que el par $(X,Y)$ no es $\varepsilon$-regular. Existen entonces los subconjuntos $X_1 \subset X$ e $Y_1 \subset Y$ que evidencian la irregularidad del par $(X,Y)$ y son tales que
+    Dado $\varepsilon > 0$, considere el grafo $G$ sobre $n$ vértices y $X,Y\subset V(G)$ subconjuntos tales que el par $(X,Y)$ no es $\varepsilon$-regular. Entonces, existen los subconjuntos $X_1 \subset X$ e $Y_1 \subset Y$ que evidencian la irregularidad del par $(X,Y)$, y son tales que\medskip
+
     \begin{equation} \label{condición tamaño conjunto regularidad}
         |X_1| \geq \varepsilon |X|\ \ \text{y}\ \ |Y_1| \geq \varepsilon |Y|.
-    \end{equation}
+    \end{equation}\medskip
     
-    Se definen adicionalmente los conjuntos $X_2 := X\setminus X_1$ y $Y_2 := Y\setminus Y_1$, y $\eta := d(X_1, Y_1) - d(X,Y)$, cual por definición de par $\varepsilon$-regular, satisface
+    Se define adicionalmente los conjuntos $X_2 := X\setminus X_1$, $Y_2 := Y\setminus Y_1$, y $\eta := d(X_1, Y_1) - d(X,Y)$, cual por definición de par $\varepsilon$-regular, satisface\fs{Aquí quedé}\medskip
+
     \begin{equation} \label{|eta| > epsilon}
         \left| \eta\right| > \varepsilon.
     \end{equation}
