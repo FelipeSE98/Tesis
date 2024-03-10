@@ -5,17 +5,28 @@
 \usepackage[spanish]{babel}
 \usepackage{amssymb, amsthm}
 \usepackage{bbm}
+\usepackage{bm}
+\usepackage[bb=dsserif]{mathalpha}
 \usepackage{amsmath}
 \usepackage{stackrel}
 \usepackage{tikz}
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{kbordermatrix}
+\usepackage{unicode-math}
+\usepackage{dsfont}
 \usetikzlibrary{shapes.geometric}
 
 \usepackage[utf8]{inputenc}
 %\usepackage[vietnam]{babel}
 \usepackage{xcolor,colortbl}
+
+\newcommand\Bbbbone{%
+    \ifdefined\mathbbb%
+        \mathbbb{1}%
+    \else%
+        \boldsymbol{\mathbb{1}}%
+    \fi}
 
 \newcommand{\hh}[1]{{\color{red} * #1 *}}
 \newcommand{\fs}[1]{{\color{blue}* #1 *}}
@@ -26,10 +37,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Para teoremas, proposición y demnostración
 \newtheorem{teorema}{Teorema}
-\newtheorem{prop}{Proposición}
-\newtheorem{lema}{Lema}
-\newtheorem{corolario}{Corolario}
-\newtheorem{definicion}{Definición}
+\newtheorem{prop}[teorema]{Proposición}
+\newtheorem{lema}[teorema]{Lema}
+\newtheorem{corolario}[teorema]{Corolario}
+\newtheorem{definicion}[teorema]{Definición}
 %\newtheorem{}{}
 
 
@@ -175,67 +186,49 @@ Universidad de Santiago de Chile \\
 
 \section{Introducción}
 
-Para adentrarnos en esta historia, debemos de saber que las estructuras pseudo-aleatorias son objetos determinísticos que tienen comportamientos, o bien, lucen como un objeto aleatorio\hh{objetos aleatorios?}. A lo largo de la historia, la formalización de este concepto se ha vuelto una herramienta muy útil en diferentes áreas, tales como teoría de números, teoría de grafos, combinatorial extremal, diseño de algoritmos, teoría de complejidad, entre otras. Estas contribuciones son debidas, en general, a que si un objeto es pseudo-aleatorio \hh{cuasi-aleatorio en vez de pseudo-aleatorio}, entonces goza de muchas propiedades satisfacidas por su contraparte aleatoria.\\
+%Para adentrarnos en esta historia, debemos de saber que las estructuras %pseudo-aleatorias son objetos determinísticos que tienen comportamientos, o %bien, lucen como un objeto aleatorio\hh{objetos aleatorios?}. A lo largo de la %historia, la formalización de este concepto se ha vuelto una herramienta muy %útil en diferentes áreas, tales como teoría de números, teoría de grafos, %combinatorial extremal, diseño de algoritmos, teoría de complejidad, entre %otras. Estas contribuciones son debidas, en general, a que si un objeto es %pseudo-aleatorio \hh{cuasi-aleatorio en vez de pseudo-aleatorio}, entonces %goza de muchas propiedades satisfacidas por su contraparte aleatoria.\\
+%
+%El trabajo fundamental sobre la pseudo-aleatoriedad se ha desarrollado en %grafos, probablemente por lo natural que muchas veces resulta modelar un %problema utilizándolos. Un \emph{grafo pseudo-aleatorio} $G = (V,E)$ es un %grafo que se comporta como un verdadero grafo aleatorio $G = (|V|,p)$ con la %misma densidad de aristas $p= |E| \Big/ \binom{|V|}{2}$. Si bien la sentencia %anterior nos entrega una idea inicial de este concepto, no logra ser demasiado %satisfactoria en el sentido de que no nos dice en qué aspecto  el %comportamiento del grafo pseaudo-aleatorio es similar al un grafo aleatorio, y %tampoco nos otorga ninguna medida cuantitativa de esta semejanza.\\
+%
+%A mediados de los 80, Andrew Thomason introdujo la noción de %"Grafos-revueltos", los cuales hacen posible medir en términos cuantitativos %la similitud entre la distribución de aristas de los grafos pseudo-aleatorios %y los aleatorios. Su investigación también nos otorgó ejemplos de grafos %pseudo-aleatorios con discusiones de sus propiedades.\\
+%
+%Sin duda alguna, una contribución clave fue la de Chung, Grahan y Wilson, %quienes en 1989 logran caracterizar la noción de pseudo-aleatoriedad de formas %superficialmente distintas, pero equivalentes entre sí. Este resultado abrió %muchos nuevos horizontes mostrando nuevas facetas de la pseudo-aleatoriedad.\\
+%
+%Con estos avances, otros objetos combinatorios fueron incluidos al estudio de %la pseudo-aleatoriedad, como lo son los subconjuntos de $\mathbb{Z}_n$, %hipergrafos, grupos finitos, permutaciones, y recientemente las palabras (i.e, %secuencias de letras de un alfabeto finito).\\
+%
+%El objeto de estudio principal en este trabajo son las palabras %pseudo-aleatoria, enfocándonos en una equivalencia en particular, análoga a %las planteadas en el teorema de Chung, Graham y Wilson. Para evidenciar el %objetivo, daremos un paseo por la teoría clásica en grafos de %pseudo-aleatoriedad y culminaremos planteando la formulación del problema en %cuestion.
 
-El trabajo fundamental sobre la pseudo-aleatoriedad se ha desarrollado en grafos, probablemente por lo natural que muchas veces resulta modelar un problema utilizándolos. Un \emph{grafo pseudo-aleatorio} $G = (V,E)$ es un grafo que se comporta como un verdadero grafo aleatorio $G = (|V|,p)$ con la misma densidad de aristas $p= |E| \Big/ \binom{|V|}{2}$. Si bien la sentencia anterior nos entrega una idea inicial de este concepto, no logra ser demasiado satisfactoria en el sentido de que no nos dice en qué aspecto  el comportamiento del grafo pseaudo-aleatorio es similar al un grafo aleatorio, y tampoco nos otorga ninguna medida cuantitativa de esta semejanza.\\
+\section{Preeliminares} \label{Preeliminares}
 
-A mediados de los 80, Andrew Thomason introdujo la noción de "Grafos-revueltos", los cuales hacen posible medir en términos cuantitativos la similitud entre la distribución de aristas de los grafos pseudo-aleatorios y los aleatorios. Su investigación también nos otorgó ejemplos de grafos pseudo-aleatorios con discusiones de sus propiedades.\\
+Este capítulo proporciona una introducción concisa de los conceptos y terminologías que se utilizarán en esta tesis. La sección \ref{Teoría de grafos} da un paseo por las nociones más básicas de la teoría de grafos, otorgando una línea de base para el desarrollo de las siguientes secciones. En la sección \ref{Teoría espectral} se repasan algunos conceptos y resultados clásicos del álgebra lineal para abordar las propiedades necesarias de la teoría espectral de grafos. Por último, la sección \ref{Grafos aleatorios} contextualiza y motiva el contenido de la sección \ref{cuasi-aleatoriedad}.
 
-Sin duda alguna, una contribución clave fue la de Chung, Grahan y Wilson, quienes en 1989 logran caracterizar la noción de pseudo-aleatoriedad de formas superficialmente distintas, pero equivalentes entre sí. Este resultado abrió muchos nuevos horizontes mostrando nuevas facetas de la pseudo-aleatoriedad.\\
+Para los efectos de este trabajo, se define $[n] := \lbrace 1,...,n\rbrace$, y $\mathcal{M}_{n\times m}(\mathbb{R})$ como el conjunto de matrices reales de $n$ filas y $m$ columnas. Denotamos $\mathbbm{1}_{X}$ a la función indicatriz del conjunto $X$, $\Bbbbone$ $\in\mathcal{M}_{n\times 1}(\mathbb{R})$ al vector de $1$-entradas, $J\in\mathcal{M}_{n\times n}$ a las matriz de $1$-entradas, y $\boldsymbol{e_i}\in\mathcal{M}_{n\times 1}$ como el vector de la base canónica de $\mathbb{R}^{n}$ con entrada $1$ en la posición $i$.
 
-Con estos avances, otros objetos combinatorios fueron incluidos al estudio de la pseudo-aleatoriedad, como lo son los subconjuntos de $\mathbb{Z}_n$, hipergrafos, grupos finitos, permutaciones, y recientemente las palabras (i.e, secuencias de letras de un alfabeto finito).\\
+En muchos de los resultados de esta tesis, la \emph{desigualdad de Cauchy-Schwarz} (DCS) es un argumento fundamental en sus demostraciones. En particular, se emplearán dos variantes que se enunciarán a continuación. Primero recuerde que la DCS establece que todo $\boldsymbol{a},\boldsymbol{b}\in\mathbb{R}^{k}$ satisfacen
 
-El objeto de estudio principal en este trabajo son las palabras pseudo-aleatoria, enfocándonos en una equivalencia en particular, análoga a las planteadas en el teorema de Chung, Graham y Wilson. Para evidenciar el objetivo, daremos un paseo por la teoría clásica en grafos de pseudo-aleatoriedad y culminaremos planteando la formulación del problema en cuestion.
+\begin{equation}
+    \sum_{i=1}^{k}a_{i}^{2}\sum_{i=1}^{k}b_i^{2} \geq \left( \sum_{i=1}^{k}a_{i}b_{i}\right)^{2}.
+\end{equation}
 
-\section{Preeliminares}
+Entonces, si $\boldsymbol{b} = (1,...,1)$, se obtiene la primera variante:
 
-\subsection{Notaciones y convenciones}
+\begin{equation} \label{CS_versión1}
+    \sum_{i=1}^{k}a_{i}^{2} \geq \frac{1}{k}\left( \sum_{i=1}^{k} a_{i}\right)^{2}.
+\end{equation}
 
-\hh{De momento, en esta sección solo voy a enumerar lo que voy necesitando o me voy acordando}
+Adicionalmente, considerando los reales $\alpha_1,...,\alpha_k > 0$ y $\beta_1,...\beta_k \geq 0$, defina $a_i = \sqrt{\alpha_i}$ y $b_i = \frac{\beta_i}{\sqrt{\alpha_i}}$ para conseguir la segunda variante:
 
-\begin{enumerate}
-    \item Escribiremos $[n] := \lbrace 1,2,...,n\rbrace$.
-    \item Para un conjunto cualquiera $A$, representamos su cardinalidad por $|A|$.
-    \item Denotamos al ciclo de largo $k$ por $C_{k}$.
-    \item $\mathcal{M}_{n\times m}(\mathbb{R})$ corresponde a la matriz de $n$ filas y $m$ columnas definida sobre el cuerpo de los reales.
-    \item $\mathbbm{1}_{X}$ representa la función indicatriz. Es decir,
-    \[
-        \mathbbm{1}_{X}(y) = 
-        \begin{cases}
-            1 & \text{Si } y\in X\\
-            0 & \text{En otro caso.}
-        \end{cases}
-    \]
-    \item $\mathbbm{1}\in\mathcal{M}_{n\times 1}(\mathbb{R})$ representa el vector de solo entradas $1$.
-    \item $e_{i}\in\mathcal{M}_{n\times 1}(\mathbb{R})$ corresponde a un vector de la base canónica de $\mathbb{R}^{n}$, en donde todas sus entradas son cero salvo en la posición $i$, donde toma el valor $1$.
-    \item Dado un grafo $G = ([n], E)$ y un subconjuto de vértices $X\subset [n]$, se define
-    \[
-        v_X = \sum_{i\in X}e_{i}.
-    \]
-    \item $\Tr(A)$ representa la traza de la matriz cuadrada $A$. \hh{En esta sección debería poner la propiedad $\Tr(AB) = \Tr(BA)$?}
-    Esto sería para $A\in \mathcal{M}_{n\times m}(\mathbb{R})$ y  $B\in\mathcal{M}_{m\times n}(\mathbb{R})$,
-    \[
-        \Tr(AB) = \sum_{i=1}^{n} (AB)_{ii} = \sum_{i=1}^{n}\sum_{j=1}^{m} A_{ij}B_{ji} = \sum_{j=1}^{m}\sum_{i=1}^{n}B_{ij}A_{ji} = \Tr(BA).
-    \]
-    \item $A^{T}$ denota la matriz traspuesta de $A$.
-    \item
-    \begin{definicion}
-        Diremos que $\mathcal{P} = \lbrace X_1,X_2,...,X_k\rbrace$ es una \textbf{partición} del conjunto $X$ si:
-        \begin{enumerate}
-            \item $\bigcup_{i=1}^{k} X_i = X$.
-            \item $X_i \cap X_j = \emptyset$ para todo $i,j\in[k]$.
-        \end{enumerate}
-        Cuando $|X_1|\leq|X_2|\leq ...\leq |X_k| = |X_1| + 1$, llamaremos a $\mathcal{P}$ como una \textbf{equipartición}. En particular, cada parte posee $\lceil |X|/k \rceil$ o $\lfloor |X|/k\rfloor$ elementos.
-    \end{definicion}
-    \item $I_n \in \mathcal{M}_{n\times n}(\mathbb{R})$ denota la matriz identidad.
-\end{enumerate}
+\begin{equation} \label{Desigualdad_from_CS}
+    \sum_{i=1}^{k} \frac{\beta_{i}^{2}}{\alpha_i} \geq \frac{\left( \sum_{i = 1}^{k} \beta_i\right)^{2}}{\sum_{i=1}^{k}\alpha_i}.
+\end{equation}
 
-\subsection{Nociones básicas}
+
+\subsection{Teoría de grafos} \label{Teoría de grafos}
+
+Si $S$ es un conjunto finito y $r$ es un entero positivo, se establece $\tbinom{S}{r}$ como el conjunto de todos los subconjuntos de $r$ elementos de $S$.
 
 %%%% Definir grafo
-Un grafo es un par $G = (V,E)$, donde $V$ representa el conjunto de vértices (o \emph{nodos}, o \emph{puntos}), y $E\subseteq V\times V$ el conjunto de
-aristas (o \emph{líneas}). Dado un grafo $G$, se escribe $V(G)$ como su conjunto de vértices, $E(G)$ como su conjunto de aristas, y sus respectivas
-cardinalidades como $\nu_G := |V(G)|$ y $e_G := |E(G)|$.\medskip
+Un \textbf{grafo} es un par $G = (V,E)$, donde $V$ representa el conjunto de \textbf{vértices} (o \emph{nodos}, o \emph{puntos}), y $E\subseteq \tbinom{V}{2}$ el conjunto de \textbf{aristas} (o \emph{líneas}). Dado un grafo $G$, se escribe $V(G)$ como su conjunto de vértices, $E(G)$ como su conjunto de aristas, y $e_G := |E(G)|$ como la cantidad de aristas presentes en el grafo.
 
 %%%% Ejemplo grafo
 \begin{figure}[h]
@@ -254,109 +247,84 @@ cardinalidades como $\nu_G := |V(G)|$ y $e_G := |E(G)|$.\medskip
         \draw[line width=1.2] (1) -- (3);
         \draw[line width=1.2] (5) -- (4);
     \end{tikzpicture}
-    \caption{Ejemplo de un grafo con conjunto de vértices $V = \lbrace 1,2,3,4,5\rbrace$ y conjunto de aristas $E = \lbrace 12,23,13,45\rbrace$.}
-\end{figure}\medskip
+    \caption{Ejemplo de un grafo con conjunto de vértices $V = \lbrace 1,2,3,4,5\rbrace$ y conjunto de aristas $E = \lbrace \lbrace1,2\rbrace, \lbrace2,3\rbrace, \lbrace1,3\rbrace, \lbrace4,5\rbrace\rbrace$.}
+\end{figure}
 
-Siendo $u,v\in V(G)$ dos vértices del grafo $G$, se dirá que $u$ y es \textbf{adyacente} con $v$ (o viceversa) si y solamente si $uv\in E(G)$. Además, si $e= u,v\in E(G)$, entonces se dice que los vértices $u$ y $v$ son \textbf{incidentes} a $e$. En algunas ocaciones el conjunto de vértices de un grafo será considerado ordenado, es decir, 
-$V(G) = [n]$ cuando el grafo $G$ posee $n$ vértices.\medskip
+Consideramos $G = (V,E)$ un grafo cualquiera. Si $u,v\in V$, se dirá que $u$ es \textbf{adyacencte} a $v$ (o viceversa) si y solamente si $\lbrace u,v\rbrace\in E$. Si $X,Y\subset$ son dos subconjuntos no necesariamente disjuntos, se define el conjunto de tuplas que forman una arista en $G$ de la siguiente manera:
 
-%%%% Definición de densidad de aristas
-\begin{definicion} \label{e(X,Y)}
-    Sea $G = (V,E)$ un grafo, y $X,Y\subset V$ subconjuntos no necesariamente disjuntos de $V$. Se define\medskip
+\begin{equation} \label{eq e(X,Y)}
+    e(X,Y) := \Big|\lbrace (x,y)\in X\times Y : \lbrace x,y\rbrace\in E\rbrace\Big|.
+\end{equation}
 
-    \begin{equation} \label{eq e(X,Y)}
-        e(X,Y) := \Big|\lbrace (x,y)\in X\times Y : xy\in E\rbrace\Big|.
-    \end{equation}\medskip
-    
-    Cuando $X\cap Y = \emptyset$, $e(X,Y)$ cuenta el número de aristas entre $X$ e $Y$, y cuando $X\cap Y\not=\emptyset$ realiza un doble conteo sobre las aristas que se encuentran en $X\cap Y$.
-    Además, se define la \textbf{densidad de aristas} entre $X$ e $Y$ mediante\medskip
+Cuando $X\cap Y = \emptyset$, $e(X,Y)$ cuenta el número de aristas entre $X$ e $Y$, y cuando $X\cap Y\not=\emptyset$, $e(X,Y)$ realiza un doble conteo sobre las aristas que se encuentran en $X\cap Y$.
 
-    \begin{equation}
-        d(X,Y) := \frac{e(X,Y)}{|X||Y|}.
-    \end{equation} 
-\end{definicion}\medskip
-
-%%%% Definición vecinandad
-En un grafo $G$, la \textbf{vecindad} de un vértice $u\in V(G)$ se define como el conjunto de todos los vértices que están
-conectados directamente con $u$ por medio de una arista. Es decir,\medskip
+Se entenderá por \textbf{vecindad} de $u\in V$, $N(u)$, como el conjunto de todos los vértices adyacentes a $u$, es decir,
 
 \begin{equation} \label{vecindad}
-    N(u) := \lbrace v\in V(G) : uv\in E(G)\rbrace.
-\end{equation}\medskip
+    N(u) := \lbrace v\in V(G) : \lbrace u,v\rbrace\in E(G)\rbrace.
+\end{equation}
 
-Este concepto resulta relevante para trabajr y comprender las conexiones locales de un grafo. Con esto, se introducen conceptos
-relacionados con la madida de conectividad de cada vértice.\medskip
+Se define el \textbf{grado} de un vértice $u\in V$ con respecto a algún subconjunto de vértices $Y\subseteq V$ de la siguiente manera:
 
-%%%% Definición grado y cogrado
-\begin{definicion}
-    Sea $G = (V,E)$ un grafo, el \textbf{grado} de un vértice $u\in V$ con respecto a algún conjunto de vértices $Y\subseteq V$ está definido por\medskip
+\begin{equation*}
+    \deg(u;Y) := \sum_{v\in Y} \mathbbm{1}_{E}(uv) = |N(u)\cap Y|.
+\end{equation*}
 
-    \[ 
-        \deg(u;Y) := \sum_{v\in Y} \mathbbm{1}_{E}(uv). 
-    \]\medskip
+En particular, cuando $Y=V$,
 
-    En particular, cuando $Y = V$,\medskip
+\begin{equation*}
+    \deg(u) = \sum_{v\in V} \mathbbm{1}_{E}(uv) = |N(u)|.
+\end{equation*}
 
-    \[
-        \deg(u) = \sum_{v\in V} \mathbbm{1}_{E}(uv) = |N(u)|.
-    \]\medskip
-
-    Se define también el \textbf{cogrado} de un par de vértices $u,v\in V$ mediante,\medskip
-
-    \[
-        \cod(u,v) = \sum_{w\in V} \mathbbm{1}_{E}(wu) \mathbbm{1}_{E}(wv)=|N(u)\cap N(v)|.
-    \]
-\end{definicion}\medskip
-
-Es importante destacar que existe una relación intrínseca entre los conceptos de grado y cogrado, cual será de
-utilidad en la sección \ref*{CGW}.\medskip
-
-%%%% Proposición: Relación grado-cogrado
-\begin{prop} \label{Prop: grado-cogrado}
-    Sea $G = (V,E)$ un grafo e $Y\subset V$ un subconjunto de vértices, entonces\medskip
-
-    \[
-        \sum_{u\in V} \deg(u;Y)^{2} = \sum_{v,v'\in Y\subseteq V} \cod(v,v').
-    \]
-\end{prop}\medskip
-
-%%%% Demostración Proposición: Relación grado-cogrado
-\begin{proof}
-    Utilizando las respectivas definiciones de grado y cogrado, el resultado se obtiene de 
-    seguir el siguiente cálculo:\medskip
-
-    \begin{align*}
-    \sum_{u\in V} \deg(u;Y)^{2} &= \sum_{u\in V}\sum_{v,v'\in Y} \mathbbm{1}_{E}(uv) \mathbbm{1}_{E}(uv')\\
-    &= \sum_{v,v'\in Y}\sum_{u\in V} \mathbbm{1}_{E}(vu) \mathbbm{1}_{E}(v'u)\\
-    &= \sum_{v,v'\in Y}\cod(v,v').
-\end{align*}
-\end{proof}\medskip
-
-Observe que en particular, cuando $Y=V$, se satisface\medskip
-
-\begin{equation} \label{grado-cogrado}
-    \sum_{u\in V} \deg(u)^{2} = \sum_{u,v\in V}\cod(u,v).
-\end{equation}\medskip
-
-Otra propiedad elemental que se utilizará a menudo, es la conexión entre la suma del grado de todos los vértices
-y la cantidad de aristas de un grafo.\medskip
-
+Una propiedad elemental en teoría de grafos, es la relación que guarda la suma del grado de todos los vértices y la cantidad de aristas de un grafo.
 %%%% Suma grados = 2e
 \begin{prop}
     Dado un grafo $G = (V,E)$, entonces
     \begin{equation}
         \sum_{u\in V}\deg (u) = 2e_G.
     \end{equation}
-\end{prop}\medskip
+\end{prop}
 
 %%%% Demostración suma grados = 2e
 \begin{proof}
-    Cada arista $uv\in E$ será contada dos veces en la suma, una contribución por $u$ y otra por $v$.
-\end{proof}\medskip
+    Cada arista $\lbrace u,v\rbrace\in E$ será contada dos veces en la suma, una contribución por $u$, y otra por $v$.
+\end{proof}
 
-A continuación, se enuncian algunos grafos especiales que son contemplados en este documento. Diremos que un grafo $G = (V,E)$ es $\mathbf{k}$\textbf{-partito} si existe una partición de $V$ en $k$ 
-subconjuntos disjuntos $V_1,V_2,...,V_k$ tales que $uv\in E$ si y solamente si $u\in V_i$ y $v\in V_j$, con $i\not=j$.
-En particular, cuando un grafo es 2-partito lo llamaremos \textbf{bipartito}.\medskip
+En algunas ocasiones estaremos interesados en la cantidad de vecinos que comparten dos vértices del grafo $G = (V, E)$. Entonces, se define el \textbf{cogrado} de un par de vértices $u,v\in V$ no necesariamente diferentes mediante:
+
+\begin{equation*}
+    \cod(u,v) = \sum_{w\in V} \mathbbm{1}_{E}(\lbrace w,u\rbrace) \mathbbm{1}_{E}(\lbrace w,v\rbrace)=|N(u)\cap N(v)|.
+\end{equation*}
+
+Mostraremos que existe una relación intrínseca entre los conceptos de grado y cogrado, cual será de utilidad en la sección \ref{cuasi-aleatoriedad}.
+
+%%%% Proposición: Relación grado-cogrado
+\begin{prop} \label{Prop: grado-cogrado}
+    Sea $G = (V,E)$ un grafo e $Y\subset V$ un subconjunto de vértices, entonces
+
+    \[
+        \sum_{u\in V} \deg(u;Y)^{2} = \sum_{v,v'\in Y\subseteq V} \cod(v,v').
+    \]
+\end{prop}
+
+%%%% Demostración Proposición: Relación grado-cogrado
+\begin{proof}
+    Utilizando las respectivas definiciones de grado y cogrado, el resultado se obtiene de seguir el siguiente cálculo:
+
+    \begin{align*}
+        \sum_{u\in V} \deg(u;Y)^{2} &= \sum_{u\in V}\sum_{v,v'\in Y} \mathbbm{1}_{E}(uv) \mathbbm{1}_{E}(uv')\\
+        &= \sum_{v,v'\in Y}\sum_{u\in V} \mathbbm{1}_{E}(vu) \mathbbm{1}_{E}(v'u)\\
+        &= \sum_{v,v'\in Y}\cod(v,v').
+    \end{align*}
+\end{proof}
+
+Observe que en particular, cuando $Y=V$, se satisface
+
+\begin{equation} \label{grado-cogrado}
+    \sum_{u\in V} \deg(u)^{2} = \sum_{u,v\in V}\cod(u,v).
+\end{equation}
+
+A continuación, se enuncian algunos grafos especiales que son contemplados en esta tesis. Diremos que un grafo $G = (V,E)$ es $\boldsymbol{k}$-\textbf{partito} si $V$ se puede dividir en $k$ subconjuntos disjuntos $V_1,V_2,...,V_k$ tales que $\lbrace u,v\rbrace\in E$ si y solamente si $u\in V_i$ y $v\in V_j$, con $i\not=j$. En particular, a un grafo 2-partito lo llamaremos \textbf{bipartito}.\medskip
 
 %%%% Ejemplo grafo 3-partito
 \begin{figure}[h]
@@ -389,9 +357,9 @@ En particular, cuando un grafo es 2-partito lo llamaremos \textbf{bipartito}.\me
         \draw (C3) -- (A1);
     \end{tikzpicture}
     \caption{Ejemplo de un grafo 3-partito.}
-\end{figure}\medskip
+\end{figure}
 
-Un \textbf{grafo completo} de $n$ vértices, denotado por $K_n$, es un grafo en el cual todos sus vértices son adyacentes entre ellos, es decir, todo par de vértices en el grafo posee una arista que los conecta. Similarmente, se denota por $K_{n,m}$ al \textbf{grafo bipartito completo} con $n$ y $m$ elementos en sus respectivos conjuntos de vérrtices. De esta manera, observe que la cantidad de aristas en los grafos anteriores son exactamente $e_{K_n} = \tbinom{n}{2}$ y $e_{K_{n,m}} = n\cdot m$. Por otro lado, un grafo $\mathbf{d}$\textbf{-regular} es aquel que presenta todos sus vértices con grado $d$.\medskip
+Un \textbf{grafo completo} de $n$ vértices, denotado por $K_n$, es un grafo en el cual todos sus vértices son adyacentes entre ellos, es decir, todo par de vértices en el grafo posee una arista que los conecta. Similarmente, se denota por $K_{n,m}$ al \textbf{grafo bipartito completo} con $n$ y $m$ elementos en sus respectivos conjuntos de vérrtices. Observe que la cantidad de aristas en los grafos anteriores son exactamente $e_{K_n} = \tbinom{n}{2}$ y $e_{K_{n,m}} = n\cdot m$. Por otro lado, un grafo $\boldsymbol{d}$-\textbf{regular} es aquel que presenta todos sus vértices con grado $d$.
 
 % Ejemplos grafos especiales
 \begin{figure}[h]
@@ -441,24 +409,21 @@ Un \textbf{grafo completo} de $n$ vértices, denotado por $K_n$, es un grafo en 
             }  
         \end{scope}
     \end{tikzpicture}
-    \caption{Ejemplos grafos $K_{3,5}$, $K_6$ y 3-regular.}
-\end{figure}\medskip
-
-Otro concepto relevante en este trabajo son las diferentes nociones de rutas que se pueden encontrar siguiendo una secuencia de determinadas aristas de un grafo.\medskip
+    \caption{Ejemplo de los grafos especiales $K_{3,5}$, $K_6$ y 3-regular.}
+\end{figure}
 
 %%%% Definición caminata, caminata cerrada, camino y ciclos
-\begin{definicion}
-    Dado un grafo $G$ con  $n\geq k$ vértices, se define
-    \begin{itemize}
-        % Caminata
-        \item Una \textbf{caminata} es una secuencia de vértices no necesariamente distintos $v_0,v_1,...,v_k$ tales que $v_{i}v_{i+1}\in E(G)$ para todo $i\in [k]$. Si $v_0 = v_k$, se dice que es una \textbf{caminata cerrada}. El \textbf{largo} de una caminata está determinado por la cantidad de aristas que ésta posea.
-        % Camino
-        \item Un \textbf{camino} es una caminata con todos los vértices $v_i$ distintos.
-        % Ciclo
-        \item Un \textbf{ciclo} es un camino con $k\geq 2$, en el cual además $v_{0}v_{k}\in E(G)$. En específico, $v_0, v_1,...,v_k,v_0$ es un ciclo. Se denota por $C_k$ al ciclo de largo $k$.
-    \end{itemize}
-\end{definicion}\medskip
+Otro concepto relevante en este trabajo son las diferentes nociones de rutas que se pueden encontrar siguiendo una secuencia de determinadas aristas de un grafo. Suponga que el grafo $G$ posee $n\geq k$ vértices, entonces se definen los siguientes conceptos:
 
+\begin{itemize}
+    % Caminata
+    \item Una \textbf{caminata} es una secuencia de vértices no necesariamente distintos $v_0,v_1,...,v_k$ tales que $\lbrace v_{i},v_{i+1}\rbrace\in E(G)$ para todo $i\in [k]$. Si $v_0 = v_k$, se dice que es una \textbf{caminata cerrada}. El \textbf{largo} de una caminata está determinado por la cantidad de aristas que ésta posea.
+    % Camino
+    \item Un \textbf{camino} es una caminata con todos los vértices $v_i$ distintos.
+    % Ciclo
+    \item Un \textbf{ciclo} es un camino con $k\geq 2$, en el cual además $\lbrace v_{0},v_{k}\rbrace\in E(G)$. En específico, $v_0, v_1,...,v_k,v_0$ es un ciclo. Se denota por $C_k$ al ciclo de largo $k$.
+\end{itemize}
+\newpage
 % Ejemplos de caminata, camino y ciclo.
 \begin{figure}[h]
     \centering
@@ -490,18 +455,12 @@ Otro concepto relevante en este trabajo son las diferentes nociones de rutas que
             &23652 \equiv \text{ciclo de largo 4.}
         \end{align*}
     \end{minipage}
-    \caption{Ejemplo de caminata, camino y ciclo.}
+    \caption{Ejemplo de una caminata, un camino y un ciclo.}
     \label{ej caminos}
-\end{figure}\medskip
+\end{figure}
 
-Ahora, con ideas de posteriormente estudiar propiedades estructurales de los grafos, se introduce el concepto de isomorfismo entre grafos. Este último establece una correspondencia biyectiva entre los conjunto de vértices de dos grafos que preserva las relaciones de adyacencia.\medskip
+Por último, diremos que una \textbf{copia etiquetada} de un grafo $H$ en $G$ es una aplicación inyectiva $f: V(H)\to V(G)$ tal que $\lbrace f(u)f(v)\rbrace\in E(G)$ cada vez que $\lbrace u,v\rbrace\in E(H)$. Se denota por $\tbinom{G}{H}$ al conjunto de copias etiquetadas de $H$ en $G$.
 
-%%%% Definición isomorfismo de grafos
-\begin{definicion}
-    Sean $G_1 = (V_1, E_1)$ y $G_2 = (V_2, E_2)$ grafos. Un \textbf{isomorfismo} $\varphi : G_1 \to G_2$ es una biyección desde $V_1$ hasta $V_2$ tal que $uv\in E_1$ si y solamente si $\varphi(u)\varphi(v)\in E_2$. Diremos que $G_1$ es isomorfo a $G_2$ si existe un isomorfismo entre ellos.
-\end{definicion}\medskip
-
-% Ejemplo Isomorfismo
 \begin{figure}[h]
     \centering
     \begin{minipage}{0.49\linewidth}
@@ -510,7 +469,7 @@ Ahora, con ideas de posteriormente estudiar propiedades estructurales de los gra
         \begin{tikzpicture}[baseline,scale=0.8]
             %\draw[step=0.5cm, gray, very thin] (-3,-3) grid (3,3);
             % Comienza ecuación
-            \node at (-3,0) {$G_1=$};
+            \node at (-3,0) {$H=$};
             % Vértices 
             \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={180:$\mathbf{3}$}]  (3) at (-1.5,0) {};
             \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={0:$\mathbf{4}$}]  (4) at (1.5,0) {};
@@ -527,7 +486,7 @@ Ahora, con ideas de posteriormente estudiar propiedades estructurales de los gra
         \centering
         % G_2
         \begin{tikzpicture}[baseline,scale=0.8]
-            \node at (-3,0) {$G_2=$};
+            \node at (-3,0) {$G=$};
             % Vértices
             \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={180:$\mathbf{b}$}]  (b) at (-1.5,0) {};
             \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={0:$\mathbf{d}$}]  (d) at (1.5,0) {};
@@ -535,61 +494,58 @@ Ahora, con ideas de posteriormente estudiar propiedades estructurales de los gra
             \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={270:$\mathbf{e}$}]  (e) at (0,-2) {};
             \node[fill=black, circle, inner sep=2pt, minimum size=4pt, label={270:$\mathbf{c}$}]  (c) at (0,0) {};
             % Aristas
-            \draw[line width=1.2] (e) -- (b) -- (a) -- (d);
+            \draw[line width=1.2] (e) -- (b) -- (a) -- (d) -- (e);
             \draw[line width=1.2] (a) -- (c);
         \end{tikzpicture}
     \end{minipage}
-    \caption{Ejemplo de grafos isomorfos mediante la función $\varphi : V(G_1)\to V(G_2)$ definida por $\varphi(1)=a$, $\varphi(2)=e$, $\varphi(3)=c$, $\varphi(4)=b$ y $\varphi(5)=d$.}
-\end{figure}\medskip
+    \caption{Ejemplo de una copia etiquetada de $H$ en $G$ mediante la función $f : V(H)\to V(G)$ definida por $f(1)=a$, $f(2)=e$, $f(3)=c$, $f(4)=b$ y $f(5)=d$.}
+\end{figure}
 
-Observe que un isomorfismo establece una relación de equivalencia entre grafos. Es decir,\medskip
 
-\begin{itemize}
-    \item Todo grafo es isomorfo con él mismo (\emph{reflexividad}).
-    \item Si $G_1$ es isomorfo a $G_2$, entonces $G_2$ es isomorfo con $G_1$ (\emph{simetría}).
-    \item Si $G_1$ es isomorfo a $G_2$ y $G_2$ es isomorfo a $G_3$, entonces $G_1$ es isomorfo con $G_3$ (\emph{transitividad}).
-\end{itemize}\medskip
+\subsection{Álgebra lineal y teoría espectral de grafos} \label{Teoría espectral}
 
-%%%% Definir subgrafo
-Dado dos grafos $H$ y $G$, diremos que $H$ es \textbf{subgrafo} de $G$ si se puede obtener $H$ a partir de $G$ únicamente eliminado algunos vértices y aristas. Formalmente, $H$ es subgrafo de $G$ si $V(H)\subseteq V(G)$ y $E(H)\subseteq E(G)$.\medskip
+lalala
 
-Por último, es necesario comprender los diferentes puntos de vista que se pueden adoptar en la noción de una \emph{copia} de un grafo.\medskip
+\subsection{Grafos aleatorios} \label{Grafos aleatorios}
 
-%%%% Definición copia
-\begin{definicion}
-    Sean $H$ y $G$ grafos,
-    \begin{itemize}
-        \item Una \textbf{copia} de $H$ en $G$ es un subgrafo de $G$ isomorfo a $H$.
-        \item Una \textbf{copia etiquetada} de $H$ en $G$ es una aplicación inyectiva $\varphi : V(H)\to V(G)$ tal que $\varphi(u)\varphi(v)\in E(G)$ cada vez que $uv\in E(H)$.
-        \item Una \textbf{copia inducida} de $H$ en $G$ es una aplicación inyectiva $\varphi : V(H)\to V(G)$ tal que $\varphi(u)\varphi(v)\in E(G)$ si y solamente si $uv\in E(H)$.
-    \end{itemize}
-\end{definicion}\medskip
+lalala
 
-Para reforzar el concepto recién visto, si un grafo posee $\ell$ copias de $K_3$, entonces el grafo cuenta con $6\ell$ copias etiquetadas de $K_3$. En lo que concierne a este trabajo, se estudiarán propiedades relacionadas con la cantidad de copias etiquetadas de algún grafo determinado. Por esto, denotamos por $\tbinom{G}{H}$ al conjunto de copias etiquetadas de $H$ en $G$.\medskip
+% DEFINICIONES PENDIENTES!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+%\begin{enumerate}
+%    \item $\Tr(A)$ representa la traza de la matriz cuadrada $A$. \hh{En esta %sección debería poner la propiedad $\Tr(AB) = \Tr(BA)$?}
+%    Esto sería para $A\in \mathcal{M}_{n\times m}(\mathbb{R})$ y  $B\in\mathcal%{M}_{m\times n}(\mathbb{R})$,
+%    \[
+%        \Tr(AB) = \sum_{i=1}^{n} (AB)_{ii} = \sum_{i=1}^{n}\sum_{j=1}^{m} A_%{ij}B_{ji} = \sum_{j=1}^{m}\sum_{i=1}^{n}B_{ij}A_{ji} = \Tr(BA).
+%    \]
+%    
+%    \item
+%    \begin{definicion}
+%        Diremos que $\mathcal{P} = \lbrace X_1,X_2,...,X_k\rbrace$ es una %\textbf{partición} del conjunto $X$ si:
+%        \begin{enumerate}
+%            \item $\bigcup_{i=1}^{k} X_i = X$.
+%            \item $X_i \cap X_j = \emptyset$ para todo $i,j\in[k]$.
+%        \end{enumerate}
+%        Cuando $|X_1|\leq|X_2|\leq ...\leq |X_k| = |X_1| + 1$, llamaremos a %$\mathcal{P}$ como una \textbf{equipartición}. En particular, cada %parte posee $\lceil |X|/k \rceil$ o $\lfloor |X|/k\rfloor$ elementos.
+%    \end{definicion}
+%    \item $I_n \in \mathcal{M}_{n\times n}(\mathbb{R})$ denota la matriz %identidad.
+%\end{enumerate}
 
-\subsection{Álgebra lineal y teoría espectral de grafos} \label{Sección AL}\medskip
 
-%%%% Enunciar desigualdad de Cauchy-Schwarz y sus dos versiones
-Muchas veces, en la teoría de grafos extremal y en combinatoria, la desigualdad de Cauchy-Schwarz juega un papel fundamental en la prueba de algunos resultados.\medskip
 
-\begin{prop} (Desigualdad de Cauchy-Schwarz)
-    Sean $a,b\in \mathbb{R}^{k}$, entonces se satisface
-    \begin{equation*}
-        \sum_{i=1}^{k}a_{i}^{2}\sum_{i=1}^{k}b_i^{2} \geq \left( \sum_{i=1}^{k}a_{i}b_{i}\right)^{2}.
-    \end{equation*}
-\end{prop}\medskip
 
-En lo que respecta a este trabajo, la desigualdad de Cauchy-Schwarz será utilizada como alguna de las siguientes variantes. Por un lado, si uno de los vectores se identifica con el vector constante $b_i = 1$ para todo $i\in [k]$, entonces\medskip
 
-\begin{equation} \label{CS_versión1}
-    \sum_{i=1}^{k}a_{i}^{2} \geq \frac{1}{k}\left( \sum_{i=1}^{k} a_{i}\right)^{2}.
-\end{equation}\medskip
 
-Por otro lado, para los reales $\alpha_1,...,\alpha_k > 0$ y $\beta_1,...\beta_k \geq 0$, consideramos $a_i = \sqrt{\alpha_i}$ y $b_i = \frac{\beta_i}{\sqrt{\alpha_i}}$ para obtener\medskip
+    
+    %Además, se define la \textbf{densidad de aristas} entre $X$ e $Y$ %mediante\medskip
+%
+    %\begin{equation}
+    %    d(X,Y) := \frac{e(X,Y)}{|X||Y|}.
+    %\end{equation} 
 
-\begin{equation} \label{Desigualdad_from_CS}
-    \sum_{i=1}^{k} \frac{\beta_{i}^{2}}{\alpha_i} \geq \frac{\left( \sum_{i = 1}^{k} \beta_i\right)^{2}}{\sum_{i=1}^{k}\alpha_i}.
-\end{equation}\medskip 
+
+
+
+
 
 %%%% Enunciar matriz de adyacencia
 Una manera muy útil de representar un grafo es mediante una matriz cuadrada binaria, asignando $1$ para las conexiones de vértices y $0$ en la ausencia de aristas. Bajo esta representación se consigue una visión clara y eficiente de las relaciones de un grafo, y se goza de las propiedades que nos ofrece el álgebra lineal.\medskip
@@ -958,9 +914,9 @@ Usualmente el primer autovalor de todo grafo juega un papel protagónico en algu
 %\end{equation}
 %\hh{Pregunta: Debería eliminar la implicancia y dejar solo el resultado? R: agregar un "Es decir,". De todas maneras debo adaptar la demostración de regularidad para no utilizar notación se probabilidad.}
 %
-\section{Teorema de Chung, Graham y Wilson} \label{CGW}\medskip
+\section{Teorema de Chung, Graham y Wilson} \label{cuasi-aleatoriedad}\medskip
 
-\subsection{Grafos aleatorios}\medskip
+%\subsection{Grafos aleatorios}\medskip
 
 El objetivo de esta subsección es proporcionar un breve contexto teórico para abordar más adelante la noción y propiedades de los grafos \emph{casi-aleatorios}. Para esto, se asumirán los conceptos asociados a la teoría de la probabilidad.\medskip
 
