@@ -202,7 +202,7 @@ Universidad de Santiago de Chile \\
 
 Este capítulo proporciona una introducción concisa de los conceptos y terminologías que se utilizarán en esta tesis. La sección \ref{Teoría de grafos} da un paseo por las nociones más básicas de la teoría de grafos, otorgando una línea de base para el desarrollo de las siguientes secciones. En la sección \ref{Teoría espectral} se repasan algunos conceptos y resultados clásicos del álgebra lineal para abordar las propiedades necesarias de la teoría espectral de grafos. Por último, la sección \ref{Grafos aleatorios} contextualiza y motiva el contenido de la sección \ref{cuasi-aleatoriedad}.
 
-Para los efectos de este trabajo, se define $[n] := \lbrace 1,...,n\rbrace$, y $\mathcal{M}_{n\times m}(\mathbb{R})$ como el conjunto de matrices reales de $n$ filas y $m$ columnas. Denotamos $\mathbbm{1}_{X}$ a la función indicatriz del conjunto $X$, $\Bbbbone$ $\in\mathcal{M}_{n\times 1}(\mathbb{R})$ al vector de $1$-entradas, $J\in\mathcal{M}_{n\times n}$ a las matriz de $1$-entradas, y $\boldsymbol{e_i}\in\mathcal{M}_{n\times 1}$ como el vector de la base canónica de $\mathbb{R}^{n}$ con entrada $1$ en la posición $i$.
+Para los efectos de este trabajo, se define $[n] := \lbrace 1,...,n\rbrace$, y $\mathcal{M}_{n\times m}(\mathbb{R})$ como el conjunto de matrices reales de $n$ filas y $m$ columnas. Denotamos $\mathbbm{1}_{X}$ a la función indicatriz del conjunto $X$, $\Bbbbone$ $\in\mathcal{M}_{n\times 1}(\mathbb{R})$ al vector de $1$-entradas, $J\in\mathcal{M}_{n\times n}$ a las matriz de $1$-entradas, $I_n\in \mathcal{M}_{n\times n}(\mathbb{R})$ a la matriz identidad, y $\boldsymbol{e}_i\in\mathcal{M}_{n\times 1}$ como el vector de la base canónica de $\mathbb{R}^{n}$ con entrada $1$ en la posición $i$.
 
 En muchos de los resultados de esta tesis, la \emph{desigualdad de Cauchy-Schwarz} (DCS) es un argumento fundamental en sus demostraciones. En particular, se emplearán dos variantes que se enunciarán a continuación. Primero recuerde que la DCS establece que todo $\boldsymbol{a},\boldsymbol{b}\in\mathbb{R}^{k}$ satisfacen
 
@@ -504,56 +504,26 @@ Por último, diremos que una \textbf{copia etiquetada} de un grafo $H$ en $G$ es
 
 \subsection{Álgebra lineal y teoría espectral de grafos} \label{Teoría espectral}
 
-lalala
+\fs{Me olvidé de definir la norma usual euclidiana y el producto interno}
 
-\subsection{Grafos aleatorios} \label{Grafos aleatorios}
+Considere una matriz cuadrada $A\in \mathcal{M}_{n\times n}$, se define la \textbf{traza} de $A$ como la suma de sus elementos de la diagonal principal. Esto es,
 
-lalala
+\begin{equation*}
+    \Tr(A) = a_{11} + a_{22} + ... + a_{nn}.
+\end{equation*}
 
-% DEFINICIONES PENDIENTES!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-%\begin{enumerate}
-%    \item $\Tr(A)$ representa la traza de la matriz cuadrada $A$. \hh{En esta %sección debería poner la propiedad $\Tr(AB) = \Tr(BA)$?}
-%    Esto sería para $A\in \mathcal{M}_{n\times m}(\mathbb{R})$ y  $B\in\mathcal%{M}_{m\times n}(\mathbb{R})$,
-%    \[
-%        \Tr(AB) = \sum_{i=1}^{n} (AB)_{ii} = \sum_{i=1}^{n}\sum_{j=1}^{m} A_%{ij}B_{ji} = \sum_{j=1}^{m}\sum_{i=1}^{n}B_{ij}A_{ji} = \Tr(BA).
-%    \]
-%    
-%    \item
-%    \begin{definicion}
-%        Diremos que $\mathcal{P} = \lbrace X_1,X_2,...,X_k\rbrace$ es una %\textbf{partición} del conjunto $X$ si:
-%        \begin{enumerate}
-%            \item $\bigcup_{i=1}^{k} X_i = X$.
-%            \item $X_i \cap X_j = \emptyset$ para todo $i,j\in[k]$.
-%        \end{enumerate}
-%        Cuando $|X_1|\leq|X_2|\leq ...\leq |X_k| = |X_1| + 1$, llamaremos a %$\mathcal{P}$ como una \textbf{equipartición}. En particular, cada %parte posee $\lceil |X|/k \rceil$ o $\lfloor |X|/k\rfloor$ elementos.
-%    \end{definicion}
-%    \item $I_n \in \mathcal{M}_{n\times n}(\mathbb{R})$ denota la matriz %identidad.
-%\end{enumerate}
+Si $A,B\in\mathcal{M}_{n\times n}$, entonces la traza resulta invariante bajo el orden de multiplicación de dichas matrices. En efecto, 
 
+\begin{equation*}
+    \Tr(AB) = \sum_{i=1}^{n}\left( \sum_{j=1}^{n} a_{ij}b_{ji}\right) = \sum_{j=1}^{n}\left( \sum_{i=1}^{n} a_{ij}b_{ji}\right) = \Tr(BA).
+\end{equation*}
 
+Una manera muy útil de representar un grafo es mediante una matriz cuadrada binaria, en la que sus filas y columnas representarán todos los vértices del grafo. La matriz adopta el valor $1$ en las coordenadas en que sus respectivos vértices forman una arista, y $0$ en otro caso. Bajo esta representación se consigue una visión clara y eficiente entre las relaciónes de los vértices del grafo, y se gozan de las propiedades que ofrece el álgebra lineal.
 
-
-
-
-    
-    %Además, se define la \textbf{densidad de aristas} entre $X$ e $Y$ %mediante\medskip
-%
-    %\begin{equation}
-    %    d(X,Y) := \frac{e(X,Y)}{|X||Y|}.
-    %\end{equation} 
-
-
-
-
-
-
-%%%% Enunciar matriz de adyacencia
-Una manera muy útil de representar un grafo es mediante una matriz cuadrada binaria, asignando $1$ para las conexiones de vértices y $0$ en la ausencia de aristas. Bajo esta representación se consigue una visión clara y eficiente de las relaciones de un grafo, y se goza de las propiedades que nos ofrece el álgebra lineal.\medskip
-
-\newpage
 %%%% Definición formal matriz de adyacencia
 \begin{definicion}
-    Dado un grafo $G$ sobre $n$ vértices, se define su \textbf{matriz de adyacencia} $A_{G}\in \mathcal{M}_{n\times n}(\mathbb{R})$ de la siguiente manera,
+    Dado un grafo $G$ sobre $n$ vértices, se define su \textbf{matriz de adyacencia} $A_{G}\in \mathcal{M}_{n\times n}(\mathbb{R})$ de la siguiente manera:
+
     \begin{equation*}
         a_{ij} =
         \begin{cases}
@@ -561,8 +531,9 @@ Una manera muy útil de representar un grafo es mediante una matriz cuadrada bin
             0 & \mathrm{en\ otro\ caso.}
         \end{cases}
     \end{equation*}
+
     Cuando el contexto sea claro, la matriz de adyacencia será representada simplemente por $A$.
-\end{definicion}\medskip
+\end{definicion}
 
 %%%% Ejemplo de matriz de adyacencia de un grafo.
 \renewcommand{\kbldelim}{(}
@@ -603,106 +574,146 @@ Una manera muy útil de representar un grafo es mediante una matriz cuadrada bin
         \end{equation*}
     \end{minipage}
     \caption{Ejemplo de representación mediante la matriz de adyacencia de un grafo.}
-\end{figure}\medskip
+\end{figure}
 
-Observe que la representación anterior resulta siempre en una matriz simétrica, es decir, $A_{G}^{T} = A_G$. Además, en todo grafo $G = ([n], E)$, cuya matriz de adyacencia es $A$, se puede obtener un vector con los grados de cada vértice del grafo aplicando el operador $A$ al vector de $1$-entradas $\mathbbm{1}\in\mathcal{M}_{n\times 1}$. Es decir,\medskip
+Observe que la representación anterior resulta siempre en una matriz simétricae, es decir, $A_{G}^{T} = A_{G}$. Además, en todo grafo $G = ([n], E)$ con matriz de adyacencia $A$, se puede obtener un vector con los grados de cada vértice del grafo aplicando el operador $A$ a l vector de 1-entradas $\Bbbbone\in\mathcal{M}_{n\times n}$.
 
 \begin{equation} \label{A1=Mdeg}
-    A\mathbbm{1} = 
+    A\Bbbbone = 
     \begin{pmatrix}
         \deg(1) \\
         \vdots \\
         \deg(n)
     \end{pmatrix}
-\end{equation}.\medskip
+\end{equation}.
 
-Un aspecto interesante de ésta, es que nos permite reescribir la definición \ref{e(X,Y)} en función de ella. Para ver esto, consideramos la matriz de adyacencia $A$ del grafo $G = ([n], E)$, y los vértices $i,j\in [n]$. Luego, por la construcción de $A$,\medskip
+Otro aspecto interesante de la matriz de adyacencia que será de utilidad en la sección \ref{Sec. LRS}, es que nos permite reescribir la ecuación \eqref{eq e(X,Y)} en función de ella. Para ver esto, consideramos la matriz de adyacencia $A$ del grafo $G = ([n], E)$, y los vértices $i,j\in [n]$. Luego, por la definición de $A$,
 
 \begin{equation*}
-    e(\lbrace i\rbrace, \lbrace j\rbrace) = e_{i}^{T} A e_{j} = 
+    e(\lbrace i\rbrace, \lbrace j\rbrace) = \boldsymbol{e}_i^{T} A \boldsymbol{e}_{j} = 
     \begin{cases}
         1 & \text{si } i=j \\
         0 & \text{En otro caso.}
     \end{cases}
-\end{equation*}\medskip
+\end{equation*}
 
-Entonces, por linealidad, se extiende el resultado anterior sobre cualquier conjunto $X,Y\subset [n]$.\medskip
+Entonces, por linealidad, se extiende el resultado anterior sobre cualquier conjunto $X,Y\subset [n]$.
 
 \begin{equation} \label{e(X,Y)=espectral}
-    e(X,Y) = \sum_{i\in X}\sum_{j\in Y} e_{i}^{T} A e_{j} = v_{X}^{T} A v_{Y}.
-\end{equation}\medskip
+    e(X,Y) = \sum_{i\in X}\sum_{j\in Y} \boldsymbol{e}_{i}^{T} A \boldsymbol{e}_{j} = \boldsymbol{v}_{X}^{T} A \boldsymbol{v}_{Y}.
+\end{equation}
 
-Es importante destacar que la matriz de adyacencia no solo describe las conexiones entre cada par de vértices en un grafo, sino que también revela la cantidad exacta de caminatas que existen entre dos vértices de un largo determinado. En específico, la posición $ij$ de la $t$-ésima potencia de la matriz de adyacencia de un grafo guarda la cantidad de caminatas de largo $k$ entre los vértices $i$ y $j$.\medskip
+En la ecuación anterior, y desde ahora en adelante, el vector $\boldsymbol{v}_{X} = \sum_{i\in X}\boldsymbol{e}_{i}$ representa el vector indicador del subconjunto de vértices $X\subset [n]$ de algún grafo $G=([n], E)$.
+
+Es importante destacar que la matriz de adyacencia no solo describe las conexiones entre cada par de vértices en un grafo, sino que también revela la cantidad exacta de caminatas que existen entre dos vértices de un largo determinado. En específico, la posición $ij$ de la $t$-ésima potencia de la matriz de adyacencia de un grafo guarda la cantidad de caminatas de largo $k$ entre los vértices $i$ y $j$.
 
 %%%% Lema: Potencia matriz de adyacencia
 \begin{prop} \label{potencia_matriz_adyacencia = caminatas}
     Sea $A$ la matriz de adyacencia de grafo $G = ([n], E)$. La $(i,j)$-ésima entrada $a_{ij}^{(t)}$ de $A^{t}$, cuenta la cantidad de caminatas de largo $t$ que comienzan y terminan en los vértices $i$ y $j$ respectivamente.
-\end{prop}\medskip
+\end{prop}
 
 %%%% Demostración Lema : Potencia matriz de adyacencia
 \begin{proof}
     Cuando $t=1$, existe una caminata de largo $1$ que conecta los vértices $i$ y $j$ si y solamente si $a_{ij}^{(1)} = 1$. Ahora, asuma que el lema se cumple para algún $t > 1$ fijo. Note que cualquier caminata de largo $t+1$ entre $i$ y $j$ contiene una caminata de largo $t$ desde $i$ hasta un vecino de $j$, digamos $k$. Entonces si $k\in N(j)$, por la asunción del lema, el número de caminatas de largo $t$ entre $i$ y $k$ es $a_{ik}^{(t)}$. Por lo tanto, el número total de caminatas de largo $t+1$ desde $i$ hasta $t$ es exactamente
+
     \begin{equation*}
         \displaystyle\sum_{k\in V} a_{ik}^{(t)}\mathbbm{1}_{N(j)}(k) = \displaystyle\sum_{\ell=1}^{n}a_{i\ell}^{(t)}a_{\ell j} = a_{ij}^{(t+1)}.
     \end{equation*}
-\end{proof}\medskip
+\end{proof}
 
 Como consecuencia de la proposición anterior, en cualquier grafo $G = ([n], E)$ con matriz de adyacencia $A$, se puede representar la cantidad total de caminatas cerradas de largo $t$ en el grafo por medio de la traza, $\Tr(A^{t}) = \sum_{i=1}^{n}a_{ii}^{(t)}$. Con esto, note que $\Tr(A^{2}) = 2e_G$.\medskip
 
-Por otro lado, recuerde que $v\in \mathbb{R}^{n}$ es un vector propio de alguna matriz $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ con valor propio $\lambda\in \mathbb{R}$ si $Av=\lambda v$. Esto significa que $\lambda$ es un valor propio si y solo si $\lambda I_{n} - A$ es una matriz singular. Así, los valores propios vienen dados por las raíces del polinomio característico $\det(xI_{n} - A)$. En este trabajo, cuando se haga referencia a los valores y vectores propios de un grafo $G$, siempre será con respecto a su matriz de adyacencia $A$.\medskip
+Por otro lado, para introducir algunos aspectos de la teoría espectral de grafos, recuerde que $\boldsymbol{v}\in \mathbb{R}^{n}$ es un vector propio de alguna matriz $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ con valor propio $\lambda\in \mathbb{R}$ si $A\boldsymbol{v}=\lambda \boldsymbol{v}$. Esto significa que $\lambda$ es un valor propio si y solo si $\lambda I_{n} - A$ es una matriz singular. Así, los valores propios vienen dados por las raíces del polinomio característico $\det(xI_{n} - A)$. En este trabajo, cuando se haga referencia a los valores y vectores propios de un grafo $G$, siempre será con respecto a su matriz de adyacencia $A$.
 
-Por ejemplo, si $G$ es un grafo $d$-regular, entonces con la igualdad \eqref{A1=Mdeg} se puede deducir que $d$ es el valor propio asociado al vector propio normalizado de $1$-entradas de la matriz de adyacencia $A_G$.\medskip
+Por ejemplo. si $G$ es un grafo $d$-regular, entonces con la igualdad \eqref{A1=Mdeg} se puede deducir que $d$ es el valor propio asociado al vector propio normalizado de $1$-entradas de la matriz de adyacencia $A_G$.
 
 %%%% Proposición: VP relaes y vectores ortogonales.
 \begin{prop}
     Sea $A\in\mathcal{M}_{n\times n}(\mathbb{R})$ una matriz real simétrica, entonces todos sus valores propios son reales. Además, si dos vectores propios están asociados a distintos valores propios, entonces éstos son ortogonales. Más aún, el conjunto de todos los vectores propios definen  una base ortonormal de $\mathbb{R}^{n}$.
-\end{prop}\medskip
+\end{prop}
 
 %%%% Demostración
 \begin{proof}
-    Se comienza probando que los valores propios de $A$ son reales. Sea $\lambda$ un valor propio de $A$ y $x\not=0$ su correspondiente vector propio, satisfaciendo $Ax = \lambda x$. Tomando su conjugado, se obtiene paralelamente que\medskip
+    Se comienza probando que los valores propios de $A$ son reales. Sea $\lambda$ un valor propio de $A$ y $\boldsymbol{x}\not=0$ su correspondiente vector propio, satisfaciendo $A\boldsymbol{x} = \lambda \boldsymbol{x}$. Tomando su conjugado, se obtiene paralelamente que
 
     \begin{equation*}
         \begin{aligned}
-            Ax &= \lambda x & \hspace{2cm}  A\overline{x} &= \overline{\lambda}\overline{x}\\
+            A\boldsymbol{x} &= \lambda \boldsymbol{x} & \hspace{2cm}  A\overline{\boldsymbol{\boldsymbol{x}}} &= \overline{\lambda}\overline{\boldsymbol{x}}\\
             &\Downarrow & \hspace{2cm} & \Downarrow\\
-            \overline{x}^{T}Ax &= \lambda\norm{x}^{2} & \hspace{2cm} x^{T}A\overline{x} &= \overline{\lambda}\norm{x}^{2}. 
+            \overline{\boldsymbol{x}}^{T}A\boldsymbol{x} &= \lambda\norm{\boldsymbol{x}}^{2} & \hspace{2cm} \boldsymbol{x}^{T}A\overline{\boldsymbol{x}} &= \overline{\lambda}\norm{\boldsymbol{x}}^{2}. 
         \end{aligned}
-    \end{equation*}\medskip
+    \end{equation*}
 
-    Además, como $A$ es simétrica,\medskip
+    Además, como $A$ es simétrica,
 
     \begin{equation*}
-        \overline{x}^{T}Ax = (Ax)^{T}\overline{x} = x^{T}A\overline{x}.
-    \end{equation*}\medskip
+        \overline{\boldsymbol{x}}^{T}A\boldsymbol{x} = (A\boldsymbol{x})^{T}\overline{\boldsymbol{x}} = \boldsymbol{x}^{T}A\overline{\boldsymbol{x}}.
+    \end{equation*}
 
-    Así, ya que $x\not=0$, debe ocurrir que $\lambda = \overline{\lambda}$, permitiendo concluir que todos los valores propios de $A$ son números reales.\medskip
+    Así, ya que $\boldsymbol{x}\not=0$, debe ocurrir que $\lambda = \overline{\lambda}$, permitiendo concluir que todos los valores propios de $A$ son números reales.
 
-    Por otro lado, considere $u,v\in \mathbb{R}^{n}$ vectores propios distintos de $A$ asociados a los valores propios $\lambda,\mu\in\mathbb{R}\setminus\lbrace 0\rbrace$ respectivamente. Calculamos como sigue,\medskip
+    Por otro lado, considere $\boldsymbol{u},\boldsymbol{v}\in \mathbb{R}^{n}$ vectores propios distintos de $A$ asociados a los valores propios $\lambda,\mu\in\mathbb{R}\setminus\lbrace 0\rbrace$ respectivamente. Calculamos como sigue,
 
     \begin{align*}
-        \lambda \langle u,v\rangle &= \langle \lambda u,v\rangle\\
-        &= \langle Au,v \rangle\\
-        &= \langle u,A^{T} v \rangle\\
-        &= \langle u,Av \rangle\\
-        &= \langle u,\mu v \rangle\\
-        &= \mu \langle u,v\rangle.
-    \end{align*}\medskip
+        \lambda \langle \boldsymbol{u},\boldsymbol{v}\rangle &= \langle \lambda \boldsymbol{u},\boldsymbol{v}\rangle\\
+        &= \langle A\boldsymbol{u},\boldsymbol{v} \rangle\\
+        &= \langle \boldsymbol{u},A^{T} \boldsymbol{v} \rangle\\
+        &= \langle \boldsymbol{u},A\boldsymbol{v} \rangle\\
+        &= \langle \boldsymbol{u},\mu \boldsymbol{v} \rangle\\
+        &= \mu \langle \boldsymbol{u},\boldsymbol{v}\rangle.
+    \end{align*}
 
-    De esta manera, $\lambda\langle u,v\rangle = \mu\langle u,v\rangle$ si y solamente si $\langle u,v\rangle = 0$. Ya probada la ortogonalidad de los vectores propios de $A$, defina $\mathcal{B} = \lbrace u_1, u_2,...,u_n\rbrace$ como el conjunto de vectores propios normalizados de $A$ para probar que $\mathcal{B}$ constituye una base ortonormal de $\mathbb{R}^{n}$. Para esto, sean $c_1,...,c_n\in\mathbb{R}^{n}$ tales que\medskip
+    De esta manera, $\lambda\langle \boldsymbol{u},\boldsymbol{v}\rangle = \mu\langle \boldsymbol{u},\boldsymbol{v}\rangle$ si y solamente si $\langle \boldsymbol{u},\boldsymbol{v}\rangle = 0$. Ya probada la ortogonalidad de los vectores propios de $A$, defina $\mathcal{B} = \lbrace \boldsymbol{u}_1, \boldsymbol{u}_2,...,\boldsymbol{u}_n\rbrace$ como el conjunto de vectores propios normalizados de $A$ para probar que $\mathcal{B}$ constituye una base ortonormal de $\mathbb{R}^{n}$. Para esto, sean $c_1,...,c_n\in\mathbb{R}$ tales que
 
     \begin{equation*}
-        c_1 u_1 + c_2 u_2 + ... + c_n u_n = 0.
-    \end{equation*}\medskip
+        c_1 \boldsymbol{u}_1 + c_2 \boldsymbol{u}_2 + ... + c_n \boldsymbol{u}_n = 0.
+    \end{equation*}
     
-    Entonces, para algún $i\in[n]$, multiplicando por la izquierda la igualdad anterior por $u_{i}^{T}$,\medskip
+    Entonces, para algún $i\in[n]$, multiplicando por la izquierda la igualdad anterior por $\boldsymbol{u}_{i}^{T}$,
     
     \begin{equation*}
-        u_{i}^{T} (c_1 u_1 + ... + c_n u_n) = c_i v_{i}^{T}v_i = c_i = 0.
-    \end{equation*}\medskip
+        \boldsymbol{u}_{i}^{T} (c_1 \boldsymbol{u}_1 + ... + c_n \boldsymbol{u}_n) = c_i \boldsymbol{u}_{i}^{T}\boldsymbol{u}_i = c_i = 0.
+    \end{equation*}
 
     Así, queda demostrado que $\mathcal{B}$ es una base ortonormal de $\mathbb{R}^{n}$.
-\end{proof}\medskip
+\end{proof}
+
+\subsection{Grafos aleatorios} \label{Grafos aleatorios}
+
+lalala
+
+% DEFINICIONES PENDIENTES!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+%\begin{enumerate}
+
+%    
+%    \item
+%    \begin{definicion}
+%        Diremos que $\mathcal{P} = \lbrace X_1,X_2,...,X_k\rbrace$ es una %\textbf{partición} del conjunto $X$ si:
+%        \begin{enumerate}
+%            \item $\bigcup_{i=1}^{k} X_i = X$.
+%            \item $X_i \cap X_j = \emptyset$ para todo $i,j\in[k]$.
+%        \end{enumerate}
+%        Cuando $|X_1|\leq|X_2|\leq ...\leq |X_k| = |X_1| + 1$, llamaremos a %$\mathcal{P}$ como una \textbf{equipartición}. En particular, cada %parte posee $\lceil |X|/k \rceil$ o $\lfloor |X|/k\rfloor$ elementos.
+%    \end{definicion}
+%    \item $I_n \in \mathcal{M}_{n\times n}(\mathbb{R})$ denota la matriz %identidad.
+%\end{enumerate}
+
+
+
+
+
+
+    
+    %Además, se define la \textbf{densidad de aristas} entre $X$ e $Y$ %mediante\medskip
+%
+    %\begin{equation}
+    %    d(X,Y) := \frac{e(X,Y)}{|X||Y|}.
+    %\end{equation} 
+
+
+
+
+
 
 A continuación se enunciará sin demostración uno de los teoremas más relevantes del álgebra lineal, el \emph{teorema espectral}. Con él, podremos representar una matriz de adyacencia por medio de dos matrices que dependen únicamente de sus valores y vectores propios para obtener propiedades desde una perspectiva espectral. También, se estudiará la estrecha relación que posee la traza de la matriz de adyacencia de un grafo con sus valores propios.\medskip
 
@@ -1721,7 +1732,7 @@ El teorema anterior permite asegurar que todo grafo $d$-regular $G = ([n],E)$ co
 
 Finalmente, en un grafo $d$-regular, la equivalencia entre las propiedades $\eig_{\frac{d}{n}}$ y $\disc_{\frac{d}{n}}$ se completa por el camino de implicancias ya demostradas según el esquema \eqref{Ciclo demo CGW}.\medskip
 
-\section{Lema de regularidad de Szemerédi}\medskip
+\section{Lema de regularidad de Szemerédi} \label{Sec. LRS}
 
 \hh{Aquí debo ingresar una breve descripción del lema de regularidad de Szemerédi y la fuerza que toma al combinarlo con el teorema de Chung-Graham-Wilson y comentar la aplicación que se mostrará. (Quizás también hablar de las dos demostraciones de este lema, usual y espectral.)}
 

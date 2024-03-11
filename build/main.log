@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.3)  10 MAR 2024 03:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.3)  10 MAR 2024 21:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -772,36 +772,43 @@ Overfull \hbox (66.27167pt too wide) detected at line 456
 []
  []
 
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 [4]
 
-LaTeX Warning: Reference `e(X,Y)' on page 5 undefined on input line 619.
+LaTeX Warning: Reference `Sec. LRS' on page 5 undefined on input line 590.
+
+
+LaTeX Warning: Reference `eq e(X,Y)' on page 5 undefined on input line 590.
 
 [5]
 
-LaTeX Warning: Reference `A1=Mdeg' on page 6 undefined on input line 654.
+LaTeX Warning: Reference `A1=Mdeg' on page 6 undefined on input line 628.
 
 [6]
 
-LaTeX Warning: Reference `Descomposición espectral' on page 7 undefined on input line 718.
+LaTeX Warning: Reference `Descomposición espectral' on page 7 undefined on input line 729.
 
-[7] [8]
+[7]
 
-LaTeX Warning: Reference `Teo Courant-Fischer' on page 9 undefined on input line 797.
+LaTeX Warning: Reference `Teo Courant-Fischer' on page 8 undefined on input line 808.
 
+[8]
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 8.0pt on input line 938.
+(Font)              scaled to size 8.0pt on input line 949.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 6.0pt on input line 938.
+(Font)              scaled to size 6.0pt on input line 949.
 LaTeX Font Info:    Font shape `U/DSSerif/b/n' will be
-(Font)              scaled to size 8.0pt on input line 938.
+(Font)              scaled to size 8.0pt on input line 949.
 LaTeX Font Info:    Font shape `U/DSSerif/b/n' will be
-(Font)              scaled to size 6.0pt on input line 938.
-[9]
-c:/Tesis/Documento Tesis/main.tex:992: Argument of \@makebox has an extra }.
+(Font)              scaled to size 6.0pt on input line 949.
+ [9]
+c:/Tesis/Documento Tesis/main.tex:1003: Argument of \@makebox has an extra }.
 <inserted text> 
                 \par 
-l.992         \item[\makebox[0.5cm]
-                                   {$\disc_p$:} Para todo $X,Y\subseteq V(G_...
+l.1003         \item[\makebox[0.5cm]
+                                    {$\disc_p$:} Para todo $X,Y\subseteq V(G...
 I've run across a `}' that doesn't seem to match anything.
 For example, `\def\a#1{...}' and `\a}' would produce
 this error. If you simply proceed now, the `\par' that
@@ -811,89 +818,89 @@ your `}' was spurious, just type `2' and it will go away.
 
 Runaway argument?
 0.5cm
-c:/Tesis/Documento Tesis/main.tex:992: Paragraph ended before \@makebox was complete.
+c:/Tesis/Documento Tesis/main.tex:1003: Paragraph ended before \@makebox was complete.
 <to be read again> 
                    \par 
-l.992         \item[\makebox[0.5cm]
-                                   {$\disc_p$:} Para todo $X,Y\subseteq V(G_...
+l.1003         \item[\makebox[0.5cm]
+                                    {$\disc_p$:} Para todo $X,Y\subseteq V(G...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+c:/Tesis/Documento Tesis/main.tex:1009: Argument of \@makebox has an extra }.
+<inserted text> 
+                \par 
+l.1009         \item[\makebox[1.0cm]
+                                    {$\discp_p$:} Para todo $X\subseteq V(G_...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+1.0cm
+c:/Tesis/Documento Tesis/main.tex:1009: Paragraph ended before \@makebox was complete.
+<to be read again> 
+                   \par 
+l.1009         \item[\makebox[1.0cm]
+                                    {$\discp_p$:} Para todo $X\subseteq V(G_...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+c:/Tesis/Documento Tesis/main.tex:1015: Argument of \@makebox has an extra }.
+<inserted text> 
+                \par 
+l.1015         \item[\makebox[1.0cm]
+                                    {$\Count_p$:} Para cada grafo $H$, la ca...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+1.0cm
+c:/Tesis/Documento Tesis/main.tex:1015: Paragraph ended before \@makebox was complete.
+<to be read again> 
+                   \par 
+l.1015         \item[\makebox[1.0cm]
+                                    {$\Count_p$:} Para cada grafo $H$, la ca...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+c:/Tesis/Documento Tesis/main.tex:1021: Argument of \@makebox has an extra }.
+<inserted text> 
+                \par 
+l.1021         \item[\makebox[1.0cm]
+                                    {$\Count_{C4,p}$:} La cantidad de copias...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+1.0cm
+c:/Tesis/Documento Tesis/main.tex:1021: Paragraph ended before \@makebox was complete.
+<to be read again> 
+                   \par 
+l.1021         \item[\makebox[1.0cm]
+                                    {$\Count_{C4,p}$:} La cantidad de copias...
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
 
 [10]
-c:/Tesis/Documento Tesis/main.tex:998: Argument of \@makebox has an extra }.
+c:/Tesis/Documento Tesis/main.tex:1027: Argument of \@makebox has an extra }.
 <inserted text> 
                 \par 
-l.998         \item[\makebox[1.0cm]
-                                   {$\discp_p$:} Para todo $X\subseteq V(G_n...
-I've run across a `}' that doesn't seem to match anything.
-For example, `\def\a#1{...}' and `\a}' would produce
-this error. If you simply proceed now, the `\par' that
-I've just inserted will cause me to report a runaway
-argument that might be the root of the problem. But if
-your `}' was spurious, just type `2' and it will go away.
-
-Runaway argument?
-1.0cm
-c:/Tesis/Documento Tesis/main.tex:998: Paragraph ended before \@makebox was complete.
-<to be read again> 
-                   \par 
-l.998         \item[\makebox[1.0cm]
-                                   {$\discp_p$:} Para todo $X\subseteq V(G_n...
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
-
-c:/Tesis/Documento Tesis/main.tex:1004: Argument of \@makebox has an extra }.
-<inserted text> 
-                \par 
-l.1004         \item[\makebox[1.0cm]
-                                    {$\Count_p$:} Para cada grafo $H$, la ca...
-I've run across a `}' that doesn't seem to match anything.
-For example, `\def\a#1{...}' and `\a}' would produce
-this error. If you simply proceed now, the `\par' that
-I've just inserted will cause me to report a runaway
-argument that might be the root of the problem. But if
-your `}' was spurious, just type `2' and it will go away.
-
-Runaway argument?
-1.0cm
-c:/Tesis/Documento Tesis/main.tex:1004: Paragraph ended before \@makebox was complete.
-<to be read again> 
-                   \par 
-l.1004         \item[\makebox[1.0cm]
-                                    {$\Count_p$:} Para cada grafo $H$, la ca...
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
-
-c:/Tesis/Documento Tesis/main.tex:1010: Argument of \@makebox has an extra }.
-<inserted text> 
-                \par 
-l.1010         \item[\makebox[1.0cm]
-                                    {$\Count_{C4,p}$:} La cantidad de copias...
-I've run across a `}' that doesn't seem to match anything.
-For example, `\def\a#1{...}' and `\a}' would produce
-this error. If you simply proceed now, the `\par' that
-I've just inserted will cause me to report a runaway
-argument that might be the root of the problem. But if
-your `}' was spurious, just type `2' and it will go away.
-
-Runaway argument?
-1.0cm
-c:/Tesis/Documento Tesis/main.tex:1010: Paragraph ended before \@makebox was complete.
-<to be read again> 
-                   \par 
-l.1010         \item[\makebox[1.0cm]
-                                    {$\Count_{C4,p}$:} La cantidad de copias...
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
-
-c:/Tesis/Documento Tesis/main.tex:1016: Argument of \@makebox has an extra }.
-<inserted text> 
-                \par 
-l.1016         \item[\makebox[1.0cm]
+l.1027         \item[\makebox[1.0cm]
                                     {$\codeg_p$:}\medskip
 I've run across a `}' that doesn't seem to match anything.
 For example, `\def\a#1{...}' and `\a}' would produce
@@ -904,19 +911,19 @@ your `}' was spurious, just type `2' and it will go away.
 
 Runaway argument?
 1.0cm
-c:/Tesis/Documento Tesis/main.tex:1016: Paragraph ended before \@makebox was complete.
+c:/Tesis/Documento Tesis/main.tex:1027: Paragraph ended before \@makebox was complete.
 <to be read again> 
                    \par 
-l.1016         \item[\makebox[1.0cm]
+l.1027         \item[\makebox[1.0cm]
                                     {$\codeg_p$:}\medskip
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
 
-c:/Tesis/Documento Tesis/main.tex:1022: Argument of \@makebox has an extra }.
+c:/Tesis/Documento Tesis/main.tex:1033: Argument of \@makebox has an extra }.
 <inserted text> 
                 \par 
-l.1022         \item[\makebox[1.0cm]
+l.1033         \item[\makebox[1.0cm]
                                     {$\eig_p$:} Si $\lambda_1 \geq \cdots \g...
 I've run across a `}' that doesn't seem to match anything.
 For example, `\def\a#1{...}' and `\a}' would produce
@@ -927,140 +934,140 @@ your `}' was spurious, just type `2' and it will go away.
 
 Runaway argument?
 1.0cm
-c:/Tesis/Documento Tesis/main.tex:1022: Paragraph ended before \@makebox was complete.
+c:/Tesis/Documento Tesis/main.tex:1033: Paragraph ended before \@makebox was complete.
 <to be read again> 
                    \par 
-l.1022         \item[\makebox[1.0cm]
+l.1033         \item[\makebox[1.0cm]
                                     {$\eig_p$:} Si $\lambda_1 \geq \cdots \g...
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
 
 
-LaTeX Warning: Reference `Teorema CGW' on page 11 undefined on input line 1030.
+LaTeX Warning: Reference `Teorema CGW' on page 11 undefined on input line 1041.
 
 
-LaTeX Warning: Reference `Teorema CGW' on page 11 undefined on input line 1032.
+LaTeX Warning: Reference `Teorema CGW' on page 11 undefined on input line 1043.
 
 
-LaTeX Warning: Reference `Teorema CGW' on page 11 undefined on input line 1038.
+LaTeX Warning: Reference `Teorema CGW' on page 11 undefined on input line 1049.
+
+
+LaTeX Warning: Reference `discp => count' on page 11 undefined on input line 1063.
+
+
+LaTeX Warning: Reference `count => C4' on page 11 undefined on input line 1063.
+
+
+LaTeX Warning: Reference `eig => C4' on page 11 undefined on input line 1063.
+
+
+LaTeX Warning: Reference `C4 => eig' on page 11 undefined on input line 1063.
+
+
+LaTeX Warning: Reference `disc => discp' on page 11 undefined on input line 1064.
+
+
+LaTeX Warning: Reference `discp => disc' on page 11 undefined on input line 1064.
+
+
+LaTeX Warning: Reference `C4 => codeg' on page 11 undefined on input line 1064.
+
+
+LaTeX Warning: Reference `codeg => disc' on page 11 undefined on input line 1065.
 
 [11]
 
-LaTeX Warning: Reference `discp => count' on page 12 undefined on input line 1052.
-
-
-LaTeX Warning: Reference `count => C4' on page 12 undefined on input line 1052.
-
-
-LaTeX Warning: Reference `eig => C4' on page 12 undefined on input line 1052.
-
-
-LaTeX Warning: Reference `C4 => eig' on page 12 undefined on input line 1052.
-
-
-LaTeX Warning: Reference `disc => discp' on page 12 undefined on input line 1053.
-
-
-LaTeX Warning: Reference `discp => disc' on page 12 undefined on input line 1053.
-
-
-LaTeX Warning: Reference `C4 => codeg' on page 12 undefined on input line 1053.
-
-
-LaTeX Warning: Reference `codeg => disc' on page 12 undefined on input line 1054.
-
-
-LaTeX Warning: Reference `polarización_aristas' on page 12 undefined on input line 1099.
+LaTeX Warning: Reference `polarización_aristas' on page 12 undefined on input line 1110.
 
 [12]
 
-LaTeX Warning: Reference `ind_count' on page 13 undefined on input line 1127.
+LaTeX Warning: Reference `ind_count' on page 13 undefined on input line 1138.
 
 
-LaTeX Warning: Reference `ind_count' on page 13 undefined on input line 1147.
+LaTeX Warning: Reference `ind_count' on page 13 undefined on input line 1158.
 
 [13]
 
-LaTeX Warning: Reference `count_G_F' on page 14 undefined on input line 1207.
+LaTeX Warning: Reference `count_G_F' on page 14 undefined on input line 1218.
 
 
-LaTeX Warning: Reference `count_G_F' on page 14 undefined on input line 1212.
+LaTeX Warning: Reference `count_G_F' on page 14 undefined on input line 1223.
 
 [14]
 
-LaTeX Warning: Reference `grado-cogrado' on page 15 undefined on input line 1293.
+LaTeX Warning: Reference `grado-cogrado' on page 15 undefined on input line 1304.
 
 
-Overfull \hbox (6.38728pt too wide) detected at line 1318
+Overfull \hbox (6.38728pt too wide) detected at line 1329
 []
  []
 
 [15]
 
-LaTeX Warning: Reference `grado-cogrado' on page 16 undefined on input line 1344.
+LaTeX Warning: Reference `grado-cogrado' on page 16 undefined on input line 1355.
 
 
-LaTeX Warning: Reference `grado-cogrado' on page 16 undefined on input line 1344.
+LaTeX Warning: Reference `grado-cogrado' on page 16 undefined on input line 1355.
 
 
-LaTeX Warning: Reference `ec_prop_6' on page 16 undefined on input line 1352.
+LaTeX Warning: Reference `ec_prop_6' on page 16 undefined on input line 1363.
 
 
-Overfull \hbox (84.19232pt too wide) detected at line 1364
+Overfull \hbox (84.19232pt too wide) detected at line 1375
 []
  []
 
 [16]
 
-LaTeX Warning: Reference `potencia_matriz_adyacencia = caminatas' on page 17 undefined on input line 1380.
+LaTeX Warning: Reference `potencia_matriz_adyacencia = caminatas' on page 17 undefined on input line 1391.
 
 
-LaTeX Warning: Reference `Tr_Ak' on page 17 undefined on input line 1380.
+LaTeX Warning: Reference `Tr_Ak' on page 17 undefined on input line 1391.
 
 
-LaTeX Warning: Reference `ec_prop_7.2' on page 17 undefined on input line 1394.
+LaTeX Warning: Reference `ec_prop_7.2' on page 17 undefined on input line 1405.
 
 
-LaTeX Warning: Reference `ec_prop_7.1' on page 17 undefined on input line 1394.
+LaTeX Warning: Reference `ec_prop_7.1' on page 17 undefined on input line 1405.
 
 [17]
 
-LaTeX Warning: Reference `cota_primer_autovalor' on page 18 undefined on input line 1414.
+LaTeX Warning: Reference `cota_primer_autovalor' on page 18 undefined on input line 1425.
 
 
-LaTeX Warning: Reference `potencia_matriz_adyacencia = caminatas' on page 18 undefined on input line 1420.
+LaTeX Warning: Reference `potencia_matriz_adyacencia = caminatas' on page 18 undefined on input line 1431.
 
 
-LaTeX Warning: Reference `Tr_Ak' on page 18 undefined on input line 1420.
+LaTeX Warning: Reference `Tr_Ak' on page 18 undefined on input line 1431.
 
 
-LaTeX Warning: Reference `cota2_lambda1' on page 18 undefined on input line 1426.
+LaTeX Warning: Reference `cota2_lambda1' on page 18 undefined on input line 1437.
 
 
-LaTeX Warning: Reference `cota1_lambda1' on page 18 undefined on input line 1426.
+LaTeX Warning: Reference `cota1_lambda1' on page 18 undefined on input line 1437.
 
 
-LaTeX Warning: Reference `casi-aleatoriedad' on page 18 undefined on input line 1442.
+LaTeX Warning: Reference `casi-aleatoriedad' on page 18 undefined on input line 1453.
 
 [18]
-Overfull \hbox (8.2901pt too wide) in paragraph at lines 1450--1451
+Overfull \hbox (8.2901pt too wide) in paragraph at lines 1461--1462
 []\OT1/cmr/m/n/10 Se ex-po-ne un bos-que-jo de la de-mos-tra-ci^^Son de la ex-ten-si^^Son de $[][]$ a la pro-pie-dad $[][]$. 
  []
 
 
-LaTeX Warning: Reference `eig => C4' on page 19 undefined on input line 1459.
+LaTeX Warning: Reference `eig => C4' on page 19 undefined on input line 1470.
 
 
-LaTeX Warning: Reference `C4 => eig' on page 19 undefined on input line 1459.
+LaTeX Warning: Reference `C4 => eig' on page 19 undefined on input line 1470.
 
 
-LaTeX Warning: Reference `ec_prop_7.2' on page 19 undefined on input line 1465.
+LaTeX Warning: Reference `ec_prop_7.2' on page 19 undefined on input line 1476.
 
-c:/Tesis/Documento Tesis/main.tex:1507: Undefined control sequence.
+c:/Tesis/Documento Tesis/main.tex:1518: Undefined control sequence.
 <argument> .... Aquí, \begin {tikzpicture} \node 
                                                   [fill=black, circle,inner ...
-l.1507 ...ristas permitidas dentro del grafo $G$.}
+l.1518 ...ristas permitidas dentro del grafo $G$.}
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1068,10 +1075,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-c:/Tesis/Documento Tesis/main.tex:1507: Undefined control sequence.
+c:/Tesis/Documento Tesis/main.tex:1518: Undefined control sequence.
 <argument> ...size=2pt] (a) at (0,0.06) {}; \node 
                                                   [fill=black, circle,inner ...
-l.1507 ...ristas permitidas dentro del grafo $G$.}
+l.1518 ...ristas permitidas dentro del grafo $G$.}
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1079,10 +1086,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-c:/Tesis/Documento Tesis/main.tex:1507: Undefined control sequence.
+c:/Tesis/Documento Tesis/main.tex:1518: Undefined control sequence.
 <argument> ...ze=2pt] (b) at (0.5,0.06) {}; \draw 
                                                   (a) -- (b); \end {tikzpict...
-l.1507 ...ristas permitidas dentro del grafo $G$.}
+l.1518 ...ristas permitidas dentro del grafo $G$.}
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1091,13 +1098,13 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-c:/Tesis/Documento Tesis/main.tex:1507: Package pgfkeys Error: I do not know the key '/tikz/minimim size', to which you passed '2pt', and I am going to ignore it. Perhaps you misspelled it.
+c:/Tesis/Documento Tesis/main.tex:1518: Package pgfkeys Error: I do not know the key '/tikz/minimim size', to which you passed '2pt', and I am going to ignore it. Perhaps you misspelled it.
 
 See the pgfkeys package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1507 ...ristas permitidas dentro del grafo $G$.}
+l.1518 ...ristas permitidas dentro del grafo $G$.}
                                                   
 This error message was generated by an \errmessage
 command, so I can't give any explicit help.
@@ -1105,13 +1112,13 @@ Pretend that you're Hercule Poirot: Examine all clues,
 and deduce the truth by order and method.
 
 
-c:/Tesis/Documento Tesis/main.tex:1507: Package pgfkeys Error: I do not know the key '/tikz/minimim size', to which you passed '2pt', and I am going to ignore it. Perhaps you misspelled it.
+c:/Tesis/Documento Tesis/main.tex:1518: Package pgfkeys Error: I do not know the key '/tikz/minimim size', to which you passed '2pt', and I am going to ignore it. Perhaps you misspelled it.
 
 See the pgfkeys package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1507 ...ristas permitidas dentro del grafo $G$.}
+l.1518 ...ristas permitidas dentro del grafo $G$.}
                                                   
 (That was another \errmessage.)
 
@@ -1120,235 +1127,235 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [19]
 
-LaTeX Warning: Reference `e(X,Y)=espectral' on page 20 undefined on input line 1647.
+LaTeX Warning: Reference `e(X,Y)=espectral' on page 20 undefined on input line 1658.
 
 [20]
 
-LaTeX Warning: Reference `1ra ec EML' on page 21 undefined on input line 1672.
+LaTeX Warning: Reference `1ra ec EML' on page 21 undefined on input line 1683.
 
 [21]
 
-LaTeX Warning: Reference `1er sumando EML' on page 22 undefined on input line 1695.
+LaTeX Warning: Reference `1er sumando EML' on page 22 undefined on input line 1706.
 
 
-LaTeX Warning: Reference `2do sumando EML' on page 22 undefined on input line 1697.
+LaTeX Warning: Reference `2do sumando EML' on page 22 undefined on input line 1708.
 
 
-LaTeX Warning: Reference `1ra ec EML' on page 22 undefined on input line 1707.
+LaTeX Warning: Reference `1ra ec EML' on page 22 undefined on input line 1718.
 
 
-LaTeX Warning: Reference `Expander Mixing Lemma' on page 22 undefined on input line 1714.
+LaTeX Warning: Reference `Expander Mixing Lemma' on page 22 undefined on input line 1725.
 
 
-LaTeX Warning: Reference `Ciclo demo CGW' on page 22 undefined on input line 1722.
+LaTeX Warning: Reference `Ciclo demo CGW' on page 22 undefined on input line 1733.
 
 [22]
 
-LaTeX Warning: Reference `Teorema CGW' on page 23 undefined on input line 1763.
+LaTeX Warning: Reference `Teorema CGW' on page 23 undefined on input line 1774.
 
 
-LaTeX Warning: Reference `discp => count' on page 23 undefined on input line 1776.
+LaTeX Warning: Reference `discp => count' on page 23 undefined on input line 1787.
 
 [23]
 
-LaTeX Warning: Reference `2doSum_TCL' on page 24 undefined on input line 1802.
+LaTeX Warning: Reference `2doSum_TCL' on page 24 undefined on input line 1813.
 
 
-LaTeX Warning: Reference `BIDISC' on page 24 undefined on input line 1811.
+LaTeX Warning: Reference `BIDISC' on page 24 undefined on input line 1822.
 
 
-LaTeX Warning: Reference `2doSum_TCL' on page 24 undefined on input line 1820.
+LaTeX Warning: Reference `2doSum_TCL' on page 24 undefined on input line 1831.
 
 
-LaTeX Warning: Reference `Triangle_Counting_Lemma' on page 24 undefined on input line 1825.
+LaTeX Warning: Reference `Triangle_Counting_Lemma' on page 24 undefined on input line 1836.
 
 
-LaTeX Warning: Reference `discp => count' on page 24 undefined on input line 1825.
+LaTeX Warning: Reference `discp => count' on page 24 undefined on input line 1836.
 
 [24] [25]
 
-LaTeX Warning: Reference `szemeredi_regularity_lemma' on page 26 undefined on input line 1933.
+LaTeX Warning: Reference `szemeredi_regularity_lemma' on page 26 undefined on input line 1944.
 
 
-LaTeX Warning: Reference `energia_no_decrece' on page 26 undefined on input line 1933.
+LaTeX Warning: Reference `energia_no_decrece' on page 26 undefined on input line 1944.
 
 
-LaTeX Warning: Reference `Energy boost un conjunto' on page 26 undefined on input line 1933.
+LaTeX Warning: Reference `Energy boost un conjunto' on page 26 undefined on input line 1944.
 
 
-LaTeX Warning: Reference `Energy boost particiones' on page 26 undefined on input line 1933.
+LaTeX Warning: Reference `Energy boost particiones' on page 26 undefined on input line 1944.
 
 
-LaTeX Warning: Reference `Desigualdad_from_CS' on page 26 undefined on input line 1944.
+LaTeX Warning: Reference `Desigualdad_from_CS' on page 26 undefined on input line 1955.
 
 
-LaTeX Warning: Reference `Desigualdad_from_CS' on page 26 undefined on input line 1954.
+LaTeX Warning: Reference `Desigualdad_from_CS' on page 26 undefined on input line 1965.
 
 
-LaTeX Warning: Reference `Desigualdad_from_CS' on page 26 undefined on input line 1954.
+LaTeX Warning: Reference `Desigualdad_from_CS' on page 26 undefined on input line 1965.
 
 [26]
 
-LaTeX Warning: Reference `q(P_X,P_Y) >= q(X,Y)' on page 27 undefined on input line 1960.
+LaTeX Warning: Reference `q(P_X,P_Y) >= q(X,Y)' on page 27 undefined on input line 1971.
 
 [27]
 
-LaTeX Warning: Reference `Desigualdad_from_CS' on page 28 undefined on input line 2042.
+LaTeX Warning: Reference `Desigualdad_from_CS' on page 28 undefined on input line 2053.
 
 
-LaTeX Warning: Reference `descomposición suma aristas' on page 28 undefined on input line 2042.
+LaTeX Warning: Reference `descomposición suma aristas' on page 28 undefined on input line 2053.
 
 
-LaTeX Warning: Reference `descomposición multiplicación conjuntos' on page 28 undefined on input line 2042.
+LaTeX Warning: Reference `descomposición multiplicación conjuntos' on page 28 undefined on input line 2053.
 
 
-LaTeX Warning: Reference `Desigualdad_from_CS' on page 28 undefined on input line 2042.
+LaTeX Warning: Reference `Desigualdad_from_CS' on page 28 undefined on input line 2053.
 
 
-LaTeX Warning: Reference `descomposición suma aristas' on page 28 undefined on input line 2042.
+LaTeX Warning: Reference `descomposición suma aristas' on page 28 undefined on input line 2053.
 
 
-LaTeX Warning: Reference `descomposición multiplicación conjuntos' on page 28 undefined on input line 2042.
+LaTeX Warning: Reference `descomposición multiplicación conjuntos' on page 28 undefined on input line 2053.
 
 
-LaTeX Warning: Reference `Primer cálculo energy boost' on page 28 undefined on input line 2049.
+LaTeX Warning: Reference `Primer cálculo energy boost' on page 28 undefined on input line 2060.
 
 
-LaTeX Warning: Reference `e(X_1,Y_1) = ...' on page 28 undefined on input line 2064.
+LaTeX Warning: Reference `e(X_1,Y_1) = ...' on page 28 undefined on input line 2075.
 
 
-LaTeX Warning: Reference `e(X_1,Y_1) = ...' on page 28 undefined on input line 2064.
+LaTeX Warning: Reference `e(X_1,Y_1) = ...' on page 28 undefined on input line 2075.
 
 
-LaTeX Warning: Reference `condición tamaño conjunto regularidad' on page 28 undefined on input line 2066.
+LaTeX Warning: Reference `condición tamaño conjunto regularidad' on page 28 undefined on input line 2077.
 
 
-LaTeX Warning: Reference `|eta| > epsilon' on page 28 undefined on input line 2066.
+LaTeX Warning: Reference `|eta| > epsilon' on page 28 undefined on input line 2077.
 
 
-LaTeX Warning: Reference `Segundo cálculo energy boost' on page 28 undefined on input line 2066.
+LaTeX Warning: Reference `Segundo cálculo energy boost' on page 28 undefined on input line 2077.
 
 [28]
 
-LaTeX Warning: Reference `Paso 2b' on page 29 undefined on input line 2094.
+LaTeX Warning: Reference `Paso 2b' on page 29 undefined on input line 2105.
 
 
-LaTeX Warning: Reference `energia_no_decrece' on page 29 undefined on input line 2121.
+LaTeX Warning: Reference `energia_no_decrece' on page 29 undefined on input line 2132.
 
 
-LaTeX Warning: Reference `Energy boost un conjunto' on page 29 undefined on input line 2121.
+LaTeX Warning: Reference `Energy boost un conjunto' on page 29 undefined on input line 2132.
 
 
-LaTeX Warning: Reference `condición partición no regular' on page 29 undefined on input line 2121.
+LaTeX Warning: Reference `condición partición no regular' on page 29 undefined on input line 2132.
 
 
-LaTeX Warning: Reference `energia_no_decrece' on page 29 undefined on input line 2121.
+LaTeX Warning: Reference `energia_no_decrece' on page 29 undefined on input line 2132.
 
 
-LaTeX Warning: Reference `Energy boost un conjunto' on page 29 undefined on input line 2121.
+LaTeX Warning: Reference `Energy boost un conjunto' on page 29 undefined on input line 2132.
 
 
-LaTeX Warning: Reference `condición partición no regular' on page 29 undefined on input line 2121.
+LaTeX Warning: Reference `condición partición no regular' on page 29 undefined on input line 2132.
 
 
-LaTeX Warning: Reference `szemeredi_regularity_lemma' on page 29 undefined on input line 2126.
+LaTeX Warning: Reference `szemeredi_regularity_lemma' on page 29 undefined on input line 2137.
 
 
-LaTeX Warning: Reference `szemeredi_regularity_lemma' on page 29 undefined on input line 2129.
+LaTeX Warning: Reference `szemeredi_regularity_lemma' on page 29 undefined on input line 2140.
 
 
-LaTeX Warning: Reference `Energy boost particiones' on page 29 undefined on input line 2130.
+LaTeX Warning: Reference `Energy boost particiones' on page 29 undefined on input line 2141.
 
 
-LaTeX Warning: Reference `Energy boost particiones' on page 29 undefined on input line 2130.
+LaTeX Warning: Reference `Energy boost particiones' on page 29 undefined on input line 2141.
 
 [29]
 
-LaTeX Warning: Reference `Energy boost particiones' on page 30 undefined on input line 2132.
+LaTeX Warning: Reference `Energy boost particiones' on page 30 undefined on input line 2143.
 
 
-LaTeX Warning: Reference `Energy boost particiones' on page 30 undefined on input line 2132.
+LaTeX Warning: Reference `Energy boost particiones' on page 30 undefined on input line 2143.
 
 
-LaTeX Warning: Reference `szemeredi_regularity_lemma' on page 30 undefined on input line 2155.
+LaTeX Warning: Reference `szemeredi_regularity_lemma' on page 30 undefined on input line 2166.
 
 
-LaTeX Warning: Reference `Regularidad_equipart' on page 30 undefined on input line 2171.
+LaTeX Warning: Reference `Regularidad_equipart' on page 30 undefined on input line 2182.
 
 [30]
 
-LaTeX Warning: Reference `paso_2b_mod' on page 31 undefined on input line 2192.
+LaTeX Warning: Reference `paso_2b_mod' on page 31 undefined on input line 2203.
 
 
-LaTeX Warning: Reference `paso_3c_mod' on page 31 undefined on input line 2192.
+LaTeX Warning: Reference `paso_3c_mod' on page 31 undefined on input line 2203.
 
 
-LaTeX Warning: Reference `szemeredi_regularity_lemma' on page 31 undefined on input line 2221.
+LaTeX Warning: Reference `szemeredi_regularity_lemma' on page 31 undefined on input line 2232.
 
 
-LaTeX Warning: Reference `szemeredi_regularity_lemma' on page 31 undefined on input line 2221.
+LaTeX Warning: Reference `szemeredi_regularity_lemma' on page 31 undefined on input line 2232.
 
 [31]
 
-LaTeX Warning: Reference `Triangle_Counting_Lemma' on page 32 undefined on input line 2251.
+LaTeX Warning: Reference `Triangle_Counting_Lemma' on page 32 undefined on input line 2262.
 
 [32]
 
-LaTeX Warning: Reference `szemeredi_regularity_lemma' on page 33 undefined on input line 2308.
+LaTeX Warning: Reference `szemeredi_regularity_lemma' on page 33 undefined on input line 2319.
 
 
-LaTeX Warning: Reference `szemeredi_regularity_lemma' on page 33 undefined on input line 2308.
+LaTeX Warning: Reference `szemeredi_regularity_lemma' on page 33 undefined on input line 2319.
 
 [33]
 
-LaTeX Warning: Reference `eq1_emp_ind' on page 34 undefined on input line 2337.
+LaTeX Warning: Reference `eq1_emp_ind' on page 34 undefined on input line 2348.
 
 [34]
 
-LaTeX Warning: Reference `Teo_emp_ind' on page 35 undefined on input line 2375.
+LaTeX Warning: Reference `Teo_emp_ind' on page 35 undefined on input line 2386.
 
 
-LaTeX Warning: Reference `Teorema Roth' on page 35 undefined on input line 2386.
+LaTeX Warning: Reference `Teorema Roth' on page 35 undefined on input line 2397.
 
 
-LaTeX Warning: Reference `Corner_Theorem' on page 35 undefined on input line 2393.
+LaTeX Warning: Reference `Corner_Theorem' on page 35 undefined on input line 2404.
 
 
-LaTeX Warning: Reference `szemeredi_regularity_lemma' on page 35 undefined on input line 2399.
+LaTeX Warning: Reference `szemeredi_regularity_lemma' on page 35 undefined on input line 2410.
 
 
-LaTeX Warning: Reference `potencia_matriz_adyacencia = caminatas' on page 35 undefined on input line 2402.
+LaTeX Warning: Reference `potencia_matriz_adyacencia = caminatas' on page 35 undefined on input line 2413.
 
 
-LaTeX Warning: Reference `Tr_Ak' on page 35 undefined on input line 2402.
+LaTeX Warning: Reference `Tr_Ak' on page 35 undefined on input line 2413.
 
 [35]
 
-LaTeX Warning: Reference `eq_1 Spectral_Proof' on page 36 undefined on input line 2420.
+LaTeX Warning: Reference `eq_1 Spectral_Proof' on page 36 undefined on input line 2431.
 
 [36] [37]
 
-LaTeX Warning: Reference `eq_6 Spectral_Proof' on page 38 undefined on input line 2544.
+LaTeX Warning: Reference `eq_6 Spectral_Proof' on page 38 undefined on input line 2555.
 
 
-LaTeX Warning: Reference `eq_7 Spectral_Proof' on page 38 undefined on input line 2556.
+LaTeX Warning: Reference `eq_7 Spectral_Proof' on page 38 undefined on input line 2567.
 
 [38]
 
-LaTeX Warning: Reference `Teo Courant-Fischer' on page 39 undefined on input line 2571.
+LaTeX Warning: Reference `Teo Courant-Fischer' on page 39 undefined on input line 2582.
 
 
-LaTeX Warning: Reference `eq_8 Spectral_Proof' on page 39 undefined on input line 2599.
+LaTeX Warning: Reference `eq_8 Spectral_Proof' on page 39 undefined on input line 2610.
 
 [39]
 
-LaTeX Warning: Reference `eq_11 Spectral_Proof' on page 40 undefined on input line 2616.
+LaTeX Warning: Reference `eq_11 Spectral_Proof' on page 40 undefined on input line 2627.
 
 
-LaTeX Warning: Reference `eq_4 Spectral_Proof' on page 40 undefined on input line 2622.
+LaTeX Warning: Reference `eq_4 Spectral_Proof' on page 40 undefined on input line 2633.
 
-c:/Tesis/Documento Tesis/main.tex:2632: Misplaced alignment tab character &.
-l.2632     \item[[1]] Krivelevich, M., &
+c:/Tesis/Documento Tesis/main.tex:2643: Misplaced alignment tab character &.
+l.2643     \item[[1]] Krivelevich, M., &
                                          Sudakov, B. (2006). Pseudo-random G...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1357,8 +1364,8 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-c:/Tesis/Documento Tesis/main.tex:2633: Misplaced alignment tab character &.
-l.2633 ...m[[2]] Chung, F. R. K., Graham, R. L., &
+c:/Tesis/Documento Tesis/main.tex:2644: Misplaced alignment tab character &.
+l.2644 ...m[[2]] Chung, F. R. K., Graham, R. L., &
                                                    Wilson, R. M. (1989). Qua...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1367,8 +1374,8 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-c:/Tesis/Documento Tesis/main.tex:2634: Misplaced alignment tab character &.
-l.2634 ...l, J. A., Pehova, Y., Sharifzadeh, M., &
+c:/Tesis/Documento Tesis/main.tex:2645: Misplaced alignment tab character &.
+l.2645 ...l, J. A., Pehova, Y., Sharifzadeh, M., &
                                                    Volec, J. (2020). Charact...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1377,8 +1384,8 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-c:/Tesis/Documento Tesis/main.tex:2634: Misplaced alignment tab character &.
-l.2634 ...ns by a pattern sum. Random Structures &
+c:/Tesis/Documento Tesis/main.tex:2645: Misplaced alignment tab character &.
+l.2645 ...ns by a pattern sum. Random Structures &
                                                    Algorithms.
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1387,8 +1394,8 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-c:/Tesis/Documento Tesis/main.tex:2635: Misplaced alignment tab character &.
-l.2635     \item[[4]] Hàn, H., Kiwi, M., &
+c:/Tesis/Documento Tesis/main.tex:2646: Misplaced alignment tab character &.
+l.2646     \item[[4]] Hàn, H., Kiwi, M., &
                                             Pavez-Signé, M. (2021). Quasi-r...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1423,16 +1430,16 @@ Package rerunfilecheck Info: Checksums for `main.out':
  ) 
 Here is how much of TeX's memory you used:
  27005 strings out of 474542
- 516641 string characters out of 5743975
- 1950978 words of memory out of 5000000
+ 516643 string characters out of 5743975
+ 1955978 words of memory out of 5000000
  48599 multiletter control sequences out of 15000+600000
  573543 words of font info for 95 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,21n,117p,1041b,1139s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\Felipe\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbm/dpi600\bbm10.pk><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/dsserif/DSSerif-Bold.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/dsserif/DSSerif.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on "C:\Tesis\Documento Tesis\build\main.pdf" (41 pages, 552851 bytes).
+ <C:\Users\Felipe\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbm/dpi600\bbm10.pk><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/dsserif/DSSerif-Bold.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/dsserif/DSSerif.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on "C:\Tesis\Documento Tesis\build\main.pdf" (41 pages, 545340 bytes).
 PDF statistics:
- 479 PDF objects out of 1000 (max. 8388607)
+ 474 PDF objects out of 1000 (max. 8388607)
  161 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
