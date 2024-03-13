@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1710116752.31654 "c:/Tesis/Documento Tesis/main.tex" "build/main.pdf" "main" 1710116755.0356 2
-  "C:/Tesis/Documento Tesis/build/main.aux" 1710116754.38757 9578 62f0b62872a36dd985ecd76df8f30452 ""
+["pdflatex"] 1710301111.35917 "c:/Tesis/Documento Tesis/main.tex" "build/main.pdf" "main" 1710301113.96605 2
+  "C:/Tesis/Documento Tesis/build/main.aux" 1710301113.32802 9685 1e4d631e5cfd337d16ce09317d05052f ""
   "C:/Users/Felipe/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1710034323.90806 81232 66d05e7ef23c8c4f50ae117afd5d783c ""
   "C:/Users/Felipe/AppData/Local/MiKTeX/fonts/pk/ljfour/public/bbm/dpi600/bbm10.pk" 1706842796.44732 6984 2405299529704dbb29690b2d523fcd9a ""
   "C:/Users/Felipe/AppData/Local/MiKTeX/fonts/tfm/public/bbm/bbm10.tfm" 1706842790.79604 560 39fd35b5e4a6aca3672660cc548ba860 ""
@@ -42,6 +42,7 @@
   "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy6.tfm" 1136765053 1116 933a60c408fc0a863a92debe84b2d294 ""
   "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy8.tfm" 1136765053 1120 8b7d695260f3cff42e636090a8002094 ""
   "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmti10.tfm" 1136765053 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
+  "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmti12.tfm" 1136765053 1484 ed72f8f5cf654cda15ecc8e32bfcbee5 ""
   "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmti7.tfm" 1136765053 1492 86331993fe614793f5e7e755835c31c5 ""
   "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/tfm/public/dsserif/DSSerif-Bold.tfm" 1634515744 968 f28e87ccfaf4e7bbd6d6017b03c50367 ""
   "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/tfm/public/dsserif/DSSerif.tfm" 1634601327 1216 2937de40d32c11c3510bf861a233a5c1 ""
@@ -68,7 +69,9 @@
   "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1247596666 32716 08e384dc442464e7285e891af9f45947 ""
   "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1247596667 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
   "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1247596667 37944 359e864bd06cde3b1cf57bb20757fb06 ""
+  "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb" 1247596667 36118 fad905eba93cff5bce1e185fe980a177 ""
   "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb" 1247596670 30457 bc0868ebece724ed7c3d37e3d9bff7bd ""
+  "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb" 1247596670 39386 0bb525d495ceab21fe797301a586e0d7 ""
   "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/dsserif/DSSerif-Bold.pfb" 1634512291 18510 ead7cbae3c5fe25b025148dc049d6f72 ""
   "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/dsserif/DSSerif.pfb" 1634599841 33283 21e1919b1c78cfe2458259c993403c51 ""
   "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
@@ -231,9 +234,9 @@
   "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "Imágenes/logo_usach.png" 1706841963.69402 11162 93b2f2fb028a3d966b47a01940e2c848 ""
-  "build/main.aux" 1710116754.38757 9578 62f0b62872a36dd985ecd76df8f30452 "pdflatex"
-  "build/main.out" 1710116754.39057 2000 41b8ae10a1881acb7b7f6d066a6948cd "pdflatex"
-  "c:/Tesis/Documento Tesis/main.tex" 1710116750.36401 173932 0f3e3212e8e4f940d43bb547fe3ee937 ""
+  "build/main.aux" 1710301113.32802 9685 1e4d631e5cfd337d16ce09317d05052f "pdflatex"
+  "build/main.out" 1710301113.33001 2000 41b8ae10a1881acb7b7f6d066a6948cd "pdflatex"
+  "c:/Tesis/Documento Tesis/main.tex" 1710301107.24723 175264 8999da125bae7758eeb4fe4bc5702b6a ""
   (generated)
   "build/main.aux"
   "build/main.log"

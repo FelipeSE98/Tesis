@@ -15,6 +15,7 @@
 \usepackage{kbordermatrix}
 \usepackage{unicode-math}
 \usepackage{dsfont}
+\usepackage{geometry}
 \usetikzlibrary{shapes.geometric}
 
 \usepackage[utf8]{inputenc}
@@ -182,7 +183,12 @@ Universidad de Santiago de Chile \\
 
 %\tableofcontents
 \newpage
-
+\vspace*{\fill}
+\begin{center}
+    \emph{\Large A mi abuelo, Sergio Sánchez.}
+\end{center}
+\vspace*{\fill}
+\newpage
 
 \section{Introducción}
 
@@ -202,7 +208,7 @@ Universidad de Santiago de Chile \\
 
 Este capítulo proporciona una introducción concisa de los conceptos y terminologías que se utilizarán en esta tesis. La sección \ref{Teoría de grafos} da un paseo por las nociones más básicas de la teoría de grafos, otorgando una línea de base para el desarrollo de las siguientes secciones. En la sección \ref{Teoría espectral} se repasan algunos conceptos y resultados clásicos del álgebra lineal para abordar las propiedades necesarias de la teoría espectral de grafos. Por último, la sección \ref{Grafos aleatorios} contextualiza y motiva el contenido de la sección \ref{cuasi-aleatoriedad}.
 
-Para los efectos de este trabajo, se define $[n] := \lbrace 1,...,n\rbrace$, y $\mathcal{M}_{n\times m}(\mathbb{R})$ como el conjunto de matrices reales de $n$ filas y $m$ columnas. Denotamos $\mathbbm{1}_{X}$ a la función indicatriz del conjunto $X$, $\Bbbbone$ $\in\mathcal{M}_{n\times 1}(\mathbb{R})$ al vector de $1$-entradas, $J\in\mathcal{M}_{n\times n}$ a las matriz de $1$-entradas, $I_n\in \mathcal{M}_{n\times n}(\mathbb{R})$ a la matriz identidad, y $\boldsymbol{e}_i\in\mathcal{M}_{n\times 1}$ como el vector de la base canónica de $\mathbb{R}^{n}$ con entrada $1$ en la posición $i$.
+Para los efectos de este trabajo, se define $[n] := \lbrace 1,...,n\rbrace$, y $\mathcal{M}_{n\times m}(\mathbb{R})$ como el conjunto de matrices reales de $n$ filas y $m$ columnas. Denotamos $\mathbbm{1}_{X}$ a la función indicatriz del conjunto $X$, $\Bbbbone$ $\in\mathcal{M}_{n\times 1}(\mathbb{R})$ al vector de $1$-entradas, $J\in\mathcal{M}_{n\times n}$ a las matriz de $1$-entradas, $I_n\in \mathcal{M}_{n\times n}(\mathbb{R})$ a la matriz identidad, y $\boldsymbol{e}_i\in\mathcal{M}_{n\times 1}$ como el vector de la base canónica de $\mathbb{R}^{n}$ con entrada $1$ en la posición $i$. Además, $\norm{\cdot}$ y $\langle \cdot, \cdot\rangle$ representarán en todo momento la norma y producto interno usales respectivamente.
 
 En muchos de los resultados de esta tesis, la \emph{desigualdad de Cauchy-Schwarz} (DCS) es un argumento fundamental en sus demostraciones. En particular, se emplearán dos variantes que se enunciarán a continuación. Primero recuerde que la DCS establece que todo $\boldsymbol{a},\boldsymbol{b}\in\mathbb{R}^{k}$ satisfacen
 
@@ -504,8 +510,6 @@ Por último, diremos que una \textbf{copia etiquetada} de un grafo $H$ en $G$ es
 
 \subsection{Álgebra lineal y teoría espectral de grafos} \label{Teoría espectral}
 
-\fs{Me olvidé de definir la norma usual euclidiana y el producto interno}
-
 Considere una matriz cuadrada $A\in \mathcal{M}_{n\times n}$, se define la \textbf{traza} de $A$ como la suma de sus elementos de la diagonal principal. Esto es,
 
 \begin{equation*}
@@ -576,7 +580,7 @@ Una manera muy útil de representar un grafo es mediante una matriz cuadrada bin
     \caption{Ejemplo de representación mediante la matriz de adyacencia de un grafo.}
 \end{figure}
 
-Observe que la representación anterior resulta siempre en una matriz simétricae, es decir, $A_{G}^{T} = A_{G}$. Además, en todo grafo $G = ([n], E)$ con matriz de adyacencia $A$, se puede obtener un vector con los grados de cada vértice del grafo aplicando el operador $A$ a l vector de 1-entradas $\Bbbbone\in\mathcal{M}_{n\times n}$.
+Observe que la representación anterior resulta siempre en una matriz simétrica, es decir, $A_{G}^{T} = A_{G}$. Además, en todo grafo $G = ([n], E)$ con matriz de adyacencia $A$, se puede obtener un vector con los grados de cada vértice del grafo aplicando el operador $A$ a l vector de 1-entradas $\Bbbbone\in\mathcal{M}_{n\times n}$.
 
 \begin{equation} \label{A1=Mdeg}
     A\Bbbbone = 
@@ -605,7 +609,7 @@ Entonces, por linealidad, se extiende el resultado anterior sobre cualquier conj
 
 En la ecuación anterior, y desde ahora en adelante, el vector $\boldsymbol{v}_{X} = \sum_{i\in X}\boldsymbol{e}_{i}$ representa el vector indicador del subconjunto de vértices $X\subset [n]$ de algún grafo $G=([n], E)$.
 
-Es importante destacar que la matriz de adyacencia no solo describe las conexiones entre cada par de vértices en un grafo, sino que también revela la cantidad exacta de caminatas que existen entre dos vértices de un largo determinado. En específico, la posición $ij$ de la $t$-ésima potencia de la matriz de adyacencia de un grafo guarda la cantidad de caminatas de largo $k$ entre los vértices $i$ y $j$.
+Es importante destacar que la matriz de adyacencia no solo describe las conexiones entre cada par de vértices en un grafo, sino que también revela la cantidad exacta de caminatas que existen entre dos vértices de un largo determinado. En específico, la posición $ij$ de la $t$-ésima potencia de la matriz de adyacencia de un grafo guarda la cantidad de caminatas de largo $t$ entre los vértices $i$ y $j$.
 
 %%%% Lema: Potencia matriz de adyacencia
 \begin{prop} \label{potencia_matriz_adyacencia = caminatas}
@@ -655,12 +659,12 @@ Por ejemplo. si $G$ es un grafo $d$-regular, entonces con la igualdad \eqref{A1=
     Por otro lado, considere $\boldsymbol{u},\boldsymbol{v}\in \mathbb{R}^{n}$ vectores propios distintos de $A$ asociados a los valores propios $\lambda,\mu\in\mathbb{R}\setminus\lbrace 0\rbrace$ respectivamente. Calculamos como sigue,
 
     \begin{align*}
-        \lambda \langle \boldsymbol{u},\boldsymbol{v}\rangle &= \langle \lambda \boldsymbol{u},\boldsymbol{v}\rangle\\
-        &= \langle A\boldsymbol{u},\boldsymbol{v} \rangle\\
-        &= \langle \boldsymbol{u},A^{T} \boldsymbol{v} \rangle\\
-        &= \langle \boldsymbol{u},A\boldsymbol{v} \rangle\\
-        &= \langle \boldsymbol{u},\mu \boldsymbol{v} \rangle\\
-        &= \mu \langle \boldsymbol{u},\boldsymbol{v}\rangle.
+        \lambda \langle \boldsymbol{u},\boldsymbol{v}\rangle = \langle \lambda \boldsymbol{u},\boldsymbol{v}\rangle
+        = \langle A\boldsymbol{u},\boldsymbol{v} \rangle
+        = \langle \boldsymbol{u},A^{T} \boldsymbol{v} \rangle
+        = \langle \boldsymbol{u},A\boldsymbol{v} \rangle
+        = \langle \boldsymbol{u},\mu \boldsymbol{v} \rangle
+        = \mu \langle \boldsymbol{u},\boldsymbol{v}\rangle.
     \end{align*}
 
     De esta manera, $\lambda\langle \boldsymbol{u},\boldsymbol{v}\rangle = \mu\langle \boldsymbol{u},\boldsymbol{v}\rangle$ si y solamente si $\langle \boldsymbol{u},\boldsymbol{v}\rangle = 0$. Ya probada la ortogonalidad de los vectores propios de $A$, defina $\mathcal{B} = \lbrace \boldsymbol{u}_1, \boldsymbol{u}_2,...,\boldsymbol{u}_n\rbrace$ como el conjunto de vectores propios normalizados de $A$ para probar que $\mathcal{B}$ constituye una base ortonormal de $\mathbb{R}^{n}$. Para esto, sean $c_1,...,c_n\in\mathbb{R}$ tales que
@@ -676,6 +680,119 @@ Por ejemplo. si $G$ es un grafo $d$-regular, entonces con la igualdad \eqref{A1=
     \end{equation*}
 
     Así, queda demostrado que $\mathcal{B}$ es una base ortonormal de $\mathbb{R}^{n}$.
+\end{proof}
+
+% Teorema espectral
+A continuación, se enunciará sin demostración uno de los teoremas más importantes del álgebra lineal, y se estudiarán algunas de sus consecuencias bajo el contexto de la teoría de grafos.
+
+%%%% Teorema espectral
+\begin{teorema} (Teorema espectral)
+    Sea $A\in\mathcal{M}_{n\times n}(\mathbb{R})$ una matriz real simétrica. Entonces existen matrices $P$ ortogonal y $D$ diagonal tales que
+
+    \begin{equation} \label{Descomposición espectral}
+        A = PDP^{T} = \sum_{i=1}^{n}\lambda_{i}\boldsymbol{v}_{i}\boldsymbol{v}_{i}^{T}.
+    \end{equation}
+
+    En donde la matriz diagonal $D$ está compuesta por los valores propios $\lambda_i \in\mathbb{R}$ de $A$, y las columnas de $P$ son los vectores propios normalizados $\boldsymbol{v}_{i}\in\mathbb{R}^{n}$ de $A$.
+\end{teorema}
+
+Con el teorema anterior es posible representar la matriz de adyacencia de un grafo por medio de dos matrices que dependen únicamente de sus valores y vectores propios para obtener propiedades desde una perspectiva espectral.
+
+En primera instancia, observe que la descomposición espectral \eqref{Descomposición espectral} permite trabajar eficientemente con las potencias de una matriz real simétrica, puesto a que el problema se reduce a calcular la respectiva potencia de la matriz diagonal de valores propios. Para visualizar este hecho, primero observe como se comporta el cuadrado de una matriz simétrica $A\in\mathcal{M}_{n\times n}(\mathbb{R})$:
+
+\begin{align*}
+    A^{2} &= (PDP^{T})(PDP^{T})\\
+    &= PD(P^{T}P)DP^{T}\\
+    &= PD^{2}P^{T}.
+\end{align*}
+
+Luego, de manera inductiva se obtiene que $A^{k} = P D^{k}P^{T}$. Esta propiedad resulta altamente útil de cara al cálculo de caminatas de largo $k$ entre dos vértices de un grafo. Más aún, la Proposición \ref{Tr = autvalor} y el Corolario \ref{Tr_Ak} mostrarán que el número de caminatas cerradas en un grafo queda totalmente determinado por los valores propios del mismo.
+
+%%%% Proposición: traza = suma valores propios
+\begin{prop} \label{Tr = autvalor}
+    La traza de toda matriz simétrica $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ es igual a la suma de sus autovalores.
+\end{prop}
+
+%%%% Demostración : traza = suma valores propios
+\begin{proof}
+    Sea $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ una matriz simétrica, $\lambda_1,...,\lambda_n$ sus valores propios, y $\boldsymbol{v}_1,...,\boldsymbol{v}_n$ sus vectores propios. Se escribe la traza estratégicamente de la siguiente manera:
+
+    \[ 
+        \Tr (A) = \sum_{i = 1}^{n} \boldsymbol{e}_{i}^{T} A \boldsymbol{e}_{i}.
+    \]
+
+    Con esto, se concluye utilizando la descomposición espectral.
+
+    \begin{align*}
+        \Tr(A) &= \sum_{i = 1}^{n}\boldsymbol{e}_{i}^{T} \left( \sum_{j = 1}^{n} \lambda_{j}\boldsymbol{v}_{j}\boldsymbol{v}_{j}^{T} \right) \boldsymbol{e}_{i}\\
+        &= \sum_{i = 1}^{n}\sum_{j = 1}^{n} \lambda_{j} \boldsymbol{e}_{i}^{T} \boldsymbol{v}_{j} \boldsymbol{v}_{j}^{T} \boldsymbol{e}_{i}\\
+        &= \sum_{i = 1}^{n}\sum_{j = 1}^{n} \lambda_{j} \langle \boldsymbol{e}_{i}, \boldsymbol{v}_{j}\rangle \langle \boldsymbol{v}_{j}, \boldsymbol{e}_{i}\rangle\\
+        &= \sum_{j = 1}^{n} \lambda_{j} \norm{\boldsymbol{v}_j}^{2}\\
+        &= \sum_{j = 1}^{n} \lambda_{j}.
+    \end{align*}
+\end{proof}
+
+El siguiente corolario extiende el resultado anterior sobre cualquier potencia de una matriz real simétrica.
+
+%%%% Corolario: Traza potencia k
+\begin{corolario} \label{Tr_Ak}
+    Sea $A \in\mathcal{M}_{n\times n}(\mathbb{R})$ una matriz simétrica y $\lambda_1 ,...,\lambda_n$ sus autovalores, entonces se cumple $\Tr(A^{k}) = \sum_{i = 1}^{n}\lambda_{i}^{k}$.
+\end{corolario}
+
+%%%% Demostración corolario traza potencia k
+\begin{proof}
+    El resultado sigue de utilizar que la traza de la multiplicación de dos matrices es invariante bajo orden del producto,
+
+    \begin{align*}
+        \Tr(A^{k}) = \Tr([PDP^{T}]^{k})
+        = \Tr(P[D^{k}P^{T}])
+        = \Tr([D^{k}P^{T}]P)
+        = \Tr(D^{k})
+        = \sum_{i = 1}^{n}\lambda_{i}^{k}.
+    \end{align*}
+\end{proof}
+
+De esta manera, la cantidad de caminatas cerradas de largo $k$ entre dos vértices de un grafo se simplifica a solo calcular la suma de la $k$-ésima potencia de todos sus valores propios. Más adelante, en la sección \ref{cuasi-aleatoriedad}, esta propiedad será de utilidad debido a que entrega una buena aproximación de la cantidad de copias etiquetadas de ciclos de largo $k$ que existen en un grafo $G = ([n], E)$. En particular, si $A$ es la matriz de adyacencia de $G$ y $\lambda_1,...,\lambda_n$ sus valores propios,
+
+\begin{equation} \label{Aprox_Cop_C_k}
+    \left| \tbinom{G}{C_k}\right| = \Tr(A^{k}) + o(n^{k}) = \sum_{i=1}^{n}\lambda_{i}^{k} + o(n^{k})
+\end{equation}
+
+Por otro lado, es posible caracterizar cada valor propio de una matriz real simétrica por medio del teorema de \emph{Courant-Fischer}. Se enuncia sin demostración.
+
+%%%% Teorema: Courant-Fischer
+\begin{teorema} \label{Teo Courant-Fischer} (Teorema de Courant-Fischer)
+    Sea $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ una matriz real simétrica, cuyos valores propios son $\lambda_1 \geq \lambda_2 \geq ...\geq \lambda_n$, y $\lbrace \boldsymbol{v}_1, \boldsymbol{v}_2,..., \boldsymbol{v}_n \rbrace$ sus vectores propios. Entonces,
+
+    \begin{itemize}
+        \item[(i)] \[
+                \lambda_k = \inf_{\substack{\boldsymbol{x}\perp \lbrace \boldsymbol{v}_1,...,\boldsymbol{v}_{k-1}\rbrace \\ \boldsymbol{v}\not= 0}} \frac{\langle \boldsymbol{x}, A\boldsymbol{x}\rangle}{\langle \boldsymbol{x},\boldsymbol{x}\rangle}.
+                    \]
+        \item[(ii)] \[
+                \lambda_k = \sup_{\substack{\boldsymbol{x}\perp \lbrace \boldsymbol{v}_{k+1},...,\boldsymbol{v}_n\rbrace \\ \boldsymbol{x}\not= 0}} \frac{\langle \boldsymbol{x}, A\boldsymbol{x}\rangle}{\langle \boldsymbol{x},\boldsymbol{x}\rangle}.
+                    \]
+    \end{itemize}
+\end{teorema}
+
+Usualmente, el primer autovalor de todo grafo juega un papel protagónico. Para los fines de estas tesis, es necesario establecer una cota inferior del primer autovalor.
+
+%%%% Proposición : Primer autovalor >= promedio grados
+\begin{prop}\label{cota_primer_autovalor}
+    El primer autovalor de la matriz de adyacencia de un grafo es al menos el promedio de los grados. En particular, cuando el grafo es $d$-regular, el primer autovalor coincide con $d$.
+\end{prop}
+
+%%%% Demostración : Primer autovalor >= promedio grados
+\begin{proof}
+    Considerando $A$ como la matriz de adyacencia del grafo $G = ([n], E)$, se desarrolla en función del Teorema \ref{Teo Courant-Fischer}:
+
+    \begin{equation*}
+        \lambda_1 = \sup_{\substack{\boldsymbol{x}\in \mathbb{R}^{n} \\ \boldsymbol{x}\not= 0}} \frac{\langle \boldsymbol{x}, A\boldsymbol{x}\rangle}{\langle \boldsymbol{x}, \boldsymbol{x}\rangle}
+        \geq \frac{\langle \Bbbbone, A\Bbbbone \rangle}{\langle \Bbbbone, \Bbbbone \rangle}
+        = \frac{2e_G}{n}\\
+        = \dfrac{\sum_{v\in V(G)} \deg(v)}{n}.
+    \end{equation*}
+
+    Adicionalmente, con apoyo de la igualdad \eqref{A1=Mdeg}, usando la cota anterior se concluye que si $G$ es $d$-regular, entonces $\lambda_1 = d$.
 \end{proof}
 
 \subsection{Grafos aleatorios} \label{Grafos aleatorios}
@@ -715,107 +832,11 @@ lalala
 
 
 
-A continuación se enunciará sin demostración uno de los teoremas más relevantes del álgebra lineal, el \emph{teorema espectral}. Con él, podremos representar una matriz de adyacencia por medio de dos matrices que dependen únicamente de sus valores y vectores propios para obtener propiedades desde una perspectiva espectral. También, se estudiará la estrecha relación que posee la traza de la matriz de adyacencia de un grafo con sus valores propios.\medskip
 
-%%%% Teorema espectral
-\begin{teorema} (Teorema espectral)
-    Sea $A\in\mathcal{M}_{n\times n}(\mathbb{R})$ una matriz real simétrica. Entonces existen matrices $P$ ortogonal y $D$ diagonal tales que
-    \begin{equation} \label{Descomposición espectral}
-        A = PDP^{T} = \sum_{i=1}^{n}\lambda_{i}v_{i}v_{i}^{T}.
-    \end{equation}
-    En donde la matriz diagonal $D$ está compuesta por los valores propios $\lambda_i \in\mathbb{R}$ de $A$, y las columnas de $P$ son los vectores propios normalizados $v_{i}\in\mathbb{R}^{n}$ de $A$.
-\end{teorema}\medskip
 
-De cara a la cantidad de caminatas entre dos vértices de un grafo, la descomposición espectral \eqref{Descomposición espectral} nos permite trabajar eficientemente con las potencias de su respectiva matriz de adyacencia, puesto a que el problema se reduce a calcular la potencia de la matriz diagonal de valores propios. Para visualizar este hecho, observe en primera instancia,\medskip
 
-\begin{align*}
-    A^{2} &= (PDP^{T})(PDP^{T})\\
-    &= PD(P^{T}P)DP^{T}\\
-    &= PD^{2}P^{T}.
-\end{align*}\medskip
 
-Luego, de manera inductiva se obtiene que $A^{k} = PD^{k}P^{T}$. Adicionalmente, se expone la relación que guarda la traza de una matriz real simétrica con sus valores propios.\medskip
 
-%%%% Proposición: traza = suma valores propios
-\begin{prop} \label{Tr = autvalor}
-    La traza de toda matriz simétrica $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ es igual a la suma de sus autovalores.
-\end{prop}\medskip
-
-%%%% Demostración : traza = suma valores propios
-\begin{proof}
-    Sea $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ una matriz simétrica. Se escribe la traza estratégicamente de la siguiente manera,\medskip
-
-    \[ 
-        \Tr (A) = \sum_{i = 1}^{n} e_{i}^{T} A e_{i}.
-    \]\medskip
-
-    Así, se concluye utilizando la descomposición espectral,\medskip
-
-    \begin{align*}
-        \Tr(A) &= \sum_{i = 1}^{n}e_{i}^{T} \left( \sum_{j = 1}^{n} \lambda_{j}v_{j}v_{j}^{T} \right) e_{i}\\
-        &= \sum_{i = 1}^{n}\sum_{j = 1}^{n} \lambda_{j} e_{i}^{T} v_{j} v_{j}^{T} e_{i}\\
-        &= \sum_{i = 1}^{n}\sum_{j = 1}^{n} \lambda_{j} \langle e_{i}, v_{j}\rangle \langle v_{j}, e_{i}\rangle\\
-        &= \sum_{j = 1}^{n} \lambda_{j} \norm{v_j}^{2}\\
-        &= \sum_{j = 1}^{n} \lambda_{j}.
-    \end{align*}
-\end{proof}\medskip
-
-Es posible extender este resultado sobre cualquier potencia de la matriz real simétrica.\medskip
-
-%%%% Corolario: Traza potencia k
-\begin{corolario} \label{Tr_Ak}
-    Sea $A \in\mathcal{M}_{n\times n}(\mathbb{R})$ una matriz simétrica y $\lambda_1 ,...,\lambda_n$ sus autovalores, entonces se cumple $\Tr(A^{k}) = \sum_{i = 1}^{n}\lambda_{i}^{k}$.
-\end{corolario}\medskip
-
-%%%% Demostración corolario traza potencia k
-\begin{proof}
-    El resultado sigue de utilizar que la traza de la multiplicación de dos matrices es invariante bajo orden del producto,\medskip
-
-    \begin{align*}
-        \Tr(A^{k}) &= \Tr([PDP^{T}]^{k})\\
-        &= \Tr(P[D^{k}P^{T}])\\
-        &= \Tr([D^{k}P^{T}]P)\\
-        &= \Tr(D^{k})\\
-        &= \sum_{i = 1}^{n}\lambda_{i}^{k}.
-    \end{align*}
-\end{proof}\medskip
-
-Con este hecho, obtener la cantidad de caminatas cerradas de largo $k$ entre dos vértices de un grafo se reduce únicamente a calcular la suma de la $k$-ésima potencia de todos sus valores propios. Dichos valores propios pueden ser caracterízados explícitamente por medio del \emph{teorema de Courant-Fischer}. Se enuncia sin demostración.\medskip
-
-%%%% Teorema: Courant-Fischer
-\begin{teorema} \label{Teo Courant-Fischer}(Teorema de Courant-Fischer)
-    Sea $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ una matriz real simétrica, cuyos valores propios son $\lambda_1 \geq \lambda_2 \geq ...\geq \lambda_n$, y $\lbrace v_1, v_2,..., v_n \rbrace$ sus vectores propios que forman una base ortonormal de $\mathbb{R}^{n}$. Entonces,\medskip
-
-    \begin{itemize}
-        \item[(i)] \[
-                \lambda_k = \inf_{\substack{x\perp \lbrace v_1,...,v_{k-1}\rbrace \\ x\not= 0}} \frac{\langle x, Ax\rangle}{\langle x,x\rangle}.
-                \]
-        \item[(ii)] \[
-                \lambda_k = \sup_{\substack{x\perp \lbrace v_{k+1},...,v_n\rbrace \\ x\not= 0}} \frac{\langle x, Ax\rangle}{\langle x,x\rangle}.
-                    \]
-    \end{itemize}
-\end{teorema}\medskip
-
-Usualmente el primer autovalor de todo grafo juega un papel protagónico en algunas de sus propiedades. Para los fines de este trabajo, es necesario establecer una cota inferior del primer autovalor.\medskip
-
-%%%% Proposición : Primer autovalor >= promedio grados
-\begin{prop}\label{cota_primer_autovalor}
-    El primer autovalor de la matriz de adyacencia de un grafo es al menos el promedio de los grados. En particular, cuando el grafo es $d$-regular, el primer autovalor coincide con $d$.
-\end{prop}\medskip
-
-%%%% Demostración : Primer autovalor >= promedio grados
-\begin{proof}
-    Considerando $A$ como la matriz de adyacencia del grafo $G = ([n], E)$, se desarrolla en función del Teorema \ref{Teo Courant-Fischer},\medskip
-
-    \begin{equation*}
-        \lambda_1 = \sup_{\substack{x\in \mathbb{R}^{n} \\ x\not= 0}} \frac{\langle x, Ax\rangle}{\langle x, x\rangle}
-        \geq \frac{\langle \mathbbm{1}, A\mathbbm{1} \rangle}{\langle \mathbbm{1}, \mathbbm{1} \rangle}
-        = \frac{2e_G}{n}\\
-        = \dfrac{\sum_{x\in V(G)} \deg(x)}{n}.
-    \end{equation*}\medskip
-
-    \fs{Me queda un poquito de dudas para agregar la parte del grafo $d$-regular, de hecho, creo que solo lo necesito para el expander mixing lemma y aún no sé como hilar CGW con EML.}
-\end{proof}\medskip
 
 %\newpage
 %Como ya mencionamos en la introducción, un grafo pseudo aleatorio es un objeto determinístico que luce como un grafo aleatorio. Pongámonos en la situación de que queremos generar un grafo aleatorio sobre $n$ vértices; quizás la manera más sencilla es el proceso de considerar todos los posibles pares $(u,v)$ de vértices en $G$, y decidir independientemente con probabilidad $1/2$ si $(u,v)$ es una arista o no. \\
