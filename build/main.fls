@@ -296,8 +296,14 @@ INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\epstopdf-pkg\epsto
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
-OUTPUT C:\Tesis\Documento Tesis\build\main.out
+INPUT C:\Tesis\Documento Tesis\build\main.out
+INPUT C:\Tesis\Documento Tesis\build\main.out
+INPUT C:\Tesis\Documento Tesis\build\main.out
+INPUT C:\Tesis\Documento Tesis\build\main.out
 OUTPUT C:\Tesis\Documento Tesis\build\main.pdf
+INPUT C:\Tesis\Documento Tesis\build\main.out
+INPUT C:\Tesis\Documento Tesis\build\main.out
+OUTPUT C:\Tesis\Documento Tesis\build\main.out
 INPUT .\Imágenes\logo_usach.png
 INPUT .\Imágenes\logo_usach.png
 INPUT .\Imágenes\logo_usach.png
@@ -349,6 +355,8 @@ INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\dsserif\DSS
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbxti10.tfm
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti7.tfm
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti7.tfm
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr8.tfm
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr6.tfm
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi8.tfm
@@ -373,8 +381,6 @@ INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\dsserif\DSS
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\dsserif\DSSerif.tfm
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\dsserif\DSSerif-Bold.tfm
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\dsserif\DSSerif-Bold.tfm
-INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti7.tfm
-INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti7.tfm
 INPUT C:\Tesis\Documento Tesis\build\main.aux
 INPUT C:\Tesis\Documento Tesis\build\main.out
 INPUT C:\Tesis\Documento Tesis\build\main.out
@@ -390,8 +396,6 @@ INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx7.pfb
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx7.pfb
-INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx8.pfb
-INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx8.pfb
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbxti10.pfb
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbxti10.pfb
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb

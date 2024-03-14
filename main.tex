@@ -190,6 +190,7 @@ Universidad de Santiago de Chile \\
 \vspace*{\fill}
 \newpage
 
+
 \section{Introducción}
 
 %Para adentrarnos en esta historia, debemos de saber que las estructuras %pseudo-aleatorias son objetos determinísticos que tienen comportamientos, o %bien, lucen como un objeto aleatorio\hh{objetos aleatorios?}. A lo largo de la %historia, la formalización de este concepto se ha vuelto una herramienta muy %útil en diferentes áreas, tales como teoría de números, teoría de grafos, %combinatorial extremal, diseño de algoritmos, teoría de complejidad, entre %otras. Estas contribuciones son debidas, en general, a que si un objeto es %pseudo-aleatorio \hh{cuasi-aleatorio en vez de pseudo-aleatorio}, entonces %goza de muchas propiedades satisfacidas por su contraparte aleatoria.\\
@@ -797,7 +798,51 @@ Usualmente, el primer autovalor de todo grafo juega un papel protagónico. Para 
 
 \subsection{Grafos aleatorios} \label{Grafos aleatorios}
 
-lalala
+El objetivo de la presente sección es proporcionar un breve contexto teórico para abordar más adelante la noción y propiedades de los grafos \emph{cuasi-aleatorios}. Para ello, se asumirán los conceptos básicos asociados a la teoría de la probabilidad.
+
+De manera intuitiva, se podría pensar en primera instancia en un \emph{grafo aleatorio} de $n$ vértices como el resultado de selecciar aleatoriamente un subconjunto de aristas de $K_n$. La manera de seleccionar dicho subconjunto de aristas determina el tipo de modelo de grafo aleatorio. El modelo más popular, propuesto por Edgar Gilbert en 1959 \fs{referencia}, contempla una estructura que se desarrolla algoritmicamente agregando una arista a la vez, en la que comenzando con el grafo vacío $\overline{K_n}$, se decide iterativamente si existe una arista entre cada par de vértices del grafo con probabilidad $p$.
+
+Cada repetición del proceso anterior genera un nuevo grafo de $n$ vértices. El conjunto de todos esos grafos constituye un espacio de probabilidad, al que denotaremos por $G(n,p)$ y llamaremos modelo binomial. Se define formalmente.
+
+\begin{definicion} (Modelo binomial)
+    Sea $G^{n}$ el conjunto de todos los grafos sobre $n$ vértices, y $p\in (0,1)$. Se define $G(n,p)$ como el espacio de probabilidad $\left( G^{n}, \mathcal{P}(G^{n}), \mathbb{P}\right)$, con
+
+    \begin{equation*}
+        \mathbb{P}\left(G(n,p) = G\right) = p^{e_G}(1-p)^{\tbinom{n}{2} - e_G}\ \ ,\ \ \forall G\in G(n,p).
+    \end{equation*}
+\end{definicion}
+
+Se adopta el modelo binomial como referencia para trabajar más adelante con el concepto de un grafo \emph{cuasi-aleatorio}. 
+
+%%%% Proposición: Distribución de aristas grafo aleatorio binomial
+\begin{prop}
+    Sea $p\in (0,1)$, $G\in G(n,p)$ y $X,Y\subset V(G)$. Entonces la cantidad de aristas esperadas entre $X$ e $Y$ es $p|X||Y|$.
+\end{prop}
+%%%% Demostración
+\begin{proof}
+    Enumere las aristas del grafo bipartito completo $K_{|X|,|Y|}$ desde $1$ hasta $|X||Y|$, y para cada arista $1\leq i\leq |X||Y|$, considere $Z_i$ como la siguiente variable aleatoria indicadora:
+
+    \begin{equation*}
+        Z_i =
+        \begin{cases}
+            1 & \mathrm{si}\ i\in E(G)\\
+            0 & \mathrm{en\ otro\ caso.}
+        \end{cases}.
+    \end{equation*}\medskip
+
+    Así, la variable aleatoria $Z = \sum_{i=1}^{|X||Y|} Z_i$ cuenta el número total de aristas que existen entre $X$ e $Y$. Finalmente,
+
+    \begin{align*}
+        \mathbb{E}[Z] = \sum_{i=1}^{|X||Y|} \mathbb{E} [Z_i]
+        = \sum_{i=1}^{|X||Y|} \mathbb{P} (Z_i = 1)
+        = \sum_{i=1}^{|X||Y|} p
+        = p|X||Y|.
+    \end{align*}
+\end{proof}
+
+Hemos probado que en cada grafo... \fs{completar que probamos en esperanza y ahora lo haremos con alta probabilidad...}
+
+
 
 % DEFINICIONES PENDIENTES!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 %\begin{enumerate}
@@ -950,57 +995,9 @@ lalala
 
 %\subsection{Grafos aleatorios}\medskip
 
-El objetivo de esta subsección es proporcionar un breve contexto teórico para abordar más adelante la noción y propiedades de los grafos \emph{casi-aleatorios}. Para esto, se asumirán los conceptos asociados a la teoría de la probabilidad.\medskip
 
-En primera instancia se puede pensar en un \emph{grafo aleatorio} sobre $n$ vértices como la selección de un subconjunto de $E(K_n)$ de manera aleatoria. El cómo se selecciona dicho subconjunto determina el tipo de modelo de grafo aleatorio. Existen dos tipos de modelos clásicos; \emph{modelo uniforme} $G(n,m)$ propuesto por Paul Erdős y Alfréd Réyni \fs{referencia} y el \emph{modelo binomial} $G(n,p)$, propuesto por Gilbert \fs{referencia}. Veremos que ambos modelos representan un espacio de probabilidad.\medskip
 
-En el modelo uniforme $G(n,m)$, cada posible grafo sobre $n$ vértices y $0\leq m\leq\tbinom{n}{2}$ aristas es elegido aleatoriamente con la misma probabilidad. Observe que cada grafo en $G(n,m)$ corresponde a la selección de $m$ aristas de las $\tbinom{n}{2}$ que hay en $K_n$, por lo que existen  $\binom{\tbinom{n}{2}}{m}$ grafos con $n$ vértices y $m$ aristas.\medskip
 
-\begin{definicion} (Modelo uniforme)
-    Sea $G^{m}_{n}$ el conjunto de todos los grafos sobre $n$ vértices enumerados y $m$ aristas. Se define $G(n,m)$ como el espacio de probabilidad $\left( G^{m}_{n}, \mathcal{P}(G^{m}_{n}), \mathbb{P}\right)$, con\medskip
-
-    \begin{equation*}
-        \mathbb{P}\left( G(n,m) = G \right) = \binom{\tbinom{n}{2}}{m}^{-1}\ \ ,\ \ \forall G\in G^{m}_{n}.
-    \end{equation*}
-\end{definicion}\medskip
-
-Si bien el modelo anterior resulta bastante intuitivo, eventualmente puede traer dificultades para realizar determinados cálculos debido a que la elección de las aristas no son indepentientes unas de otras. El problema es solventado con el modelo de grafo aleatorio binomial, cual considera una elección de aristas independientes unas de otras.\medskip
-
-\begin{definicion} (Modelo binomial)
-    Sea $G^{n}$ el conjunto de todos los grafos sobre $n$ vértices enumerados, y $p\in (0,1)$\footnote{$p$ podría depender de $n$, $p=p(n)$.}. Se define $G(n,p)$ como el espacio de probabilidad $\left( G^{n}, \mathcal{P}(G^{n}), \mathbb{P}\right)$, con\medskip
-
-    \begin{equation*}
-        \mathbb{P}\left(G(n,p) = G\right) = p^{e_G}(1-p)^{\tbinom{n}{2} - e_G}\ \ ,\ \ \forall G\in G(n,p).
-    \end{equation*}
-\end{definicion}\medskip
-
-En esta tesis adoptaremos el \textbf{modelo binomial} como referencia para trabajar más adelante con el concepto de un grafo \emph{casi-aleatorio}. Una de las características más importantes de este modelo es que podemos conocer la distribución de aristas que existen en cada subconjunto de vértices.\medskip
-
-%%%% Proposición: Distribución de aristas grafo aleatorio binomial
-\begin{prop}
-    Sea $p\in (0,1)$, $G\in G(n,p)$ y $U\subset V(G)$. Entonces la cantidad de aristas esperadas en $U$ es $p\tbinom{|U|}{2}$. 
-\end{prop}
-%%%% Demostración
-\begin{proof}
-    Enumere las aristas del grafo completo $K_{|U|}$ desde $1$ hasta $\tbinom{|U|}{2}$ y, para cada arista $1\leq i\leq \tbinom{|U|}{2}$, considere $X_i$ como la siguiente variable aleatoria indicadora:\medskip
-
-    \begin{equation*}
-        X_i =
-        \begin{cases}
-            1 & \mathrm{si}\ i\in E(G)\\
-            0 & \mathrm{en\ otro\ caso.}
-        \end{cases}.
-    \end{equation*}\medskip
-
-    Así, la variable aleatoria $X = \sum_{i=1}^{\tbinom{|U|}{2}} X_i$ cuenta el número total de aristas que existen en $U$. Finalmente,\medskip
-
-    \begin{align*}
-        \mathbb{E}(X) &= \sum_{i=1}^{\tbinom{|U|}{2}} \mathbb{E} (X_i)\\
-        &= \sum_{i=1}^{\tbinom{|U|}{2}} \mathbb{P} (X_i = 1)\\
-        &= \sum_{i=1}^{\tbinom{|U|}{2}} p\\
-        &= p\tbinom{|U|}{2}.
-    \end{align*}
-\end{proof}\medskip
 
 \subsection{Enunciado y demostración}\medskip
 
