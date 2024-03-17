@@ -16,6 +16,7 @@
 \usepackage{unicode-math}
 \usepackage{dsfont}
 \usepackage{geometry}
+\usepackage{lineno}
 \usetikzlibrary{shapes.geometric}
 
 \usepackage[utf8]{inputenc}
@@ -149,6 +150,7 @@
 \tikzstyle{node}=[circle, draw, thin,fill=cyan!20, scale=0.8]
 
 \begin{document}
+\linenumbers
 
 \begin{titlepage}
     \begin{center}
@@ -209,8 +211,6 @@ Universidad de Santiago de Chile \\
 
 Este capítulo proporciona una introducción concisa de los conceptos y terminologías que se utilizarán en esta tesis. La sección \ref{Teoría de grafos} da un paseo por las nociones más básicas de la teoría de grafos, otorgando una línea de base para el desarrollo de las siguientes secciones. En la sección \ref{Teoría espectral} se repasan algunos conceptos y resultados clásicos del álgebra lineal para abordar las propiedades necesarias de la teoría espectral de grafos. Por último, la sección \ref{Grafos aleatorios} contextualiza y motiva el contenido de la sección \ref{cuasi-aleatoriedad}.
 
-Para los efectos de este trabajo, se define $[n] := \lbrace 1,...,n\rbrace$, y $\mathcal{M}_{n\times m}(\mathbb{R})$ como el conjunto de matrices reales de $n$ filas y $m$ columnas. Denotamos $\mathbbm{1}_{X}$ a la función indicatriz del conjunto $X$, $\Bbbbone$ $\in\mathcal{M}_{n\times 1}(\mathbb{R})$ al vector de $1$-entradas, $J\in\mathcal{M}_{n\times n}$ a las matriz de $1$-entradas, $I_n\in \mathcal{M}_{n\times n}(\mathbb{R})$ a la matriz identidad, y $\boldsymbol{e}_i\in\mathcal{M}_{n\times 1}$ como el vector de la base canónica de $\mathbb{R}^{n}$ con entrada $1$ en la posición $i$. Además, $\norm{\cdot}$ y $\langle \cdot, \cdot\rangle$ representarán en todo momento la norma y producto interno usales respectivamente.
-
 En muchos de los resultados de esta tesis, la \emph{desigualdad de Cauchy-Schwarz} (DCS) es un argumento fundamental en sus demostraciones. En particular, se emplearán dos variantes que se enunciarán a continuación. Primero recuerde que la DCS establece que todo $\boldsymbol{a},\boldsymbol{b}\in\mathbb{R}^{k}$ satisfacen
 
 \begin{equation}
@@ -229,10 +229,19 @@ Adicionalmente, considerando los reales $\alpha_1,...,\alpha_k > 0$ y $\beta_1,.
     \sum_{i=1}^{k} \frac{\beta_{i}^{2}}{\alpha_i} \geq \frac{\left( \sum_{i = 1}^{k} \beta_i\right)^{2}}{\sum_{i=1}^{k}\alpha_i}.
 \end{equation}
 
+Por otro lado, será usual utilizar la notación asintótica para destacar la intuición de algunos resultados. Por esto, se define la notación considerando $f,g\not=0$ como funciones de $n$:
+
+\begin{itemize}
+    \item Si $f(n)/g(n)\to\infty$ cuando $n\to\infty$, se dice que $f=\omega (g)$ y $g=o(f)$. Esto significa que $f$ crece más rápido que $g$ cuando $n$ es lo suficientemente grande.
+    
+    \item Si existe una constante $C > 0$ tal que $|f(n)|\leq C|g(n)|$ para todo $n$, se dice que $f = O(g)$ y $g=\Omega(f)$. Esto indica que $f$ está acotada superiormente por un múltiplo constante de $g$.
+\end{itemize}
+
+En el caso de que $C$ dependa de otro parámetro, se indica utilizando un subíndice para especificar esta dependencia. Por ejemplo, $f = O_{\ell}(g)$.
 
 \subsection{Teoría de grafos} \label{Teoría de grafos}
 
-Si $S$ es un conjunto finito y $r$ es un entero positivo, se establece $\tbinom{S}{r}$ como el conjunto de todos los subconjuntos de $r$ elementos de $S$.
+Se denota al conjunto de los primeros $n$ naturales por $[n]:=\lbrace 1,2,...,n\rbrace$. También, si $S$ es un conjunto finito y $r$ es un entero positivo, se establece $\tbinom{S}{r}$ como el conjunto de todos los subconjuntos de $r$ elementos de $S$.
 
 %%%% Definir grafo
 Un \textbf{grafo} es un par $G = (V,E)$, donde $V$ representa el conjunto de \textbf{vértices} (o \emph{nodos}, o \emph{puntos}), y $E\subseteq \tbinom{V}{2}$ el conjunto de \textbf{aristas} (o \emph{líneas}). Dado un grafo $G$, se escribe $V(G)$ como su conjunto de vértices, $E(G)$ como su conjunto de aristas, y $e_G := |E(G)|$ como la cantidad de aristas presentes en el grafo.
@@ -257,6 +266,8 @@ Un \textbf{grafo} es un par $G = (V,E)$, donde $V$ representa el conjunto de \te
     \caption{Ejemplo de un grafo con conjunto de vértices $V = \lbrace 1,2,3,4,5\rbrace$ y conjunto de aristas $E = \lbrace \lbrace1,2\rbrace, \lbrace2,3\rbrace, \lbrace1,3\rbrace, \lbrace4,5\rbrace\rbrace$.}
 \end{figure}
 
+Dado un grafo cualquiera $G = (V,E)$, se define su \textbf{complemento} como un nuevo grafo $\overline{G} = (V, \tbinom{V}{2}\setminus E)$. Es decir, dos vértices están conectados por una arista en $G$ si y solo si no lo están en $\overline{G}$.
+
 Consideramos $G = (V,E)$ un grafo cualquiera. Si $u,v\in V$, se dirá que $u$ es \textbf{adyacencte} a $v$ (o viceversa) si y solamente si $\lbrace u,v\rbrace\in E$. Si $X,Y\subset$ son dos subconjuntos no necesariamente disjuntos, se define el conjunto de tuplas que forman una arista en $G$ de la siguiente manera:
 
 \begin{equation} \label{eq e(X,Y)}
@@ -274,13 +285,13 @@ Se entenderá por \textbf{vecindad} de $u\in V$, $N(u)$, como el conjunto de tod
 Se define el \textbf{grado} de un vértice $u\in V$ con respecto a algún subconjunto de vértices $Y\subseteq V$ de la siguiente manera:
 
 \begin{equation*}
-    \deg(u;Y) := \sum_{v\in Y} \mathbbm{1}_{E}(uv) = |N(u)\cap Y|.
+    \deg(u;Y) := \sum_{v\in Y} \mathbbm{1}_{E}(\lbrace u,v\rbrace) = |N(u)\cap Y|.
 \end{equation*}
 
 En particular, cuando $Y=V$,
 
 \begin{equation*}
-    \deg(u) = \sum_{v\in V} \mathbbm{1}_{E}(uv) = |N(u)|.
+    \deg(u) = \sum_{v\in V} \mathbbm{1}_{E}(\lbrace u,v\rbrace) = |N(u)|.
 \end{equation*}
 
 Una propiedad elemental en teoría de grafos, es la relación que guarda la suma del grado de todos los vértices y la cantidad de aristas de un grafo.
@@ -310,7 +321,7 @@ Mostraremos que existe una relación intrínseca entre los conceptos de grado y 
     Sea $G = (V,E)$ un grafo e $Y\subset V$ un subconjunto de vértices, entonces
 
     \[
-        \sum_{u\in V} \deg(u;Y)^{2} = \sum_{v,v'\in Y\subseteq V} \cod(v,v').
+        \sum_{u\in V} \deg(u;Y)^{2} =  \sum_{v\in Y}\sum_{v'\in Y}\cod(v,v').
     \]
 \end{prop}
 
@@ -319,19 +330,19 @@ Mostraremos que existe una relación intrínseca entre los conceptos de grado y 
     Utilizando las respectivas definiciones de grado y cogrado, el resultado se obtiene de seguir el siguiente cálculo:
 
     \begin{align*}
-        \sum_{u\in V} \deg(u;Y)^{2} &= \sum_{u\in V}\sum_{v,v'\in Y} \mathbbm{1}_{E}(uv) \mathbbm{1}_{E}(uv')\\
-        &= \sum_{v,v'\in Y}\sum_{u\in V} \mathbbm{1}_{E}(vu) \mathbbm{1}_{E}(v'u)\\
-        &= \sum_{v,v'\in Y}\cod(v,v').
+        \sum_{u\in V} \deg(u;Y)^{2} &= \sum_{u\in V}\sum_{v\in Y}\sum_{v'\in Y} \mathbbm{1}_{E}(\lbrace u,v\rbrace) \mathbbm{1}_{E}(\lbrace u,v'\rbrace)\\
+        &= \sum_{v\in Y}\sum_{v'\in Y}\sum_{u\in V} \mathbbm{1}_{E}(\lbrace v,u\rbrace) \mathbbm{1}_{E}(\lbrace v',u\rbrace)\\
+        &= \sum_{v\in Y}\sum_{v'\in Y}\cod(v,v').
     \end{align*}
 \end{proof}
 
 Observe que en particular, cuando $Y=V$, se satisface
 
 \begin{equation} \label{grado-cogrado}
-    \sum_{u\in V} \deg(u)^{2} = \sum_{u,v\in V}\cod(u,v).
+    \sum_{u\in V} \deg(u)^{2} = \sum_{u\in V}\sum_{v\in V}\cod(u,v).
 \end{equation}
 
-A continuación, se enuncian algunos grafos especiales que son contemplados en esta tesis. Diremos que un grafo $G = (V,E)$ es $\boldsymbol{k}$-\textbf{partito} si $V$ se puede dividir en $k$ subconjuntos disjuntos $V_1,V_2,...,V_k$ tales que $\lbrace u,v\rbrace\in E$ si y solamente si $u\in V_i$ y $v\in V_j$, con $i\not=j$. En particular, a un grafo 2-partito lo llamaremos \textbf{bipartito}.\medskip
+A continuación, se enuncian algunos grafos especiales que son contemplados en esta tesis. Diremos que un grafo $G = (V,E)$ es $k$-\textbf{partito} si $V$ se puede dividir en $k$ subconjuntos disjuntos $V_1,V_2,...,V_k$ tales que si $\lbrace u,v\rbrace\in E$ entonces $u\in V_i$ y $v\in V_j$, con $i\not=j$. En particular, a un grafo $2$-partito lo llamaremos \textbf{bipartito}.\medskip
 
 %%%% Ejemplo grafo 3-partito
 \begin{figure}[h]
@@ -366,7 +377,7 @@ A continuación, se enuncian algunos grafos especiales que son contemplados en e
     \caption{Ejemplo de un grafo 3-partito.}
 \end{figure}
 
-Un \textbf{grafo completo} de $n$ vértices, denotado por $K_n$, es un grafo en el cual todos sus vértices son adyacentes entre ellos, es decir, todo par de vértices en el grafo posee una arista que los conecta. Similarmente, se denota por $K_{n,m}$ al \textbf{grafo bipartito completo} con $n$ y $m$ elementos en sus respectivos conjuntos de vérrtices. Observe que la cantidad de aristas en los grafos anteriores son exactamente $e_{K_n} = \tbinom{n}{2}$ y $e_{K_{n,m}} = n\cdot m$. Por otro lado, un grafo $\boldsymbol{d}$-\textbf{regular} es aquel que presenta todos sus vértices con grado $d$.
+Un \textbf{grafo completo} de $n$ vértices, denotado por $K_n$, es un grafo en el cual todos sus vértices son adyacentes entre ellos, es decir, todo par de vértices en el grafo posee una arista que los conecta. Similarmente, se denota por $K_{n,m}$ al \textbf{grafo bipartito completo} con $n$ y $m$ elementos en sus respectivos conjuntos de vérrtices. Observe que la cantidad de aristas en los grafos anteriores son exactamente $e_{K_n} = \tbinom{n}{2}$ y $e_{K_{n,m}} = n\cdot m$. Por otro lado, un grafo $d$-\textbf{regular} es aquel que presenta todos sus vértices con grado $d$.
 
 % Ejemplos grafos especiales
 \begin{figure}[h]
@@ -424,11 +435,11 @@ Otro concepto relevante en este trabajo son las diferentes nociones de rutas que
 
 \begin{itemize}
     % Caminata
-    \item Una \textbf{caminata} es una secuencia de vértices no necesariamente distintos $v_0,v_1,...,v_k$ tales que $\lbrace v_{i},v_{i+1}\rbrace\in E(G)$ para todo $i\in [k]$. Si $v_0 = v_k$, se dice que es una \textbf{caminata cerrada}. El \textbf{largo} de una caminata está determinado por la cantidad de aristas que ésta posea.
+    \item Una \textbf{caminata} es una secuencia de vértices no necesariamente distintos $v_0,v_1,...,v_k$ tales que $\lbrace v_{i-1},v_{i}\rbrace\in E(G)$ para todo $i\in [k]$. Si $v_0 = v_k$, se dice que es una \textbf{caminata cerrada}. El \textbf{largo} de una caminata está determinado por la cantidad de aristas que ésta posea.
     % Camino
-    \item Un \textbf{camino} es una caminata con todos los vértices $v_i$ distintos.
+    %\item Un \textbf{camino} es una caminata con todos los vértices $v_i$ distintos.
     % Ciclo
-    \item Un \textbf{ciclo} es un camino con $k\geq 2$, en el cual además $\lbrace v_{0},v_{k}\rbrace\in E(G)$. En específico, $v_0, v_1,...,v_k,v_0$ es un ciclo. Se denota por $C_k$ al ciclo de largo $k$.
+    \item Un \textbf{ciclo} es una caminata con $k\geq 2$ en la cual todos sus vértices $v_i$ son distintos salvo el último, que coincide con el primero, es decir, $v_k = v_0$. Se denotará por $C_k$ al ciclo de largo $k$.
 \end{itemize}
 \newpage
 % Ejemplos de caminata, camino y ciclo.
@@ -456,8 +467,8 @@ Otro concepto relevante en este trabajo son las diferentes nociones de rutas que
     \begin{minipage}{0.15\linewidth}
         \begin{align*}
             &125456 \equiv \text{caminata de largo 5.}\\
-            &\\
-            &1236 \equiv \text{camino de largo 3.}\\
+            %&\\
+            %&1236 \equiv \text{camino de largo 3.}\\
             &\\
             &23652 \equiv \text{ciclo de largo 4.}
         \end{align*}
@@ -466,7 +477,9 @@ Otro concepto relevante en este trabajo son las diferentes nociones de rutas que
     \label{ej caminos}
 \end{figure}
 
-Por último, diremos que una \textbf{copia etiquetada} de un grafo $H$ en $G$ es una aplicación inyectiva $f: V(H)\to V(G)$ tal que $\lbrace f(u)f(v)\rbrace\in E(G)$ cada vez que $\lbrace u,v\rbrace\in E(H)$. Se denota por $\tbinom{G}{H}$ al conjunto de copias etiquetadas de $H$ en $G$.
+Por otro lado, de cara a estudiar posteriormente relaciones estructurales entre grafos, se define un \textbf{isomorfismo} entre los grafos $H$ y $G$ como una biyección $f: V(H)\to V(G)$ tal que $\lbrace u,v\rbrace\in E(H)$ si y solamente si $\lbrace f(u)f(v)\rbrace \in E(G)$. Si existe tal biyección, diremos que $H$ y $G$ son isomorfismos.
+
+Finalmente, se entenderá como una \textbf{copia etiquetada} de un grafo $H$ en $G$ a una aplicación inyectiva $f: V(H)\to V(G)$ tal que $\lbrace f(u)f(v)\rbrace\in E(G)$ cada vez que $\lbrace u,v\rbrace\in E(H)$. Se denota por $\tbinom{G}{H}$ al conjunto de copias etiquetadas de $H$ en $G$.
 
 \begin{figure}[h]
     \centering
@@ -508,16 +521,17 @@ Por último, diremos que una \textbf{copia etiquetada} de un grafo $H$ en $G$ es
     \caption{Ejemplo de una copia etiquetada de $H$ en $G$ mediante la función $f : V(H)\to V(G)$ definida por $f(1)=a$, $f(2)=e$, $f(3)=c$, $f(4)=b$ y $f(5)=d$.}
 \end{figure}
 
-
 \subsection{Álgebra lineal y teoría espectral de grafos} \label{Teoría espectral}
 
-Considere una matriz cuadrada $A\in \mathcal{M}_{n\times n}$, se define la \textbf{traza} de $A$ como la suma de sus elementos de la diagonal principal. Esto es,
+Se define $\mathcal{M}_{n\times m}(\mathbb{R})$ como el conjunto de matrices reales de $n$ filas y $m$ columnas. Entonces, se denota por $\mathbbm{1}_{X}$ a la función indicatriz del conjunto $X$, $\Bbbbone$ $\in\mathcal{M}_{n\times 1}(\mathbb{R})$ al vector de $1$-entradas, $J\in\mathcal{M}_{n\times n}(\mathbb{R})$ a la matriz de $1$-entradas, $I_n\in \mathcal{M}_{n\times n}(\mathbb{R})$ a la matriz identidad, y $\boldsymbol{e}_i\in\mathcal{M}_{n\times 1}(\mathbb{R})$ como el vector de la base canónica de $\mathbb{R}^{n}$ con entrada $1$ en la posición $i$. Además, $\norm{\cdot}$ y $\langle \cdot, \cdot\rangle$ representarán en todo momento la norma y producto interno usales de $\mathbb{R}^{n}$ ($\mathbb{C}^{n}$, según corresponda) respectivamente.
+
+Considere una matriz cuadrada $A\in \mathcal{M}_{n\times n}(\mathbb{R})$, se define la \textbf{traza} de $A$ como la suma de sus elementos de la diagonal principal. Esto es,
 
 \begin{equation*}
     \Tr(A) = a_{11} + a_{22} + ... + a_{nn}.
 \end{equation*}
 
-Si $A,B\in\mathcal{M}_{n\times n}$, entonces la traza resulta invariante bajo el orden de multiplicación de dichas matrices. En efecto, 
+Si $A,B\in\mathcal{M}_{n\times n}(\mathbb{R})$, entonces la traza resulta invariante bajo el orden de multiplicación de dichas matrices. En efecto, 
 
 \begin{equation*}
     \Tr(AB) = \sum_{i=1}^{n}\left( \sum_{j=1}^{n} a_{ij}b_{ji}\right) = \sum_{j=1}^{n}\left( \sum_{i=1}^{n} a_{ij}b_{ji}\right) = \Tr(BA).
@@ -532,7 +546,7 @@ Una manera muy útil de representar un grafo es mediante una matriz cuadrada bin
     \begin{equation*}
         a_{ij} =
         \begin{cases}
-            1 & \mathrm{si}\  ij\in E(G)\\
+            1 & \mathrm{si}\  \lbrace i,j\rbrace\in E(G)\\
             0 & \mathrm{en\ otro\ caso.}
         \end{cases}
     \end{equation*}
@@ -581,7 +595,7 @@ Una manera muy útil de representar un grafo es mediante una matriz cuadrada bin
     \caption{Ejemplo de representación mediante la matriz de adyacencia de un grafo.}
 \end{figure}
 
-Observe que la representación anterior resulta siempre en una matriz simétrica, es decir, $A_{G}^{T} = A_{G}$. Además, en todo grafo $G = ([n], E)$ con matriz de adyacencia $A$, se puede obtener un vector con los grados de cada vértice del grafo aplicando el operador $A$ a l vector de 1-entradas $\Bbbbone\in\mathcal{M}_{n\times n}$.
+Observe que la representación anterior resulta siempre en una matriz simétrica, es decir, $A_{G}^{T} = A_{G}$. Además, en todo grafo $G = ([n], E)$ con matriz de adyacencia $A$, se puede obtener un vector con los grados de cada vértice del grafo aplicando el operador $A$ al vector de 1-entradas: 
 
 \begin{equation} \label{A1=Mdeg}
     A\Bbbbone = 
@@ -595,11 +609,7 @@ Observe que la representación anterior resulta siempre en una matriz simétrica
 Otro aspecto interesante de la matriz de adyacencia que será de utilidad en la sección \ref{Sec. LRS}, es que nos permite reescribir la ecuación \eqref{eq e(X,Y)} en función de ella. Para ver esto, consideramos la matriz de adyacencia $A$ del grafo $G = ([n], E)$, y los vértices $i,j\in [n]$. Luego, por la definición de $A$,
 
 \begin{equation*}
-    e(\lbrace i\rbrace, \lbrace j\rbrace) = \boldsymbol{e}_i^{T} A \boldsymbol{e}_{j} = 
-    \begin{cases}
-        1 & \text{si } i=j \\
-        0 & \text{En otro caso.}
-    \end{cases}
+    e(\lbrace i\rbrace, \lbrace j\rbrace) = \boldsymbol{e}_i^{T} A \boldsymbol{e}_{j} = a_{ij}.
 \end{equation*}
 
 Entonces, por linealidad, se extiende el resultado anterior sobre cualquier conjunto $X,Y\subset [n]$.
@@ -628,7 +638,7 @@ Es importante destacar que la matriz de adyacencia no solo describe las conexion
 
 Como consecuencia de la proposición anterior, en cualquier grafo $G = ([n], E)$ con matriz de adyacencia $A$, se puede representar la cantidad total de caminatas cerradas de largo $t$ en el grafo por medio de la traza, $\Tr(A^{t}) = \sum_{i=1}^{n}a_{ii}^{(t)}$. Con esto, note que $\Tr(A^{2}) = 2e_G$.\medskip
 
-Por otro lado, para introducir algunos aspectos de la teoría espectral de grafos, recuerde que $\boldsymbol{v}\in \mathbb{R}^{n}$ es un vector propio de alguna matriz $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ con valor propio $\lambda\in \mathbb{R}$ si $A\boldsymbol{v}=\lambda \boldsymbol{v}$. Esto significa que $\lambda$ es un valor propio si y solo si $\lambda I_{n} - A$ es una matriz singular. Así, los valores propios vienen dados por las raíces del polinomio característico $\det(xI_{n} - A)$. En este trabajo, cuando se haga referencia a los valores y vectores propios de un grafo $G$, siempre será con respecto a su matriz de adyacencia $A$.
+Por otro lado, para introducir algunos aspectos de la teoría espectral de grafos, recuerde que el vector no nulo $\boldsymbol{v}\in \mathbb{R}^{n}$ es un vector propio de alguna matriz $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ con valor propio $\lambda\in \mathbb{C}$ si $A\boldsymbol{v}=\lambda \boldsymbol{v}$. Esto significa que $\lambda$ es un valor propio si y solo si $\lambda I_{n} - A$ es una matriz singular. Así, los valores propios vienen dados por las raíces del polinomio característico $\det(xI_{n} - A)$. En este trabajo, cuando se haga referencia a los valores y vectores propios de un grafo $G$, siempre será con respecto a su matriz de adyacencia $A$.
 
 Por ejemplo. si $G$ es un grafo $d$-regular, entonces con la igualdad \eqref{A1=Mdeg} se puede deducir que $d$ es el valor propio asociado al vector propio normalizado de $1$-entradas de la matriz de adyacencia $A_G$.
 
@@ -639,7 +649,7 @@ Por ejemplo. si $G$ es un grafo $d$-regular, entonces con la igualdad \eqref{A1=
 
 %%%% Demostración
 \begin{proof}
-    Se comienza probando que los valores propios de $A$ son reales. Sea $\lambda$ un valor propio de $A$ y $\boldsymbol{x}\not=0$ su correspondiente vector propio, satisfaciendo $A\boldsymbol{x} = \lambda \boldsymbol{x}$. Tomando su conjugado, se obtiene paralelamente que
+    Se comienza probando que los valores propios de $A$ son reales. Sea $\lambda$ un valor propio de $A$ y $\boldsymbol{x}\not=0$ su correspondiente vector propio, satisfaciendo $A\boldsymbol{x} = \lambda \boldsymbol{x}$. Tomando su conjugado (denotado por $\overline{z}$ al complejo conjugado de $z\in\mathbb{C}$), se obtiene paralelamente que
 
     \begin{equation*}
         \begin{aligned}
@@ -674,7 +684,7 @@ Por ejemplo. si $G$ es un grafo $d$-regular, entonces con la igualdad \eqref{A1=
         c_1 \boldsymbol{u}_1 + c_2 \boldsymbol{u}_2 + ... + c_n \boldsymbol{u}_n = 0.
     \end{equation*}
     
-    Entonces, para algún $i\in[n]$, multiplicando por la izquierda la igualdad anterior por $\boldsymbol{u}_{i}^{T}$,
+    Entonces, para cualquier $i\in[n]$, multiplicando por la izquierda la igualdad anterior por $\boldsymbol{u}_{i}^{T}$,
     
     \begin{equation*}
         \boldsymbol{u}_{i}^{T} (c_1 \boldsymbol{u}_1 + ... + c_n \boldsymbol{u}_n) = c_i \boldsymbol{u}_{i}^{T}\boldsymbol{u}_i = c_i = 0.
@@ -694,7 +704,7 @@ A continuación, se enunciará sin demostración uno de los teoremas más import
         A = PDP^{T} = \sum_{i=1}^{n}\lambda_{i}\boldsymbol{v}_{i}\boldsymbol{v}_{i}^{T}.
     \end{equation}
 
-    En donde la matriz diagonal $D$ está compuesta por los valores propios $\lambda_i \in\mathbb{R}$ de $A$, y las columnas de $P$ son los vectores propios normalizados $\boldsymbol{v}_{i}\in\mathbb{R}^{n}$ de $A$.
+    En donde la matriz diagonal $D$ está compuesta por los valores propios $\lambda_i \in\mathbb{R}$ de $A$, y las columnas de $P$ son los vectores propios ortonormales $\boldsymbol{v}_{i}\in\mathbb{R}^{n}$ de $A$.
 \end{teorema}
 
 Con el teorema anterior es posible representar la matriz de adyacencia de un grafo por medio de dos matrices que dependen únicamente de sus valores y vectores propios para obtener propiedades desde una perspectiva espectral.
@@ -767,7 +777,7 @@ Por otro lado, es posible caracterizar cada valor propio de una matriz real sim�
 
     \begin{itemize}
         \item[(i)] \[
-                \lambda_k = \inf_{\substack{\boldsymbol{x}\perp \lbrace \boldsymbol{v}_1,...,\boldsymbol{v}_{k-1}\rbrace \\ \boldsymbol{v}\not= 0}} \frac{\langle \boldsymbol{x}, A\boldsymbol{x}\rangle}{\langle \boldsymbol{x},\boldsymbol{x}\rangle}.
+                \lambda_k = \inf_{\substack{\boldsymbol{x}\perp \lbrace \boldsymbol{v}_1,...,\boldsymbol{v}_{k-1}\rbrace \\ \boldsymbol{x}\not= 0}} \frac{\langle \boldsymbol{x}, A\boldsymbol{x}\rangle}{\langle \boldsymbol{x},\boldsymbol{x}\rangle}.
                     \]
         \item[(ii)] \[
                 \lambda_k = \sup_{\substack{\boldsymbol{x}\perp \lbrace \boldsymbol{v}_{k+1},...,\boldsymbol{v}_n\rbrace \\ \boldsymbol{x}\not= 0}} \frac{\langle \boldsymbol{x}, A\boldsymbol{x}\rangle}{\langle \boldsymbol{x},\boldsymbol{x}\rangle}.
@@ -802,17 +812,30 @@ El objetivo de la presente sección es proporcionar un breve contexto teórico p
 
 De manera intuitiva, se podría pensar en primera instancia en un \emph{grafo aleatorio} de $n$ vértices como el resultado de selecciar aleatoriamente un subconjunto de aristas de $K_n$. La manera de seleccionar dicho subconjunto de aristas determina el tipo de modelo de grafo aleatorio. El modelo más popular, propuesto por Edgar Gilbert en 1959 \fs{referencia}, contempla una estructura que se desarrolla algoritmicamente agregando una arista a la vez, en la que comenzando con el grafo vacío $\overline{K_n}$, se decide iterativamente si existe una arista entre cada par de vértices del grafo con probabilidad $p$.
 
-Cada repetición del proceso anterior genera un nuevo grafo de $n$ vértices. El conjunto de todos esos grafos constituye un espacio de probabilidad, al que denotaremos por $G(n,p)$ y llamaremos modelo binomial. Se define formalmente.
+Cada repetición del proceso anterior genera un nuevo grafo de $n$ vértices. El conjunto de todos esos grafos constituye un espacio de probabilidad, al que denotaremos por $G(n,p)$ y llamaremos modelo binomial. Entonces, considerando $G^{n}$ como el conjunto de todos los grafos de $n$ vértices, se define formalmente.
 
 \begin{definicion} (Modelo binomial)
-    Sea $G^{n}$ el conjunto de todos los grafos sobre $n$ vértices, y $p\in (0,1)$. Se define $G(n,p)$ como el espacio de probabilidad $\left( G^{n}, \mathcal{P}(G^{n}), \mathbb{P}\right)$, con
+    Sea $p\in (0,1)$. Se define $G(n,p)$ como el espacio de probabilidad $\left( G^{n}, \mathcal{P}(G^{n}), \mathbb{P}\right)$, con
 
     \begin{equation*}
         \mathbb{P}\left(G(n,p) = G\right) = p^{e_G}(1-p)^{\tbinom{n}{2} - e_G}\ \ ,\ \ \forall G\in G(n,p).
     \end{equation*}
 \end{definicion}
 
-Se adopta el modelo binomial como referencia para trabajar más adelante con el concepto de un grafo \emph{cuasi-aleatorio}. 
+Se adopta el modelo binomial como referencia para trabajar más adelante con el concepto de un grafo \emph{cuasi-aleatorio}. La mayoría de la literatura sobre grafos aleatorios dedica su contenido a los casos en que $p=p(n)\to 0$ cuando $n\to\infty$. En esta tesis, se considera $p\in (0,1)$ constante.
+
+A continuación, se presenta sin demostración una de las cotas más importantes de la teoría de la probabilidad, la \emph{desigualdad de Chernov}. Existen diferentes formas de expresar la desigualdad de Chernov, y cada una varía levemente en su hipótesis. En esta tesis se estudia el resultado para el caso en que cada variable aleatoria solo tomar valores $0$ o $1$, como se plantea en \fs{referencia} en la ecuación (2.12) de la observación 2.5. 
+
+%%%% Desigualdad de Chernov
+\begin{teorema} \label{desigualdad_Chernov} (Desigualdad de Chernov)
+    Sean $X_1,...,X_n$ variables aleatorias independientes tales que $X_i = 1$ con probabilidad $p$, y $X_i = 0$ con probabilidad $1-p$. Entonces, si $X = \sum_{i=1}^{n}X_i$, se satisface
+
+    \begin{equation*}
+        \mathbb{P}(\left| X - \mathbb{E}[X]\right| > t) \leq 2\exp\left(-\frac{2t^{2}}{n}\right)\ \ ,\ \ \forall t \geq 0.
+    \end{equation*}
+\end{teorema}
+
+Finalmente, $\mathcal{P}_{n}\subset G^{n}$ es una propiedad de grafos si es cerrada bajo isomorfismos de grafos. Más aún, diremos que $G$ satisface la propiedad $\mathcal{P}_{n}$ \textbf{con alta probabilidad} si $\mathbb{P}(G\in\mathcal{P}_{n})\to 1$ cuando $n\to\infty$.
 
 %%%% Proposición: Distribución de aristas grafo aleatorio binomial
 \begin{prop}

@@ -199,6 +199,14 @@ INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\generic\iftex\ifvtex.sty
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\geometry\geometry.cfg
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\geometry\geometry.cfg
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\geometry\geometry.cfg
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\lineno\lineno.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\lineno\lineno.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\etoolbox\etoolbox.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\etoolbox\etoolbox.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\kvoptions\kvoptions.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\kvoptions\kvoptions.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\kvsetkeys\kvsetkeys.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\kvsetkeys\kvsetkeys.sty
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryshapes.geometric.code.tex
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryshapes.geometric.code.tex
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\generic\pgf\libraries\shapes\pgflibraryshapes.geometric.code.tex
@@ -237,8 +245,6 @@ INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\base\ifthen.sty
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\base\ifthen.sty
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\hyperref\hyperref.sty
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\hyperref\hyperref.sty
-INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\kvsetkeys\kvsetkeys.sty
-INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\kvsetkeys\kvsetkeys.sty
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\generic\kvdefinekeys\kvdefinekeys.sty
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\generic\kvdefinekeys\kvdefinekeys.sty
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\generic\pdfescape\pdfescape.sty
@@ -253,10 +259,6 @@ INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\refcount\refcount.
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\refcount\refcount.sty
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\generic\gettitlestring\gettitlestring.sty
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\generic\gettitlestring\gettitlestring.sty
-INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\kvoptions\kvoptions.sty
-INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\kvoptions\kvoptions.sty
-INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\etoolbox\etoolbox.sty
-INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\etoolbox\etoolbox.sty
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\hyperref\pd1enc.def
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\hyperref\pd1enc.def
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\hyperref\pd1enc.def
@@ -311,6 +313,7 @@ INPUT .\Imágenes\logo_usach.png
 INPUT .\Imágenes\logo_usach.png
 INPUT .\Imágenes\logo_usach.png
 INPUT .\Imágenes\logo_usach.png
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmss8.tfm
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT C:\Users\Felipe\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
@@ -343,6 +346,8 @@ INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cm
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\dsserif\DSSerif.tfm
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\dsserif\DSSerif.tfm
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\dsserif\DSSerif.tfm
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\bbm\ubbm.fd
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\bbm\ubbm.fd
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\bbm\ubbm.fd
@@ -352,8 +357,6 @@ INPUT C:\Users\Felipe\AppData\Local\MiKTeX\fonts\tfm\public\bbm\bbm5.tfm
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\dsserif\DSSerif-Bold.tfm
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\dsserif\DSSerif-Bold.tfm
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\dsserif\DSSerif-Bold.tfm
-INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
-INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbxti10.tfm
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti7.tfm
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti7.tfm
@@ -426,6 +429,8 @@ INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr7.pfb
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmss8.pfb
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmss8.pfb
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy5.pfb
