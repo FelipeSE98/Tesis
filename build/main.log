@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.3)  17 MAR 2024 02:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.3)  18 MAR 2024 00:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -479,6 +479,8 @@ Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 \bframebox=\box65
 \linenoamsmath@ams@eqpen=\count312
 LaTeX Info: Redefining \\ on input line 3180.
+) (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 ) (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.geometric.code.tex
 File: tikzlibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\pgflibraryshapes.geometric.code.tex
@@ -561,13 +563,13 @@ Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 \c@loopcntr=\count342
 
 
-c:/Tesis/Documento Tesis/main.tex:123: LaTeX Error: Option clash for package geometry.
+c:/Tesis/Documento Tesis/main.tex:124: LaTeX Error: Option clash for package geometry.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.123 
+l.124 
       
 The package geometry has already been loaded with options:
   []
@@ -671,29 +673,33 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 ) (C:\Tesis\Documento Tesis\build\main.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
+
+
+LaTeX Warning: Label `cuasi-aleatoriedad' multiply defined.
+
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 152.
-LaTeX Font Info:    ... okay on input line 152.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 152.
-LaTeX Font Info:    ... okay on input line 152.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 152.
-LaTeX Font Info:    ... okay on input line 152.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 152.
-LaTeX Font Info:    ... okay on input line 152.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 152.
-LaTeX Font Info:    ... okay on input line 152.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 152.
-LaTeX Font Info:    ... okay on input line 152.
-LaTeX Font Info:    Checking defaults for U/DSSerif/m/n on input line 152.
-LaTeX Font Info:    ... okay on input line 152.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 152.
-LaTeX Font Info:    ... okay on input line 152.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 152.
-LaTeX Font Info:    ... okay on input line 152.
-LaTeX Info: Redefining \. on input line 152.
-LaTeX Info: Redefining \% on input line 152.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 153.
+LaTeX Font Info:    ... okay on input line 153.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 153.
+LaTeX Font Info:    ... okay on input line 153.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 153.
+LaTeX Font Info:    ... okay on input line 153.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 153.
+LaTeX Font Info:    ... okay on input line 153.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 153.
+LaTeX Font Info:    ... okay on input line 153.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 153.
+LaTeX Font Info:    ... okay on input line 153.
+LaTeX Font Info:    Checking defaults for U/DSSerif/m/n on input line 153.
+LaTeX Font Info:    ... okay on input line 153.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 153.
+LaTeX Font Info:    ... okay on input line 153.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 153.
+LaTeX Font Info:    ... okay on input line 153.
+LaTeX Info: Redefining \. on input line 153.
+LaTeX Info: Redefining \% on input line 153.
  (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count354
@@ -751,7 +757,7 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 152.
+Package hyperref Info: Link coloring ON on input line 153.
 (C:\Tesis\Documento Tesis\build\main.out) (C:\Tesis\Documento Tesis\build\main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
@@ -759,7 +765,7 @@ Package hyperref Info: Link coloring ON on input line 152.
 <Imágenes/logo_usach.png, id=54, 206.7725pt x 245.91875pt>
 File: Imágenes/logo_usach.png Graphic file (type png)
 <use Imágenes/logo_usach.png>
-Package pdftex.def Info: Imágenes/logo_usach.png  used on input line 158.
+Package pdftex.def Info: Imágenes/logo_usach.png  used on input line 159.
 (pdftex.def)             Requested size: 141.9023pt x 168.77228pt.
  [1
 
@@ -767,24 +773,24 @@ Package pdftex.def Info: Imágenes/logo_usach.png  used on input line 158.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.193 \newpage
+l.194 \newpage
                [1]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 214.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 215.
  (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 214.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 215.
  (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 10.0pt on input line 214.
+(Font)              scaled to size 10.0pt on input line 215.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 7.0pt on input line 214.
+(Font)              scaled to size 7.0pt on input line 215.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 5.0pt on input line 214.
+(Font)              scaled to size 5.0pt on input line 215.
  [2]
-LaTeX Font Info:    Trying to load font information for U+bbm on input line 288.
+LaTeX Font Info:    Trying to load font information for U+bbm on input line 289.
  (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/bbm\ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 ) [3]
@@ -795,21 +801,21 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [4] [5]
-Overfull \hbox (68.30766pt too wide) detected at line 474
+Overfull \hbox (68.30766pt too wide) detected at line 475
 []
  []
 
 LaTeX Font Info:    Font shape `U/DSSerif/b/n' will be
-(Font)              scaled to size 10.0pt on input line 526.
+(Font)              scaled to size 10.0pt on input line 527.
 LaTeX Font Info:    Font shape `U/DSSerif/b/n' will be
-(Font)              scaled to size 7.0pt on input line 526.
+(Font)              scaled to size 7.0pt on input line 527.
 LaTeX Font Info:    Font shape `U/DSSerif/b/n' will be
-(Font)              scaled to size 5.0pt on input line 526.
-[6] [7] [8] [9] [10] [11] [12]
-c:/Tesis/Documento Tesis/main.tex:1044: Argument of \@makebox has an extra }.
+(Font)              scaled to size 5.0pt on input line 527.
+[6] [7] [8] [9] [10] [11] [12] [13]
+c:/Tesis/Documento Tesis/main.tex:1056: Argument of \@makebox has an extra }.
 <inserted text> 
                 \par 
-l.1044         \item[\makebox[0.5cm]
+l.1056         \item[\makebox[0.5cm]
                                     {$\disc_p$:} Para todo $X,Y\subseteq V(G...
 I've run across a `}' that doesn't seem to match anything.
 For example, `\def\a#1{...}' and `\a}' would produce
@@ -820,58 +826,11 @@ your `}' was spurious, just type `2' and it will go away.
 
 Runaway argument?
 0.5cm
-c:/Tesis/Documento Tesis/main.tex:1044: Paragraph ended before \@makebox was complete.
-<to be read again> 
-                   \par 
-l.1044         \item[\makebox[0.5cm]
-                                    {$\disc_p$:} Para todo $X,Y\subseteq V(G...
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
-
-c:/Tesis/Documento Tesis/main.tex:1050: Argument of \@makebox has an extra }.
-<inserted text> 
-                \par 
-l.1050         \item[\makebox[1.0cm]
-                                    {$\discp_p$:} Para todo $X\subseteq V(G_...
-I've run across a `}' that doesn't seem to match anything.
-For example, `\def\a#1{...}' and `\a}' would produce
-this error. If you simply proceed now, the `\par' that
-I've just inserted will cause me to report a runaway
-argument that might be the root of the problem. But if
-your `}' was spurious, just type `2' and it will go away.
-
-Runaway argument?
-1.0cm
-c:/Tesis/Documento Tesis/main.tex:1050: Paragraph ended before \@makebox was complete.
-<to be read again> 
-                   \par 
-l.1050         \item[\makebox[1.0cm]
-                                    {$\discp_p$:} Para todo $X\subseteq V(G_...
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
-
-[13]
-c:/Tesis/Documento Tesis/main.tex:1056: Argument of \@makebox has an extra }.
-<inserted text> 
-                \par 
-l.1056         \item[\makebox[1.0cm]
-                                    {$\Count_p$:} Para cada grafo $H$, la ca...
-I've run across a `}' that doesn't seem to match anything.
-For example, `\def\a#1{...}' and `\a}' would produce
-this error. If you simply proceed now, the `\par' that
-I've just inserted will cause me to report a runaway
-argument that might be the root of the problem. But if
-your `}' was spurious, just type `2' and it will go away.
-
-Runaway argument?
-1.0cm
 c:/Tesis/Documento Tesis/main.tex:1056: Paragraph ended before \@makebox was complete.
 <to be read again> 
                    \par 
-l.1056         \item[\makebox[1.0cm]
-                                    {$\Count_p$:} Para cada grafo $H$, la ca...
+l.1056         \item[\makebox[0.5cm]
+                                    {$\disc_p$:} Para todo $X,Y\subseteq V(G...
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
@@ -880,7 +839,7 @@ c:/Tesis/Documento Tesis/main.tex:1062: Argument of \@makebox has an extra }.
 <inserted text> 
                 \par 
 l.1062         \item[\makebox[1.0cm]
-                                    {$\Count_{C4,p}$:} La cantidad de copias...
+                                    {$\discp_p$:} Para todo $X\subseteq V(G_...
 I've run across a `}' that doesn't seem to match anything.
 For example, `\def\a#1{...}' and `\a}' would produce
 this error. If you simply proceed now, the `\par' that
@@ -894,7 +853,7 @@ c:/Tesis/Documento Tesis/main.tex:1062: Paragraph ended before \@makebox was com
 <to be read again> 
                    \par 
 l.1062         \item[\makebox[1.0cm]
-                                    {$\Count_{C4,p}$:} La cantidad de copias...
+                                    {$\discp_p$:} Para todo $X\subseteq V(G_...
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
@@ -903,7 +862,7 @@ c:/Tesis/Documento Tesis/main.tex:1068: Argument of \@makebox has an extra }.
 <inserted text> 
                 \par 
 l.1068         \item[\makebox[1.0cm]
-                                    {$\codeg_p$:}\medskip
+                                    {$\Count_p$:} Para cada grafo $H$, la ca...
 I've run across a `}' that doesn't seem to match anything.
 For example, `\def\a#1{...}' and `\a}' would produce
 this error. If you simply proceed now, the `\par' that
@@ -917,7 +876,7 @@ c:/Tesis/Documento Tesis/main.tex:1068: Paragraph ended before \@makebox was com
 <to be read again> 
                    \par 
 l.1068         \item[\makebox[1.0cm]
-                                    {$\codeg_p$:}\medskip
+                                    {$\Count_p$:} Para cada grafo $H$, la ca...
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
@@ -926,7 +885,7 @@ c:/Tesis/Documento Tesis/main.tex:1074: Argument of \@makebox has an extra }.
 <inserted text> 
                 \par 
 l.1074         \item[\makebox[1.0cm]
-                                    {$\eig_p$:} Si $\lambda_1 \geq \cdots \g...
+                                    {$\Count_{C4,p}$:} La cantidad de copias...
 I've run across a `}' that doesn't seem to match anything.
 For example, `\def\a#1{...}' and `\a}' would produce
 this error. If you simply proceed now, the `\par' that
@@ -940,34 +899,85 @@ c:/Tesis/Documento Tesis/main.tex:1074: Paragraph ended before \@makebox was com
 <to be read again> 
                    \par 
 l.1074         \item[\makebox[1.0cm]
+                                    {$\Count_{C4,p}$:} La cantidad de copias...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+c:/Tesis/Documento Tesis/main.tex:1080: Argument of \@makebox has an extra }.
+<inserted text> 
+                \par 
+l.1080         \item[\makebox[1.0cm]
+                                    {$\codeg_p$:}
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+1.0cm
+c:/Tesis/Documento Tesis/main.tex:1080: Paragraph ended before \@makebox was complete.
+<to be read again> 
+                   \par 
+l.1080         \item[\makebox[1.0cm]
+                                    {$\codeg_p$:}
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+c:/Tesis/Documento Tesis/main.tex:1086: Argument of \@makebox has an extra }.
+<inserted text> 
+                \par 
+l.1086         \item[\makebox[1.0cm]
+                                    {$\eig_p$:} Si $\lambda_1 \geq \cdots \g...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+1.0cm
+c:/Tesis/Documento Tesis/main.tex:1086: Paragraph ended before \@makebox was complete.
+<to be read again> 
+                   \par 
+l.1086         \item[\makebox[1.0cm]
                                     {$\eig_p$:} Si $\lambda_1 \geq \cdots \g...
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
 
+[14]
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 8.0pt on input line 1090.
+(Font)              scaled to size 8.0pt on input line 1102.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 6.0pt on input line 1090.
+(Font)              scaled to size 6.0pt on input line 1102.
 LaTeX Font Info:    Font shape `U/DSSerif/b/n' will be
-(Font)              scaled to size 8.0pt on input line 1090.
+(Font)              scaled to size 8.0pt on input line 1102.
 LaTeX Font Info:    Font shape `U/DSSerif/b/n' will be
-(Font)              scaled to size 6.0pt on input line 1090.
-[14] [15] [16] [17] [18]
-Overfull \hbox (19.96114pt too wide) detected at line 1370
+(Font)              scaled to size 6.0pt on input line 1102.
+ [15] [16] [17] [18]
+Overfull \hbox (19.96114pt too wide) detected at line 1382
 []
  []
 
 [19] [20]
-Overfull \hbox (97.76617pt too wide) detected at line 1416
+Overfull \hbox (97.76617pt too wide) detected at line 1428
 []
  []
 
-[21] [22] [23] [24]
-c:/Tesis/Documento Tesis/main.tex:1559: Undefined control sequence.
+[21] [22] [23]
+
+LaTeX Warning: Reference `casi-aleatoriedad' on page 24 undefined on input line 1506.
+
+[24]
+c:/Tesis/Documento Tesis/main.tex:1571: Undefined control sequence.
 <argument> .... Aquí, \begin {tikzpicture} \node 
                                                   [fill=black, circle,inner ...
-l.1559 ...ristas permitidas dentro del grafo $G$.}
+l.1571 ...ristas permitidas dentro del grafo $G$.}
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -975,10 +985,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-c:/Tesis/Documento Tesis/main.tex:1559: Undefined control sequence.
+c:/Tesis/Documento Tesis/main.tex:1571: Undefined control sequence.
 <argument> ...size=2pt] (a) at (0,0.06) {}; \node 
                                                   [fill=black, circle,inner ...
-l.1559 ...ristas permitidas dentro del grafo $G$.}
+l.1571 ...ristas permitidas dentro del grafo $G$.}
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -986,10 +996,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-c:/Tesis/Documento Tesis/main.tex:1559: Undefined control sequence.
+c:/Tesis/Documento Tesis/main.tex:1571: Undefined control sequence.
 <argument> ...ze=2pt] (b) at (0.5,0.06) {}; \draw 
                                                   (a) -- (b); \end {tikzpict...
-l.1559 ...ristas permitidas dentro del grafo $G$.}
+l.1571 ...ristas permitidas dentro del grafo $G$.}
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -998,13 +1008,13 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-c:/Tesis/Documento Tesis/main.tex:1559: Package pgfkeys Error: I do not know the key '/tikz/minimim size', to which you passed '2pt', and I am going to ignore it. Perhaps you misspelled it.
+c:/Tesis/Documento Tesis/main.tex:1571: Package pgfkeys Error: I do not know the key '/tikz/minimim size', to which you passed '2pt', and I am going to ignore it. Perhaps you misspelled it.
 
 See the pgfkeys package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1559 ...ristas permitidas dentro del grafo $G$.}
+l.1571 ...ristas permitidas dentro del grafo $G$.}
                                                   
 This error message was generated by an \errmessage
 command, so I can't give any explicit help.
@@ -1012,19 +1022,19 @@ Pretend that you're Hercule Poirot: Examine all clues,
 and deduce the truth by order and method.
 
 
-c:/Tesis/Documento Tesis/main.tex:1559: Package pgfkeys Error: I do not know the key '/tikz/minimim size', to which you passed '2pt', and I am going to ignore it. Perhaps you misspelled it.
+c:/Tesis/Documento Tesis/main.tex:1571: Package pgfkeys Error: I do not know the key '/tikz/minimim size', to which you passed '2pt', and I am going to ignore it. Perhaps you misspelled it.
 
 See the pgfkeys package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1559 ...ristas permitidas dentro del grafo $G$.}
+l.1571 ...ristas permitidas dentro del grafo $G$.}
                                                   
 (That was another \errmessage.)
 
 [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49] [50]
-c:/Tesis/Documento Tesis/main.tex:2684: Misplaced alignment tab character &.
-l.2684     \item[[1]] Krivelevich, M., &
+c:/Tesis/Documento Tesis/main.tex:2696: Misplaced alignment tab character &.
+l.2696     \item[[1]] Krivelevich, M., &
                                          Sudakov, B. (2006). Pseudo-random G...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1034,8 +1044,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 [51]
-c:/Tesis/Documento Tesis/main.tex:2685: Misplaced alignment tab character &.
-l.2685 ...m[[2]] Chung, F. R. K., Graham, R. L., &
+c:/Tesis/Documento Tesis/main.tex:2697: Misplaced alignment tab character &.
+l.2697 ...m[[2]] Chung, F. R. K., Graham, R. L., &
                                                    Wilson, R. M. (1989). Qua...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1044,8 +1054,8 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-c:/Tesis/Documento Tesis/main.tex:2686: Misplaced alignment tab character &.
-l.2686 ...l, J. A., Pehova, Y., Sharifzadeh, M., &
+c:/Tesis/Documento Tesis/main.tex:2698: Misplaced alignment tab character &.
+l.2698 ...l, J. A., Pehova, Y., Sharifzadeh, M., &
                                                    Volec, J. (2020). Charact...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1054,8 +1064,8 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-c:/Tesis/Documento Tesis/main.tex:2686: Misplaced alignment tab character &.
-l.2686 ...ns by a pattern sum. Random Structures &
+c:/Tesis/Documento Tesis/main.tex:2698: Misplaced alignment tab character &.
+l.2698 ...ns by a pattern sum. Random Structures &
                                                    Algorithms.
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1064,8 +1074,8 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-c:/Tesis/Documento Tesis/main.tex:2687: Misplaced alignment tab character &.
-l.2687     \item[[4]] Hàn, H., Kiwi, M., &
+c:/Tesis/Documento Tesis/main.tex:2699: Misplaced alignment tab character &.
+l.2699     \item[[4]] Hàn, H., Kiwi, M., &
                                             Pavez-Signé, M. (2021). Quasi-r...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1082,21 +1092,28 @@ LaTeX Info: Redefining \% on input line 11.
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 41B8AE10A1881ACB7B7F6D066A6948CD;2000.
+(rerunfilecheck)             Checksum: 3FFFC49856263206D9FE1640F184A238;1961.
  ) 
 Here is how much of TeX's memory you used:
- 27305 strings out of 474542
- 521686 string characters out of 5743975
+ 27333 strings out of 474542
+ 522337 string characters out of 5743975
  1952978 words of memory out of 5000000
- 48877 multiletter control sequences out of 15000+600000
+ 48901 multiletter control sequences out of 15000+600000
  574190 words of font info for 97 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,20n,117p,1041b,1145s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,20n,117p,1104b,1145s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Felipe\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbm/dpi600\bbm10.pk><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/dsserif/DSSerif-Bold.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/dsserif/DSSerif.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on "C:\Tesis\Documento Tesis\build\main.pdf" (53 pages, 615850 bytes).
+Output written on "C:\Tesis\Documento Tesis\build\main.pdf" (53 pages, 618301 bytes).
 PDF statistics:
- 749 PDF objects out of 1000 (max. 8388607)
- 173 named destinations out of 1000 (max. 500000)
+ 751 PDF objects out of 1000 (max. 8388607)
+ 174 named destinations out of 1000 (max. 500000)
  114 words of extra memory for PDF output out of 10000 (max. 10000000)
 

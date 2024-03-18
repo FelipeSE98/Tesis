@@ -17,6 +17,7 @@
 \usepackage{dsfont}
 \usepackage{geometry}
 \usepackage{lineno}
+\usepackage{textcomp}
 \usetikzlibrary{shapes.geometric}
 
 \usepackage[utf8]{inputenc}
@@ -712,9 +713,9 @@ Con el teorema anterior es posible representar la matriz de adyacencia de un gra
 En primera instancia, observe que la descomposición espectral \eqref{Descomposición espectral} permite trabajar eficientemente con las potencias de una matriz real simétrica, puesto a que el problema se reduce a calcular la respectiva potencia de la matriz diagonal de valores propios. Para visualizar este hecho, primero observe como se comporta el cuadrado de una matriz simétrica $A\in\mathcal{M}_{n\times n}(\mathbb{R})$:
 
 \begin{align*}
-    A^{2} &= (PDP^{T})(PDP^{T})\\
-    &= PD(P^{T}P)DP^{T}\\
-    &= PD^{2}P^{T}.
+    A^{2} = (PDP^{T})(PDP^{T})
+    = PD(P^{T}P)DP^{T}
+    = PD^{2}P^{T}.
 \end{align*}
 
 Luego, de manera inductiva se obtiene que $A^{k} = P D^{k}P^{T}$. Esta propiedad resulta altamente útil de cara al cálculo de caminatas de largo $k$ entre dos vértices de un grafo. Más aún, la Proposición \ref{Tr = autvalor} y el Corolario \ref{Tr_Ak} mostrarán que el número de caminatas cerradas en un grafo queda totalmente determinado por los valores propios del mismo.
@@ -835,14 +836,27 @@ A continuación, se presenta sin demostración una de las cotas más importantes
     \end{equation*}
 \end{teorema}
 
-Finalmente, $\mathcal{P}_{n}\subset G^{n}$ es una propiedad de grafos si es cerrada bajo isomorfismos de grafos. Más aún, diremos que $G$ satisface la propiedad $\mathcal{P}_{n}$ \textbf{con alta probabilidad} si $\mathbb{P}(G\in\mathcal{P}_{n})\to 1$ cuando $n\to\infty$.
+Por otro lado, diremos que $\mathcal{P}_{n}\subset G^{n}$ es una propiedad de grafos si es cerrada bajo isomorfismos de grafos. Más aún, $G$ satisface la propiedad $\mathcal{P}_{n}$ \textbf{con alta probabilidad} si $\mathbb{P}(G\in\mathcal{P}_{n})\to 1$ cuando $n\to\infty$. Dicho esto, se probará que todo grafo en $G(n,p)$ posee casi seguramente una distribución uniforme de aristas a lo largo de todo el grafo.
 
-%%%% Proposición: Distribución de aristas grafo aleatorio binomial
+%%%% Grafo aleatorio sat. DISC
 \begin{prop}
-    Sea $p\in (0,1)$, $G\in G(n,p)$ y $X,Y\subset V(G)$. Entonces la cantidad de aristas esperadas entre $X$ e $Y$ es $p|X||Y|$.
+    Sea $\varepsilon > 0$ y $p\in(0,1)$. Si $G\in G(n,p)$, entonces satisface con alta probabilidad la siguiente propiedad:
+
+    \begin{equation*}
+        \mathcal{P}_{n}^{p,\varepsilon} := \lbrace G\in G^{n} : \big| e(A,B) - p|A||B|\big|\leq \varepsilon n^{2}\ ,\ \forall A,B\in V(G)\rbrace.
+    \end{equation*}
 \end{prop}
-%%%% Demostración
+%%%% Demostración Grafo aleatorio sat. DISC
 \begin{proof}
+    Al pendiente de resolver el cálculo de la esperanza
+\end{proof}
+
+%%%%% Proposición: Distribución de aristas grafo aleatorio binomial
+%\begin{prop}
+    Sea $p\in (0,1)$, $G\in G(n,p)$ y $X,Y\subset V(G)$. Entonces la cantidad de aristas esperadas entre $X$ e $Y$ es $p|X||Y|$.
+%\end{prop}
+%%%%% Demostración
+%\begin{proof}
     Enumere las aristas del grafo bipartito completo $K_{|X|,|Y|}$ desde $1$ hasta $|X||Y|$, y para cada arista $1\leq i\leq |X||Y|$, considere $Z_i$ como la siguiente variable aleatoria indicadora:
 
     \begin{equation*}
@@ -861,9 +875,7 @@ Finalmente, $\mathcal{P}_{n}\subset G^{n}$ es una propiedad de grafos si es cerr
         = \sum_{i=1}^{|X||Y|} p
         = p|X||Y|.
     \end{align*}
-\end{proof}
-
-Hemos probado que en cada grafo... \fs{completar que probamos en esperanza y ahora lo haremos con alta probabilidad...}
+%\end{proof}
 
 
 
@@ -1014,64 +1026,64 @@ Hemos probado que en cada grafo... \fs{completar que probamos en esperanza y aho
 %\end{equation}
 %\hh{Pregunta: Debería eliminar la implicancia y dejar solo el resultado? R: agregar un "Es decir,". De todas maneras debo adaptar la demostración de regularidad para no utilizar notación se probabilidad.}
 %
-\section{Teorema de Chung, Graham y Wilson} \label{cuasi-aleatoriedad}\medskip
+\section{Cuasi-aleatoriedad} \label{cuasi-aleatoriedad}
 
-%\subsection{Grafos aleatorios}\medskip
+Trabajar con estructuras discretas aleatorias nos brinda una amplia gama de propiedades ideales y/o deseables, lo que las convierte en piezas fundamenteles tanto en matemáticas como en ciencias de la computación. Por ejemplo, el modelo de grafo aleatorio binomial goza de una distribución uniforme de aristas, buenas propiedades y es robusto. La cuestión ahora es cómo capturar las propiedades esenciales de la aleatoriedad dentro de un marco \emph{determinista}. Esta idea condujo a la noción de cuasi-aleatoriedad, que en la actualidad, es un tópico central en las matemáticas discretas. En términos generales, las propiedades cuasi-aleatorias son características deterministas que son propias de objetos realmente aleatorios. Aunque la noción de cuasi-aleatoriedad es interesante por sí misma, su estudio ha revelado profundas conexiones entre varias ramas de la matemática y ciencias de la computación, encontrando aplicaciones en teoría de grafos, teoría de números, teoría ergódica, geometría, y algoritmos y complejidad.
 
+Como se verá a detalle más adelante en la sección \ref{Sec. LRS}, una de las razones principales por las cuales el estudio de la cuasi-aleatoriedad no se limita a un área específica, es el hecho de que existe un teorema de partición que permite la aproximación de cualquier objeto discreto por otros cuasi-aleatorios. Con esto, nos referimos al célebre lema de regularidad de Szemerédi, que establece que todo grafo se puede aproximar mediante un número finito de grafos cuasi-aleatorios, permitiendo la conexión entre un grafo arbitrario y los cuasi-aleatorios.
 
+El estudio sistemático de los grafos cuasi-aleatorios fue iniciado por R$\mathrm{\ddot{o}}$dl \fs{referencia} y  Thomason \fs{referencia}, y su punto incial es la siguiente noción de \emph{distribución uniforme de aristas} para definir la cuasi-aleatoriedad de un grafo. \fs{Buscar año...} 
 
+\begin{definicion} \label{cuasi-aleatoriedad}
+    Sea $p\in(0,1)$ y $(G_n)_{n\to\infty}$ una secuencia de grafos, en donde cada $G_n$ posee $n$ vértices. Entonces el grafo $G_n$ es \textbf{cuasi-aleatorio} si en todo par de subconjuntos $X,Y\subset V(G_n)$ se encuentra una distribución de aristas similar, es decir,
 
+    \begin{equation}
+        e(X,Y) = p|X||Y| + o(n^{2}).
+    \end{equation}
+\end{definicion}
 
-\subsection{Enunciado y demostración}\medskip
+En otras palabras, la distribución uniforme de aristas establece, que hasta el término de error $o(n^{2})$, cualquier par de subconjuntos de vértices poseen tantas aristas como se esperaría de un grafo aleatorio $G(n,p)$. Es importante destacar que esta propiedad no solo se cumple con alta probabilidad en un grafo aleatorio $G(n,p)$, sino que también se considera como una de sus características distintivas.
 
-Ya familiarizados con la noción de un grafo aleatorio, intuitivamente, diremos que un grafo casi-aleatorio es aquel que luce como uno verdaderamente aleatorio dentro de un marco determinístico. En otras palabras, es casi-aleatorio si asintóticamente satisface las propiedades que posee un grafo aleatorio casi seguramente. Formalmente:\medskip 
+\subsection{Teorema de Chung, Graham y Wilson}
 
-\begin{definicion} \label{casi-aleatoriedad}
-    Sea $p\in(0,1)$ y $(G_n)_{n\to\infty}$ una secuencia de grafos, en donde cada $G_n$ posee $n$ vértices. Entonces el grafo $G_n$ es \textbf{casi-aleatorio} si en todo subconjunto $X\subset V(G_n)$ se encuentra una distribución de aristas similar, i.e,\medskip
-
-    \begin{equation*}
-        \Big| e(X) - p\tbinom{|X|}{2} \Big| = o(n^{2})\ ,\ \forall X\in V(G).
-    \end{equation*}
-\end{definicion}\medskip
-
-La definición anterior está basada en el modelo binomial según la distribución de aristas que se pueden encontrar en cualquiern subconjunto de vértices del grafo. Más adelante, en 1989, Chung, Graham y Wilson \fs{referencia} muestran que existen diversas maneras equivalentes de caracterizar la noción de un grafo casi-aleatorio desde diferentes perspectivas.\medskip
+Una contribución revolucionaria en la teoría de grafos cuasi-aleatorios fue en 1989 por Fan Chung, Ronald Graham y Richard M. Wilson \fs{referencia}. Ellos presentaron una extensa lista de propiedades superficialmente diferentes entre sí, y demostraron que todas son equivalentes al concepto de cuasi-aleatoriedad entendido en la Definición \ref{cuasi-aleatoriedad}.
 
 %% Enunciado Teorema Chung, Graham y Wilson
 \begin{teorema} \label{Teorema CGW} (Chung, Graham y Wilson) 
-    Sea $p\in (0,1)$ fijo. Para cualquier secuencia de grafos $(G_{n})_{n \to \infty}$ sobre $|V(G_n)|= n$ vértices y $e_{G_n}= (p + o(1))\tbinom{n}{2}$ aristas, las siguientes propiedades son equivalentes:\medskip
+    Sea $p\in (0,1)$ fijo. Para cualquier secuencia de grafos $(G_{n})_{n \to \infty}$ sobre $|V(G_n)|= n$ vértices y $e_{G_n}= (p + o(1))\tbinom{n}{2}$ aristas, las siguientes propiedades son equivalentes:
 
     \begin{enumerate}
-        \item[\makebox[0.5cm]{$\disc_p$:} Para todo $X,Y\subseteq V(G_n)$,\medskip
+        \item[\makebox[0.5cm]{$\disc_p$:} Para todo $X,Y\subseteq V(G_n)$,
         
         \[
             \Big| e(X, Y)- p|X||Y| \Big| = o(n^{2}).
-        \]\medskip
+        \]
         
-        \item[\makebox[1.0cm]{$\discp_p$:} Para todo $X\subseteq V(G_n)$,\medskip 
+        \item[\makebox[1.0cm]{$\discp_p$:} Para todo $X\subseteq V(G_n)$,
         
         \[
             \Big| e(X) - p \tbinom{|X|}{2}\Big| = o(n^{2})\ ,\ \ \forall X \subseteq V(G_n).
-        \]\medskip
+        \]
         
-        \item[\makebox[1.0cm]{$\Count_p$:} Para cada grafo $H$, la cantidad de copias etiquetadas de $H$ en $G_n$ está dada por\medskip
+        \item[\makebox[1.0cm]{$\Count_p$:} Para cada grafo $H$, la cantidad de copias etiquetadas de $H$ en $G_n$ está dada por
         
         \[
             \left|\tbinom{G_n}{H}\right| = \left(p^{e(H)} + o(1)\right) n^{v(H)}.
         \]\medskip
         
-        \item[\makebox[1.0cm]{$\Count_{C4,p}$:} La cantidad de copias etiquetadas de ciclos de orden 4 es\medskip
+        \item[\makebox[1.0cm]{$\Count_{C4,p}$:} La cantidad de copias etiquetadas de ciclos de orden 4 es
         
         \[
             \left|\tbinom{G_n}{C_4}\right| = (p^{4} + o(1)) n^{4}.
         \]\medskip
         
-        \item[\makebox[1.0cm]{$\codeg_p$:}\medskip 
+        \item[\makebox[1.0cm]{$\codeg_p$:}
         
         \[
             \displaystyle\sum_{u,v\in V(G_n)}\Big| \cod(u,v)-p^{2}n\Big| = o(n^3).
         \]\medskip
 
-        \item[\makebox[1.0cm]{$\eig_p$:} Si $\lambda_1 \geq \cdots \geq \lambda_n$ son los autovalores de de la matriz de adyacencia de $G_n$, entonces\medskip
+        \item[\makebox[1.0cm]{$\eig_p$:} Si $\lambda_1 \geq \cdots \geq \lambda_n$ son los autovalores de de la matriz de adyacencia de $G_n$, entonces
         
         \[
             \lambda_1 = pn + o(n)\ \ \text{,}\ \ \ \displaystyle\max_{i\not= 1}|\lambda _{i}| = o(n).
