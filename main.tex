@@ -343,8 +343,8 @@ Observe que en particular, cuando $Y=V$, se satisface
     \sum_{u\in V} \deg(u)^{2} = \sum_{u\in V}\sum_{v\in V}\cod(u,v).
 \end{equation}
 
-A continuación, se enuncian algunos grafos especiales que son contemplados en esta tesis. Diremos que un grafo $G = (V,E)$ es $k$-\textbf{partito} si $V$ se puede dividir en $k$ subconjuntos disjuntos $V_1,V_2,...,V_k$ tales que si $\lbrace u,v\rbrace\in E$ entonces $u\in V_i$ y $v\in V_j$, con $i\not=j$. En particular, a un grafo $2$-partito lo llamaremos \textbf{bipartito}.\medskip
-
+A continuación, se enuncian algunos grafos especiales que son contemplados en esta tesis. Diremos que un grafo $G = (V,E)$ es $k$-\textbf{partito} si $V$ se puede dividir en $k$ subconjuntos disjuntos $V_1,V_2,...,V_k$ tales que si $\lbrace u,v\rbrace\in E$ entonces $u\in V_i$ y $v\in V_j$, con $i\not=j$. En particular, a un grafo $2$-partito lo llamaremos \textbf{bipartito}.
+\newpage 
 %%%% Ejemplo grafo 3-partito
 \begin{figure}[h]
     \centering
@@ -1048,9 +1048,11 @@ En otras palabras, la distribución uniforme de aristas establece, que hasta el 
 
 Una contribución revolucionaria en la teoría de grafos cuasi-aleatorios fue en 1989 por Fan Chung, Ronald Graham y Richard M. Wilson \fs{referencia}. Ellos presentaron una extensa lista de propiedades superficialmente diferentes entre sí, y demostraron que todas son equivalentes al concepto de cuasi-aleatoriedad entendido en la Definición \ref{cuasi-aleatoriedad}.
 
+En la presente sección se enuncia el teorema de Chung, Graham y Wilson junto a una demostración formal.
+
 %% Enunciado Teorema Chung, Graham y Wilson
 \begin{teorema} \label{Teorema CGW} (Chung, Graham y Wilson) 
-    Sea $p\in (0,1)$ fijo. Para cualquier secuencia de grafos $(G_{n})_{n \to \infty}$ sobre $|V(G_n)|= n$ vértices y $e_{G_n}= (p + o(1))\tbinom{n}{2}$ aristas, las siguientes propiedades son equivalentes:
+    Sea $p\in (0,1)$ fijo. Para cualquier secuencia de grafos $(G_{n})_{n \to \infty}$ con $|V(G_n)|= n$ vértices y $e_{G_n}= (p + o(1))\tbinom{n}{2}$ aristas, las siguientes propiedades son equivalentes:
 
     \begin{enumerate}
         \item[\makebox[0.5cm]{$\disc_p$:} Para todo $X,Y\subseteq V(G_n)$,
@@ -1062,26 +1064,26 @@ Una contribución revolucionaria en la teoría de grafos cuasi-aleatorios fue en
         \item[\makebox[1.0cm]{$\discp_p$:} Para todo $X\subseteq V(G_n)$,
         
         \[
-            \Big| e(X) - p \tbinom{|X|}{2}\Big| = o(n^{2})\ ,\ \ \forall X \subseteq V(G_n).
+            \Big| e(X) - p \tbinom{|X|}{2}\Big| = o(n^{2}).
         \]
         
         \item[\makebox[1.0cm]{$\Count_p$:} Para cada grafo $H$, la cantidad de copias etiquetadas de $H$ en $G_n$ está dada por
         
         \[
             \left|\tbinom{G_n}{H}\right| = \left(p^{e(H)} + o(1)\right) n^{v(H)}.
-        \]\medskip
+        \]
         
         \item[\makebox[1.0cm]{$\Count_{C4,p}$:} La cantidad de copias etiquetadas de ciclos de orden 4 es
         
         \[
             \left|\tbinom{G_n}{C_4}\right| = (p^{4} + o(1)) n^{4}.
-        \]\medskip
+        \]
         
         \item[\makebox[1.0cm]{$\codeg_p$:}
         
         \[
             \displaystyle\sum_{u,v\in V(G_n)}\Big| \cod(u,v)-p^{2}n\Big| = o(n^3).
-        \]\medskip
+        \]
 
         \item[\makebox[1.0cm]{$\eig_p$:} Si $\lambda_1 \geq \cdots \geq \lambda_n$ son los autovalores de de la matriz de adyacencia de $G_n$, entonces
         
@@ -1089,27 +1091,25 @@ Una contribución revolucionaria en la teoría de grafos cuasi-aleatorios fue en
             \lambda_1 = pn + o(n)\ \ \text{,}\ \ \ \displaystyle\max_{i\not= 1}|\lambda _{i}| = o(n).
         \]
     \end{enumerate}
-\end{teorema}\medskip
+\end{teorema}
 
-Para una comprensión preeliminar, el Teorema \ref{Teorema CGW} fue enunciado utilizando notación asintótica. Sin embargo, con dicha formulación no queda del todo claro las dependencias cuantificadas de los errores entre cada una de las propiedades. Entonces, se replantea equivalentemente cada propiedad con una versión cuantitativa asociando algún parámetro de error $\varepsilon$ para todo grafo $G$ con un conjunto de vértices suficientemente grande.\medskip
-
-Por ejemplo, bajo los supuestos del Teorema \ref{Teorema CGW}, asuma que la sucesión de grafos $(G_n)_{n\to\infty}$ satisface $\disc_p$. Entonces, para todo $\varepsilon > 0$, existe $n_0 \in \mathbb{N}$ tal que el grafo $G$ sobre $n\geq n_0$ vértices satisface\medskip
+Para una comprensión e intuición inicial de cada propiedad del Teorema \ref{Teorema CGW}, se ha utilizado notación asintótica en su enunciado. Sin embargo, con dicha formulación no queda del todo claro las dependencias cuantificadas de los errores en las implicancias entre dos propiedades. Entonces, se replantea equivalentemente cada propiedad con una versión cuantitativa asociando algún parámetro de error $\varepsilon$ para todo grafo específico $G$ con un conjunto de vértices suficientemente grande. Por ejemplo, bajo los supuestos del Teorema \ref{Teorema CGW}, asuma que la sucesión de grafos $(G_n)_{n\to\infty}$ satisface $\disc_p$. Luego, la versión equivalente establece que para todo $\varepsilon > 0$, existe $n_0 \in \mathbb{N}$ tal que el grafo $G$ sobre $n\geq n_0$ vértices satisface
 
 \begin{equation*}
     \disc_p(\varepsilon):\ \ \ e(X,Y) = p|X||Y| \pm \varepsilon n^2 , \ \ \forall X,Y \subseteq V(G).  
-\end{equation*}\medskip
+\end{equation*}
 
-De manera general, diremos que una secuencia de grafos $(G_n)_{n\to\infty}$ con $|V(G_n)| = n$ satisface la propiedad $P_{x_1,...,x_k}$\footnote{Los parámetros $x_1,...,x_k$ pueden ser de distinta naturaleza, dependiendo de la propiedad simbolizada. En las propiedades del Teorema \ref{Teorema CGW} se utiliza $k=1$ con $x_1 = p$ salvo en la propiedad $\Count_{C4,p}$, en donde $k=2$.} si para cada elección de $\varepsilon >0$, existe algún $n_0 \in \mathbb{N}$ tal que el grafo $G$ con $n\geq n_0$ vértices satisface $P_{x_1,...,x_k}(\varepsilon)$. Más aún, se dirá que la propiedad $Q_{y_1,...,y_\ell}$ implica la propiedad $P_{x_1,...,x_k}$ si y solamente si $P_{x_1,...,x_k}(\varepsilon)$ implica $Q_{y_1,...,y_\ell}$. Es decir, para todo $\varepsilon > 0$, existe $\delta > 0$ y $n_0\in\mathbb{N}$ tales que el grafo $G$ con $n\geq n_0$ vértices cumple con $Q_{y_1,...,y_\ell}(\delta)$ cada vez que satisfaga la propiedad $P_{x_1,...,x_k}(\varepsilon)$.\medskip
+De manera general, diremos que una secuencia de grafos $(G_n)_{n\to\infty}$ con $|V(G_n)| = n$ satisface la propiedad $P_{x_1,...,x_k}$\footnote{Los parámetros $x_1,...,x_k$ pueden ser de distinta naturaleza, dependiendo de la propiedad simbolizada. En las propiedades del Teorema \ref{Teorema CGW} se utiliza $k=1$ con $x_1 = p$ salvo en la propiedad $\Count_{C4,p}$, en donde $k=2$.} si para cada elección de $\varepsilon >0$, existe algún $n_0 \in \mathbb{N}$ tal que el grafo $G$ con $n\geq n_0$ vértices satisface $P_{x_1,...,x_k}(\varepsilon)$. Más aún, se dirá que la propiedad $Q_{y_1,...,y_\ell}$ implica la propiedad $P_{x_1,...,x_k}$ si y solamente si $P_{x_1,...,x_k}(\varepsilon)$ implica $Q_{y_1,...,y_\ell}$. Es decir, para todo $\varepsilon > 0$, existe $\delta > 0$ y $n_0\in\mathbb{N}$ tales que el grafo $G$ con $n\geq n_0$ vértices cumple con $Q_{y_1,...,y_\ell}(\delta)$ cada vez que satisfaga la propiedad $P_{x_1,...,x_k}(\varepsilon)$.
 
-Se desarrollará la demostración formal del teorema de Chung, Graham y Wilson utilizando notación $\varepsilon$-$\delta$, mostrando que cada par de propiedades $P_{x_1,...,x_k}$ y $Q_{y_1,...,y_\ell}$ son equivalentes entre sí con un cambio polinomial en el error. Esto es, $P_{x_1,...,x_k}(\varepsilon) \Rightarrow Q_{y_1,...,y_\ell}(C\varepsilon^{c})$ para algún par de constantes $C,c > 0$.\medskip
+Se desarrollará la demostración formal del teorema de Chung, Graham y Wilson utilizando notación $\varepsilon$-$\delta$, mostrando que cada par de propiedades $P_{x_1,...,x_k}$ y $Q_{y_1,...,y_\ell}$ son equivalentes entre sí con un cambio polinomial en el error. Esto es, $P_{x_1,...,x_k}(\varepsilon) \Rightarrow Q_{y_1,...,y_\ell}(C\varepsilon^{c})$ para algún par de constantes $C,c > 0$.
 
-\begin{flushleft}
-    \Large
-    \textbf{Demostración Teorema 2 (Chung, Graham y Wilson).}\\
-    \normalsize
-\end{flushleft}\medskip
+\Large
+\begin{center}
+    \textbf{Demostración Teorema de Chung, Graham y Wilson}
+\end{center}
+\normalsize
 
-La demostración de este teorema será descompuesta en ocho proposiciones, las cuales mostrarán la equivalencia entre todas las propiedades de la siguiente manera:\medskip
+La demostración del Teorema \ref{Teorema CGW} fue descompuesta en ocho proposiciones, las cuales mostrarán la equivalencia entre todas las propiedades conforme al siguiente esquema:
 
 \begin{equation} \label{Ciclo demo CGW}
     \begin{aligned}
@@ -1117,103 +1117,101 @@ La demostración de este teorema será descompuesta en ocho proposiciones, las c
         &\ \ \big\Updownarrow \overset{\mathrm{Prop.}\ \ref{disc => discp}\ \mathrm{y}\ \ref{discp => disc}.}{}\ & \ & \ & \ & \ \ \ \ \ \ \ \big\Downarrow \overset{\mathrm{Prop.}\ \ref{C4 => codeg}.}{}& \ & \ \\
         &\disc_p &\ &\ \ \overset{\mathrm{Prop.}\ \ref{codeg => disc}.}{\Longleftarrow} &\ &\ \ \ \codeg_p.
     \end{aligned}
-\end{equation}\medskip
+\end{equation}
 
-Así, damos paso a las pruebas de cada proposición.\medskip
+Así, damos paso a la demostración de cada proposición considerada en el esquema \ref{Ciclo demo CGW}.
 
 %%% Proposición: DISC_p => DISC_p'
 \begin{prop} \label{disc => discp}
-    Para todo $\varepsilon > 0$ y $p\in(0,1)$, existe $\delta > 0$ y $n_0\in\mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices satisface $\discp_p (\varepsilon)$ cada vez que cumpla con $\disc_p (\delta)$. En particular,\medskip
+    Para todo $\varepsilon > 0$ y $p\in(0,1)$, existe $\delta > 0$ y $n_0\in\mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices satisface $\discp_p (\varepsilon)$ cada vez que cumpla con $\disc_p (\delta)$. En particular,
 
     \[
         \disc_p \Rightarrow \discp_p.
     \]
-\end{prop}\medskip
+\end{prop}
 
 %%% Demostración DISC_p => DISC_p'
 \begin{proof}
-    Sea $\varepsilon > 0$, $p\in (0,1)$, $\delta < \frac{\varepsilon}{2}$ y $n_0 \in \mathbb{N}$ suficientemente grande. Considere el grafo $G$ sobre $n\geq n_0$ vértices que satisface $\disc_p(\delta)$ y $X\subset V(G)$, entonces utilizamos la propiedad $\disc_p(\delta)$ para obtener el resultado de la siguiente manera:\medskip
+    Dado $\varepsilon > 0$ y $p\in (0,1)$, se elige $\delta < \frac{\varepsilon}{2}$ y $n_0 \in \mathbb{N}$ suficientemente grande. Entonces, considerando el grafo $G$ con $n\geq n_0$ vértices que satisface $\disc_p(\delta)$ y $X\subset V(G)$, se utiliza la propiedad $\disc_p(\delta)$ para obtener el resultado de la siguiente manera:
 
     \[
         e(X) = p\dfrac{|X|^{2}}{2} \pm \delta n^{2} = p\tbinom{|X|}{2} \pm 2\delta n^{2}.
-    \]\medskip
+    \]
 
     Las igualdades anteriores consideran $e(X,X) = 2e(X)$, por definición, y la aproximación  $\tbinom{|X|}{2}= \frac{|X|^2}{2} \pm \delta n^2$.
-\end{proof}\medskip
+\end{proof}
 
 %%%%%%%%%% Proposición: DISC_p' => DISC_p
 \begin{prop} \label{discp => disc}
-    Para todo $\varepsilon > 0$ y $p\in(0,1)$, existe $\delta > 0$ y $n_0\in\mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices satisface $\disc_p (\varepsilon)$ cada vez que cumpla con $\discp_p (\delta)$. En particular, \medskip
+    Para todo $\varepsilon > 0$ y $p\in(0,1)$, existe $\delta > 0$ y $n_0\in\mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices satisface $\disc_p (\varepsilon)$ cada vez que cumpla con $\discp_p (\delta)$. En particular,
 
     \[
         \discp_p \Rightarrow \disc_p.
     \]
-\end{prop}\medskip
+\end{prop}
 
 %%%%%%%%%% Demostración DISC_p' => DISC_p
 \begin{proof}
-    Sea $\varepsilon > 0$, $p\in (0,1)$, $\delta < \frac{\varepsilon}{4}$ y $n_0\in\mathbb{N}$ suficientemente grande. Consideramos el grafo $G$ sobre $n\geq n_0$ vértices que satisface $\discp_p(\delta)$.\medskip
+    Dado $\varepsilon > 0$ y $p\in (0,1)$, se elige $\delta < \frac{\varepsilon}{4}$ y $n_0\in\mathbb{N}$ suficientemente grande. Considere también el grafo $G$ sobre $n\geq n_0$ vértices que satisface $\discp_p(\delta)$.
 
-    En primera instancia, llevaremos el conteo de aristas que existen entre pares de subconjuntos de vértices, a un conteo equivalente mediante la combinación aditiva de las aristas que se encuentran en un subconjunto único de vértices. Es decir, para $X,Y\subset V(G)$,\medskip
+    En primera instancia, se lleva el conteo de aristas que existen entre pares de subconjuntos de vértices a un conteo equivalente mediante la combinación aditiva de las aristas que se encuentran en un subconjunto único de vértices. Es decir, para $X,Y\subset V(G)$,
 
     \begin{equation} \label{polarización_aristas}
         e(X,Y) = e(X\cup Y) + e(X\cap Y) - e(X\setminus Y) - e(Y\setminus X).    
-    \end{equation}\medskip
+    \end{equation}
 
-    Observe que con esta configuración, el conteo de las aristas entre $X$ e $Y$ es doble cuando los vértices que componen las aristas pertenecen a $X\cap Y$. Luego, utilizamos la propiedad $\discp_p(\delta)$ sobre la identidad \eqref{polarización_aristas} para conseguir el resultado.\medskip
+    Observe que con esta configuración, el conteo de las aristas entre $X$ e $Y$ es doble cuando los vértices que componen las aristas pertenecen a $X\cap Y$. Luego, se utiliza la propiedad $\discp_p(\delta)$ sobre la identidad \eqref{polarización_aristas} para conseguir el resultado.
     
     \begin{align*}
         e(X,Y) &= p\left( \tbinom{|X\cup Y|}{2} + \tbinom{|X\cap Y|}{2} - \tbinom{|X\setminus Y|}{2} - \tbinom{|Y\setminus X|}{2} \right) \pm 4\delta n^{2} \\
         &= p|X||Y| \pm 4\delta n^{2} \\
         &= p|X||Y| \pm \varepsilon n^{2}.
     \end{align*}
-\end{proof}\medskip
+\end{proof}
 
 %%%%%%%%%% Proposición: DISC'_P => COUNT_P
 \begin{prop} \label{discp => count}
-    Para todo $\varepsilon > 0$ y $p\in(0,1)$, existe $\delta > 0$ y $n_0\in\mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices satisface $\Count_p (\varepsilon)$ cada vez que cumpla con $\discp_p (\delta)$. En otras palabras,\medskip
+    Para todo $\varepsilon > 0$ y $p\in(0,1)$, existe $\delta > 0$ y $n_0\in\mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices satisface $\Count_p (\varepsilon)$ cada vez que cumpla con $\discp_p (\delta)$. En otras palabras,
 
     \[
         \discp_p \Rightarrow \Count_p.
     \]
-\end{prop}\medskip
+\end{prop}
 
 %%%%%%%%%% Demostración DISC'_P => COUNT_P
 \begin{proof}
-    Sea $\varepsilon > 0$, $p\in (0,1)$ y $H$ un grafo sobre $\ell$ vértices, elegimos $\delta < \frac{\varepsilon}{6\ell^{2}}$ y $n_0\in \mathbb{N}$ suficientemente grande. Considere también el grafo $G = (V,E)$ con $n\geq n_0$ vértices que satisface la propiedad $\Count_{p}(\varepsilon)$.\medskip
+    Sea $\varepsilon > 0$, $p\in (0,1)$ y $H$ un grafo sobre $\ell$ vértices, elegimos $\delta < \frac{\varepsilon}{6\ell^{2}}$ y $n_0\in \mathbb{N}$ suficientemente grande. Considere también el grafo $G = (V,E)$ con $n\geq n_0$ vértices que satisface la propiedad $\Count_{p}(\varepsilon)$.
 
-    Dado cualquier grafo $F$ con $\ell$ vértices y $e_F \geq 1$ aristas, razonamos por inducción sobre su cantidad de aristas para probar que\medskip
+    Dado cualquier grafo $F$ con $\ell$ vértices y $e_F \geq 1$ aristas, razonamos por inducción sobre su cantidad de aristas para probar que
 
     \begin{equation} \label{ind_count}
         \left| \tbinom{G}{F}\right| = p^{e_F}n^{\ell} \pm 4e_F \delta n^{\ell}.
-    \end{equation}\medskip
+    \end{equation}
 
-    Una vez probada la ecuación \eqref{ind_count}, el resultado seguirá de tomar $F = H$ y la elección de $\delta$ para conseguir las siguientes desigualdades:\medskip
+    Una vez probada la ecuación \eqref{ind_count}, el resultado seguirá de tomar $F = H$ y la elección de $\delta$ para conseguir las siguientes desigualdades:
 
     \begin{equation*}
         4e_F \delta n^{\ell} \leq 4\tbinom{\ell}{2}\delta n^{\ell} \leq 4\delta\left( \frac{\ell^{2}}{2} + \delta\ell^{2}\right)n^{\ell} \leq 6\delta\ell^{2}n^{\ell} < \varepsilon n^{\ell}.
-    \end{equation*}\medskip
+    \end{equation*}
 
-    Cuando $e_F = 1$, $\left| \tbinom{G}{F}\right|$ es el número de pares ordenados de vértices de $G$ que forman una arista junto a cualquier combinación de $\ell -2$ vértices para completar una copia de $F$. Es decir,\medskip
+    Entonces, cuando $e_F = 1$, $\left| \tbinom{G}{F}\right|$ es el número de pares ordenados de vértices de $G$ que forman una arista junto a cualquier combinación de $\ell -2$ vértices para completar una copia de $F$. Es decir,
 
     \begin{equation*}
         \left| \tbinom{G}{F}\right| = 2e_G(n-2)(n-3)\cdots(n-\ell + 1).
-    \end{equation*}\medskip
+    \end{equation*}
     
-    Luego, si aplicamos la propiedad $\discp_p(\delta)$ sobre $V$, tendremos que la cantidad de aristas es\medskip
+    Luego, si aplicamos la propiedad $\discp_p(\delta)$ sobre $V$, se obtiene que la cantidad de aristas es
 
     \begin{equation*}
         e_G = \frac{pn(n-1)}{2} \pm \delta n^{2}.
-    \end{equation*}\medskip
+    \end{equation*}
 
-    Así, con $\left| \tbinom{G}{F}\right| = pn^{\ell} \pm 4\delta n^{\ell}$, se prueba el caso inicial de la inducción.\medskip
-
-    Ahora, sea $F$ un grafo con $e_F > 1$ aristas y asumiremos que se satisface la ecuación \eqref{ind_count} sobre cualquier grafo con una cantidad de aristas menor que $e_F$. Entonces, para desarrollar la inducción, vamos a considerar la siguiente notación:\medskip
+    Así, con $\left| \tbinom{G}{F}\right| = pn^{\ell} \pm 4\delta n^{\ell}$, se prueba el caso inicial de la inducción. Ahora, sea $F$ un grafo con $e_F > 1$ aristas y asuma que se satisface la ecuación \eqref{ind_count} en cualquier grafo con una cantidad de aristas menor que $e_F$. Para desarrollar la inducción, suponga que $\lbrace i,j\rbrace\in E(F)$ y considere la siguiente notación: 
 
     \begin{enumerate}
-        \item[i)] $F^{-} := ([\ell], E(F)\setminus \lbrace ij\rbrace)$, es el grafo producido por eliminar la arista $ij$ de $F$.
-        \item[ii)] $F^{*} := F[[\ell]\setminus \lbrace i,j\rbrace]$, es el grafo inducido por $[\ell]\setminus \lbrace i,j\rbrace$, i.e, grafo producido de eliminar los vértices de $ij$ en $F$. 
-    \end{enumerate}\medskip
+        \item[i)] $F^{-}$ corresponde es el grafo producido por eliminar la arista $\lbrace i,j\rbrace$ de $F$.
+        \item[ii)] $F^{*}$  es el resultado de eliminar los vértices de la arista $\lbrace i,j\rbrace$ en $F$. 
+    \end{enumerate}
 
     %\begin{figure}[h]
     %    \centering
@@ -1256,24 +1254,22 @@ Así, damos paso a las pruebas de cada proposición.\medskip
     %    \end{tikzpicture}
     %\end{figure}\medskip
 
-    Sea $T^{-}$ una copia etiquetada de $F^{-}$ en $G$, es decir, $T^{-}$ se corresponde con una aplicación inyectiva $f: V(F^{-}) \to V(T^{-})\subseteq V$ tal que $f(u)f(v)\in E(T^{-})$ cada vez que $uv\in E(F^{-})$. De esta manera, se define $e_{T^{-}}$ como la tupla \fs{Es una tupla?, es una arista?}$(f(i), f(j))$ resultante de la imagen de los vértices $i,j\in V(F^{-})$.\medskip
-
-    Se escribe la cantidad de copias etiquetadas de $F$ en $G$ de manera conveniente y se utilizará la hipótesis de inducción como se muestra a continuación:\medskip
+    Sea $T^{-}$ una copia etiquetada de $F^{-}$ en $G$, es decir, a $T^{-}$ se corresponde una aplicación inyectiva $f: V(F^{-}) \to V(T^{-})\subseteq V$ tal que $\lbrace f(u),f(v)\rbrace\in E(T^{-})$ cada vez que $\lbrace u,v\rbrace\in E(F^{-})$. Entonces, considerando $e_{T^{-}}:= \lbrace f(i),f(j)\rbrace$, se escribe la cantidad de copias etiquetadas de $F$ en $G$ de manera conveniente para utilizar la hipótesis inductiva como se muestra a continuación:
 
     \begin{align} \label{count_G_F}
         \left| \tbinom{G}{F}\right| &= \sum_{T^{-}\in \tbinom{G}{F^{-}}} \mathbbm{1}_{E}(e_{T^{-}})\nonumber \\
         &= \sum_{T^{-}\in \tbinom{G}{F^{-}}} \left[ \mathbbm{1}_{E}(e_{T^{-}}) + p - p\right]\nonumber \\
         &= \sum_{T^{-}\in \tbinom{G}{F^{-}}} p + \sum_{T^{-}\in \tbinom{G}{F^{-}}} \left[ \mathbbm{1}_{E}(e_{T^{-}}) -p\right]\nonumber \\
         &= p\left|\tbinom{G}{F^{-}}\right| +  \sum_{T^{-}\in \tbinom{G}{F^{-}}} \left[ \mathbbm{1}_{E}(e_{T^{-}}) -p\right]\nonumber \\
-        &= p^{e_F}n^{\ell} + \sum_{T^{-}\in \tbinom{G}{F^{-}}} \left[ \mathbbm{1}_{E}(e_{T^{-}}) -p\right] \pm 4(e_F - 1)\delta n^{\ell}.
-    \end{align}\medskip
+        &\overset{\eqref{ind_count}}{=} p^{e_F}n^{\ell} + \sum_{T^{-}\in \tbinom{G}{F^{-}}} \left[ \mathbbm{1}_{E}(e_{T^{-}}) -p\right] \pm 4(e_F - 1)\delta n^{\ell}.
+    \end{align}
     
-    Ahora, es suficiente probar que el segundo sumando de la desigualdad \eqref{count_G_F} es pequeño. Para esto, considere $T^{*}$ una copia de $F^{*}$, y denote por $F_{i}^{*}$ y $F_{j}^{*}$ a los grafos resultantes de eliminar de $F^{-}$ los vértices $j$ e $i$ respectivamente. Definan los siguientes conjuntos:\medskip
+    Ahora, es suficiente probar que el segundo sumando de la desigualdad \eqref{count_G_F} es pequeño. Para esto, considere $T^{*}$ una copia de $F^{*}$, y denote por $F_{i}^{*}$ y $F_{j}^{*}$ a los grafos resultantes de eliminar de $F^{-}$ los vértices $j$ e $i$ respectivamente. Defina los siguientes conjuntos:
     
     \[A_{i}^{T^{*}} := \lbrace v\in V\ :\ T^{*}\ \text{con}\ v\ \text{forma una copia de}\ F_{i}^{*}\rbrace \]
-    \[A_{j}^{T^{*}} := \lbrace v\in V\ :\ T^{*}\ \text{con}\ v\ \text{forma una copia de}\ F_{j}^{*}\rbrace .\]\medskip
+    \[A_{j}^{T^{*}} := \lbrace v\in V\ :\ T^{*}\ \text{con}\ v\ \text{forma una copia de}\ F_{j}^{*}\rbrace .\]
 
-    Los conjuntos anteriores, por construcción, son tales que para cada tupla $(a,b)\in A_{i}^{T^{*}}\times A_{j}^{T^{*}}$ añadida a $T^{*}$ se obtiene una copia de $F^{-}$. Así, reescribiendo el segundo sumando de la igualdad \eqref{count_G_F} convenientemente y utilizando la propiedad $\discp_p(\delta)$,\medskip
+    Los conjuntos anteriores, por construcción, son tales que para cada tupla $(a,b)\in A_{i}^{T^{*}}\times A_{j}^{T^{*}}$ añadida a $T^{*}$ se obtiene una copia de $F^{-}$. Así, reescribiendo el segundo sumando de la igualdad \eqref{count_G_F} convenientemente y utilizando la propiedad $\discp_p(\delta)$,
 
     \begin{align*}
         \left| \sum_{T^{-}\in \tbinom{G}{F^{-}}} \left[\mathbbm{1}_{E}(e_{T^{-}}) - p\right]\right|
@@ -1283,10 +1279,10 @@ Así, damos paso a las pruebas de cada proposición.\medskip
         &\leq \sum_{T^{*}\in \tbinom{G}{F^{*}}} \delta n^{2}\\
         %&\leq  n^{\ell -2}\delta n^{2}\\
         &\leq 4\delta n^{\ell}.
-    \end{align*}\medskip
+    \end{align*}
 
     De esta manera, tomando la elección de $\delta$ y $F=H$ se obtiene el resultado.    
-\end{proof}\medskip
+\end{proof}
 
 %\begin{tikzpicture}
 %    \pgfmathtruncatemacro\nrOfNodes{50}
@@ -1327,60 +1323,58 @@ Así, damos paso a las pruebas de cada proposición.\medskip
 
 %%%%%%%%%% Proposición: COUNT_p => COUNT_C4,p
 \begin{prop} \label{count => C4}
-    Para todo $\varepsilon > 0$ y $p\in (0,1)$, existe $\delta > 0$ y $n_0\in \mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices satisface $\Count_{C_4,p} (\varepsilon)$ cada vez que cumpla con $\Count_p(\delta)$. En otras palabras,\medskip
+    Para todo $\varepsilon > 0$ y $p\in (0,1)$, existe $\delta > 0$ y $n_0\in \mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices satisface $\Count_{C_4,p} (\varepsilon)$ cada vez que cumpla con $\Count_p(\delta)$. En otras palabras,
 
     \[
         \Count_p \Rightarrow \Count_{C_4,p}.
     \]
-\end{prop}\medskip
+\end{prop}
 
 %%%%%%%%%% Demostración COUNT_p => COUNT_C4,p
 \begin{proof}
     Se trata de un caso particular de $\Count_p$, en donde $H = C4$ y $\delta < \epsilon$.
-\end{proof}\medskip
+\end{proof}
 
 %%%%%%%%%% Proposición: COUNT_C4_p => CODEG_p
 \begin{prop} \label{C4 => codeg}
-    Para todo $\varepsilon > 0$ y $p\in (0,1)$, existe $\delta > 0$ y $n_0\in \mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas satisface $\codeg_p (\varepsilon)$ cada vez que cumpla con $\Count_{C_4,p}(\delta)$. En particular,\medskip
+    Para todo $\varepsilon > 0$ y $p\in (0,1)$, existe $\delta > 0$ y $n_0\in \mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas satisface $\codeg_p (\varepsilon)$ cada vez que cumpla con $\Count_{C_4,p}(\delta)$. En particular,
 
     \[
         \Count_{C_4,p} \Rightarrow \codeg_p.
     \]
-\end{prop}\medskip
+\end{prop}
 
 %%%%%%%%%% Demostración COUNT_C4_p => CODEG_p
 \begin{proof}
-    Dado $\varepsilon > 0$ y $p\in (0,1)$, elegimos $\delta < \frac{\varepsilon^{2}}{16}$ y $n_0\in\mathbb{N}$ suficientemente grande. También considere el grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas que satisface $\Count_{C_4,p}(\delta)$.\medskip
+    Dado $\varepsilon > 0$ y $p\in (0,1)$, elegimos $\delta < \frac{\varepsilon^{2}}{16}$ y $n_0\in\mathbb{N}$ suficientemente grande. También considere el grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas que satisface $\Count_{C_4,p}(\delta)$.
 
-    La clave de esta demostración radica en encontrar una buena cota para $\sum_{u,v\in V(G)} \cod(u,v)$ y $\sum_{u,v\in V(G)} \cod(u,v)^{2}$, y la utilización apropiada de la desigualdad de Cauchy-Schwarz.\medskip
-    
-    Entonces, por un lado, utilizando la relación entre el grado y el cogrado visto en \eqref{grado-cogrado},\medskip
+    La clave de esta demostración radica en encontrar una buena cota para $\sum_{u,v\in V(G)} \cod(u,v)$ y $\sum_{u,v\in V(G)} \cod(u,v)^{2}$. Para esto, será necesario la utilización apropiada de la desigualdad de Cauchy-Schwarz. Por un lado, con la relación entre el grado y el cogrado visto en \eqref{grado-cogrado} se obtiene la primera de las cotas:
 
     \begin{align*}
         \displaystyle\sum_{u,v\in V(G)} \cod(u,v) &= \displaystyle\sum_{x\in V(G)} \deg(x)^{2}\\
-        &\overset{\mathrm{CS}}{\geq} \dfrac{1}{n}\left( \displaystyle\sum_{x\in V(G)} \deg(x)\right)^{2}\\
+        &\overset{\mathrm{DCS}}{\geq} \dfrac{1}{n}\left( \displaystyle\sum_{x\in V(G)} \deg(x)\right)^{2}\\
         &= \dfrac{4e_G^{2}}{n}\\
         &\geq \dfrac{4}{n}\left( \dfrac{pn^{2}}{2} - \delta n^{2}\right)^{2}\\
         &\geq p^{2}n^{3} - 4\delta n^{3}.
-    \end{align*}\medskip
+    \end{align*}
 
-    Por otro lado, usando $\Count_{C_4,p}(\delta)$,\medskip
+    Por otro lado, usando $\Count_{C_4,p}(\delta)$,
 
     \begin{equation*}
         \displaystyle\sum_{u,v\in V(G)} \cod(u,v)^{2} = \left|\tbinom{G}{C_4}\right| \pm \delta n^{4} \leq p^{4}n^{4} + 2\delta n^{4}.
-    \end{equation*}\medskip
+    \end{equation*}
 
-    Así, con las cotas anteriores, se obtiene el resultado de la siguiente manera:\medskip
+    Así, con las cotas anteriores, se obtiene el resultado de la siguiente manera:
 
     \begin{align*}
-        \displaystyle\sum_{u,v\in V(G)} \Big|\cod(u,v) - p^{2}n\Big| &\overset{\mathrm{CS}}{\leq} n\left(\displaystyle\sum_{u,v\in V(G)} (\cod(u,v) - p^{2}n)^{2} \right)^{1/2}\\
+        \displaystyle\sum_{u,v\in V(G)} \Big|\cod(u,v) - p^{2}n\Big| &\overset{\mathrm{DCS}}{\leq} n\left(\displaystyle\sum_{u,v\in V(G)} (\cod(u,v) - p^{2}n)^{2} \right)^{1/2}\\
         &= n\left(\displaystyle\sum_{u,v\in V(G)} \cod(u,v)^{2} - 2p^{2}n\displaystyle\sum_{u,v\in V(G)} \cod(u,v) + \displaystyle\sum_{u,v\in V(G)} p^{4}n^{2} \right)^{1/2}\\
         &\leq n\left(p^{4}n^{4} + 2\delta n^{4} + 2p^{2}n(4\delta n^{3} - p^{2}n^{3}) + p^{4}n^{4} \right)^{1/2}\\
         &= n((2 + 8p^{2})\delta n^{4})^{1/2}\\
         %&\leq 10^{1/2}\delta^{1/2}n^{3}\\
         &\leq 4\delta^{1/2}n^{3}.
     \end{align*}
-\end{proof}\medskip
+\end{proof}
 
 %%%%%%%%%% Proposición: CODEG_p => DISC_p
 \begin{prop} \label{codeg => disc}
@@ -1389,34 +1383,34 @@ Así, damos paso a las pruebas de cada proposición.\medskip
     \[
         \codeg_p \Rightarrow \disc_p.
     \]
-\end{prop}\medskip
+\end{prop}
 
 %%%%%%%%%% Demostración CODEG_p => DISC_p
 \begin{proof}
-    Dado $\varepsilon > 0$, $p\in (0,1)$, seleccionamos $\delta < \frac{\varepsilon^{4}}{81}$ y $n_0\in\mathbb{N}$ suficientemente grande. Sea $G$ un grafo de $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas que satisface la propiedad $\codeg_p (\delta)$.\medskip
+    Dado $\varepsilon > 0$, $p\in (0,1)$, seleccionamos $\delta < \frac{\varepsilon^{4}}{81}$ y $n_0\in\mathbb{N}$ suficientemente grande. Sea $G$ un grafo de $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas que satisface la propiedad $\codeg_p (\delta)$.
 
-    En primera instancia note que la propiedad $\codeg_p(\delta)$ induce una concentración en los grados de los vértices de $G$. En efecto,\medskip
+    En primera instancia note que la propiedad $\codeg_p(\delta)$ induce una concentración en los grados de los vértices de $G$. En efecto,
 
     \begin{align*}
-        \displaystyle\sum_{x\in V(G)} \Big|\deg(x) - pn\Big| &\overset{\mathrm{CS}}{\leq} n^{1/2}\left( \displaystyle\sum_{x\in V(G)} (\deg(x) - pn)^{2}\right)^{1/2}\\
+        \displaystyle\sum_{x\in V(G)} \Big|\deg(x) - pn\Big| &\overset{\mathrm{DCS}}{\leq} n^{1/2}\left( \displaystyle\sum_{x\in V(G)} (\deg(x) - pn)^{2}\right)^{1/2}\\
         &= n^{1/2}\left( \displaystyle\sum_{x\in V(G)} \deg(x)^{2} -2pn\displaystyle\sum_{x\in V(G)} \deg(x) + p^{2}n^{3}\right)^{1/2}\\
         &\overset{\eqref{grado-cogrado}}{=} n^{1/2}\left( \left(\displaystyle\sum_{u,v\in V(G)} \cod(u,v) - p^{2}n\right) -4pn e_G + 2p^{2}n^{3} \right)^{1/2}\\
         &\leq n^{1/2}\left( \left(\displaystyle\sum_{u,v\in V(G)} \Big|\cod(u,v) - p^{2}n\Big|\right) + 4pn\left( \delta n^{2} - \frac{pn^{2}}{2}\right) + 2p^{2}n^{3}\right)^{1/2}\\
         &\leq n^{1/2}\left( 2p^{2}n^{3} - 2p^{2}n^{3} + 4p\delta n^{3} + \delta n^{3}\right)^{1/2}\\
         %&< (5\delta)^{1/2}n^{2}\\
         &< 3\delta^{1/2}n^{2}.
-    \end{align*}\medskip
+    \end{align*}
 
-    Luego, para todo $X,Y\in V(G)$, se reescribe la expresión de la propiedad $\disc_p$ de forma conveniente para posteriormente utilizar la desigualdad de Cauchy-Schwarz.\medskip
+    Luego, para todo $X,Y\in V(G)$, se reescribe la expresión de la propiedad $\disc_p$ de forma conveniente para posteriormente utilizar la desigualdad de Cauchy-Schwarz.
 
     \begin{equation} \label{ec_prop_6}
-        \Big|e(X,Y) - p|X||Y|\Big| = \left| \displaystyle\sum_{x\in X} (\deg(x;Y) - p|Y|)\right| \overset{c-s}{\leq} n^{1/2}\left( \displaystyle\sum_{x\in X} (\deg(x;Y) - p|Y|)^{2}\right)^{1/2}.
-    \end{equation}\medskip
+        \Big|e(X,Y) - p|X||Y|\Big| = \left| \displaystyle\sum_{x\in X} (\deg(x;Y) - p|Y|)\right| \overset{DCS}{\leq} n^{1/2}\left( \displaystyle\sum_{x\in X} (\deg(x;Y) - p|Y|)^{2}\right)^{1/2}.
+    \end{equation}
 
-    En la desigualdad anterior se ha conseguido que el argumento de la suma sea siempre no negativo, lo que permite extender su dominio de $X$ a $V(G)$. De esta manera, usando a la cota proveniente de la conentración de los grados en los vértices de $G$, se prueba el resultado continuando desde \eqref{ec_prop_6}:\medskip
+    En la desigualdad anterior se ha conseguido que el argumento de la suma sea siempre no negativo, lo que permite extender su dominio de $X$ a $V(G)$. De esta manera, usando a la cota proveniente de la conentración de los grados en los vértices de $G$, se prueba el resultado continuando desde \eqref{ec_prop_6}:
 
     \begin{align*}
-        \Big|e(X,Y) - p|X||Y|\Big| &\leq n^{1/2}\left( \displaystyle\sum_{x\in V(G)} (\deg(x;Y) - p|Y|)^{2}\right)^{1/2}\\
+        \Big|e(X,Y) &- p|X||Y|\Big| \leq n^{1/2}\left( \displaystyle\sum_{x\in V(G)} (\deg(x;Y) - p|Y|)^{2}\right)^{1/2}\\
         &= n^{1/2}\left( \displaystyle\sum_{x\in V(G)} \deg(x; Y)^{2} - 2p|Y|\displaystyle\sum_{x\in V(G)} \deg(x;Y) + \displaystyle\sum_{x\in V(G)} p^{2}|Y|^{2}\right)^{1/2}\\
         &= n^{1/2}\left( 2p^{2}n|Y|^{2} - p^{2}n|Y|^{2} + 2p|Y| |Y|pn  - 2p|Y| |Y|pn +  \displaystyle\sum_{y,y'\in Y} \cod(y, y') - 2p|Y|\displaystyle\sum_{y\in Y} \deg(y) \right)^{1/2}\\
         &= n^{1/2}\left( \displaystyle\sum_{y,y'\in Y} (\cod(y,y') - p^{2}n) - 2p|Y|\displaystyle\sum_{y\in Y} (\deg(y) - pn) \right)^{1/2}\\
@@ -1426,80 +1420,80 @@ Así, damos paso a las pruebas de cada proposición.\medskip
         %&\leq 7^{1/2}\delta^{1/4}n^{2}
         &< 3\delta^{1/4}n^{2}.
     \end{align*} 
-\end{proof}\medskip
+\end{proof}
 
 %%%%%%%%%% Proposición: EIG_p => COUNT_C4,p
 \begin{prop} \label{eig => C4}
-    Para todo $\varepsilon > 0$ y $p\in (0,1)$, existe $\delta > 0$ y $n_0\in \mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas satisface $\Count_{C_4,p} (\varepsilon)$ cada vez que cumpla con $\eig_p(\delta)$. En particular,\medskip
+    Para todo $\varepsilon > 0$ y $p\in (0,1)$, existe $\delta > 0$ y $n_0\in \mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas satisface $\Count_{C_4,p} (\varepsilon)$ cada vez que cumpla con $\eig_p(\delta)$. En particular,
 
     \[
         \eig_p \Rightarrow \Count_{C_4,p}.
     \]
-\end{prop}\medskip
+\end{prop}
 
 %%%%%%%%%% Demostración EIG_p => COUNT_C4,p
 \begin{proof}
-    Dado $\varepsilon > 0$ y $p\in (0,1)$, se elige $\delta < \frac{\varepsilon}{20}$ y $n_0\in\mathbb{N}$ suficientemente grande. Consideramos el grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas que satisface la propiedad $\eig_p (\delta)$, $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ como la matriz de adyacencia de $G$, y $\lambda_1 \geq \cdots \geq \lambda_n$ los valores propios de $A$.\medskip
+    Dado $\varepsilon > 0$ y $p\in (0,1)$, se elige $\delta < \frac{\varepsilon}{20}$ y $n_0\in\mathbb{N}$ suficientemente grande. Consideramos el grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas que satisface la propiedad $\eig_p (\delta)$, $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ como la matriz de adyacencia de $G$, y $\lambda_1 \geq \cdots \geq \lambda_n$ los valores propios de $A$.
 
-    Observe que la cantidad de copias etiquetadas de caminatas cerradas de largo 4 que no son $C_4$ en $G$ se encuentran dentro de un error de a lo más $\delta n^{4}$ con respecto al número de copias etiquetadas de $C_4$ en $G$. De esta observación, utilizando el Lema~\ref{potencia_matriz_adyacencia = caminatas} y el Corolario~\ref{Tr_Ak},\medskip
+    Recuerde que la cantidad de copias etiquetadas de caminatas cerradas de largo 4 que no son $C_4$ en $G$ se encuentran dentro de un error de a lo más $\delta n^{4}$ con respecto al número de copias etiquetadas de $C_4$ en $G$. Con esto, junto al Lema~\ref{potencia_matriz_adyacencia = caminatas} y el Corolario~\ref{Tr_Ak} se obtiene lo siguiente:
 
-    \begin{align} \label{ec_prop_7.1}
-        \left|\tbinom{G}{C_4}\right| &= \Tr(A^{4}) \pm \delta n^{4} \nonumber\\
-        &= \sum_{i = 1}^{n} \lambda_{i}^{4} \pm \delta n^{4} \nonumber\\
+    \begin{equation} \label{ec_prop_7.1}
+        \left|\tbinom{G}{C_4}\right| &= \Tr(A^{4}) \pm \delta n^{4} 
+        &= \sum_{i = 1}^{n} \lambda_{i}^{4} \pm \delta n^{4} 
         &= \lambda_{1}^{4} + \sum_{i = 2}^{n} \lambda_{i}^{4} \pm \delta n^{4}.
-    \end{align}
+    \end{equation}
 
-    Luego, recordando que  $\Tr(A^{2}) = 2e_G$, y usando $\eig_p (\delta)$,\medskip
+    Luego, recordando que  $\Tr(A^{2}) = 2e_G$, y usando $\eig_p (\delta)$,
 
     \begin{equation} \label{ec_prop_7.2}
         \sum_{i = 2}^{n} \lambda_{i}^{4} \leq \max_{i \not = 1}\lambda_{i}^{2}\sum_{i = 1}^{n} \lambda_{i}^{2} \leq \delta n^{2}\Tr(A^{2}) \leq \delta n^{2}(pn^{2} + 2\delta n^{2}) \leq 3\delta n^{4}.
-    \end{equation}\medskip
+    \end{equation}
 
-    Finalmente, se concluirá tras usar la propiedad $\eig_p (\delta)$ sobre el primer autovalor y la cota mostrada en \eqref{ec_prop_7.2}. Continuando desde la ecuación \eqref{ec_prop_7.1},\medskip
+    Finalmente, se concluirá tras usar la propiedad $\eig_p (\delta)$ sobre el primer autovalor y la cota mostrada en \eqref{ec_prop_7.2}. Entonces, continuando desde la ecuación \eqref{ec_prop_7.1},
 
     \[
         \left|\tbinom{G}{C_4}\right| = \lambda_{1}^{4} + \sum_{i = 2}^{n}\lambda_{i}^{4} \pm \delta n^{4} \leq p^{4}n^{4} + 20\delta n^{4}.
     \]
-\end{proof}\medskip
+\end{proof}
 
 %%%%%%%%%% Proposición: COUNT_C4,p => EIG_p
 \begin{prop} \label{C4 => eig}
-    Para todo $\varepsilon > 0$ y $p\in (0,1)$, existe $\delta > 0$ y $n_0\in\mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas satisface $\eig_p(\varepsilon)$ cada vez que cumpla la propiedad $\Count_{C_4, p}(\delta)$. Es decir,\medskip
+    Para todo $\varepsilon > 0$ y $p\in (0,1)$, existe $\delta > 0$ y $n_0\in\mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas satisface $\eig_p(\varepsilon)$ cada vez que cumpla la propiedad $\Count_{C_4, p}(\delta)$. Es decir,
 
     \[
         \Count_{C_4,p} \Rightarrow \eig_p .
     \]
-\end{prop}\medskip
+\end{prop}
 
 %%%%%%%%%% Demostración COUNT_C4,p => EIG_p
 \begin{proof}
-    Sea $\varepsilon > 0$ y $p\in (0,1)$, escogemos $\delta < \frac{\varepsilon^{4}}{4}$ y $n_0\in\mathbb{N}$ suficientemente grande. Sea también $G$ un grafo sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas que satisface la propiedad $\Count_{C_4, p}(\delta)$, $A\in\mathcal{M}_{n\times n}(\mathbb{R})$ la matriz de adyacencia de $G$, y $\lambda_1 \geq \cdots \geq \lambda_n$ los valores propios de $A$.\medskip
+    Sea $\varepsilon > 0$ y $p\in (0,1)$, escogemos $\delta < \frac{\varepsilon^{4}}{4}$ y $n_0\in\mathbb{N}$ suficientemente grande. Sea también $G$ un grafo sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas que satisface la propiedad $\Count_{C_4, p}(\delta)$, $A\in\mathcal{M}_{n\times n}(\mathbb{R})$ la matriz de adyacencia de $G$, y $\lambda_1 \geq \cdots \geq \lambda_n$ los valores propios de $A$.
 
-    En lo que respecta al primer autovalor, sabemos por un lado que éste es al menos el promedio de los grados gracias al Lema~\ref{cota_primer_autovalor}. Es decir,\medskip
+    En lo que respecta al primer autovalor, sabemos por un lado que éste es al menos el promedio de los grados gracias al Lema~\ref{cota_primer_autovalor}. Es decir,
 
     \begin{equation} \label{cota1_lambda1}
         \lambda_1 \geq \frac{\sum_{x\in V(G)}\deg(x)}{n} = \frac{2e_G}{n} = \frac{2}{n}\left( \frac{pn^{2}}{2} \pm \delta n^{2}\right) \geq pn - 2\delta n.
-    \end{equation}\medskip
+    \end{equation}
 
-    Por otro lado, mediante el Lema~\ref{potencia_matriz_adyacencia = caminatas}, el Corolario~\ref{Tr_Ak} y la propiedad $\Count_{C_4,p}(\delta)$,\medskip
+    Por otro lado, mediante el Lema~\ref{potencia_matriz_adyacencia = caminatas}, el Corolario~\ref{Tr_Ak} y la propiedad $\Count_{C_4,p}(\delta)$,
 
     \begin{equation} \label{cota2_lambda1}
         \lambda_{1}^{4} \leq \sum_{i = 1}^{n}\lambda_{i}^{4} = \Tr(A^{4}) = \left| \tbinom{G}{C_4}\right| \pm \delta n^{4} \leq p^{4}n^{4} + 2\delta n.
-    \end{equation}\medskip
+    \end{equation}
 
-    La desigualdad \eqref{cota2_lambda1} implica que $\lambda_1 \leq pn + (2\delta)^{1/4} n$, y en combinación con la cota vista en $\eqref{cota1_lambda1}$, se obtiene que $\lambda_1 = pn \pm (2\delta)^{1/4} n$.\medskip
+    La desigualdad \eqref{cota2_lambda1} implica que $\lambda_1 \leq pn + (2\delta)^{1/4} n$, y en combinación con la cota vista en $\eqref{cota1_lambda1}$, se obtiene que $\lambda_1 = pn \pm (2\delta)^{1/4} n$.
 
-    Por último, observe por las cotas vistas anteriormente,\medskip
+    Por último, observe por las cotas vistas anteriormente que
 
     \begin{align*}
         \max_{i\not= 1} |\lambda_1|^{4} &\leq \sum_{i = 2}^{n} \lambda_{i}^{4} + \lambda_1^{4} - \lambda_1^{4} \\
         &= \Tr(A^{4}) - \lambda_{1}^{4}\\
         &\leq p^{4}n^{4}  + 2\delta n^{2} - p^{4}n^{4} + 2\delta n^{4}\\
         &= 4\delta n^{4}.
-    \end{align*}\medskip
+    \end{align*}
 
     De esta manera, se logra probar el resultado determinando que $\displaystyle\max_{i \not= 1}|\lambda_i| \leq (4\delta)^{1/4}n$. 
-\end{proof}\medskip
+\end{proof}
 
 \subsection{Aspectos adicionales}\medskip
 
