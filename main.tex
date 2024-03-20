@@ -267,17 +267,13 @@ Un \textbf{grafo} es un par $G = (V,E)$, donde $V$ representa el conjunto de \te
     \caption{Ejemplo de un grafo con conjunto de vértices $V = \lbrace 1,2,3,4,5\rbrace$ y conjunto de aristas $E = \lbrace \lbrace1,2\rbrace, \lbrace2,3\rbrace, \lbrace1,3\rbrace, \lbrace4,5\rbrace\rbrace$.}
 \end{figure}
 
-Dado un grafo cualquiera $G = (V,E)$, se define su \textbf{complemento} como un nuevo grafo $\overline{G} = (V, \tbinom{V}{2}\setminus E)$. Es decir, dos vértices están conectados por una arista en $G$ si y solo si no lo están en $\overline{G}$.
-
-Consideramos $G = (V,E)$ un grafo cualquiera. Si $u,v\in V$, se dirá que $u$ es \textbf{adyacencte} a $v$ (o viceversa) si y solamente si $\lbrace u,v\rbrace\in E$. Si $X,Y\subset$ son dos subconjuntos no necesariamente disjuntos, se define el conjunto de tuplas que forman una arista en $G$ de la siguiente manera:
+Dado un grafo cualquiera $G = (V,E)$, se define su \textbf{complemento} como un nuevo grafo $\overline{G} = (V, \tbinom{V}{2}\setminus E)$. Es decir, dos vértices están conectados por una arista en $G$ si y solo si no lo están en $\overline{G}$. Para $u,v\in V$, se dirá que $u$ es \textbf{adyacente} a $v$ (o viceversa) si y solamente si $\lbrace u,v\rbrace\in E$. Si $X,Y\subset$ son dos subconjuntos no necesariamente disjuntos, se define el conjunto de tuplas que forman una arista en $G$ de la siguiente manera:
 
 \begin{equation} \label{eq e(X,Y)}
     e(X,Y) := \Big|\lbrace (x,y)\in X\times Y : \lbrace x,y\rbrace\in E\rbrace\Big|.
 \end{equation}
 
-Cuando $X\cap Y = \emptyset$, $e(X,Y)$ cuenta el número de aristas entre $X$ e $Y$, y cuando $X\cap Y\not=\emptyset$, $e(X,Y)$ realiza un doble conteo sobre las aristas que se encuentran en $X\cap Y$.
-
-Se entenderá por \textbf{vecindad} de $u\in V$, $N(u)$, como el conjunto de todos los vértices adyacentes a $u$, es decir,
+Cuando $X\cap Y = \emptyset$, $e(X,Y)$ cuenta el número de aristas entre $X$ e $Y$, y cuando $X\cap Y\not=\emptyset$, $e(X,Y)$ realiza un doble conteo sobre las aristas que se encuentran en $X\cap Y$. Se entenderá por \textbf{vecindad} de $u\in V$, $N(u)$, como el conjunto de todos los vértices adyacentes a $u$, es decir,
 
 \begin{equation} \label{vecindad}
     N(u) := \lbrace v\in V(G) : \lbrace u,v\rbrace\in E(G)\rbrace.
@@ -474,11 +470,11 @@ Otro concepto relevante en este trabajo son las diferentes nociones de rutas que
             &23652 \equiv \text{ciclo de largo 4.}
         \end{align*}
     \end{minipage}
-    \caption{Ejemplo de una caminata, un camino y un ciclo.}
+    \caption{Ejemplo de una caminata y un ciclo.}
     \label{ej caminos}
 \end{figure}
 
-Por otro lado, de cara a estudiar posteriormente relaciones estructurales entre grafos, se define un \textbf{isomorfismo} entre los grafos $H$ y $G$ como una biyección $f: V(H)\to V(G)$ tal que $\lbrace u,v\rbrace\in E(H)$ si y solamente si $\lbrace f(u)f(v)\rbrace \in E(G)$. Si existe tal biyección, diremos que $H$ y $G$ son isomorfismos.
+Por otro lado, para estudiar posteriormente relaciones estructurales entre grafos, se define un \textbf{isomorfismo} entre los grafos $H$ y $G$ como una biyección $f: V(H)\to V(G)$ tal que $\lbrace u,v\rbrace\in E(H)$ si y solamente si $\lbrace f(u)f(v)\rbrace \in E(G)$. Si existe tal biyección, diremos que $H$ y $G$ son isomorfismos.
 
 Finalmente, se entenderá como una \textbf{copia etiquetada} de un grafo $H$ en $G$ a una aplicación inyectiva $f: V(H)\to V(G)$ tal que $\lbrace f(u)f(v)\rbrace\in E(G)$ cada vez que $\lbrace u,v\rbrace\in E(H)$. Se denota por $\tbinom{G}{H}$ al conjunto de copias etiquetadas de $H$ en $G$.
 
@@ -538,7 +534,7 @@ Si $A,B\in\mathcal{M}_{n\times n}(\mathbb{R})$, entonces la traza resulta invari
     \Tr(AB) = \sum_{i=1}^{n}\left( \sum_{j=1}^{n} a_{ij}b_{ji}\right) = \sum_{j=1}^{n}\left( \sum_{i=1}^{n} a_{ij}b_{ji}\right) = \Tr(BA).
 \end{equation*}
 
-Una manera muy útil de representar un grafo es mediante una matriz cuadrada binaria, en la que sus filas y columnas representarán todos los vértices del grafo. La matriz adopta el valor $1$ en las coordenadas en que sus respectivos vértices forman una arista, y $0$ en otro caso. Bajo esta representación se consigue una visión clara y eficiente entre las relaciónes de los vértices del grafo, y se gozan de las propiedades que ofrece el álgebra lineal.
+Una manera muy útil de representar un grafo es mediante una matriz cuadrada binaria, en la que sus filas y columnas representarán todos los vértices del grafo. La matriz adopta el valor $1$ en las coordenadas en que sus respectivos vértices forman una arista, y $0$ cuando no. Bajo esta representación se consigue una visión clara y eficiente entre las relaciónes de los vértices del grafo, y se gozan de las propiedades que ofrece el álgebra lineal.
 
 %%%% Definición formal matriz de adyacencia
 \begin{definicion}
@@ -607,7 +603,7 @@ Observe que la representación anterior resulta siempre en una matriz simétrica
     \end{pmatrix}
 \end{equation}.
 
-Otro aspecto interesante de la matriz de adyacencia que será de utilidad en la sección \ref{Sec. LRS}, es que nos permite reescribir la ecuación \eqref{eq e(X,Y)} en función de ella. Para ver esto, consideramos la matriz de adyacencia $A$ del grafo $G = ([n], E)$, y los vértices $i,j\in [n]$. Luego, por la definición de $A$,
+Otro aspecto interesante de la matriz de adyacencia que será de utilidad en la sección \ref{Sec. LRS}, es que nos permite reescribir la ecuación \eqref{eq e(X,Y)} en función de ella. Para ver esto, considere la matriz de adyacencia $A$ del grafo $G = ([n], E)$, y los vértices $i,j\in [n]$. Luego, por la definición de $A$,
 
 \begin{equation*}
     e(\lbrace i\rbrace, \lbrace j\rbrace) = \boldsymbol{e}_i^{T} A \boldsymbol{e}_{j} = a_{ij}.
@@ -811,39 +807,39 @@ Usualmente, el primer autovalor de todo grafo juega un papel protagónico. Para 
 
 El objetivo de la presente sección es proporcionar un breve contexto teórico para abordar más adelante la noción y propiedades de los grafos \emph{cuasi-aleatorios}. Para ello, se asumirán los conceptos básicos asociados a la teoría de la probabilidad.
 
-De manera intuitiva, se podría pensar en primera instancia en un \emph{grafo aleatorio} de $n$ vértices como el resultado de selecciar aleatoriamente un subconjunto de aristas de $K_n$. La manera de seleccionar dicho subconjunto de aristas determina el tipo de modelo de grafo aleatorio. El modelo más popular, propuesto por Edgar Gilbert en 1959 \fs{referencia}, contempla una estructura que se desarrolla algoritmicamente agregando una arista a la vez, en la que comenzando con el grafo vacío $\overline{K_n}$, se decide iterativamente si existe una arista entre cada par de vértices del grafo con probabilidad $p$.
+De manera intuitiva, se podría pensar en primera instancia en un \emph{grafo aleatorio} de $n$ vértices como el resultado de selecciar aleatoriamente un subconjunto de aristas de $K_n$. La manera de seleccionar dicho subconjunto de aristas determina el tipo de modelo de grafo aleatorio. El modelo más popular, propuesto por Edgar Gilbert en 1959 \fs{referencia}, contempla una estructura que se desarrolla algoritmicamente agregando una arista a la vez, en la que comenzando con el grafo vacío $\overline{K_n}$, se decide iterativamente si existe una arista entre cada par de vértices del grafo con probabilidad independiente $p$.
 
-Cada repetición del proceso anterior genera un nuevo grafo de $n$ vértices. El conjunto de todos esos grafos constituye un espacio de probabilidad, al que denotaremos por $G(n,p)$ y llamaremos modelo binomial. Entonces, considerando $G^{n}$ como el conjunto de todos los grafos de $n$ vértices, se define formalmente.
+Cada repetición del proceso anterior genera un nuevo grafo de $n$ vértices. El conjunto de todos esos grafos constituye un espacio de probabilidad, al que denotaremos por $G(n,p)$ y llamaremos modelo binomial. Entonces, considerando $\mathcal{G}^{n}$ como el conjunto de todos los grafos de $n$ vértices, se define formalmente.
 
 \begin{definicion} (Modelo binomial)
-    Sea $p\in (0,1)$. Se define $G(n,p)$ como el espacio de probabilidad $\left( G^{n}, \mathcal{P}(G^{n}), \mathbb{P}\right)$, con
+    Sea $p\in (0,1)$. Se define $G(n,p)$ como el espacio de probabilidad $\left( \mathcal{G}^{n}, \mathcal{P}(\mathcal{G}^{n}), \mathbb{P}\right)$, con
 
     \begin{equation*}
-        \mathbb{P}\left(G(n,p) = G\right) = p^{e_G}(1-p)^{\tbinom{n}{2} - e_G}\ \ ,\ \ \forall G\in G(n,p).
+        \mathbb{P}\left(G(n,p) = G\right) = p^{e_G}(1-p)^{\tbinom{n}{2} - e_G}\ \ ,\ \ \forall G \sim G(n,p). 
     \end{equation*}
 \end{definicion}
 
 Se adopta el modelo binomial como referencia para trabajar más adelante con el concepto de un grafo \emph{cuasi-aleatorio}. La mayoría de la literatura sobre grafos aleatorios dedica su contenido a los casos en que $p=p(n)\to 0$ cuando $n\to\infty$. En esta tesis, se considera $p\in (0,1)$ constante.
 
-A continuación, se presenta sin demostración una de las cotas más importantes de la teoría de la probabilidad, la \emph{desigualdad de Chernov}. Existen diferentes formas de expresar la desigualdad de Chernov, y cada una varía levemente en su hipótesis. En esta tesis se estudia el resultado para el caso en que cada variable aleatoria solo tomar valores $0$ o $1$, como se plantea en \fs{referencia} en la ecuación (2.12) de la observación 2.5. 
+A continuación, se presenta sin demostración una de las cotas más importantes de la teoría de la probabilidad, la \emph{desigualdad de Chernov}. Existen diferentes formas de expresar la desigualdad de Chernov, y cada una varía levemente en su hipótesis. En esta tesis se estudia el resultado para el caso en que cada variable aleatoria solo toma valores $0$ o $1$, como se plantea en \fs{referencia} en la ecuación (2.12) de la observación 2.5. 
 
 %%%% Desigualdad de Chernov
 \begin{teorema} \label{desigualdad_Chernov} (Desigualdad de Chernov)
-    Sean $X_1,...,X_n$ variables aleatorias independientes tales que $X_i = 1$ con probabilidad $p$, y $X_i = 0$ con probabilidad $1-p$. Entonces, si $X = \sum_{i=1}^{n}X_i$, se satisface
+    Sean $X_1,...,X_N$ variables aleatorias independientes tales que $X_i = 1$ con probabilidad $p$, y $X_i = 0$ con probabilidad $1-p$. Entonces, si $X = \sum_{i=1}^{N}X_i$, se satisface
 
     \begin{equation*}
-        \mathbb{P}(\left| X - \mathbb{E}[X]\right| > t) \leq 2\exp\left(-\frac{2t^{2}}{n}\right)\ \ ,\ \ \forall t \geq 0.
+        \mathbb{P}(\left| X - \mathbb{E}[X]\right| > t) \leq 2\exp\left(-\frac{2t^{2}}{N}\right)\ \ ,\ \ \forall t \geq 0.
     \end{equation*}
 \end{teorema}
 
-Por otro lado, diremos que $\mathcal{P}_{n}\subset G^{n}$ es una propiedad de grafos si es cerrada bajo isomorfismos de grafos. Más aún, $G$ satisface la propiedad $\mathcal{P}_{n}$ \textbf{con alta probabilidad} si $\mathbb{P}(G\in\mathcal{P}_{n})\to 1$ cuando $n\to\infty$. Dicho esto, se probará que todo grafo en $G(n,p)$ posee casi seguramente una distribución uniforme de aristas a lo largo de todo el grafo.
+Por otro lado, diremos que $\mathcal{P}_{n}\subset \mathcal{G}^{n}$ es una propiedad de grafos si es cerrada bajo isomorfismos de grafos. Más aún, $G$ satisface la propiedad $\mathcal{P}_{n}$ \textbf{con alta probabilidad} si $\mathbb{P}(G\in\mathcal{P}_{n})\to 1$ cuando $n\to\infty$. Dicho esto, se probará que todo grafo en $G(n,p)$ posee casi seguramente una distribución uniforme de aristas a lo largo de todo el grafo.
 
 %%%% Grafo aleatorio sat. DISC
 \begin{prop}
-    Sea $\varepsilon > 0$ y $p\in(0,1)$. Si $G\in G(n,p)$, entonces satisface con alta probabilidad la siguiente propiedad:
+    Sea $\varepsilon > 0$ y $p\in(0,1)$. Si $G\sim G(n,p)$, entonces satisface con alta probabilidad la siguiente propiedad:
 
     \begin{equation*}
-        \mathcal{P}_{n}^{p,\varepsilon} := \lbrace G\in G^{n} : \big| e(A,B) - p|A||B|\big|\leq \varepsilon n^{2}\ ,\ \forall A,B\in V(G)\rbrace.
+        \mathcal{P}_{n}^{p,\varepsilon} := \lbrace G\in \mathcal{G}^{n} : \big| e(A,B) - p|A||B|\big|\leq \varepsilon n^{2}\ ,\ \forall A,B\in V(G)\rbrace.
     \end{equation*}
 \end{prop}
 %%%% Demostración Grafo aleatorio sat. DISC
@@ -1028,7 +1024,7 @@ Por otro lado, diremos que $\mathcal{P}_{n}\subset G^{n}$ es una propiedad de gr
 %
 \section{Cuasi-aleatoriedad} \label{cuasi-aleatoriedad}
 
-Trabajar con estructuras discretas aleatorias nos brinda una amplia gama de propiedades ideales y/o deseables, lo que las convierte en piezas fundamenteles tanto en matemáticas como en ciencias de la computación. Por ejemplo, el modelo de grafo aleatorio binomial goza de una distribución uniforme de aristas, buenas propiedades y es robusto. La cuestión ahora es cómo capturar las propiedades esenciales de la aleatoriedad dentro de un marco \emph{determinista}. Esta idea condujo a la noción de cuasi-aleatoriedad, que en la actualidad, es un tópico central en las matemáticas discretas. En términos generales, las propiedades cuasi-aleatorias son características deterministas que son propias de objetos realmente aleatorios. Aunque la noción de cuasi-aleatoriedad es interesante por sí misma, su estudio ha revelado profundas conexiones entre varias ramas de la matemática y ciencias de la computación, encontrando aplicaciones en teoría de grafos, teoría de números, teoría ergódica, geometría, y algoritmos y complejidad.
+Trabajar con estructuras discretas aleatorias brinda una amplia gama de propiedades ideales y/o deseables, lo que las convierte en piezas fundamenteles tanto en matemáticas como en ciencias de la computación. Por ejemplo, el modelo de grafo aleatorio binomial goza de una distribución uniforme de aristas, buenas propiedades y es robusto. La cuestión ahora es cómo capturar las propiedades esenciales de la aleatoriedad dentro de un marco \emph{determinista}. Esta idea condujo a la noción de cuasi-aleatoriedad, que en la actualidad, es un tópico central en las matemáticas discretas. En términos generales, las propiedades cuasi-aleatorias son características deterministas que son propias de objetos realmente aleatorios. Aunque la noción de cuasi-aleatoriedad es interesante por sí misma, su estudio ha revelado profundas conexiones entre varias ramas de la matemática y ciencias de la computación, encontrando aplicaciones en teoría de grafos, teoría de números, teoría ergódica, geometría, y algoritmos y complejidad.
 
 Como se verá a detalle más adelante en la sección \ref{Sec. LRS}, una de las razones principales por las cuales el estudio de la cuasi-aleatoriedad no se limita a un área específica, es el hecho de que existe un teorema de partición que permite la aproximación de cualquier objeto discreto por otros cuasi-aleatorios. Con esto, nos referimos al célebre lema de regularidad de Szemerédi, que establece que todo grafo se puede aproximar mediante un número finito de grafos cuasi-aleatorios, permitiendo la conexión entre un grafo arbitrario y los cuasi-aleatorios.
 
@@ -1435,7 +1431,7 @@ Así, damos paso a la demostración de cada proposición considerada en el esque
 \begin{proof}
     Dado $\varepsilon > 0$ y $p\in (0,1)$, se elige $\delta < \frac{\varepsilon}{20}$ y $n_0\in\mathbb{N}$ suficientemente grande. Consideramos el grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas que satisface la propiedad $\eig_p (\delta)$, $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ como la matriz de adyacencia de $G$, y $\lambda_1 \geq \cdots \geq \lambda_n$ los valores propios de $A$.
 
-    Recuerde que la cantidad de copias etiquetadas de caminatas cerradas de largo 4 que no son $C_4$ en $G$ se encuentran dentro de un error de a lo más $\delta n^{4}$ con respecto al número de copias etiquetadas de $C_4$ en $G$. Con esto, junto al Lema~\ref{potencia_matriz_adyacencia = caminatas} y el Corolario~\ref{Tr_Ak} se obtiene lo siguiente:
+    Recuerde que la cantidad de copias etiquetadas de caminatas cerradas de largo 4, que no son $C_4$, en $G$ se encuentran dentro de un error de a lo más $\delta n^{4}$ con respecto al número de copias etiquetadas de $C_4$ en $G$. Con esto, junto al Lema~\ref{potencia_matriz_adyacencia = caminatas} y el Corolario~\ref{Tr_Ak} se obtiene lo siguiente:
 
     \begin{equation} \label{ec_prop_7.1}
         \left|\tbinom{G}{C_4}\right| &= \Tr(A^{4}) \pm \delta n^{4} 
@@ -1495,11 +1491,11 @@ Así, damos paso a la demostración de cada proposición considerada en el esque
     De esta manera, se logra probar el resultado determinando que $\displaystyle\max_{i \not= 1}|\lambda_i| \leq (4\delta)^{1/4}n$. 
 \end{proof}
 
-\subsection{Aspectos adicionales}\medskip
+\subsection{Aspectos adicionales del teorema de CGW}
 
-La noción inicial de un grafo casi-aleatorio por distribución de aristas presentada en la Definición \ref{casi-aleatoriedad} contempla verificar si todos los subconjuntos de vértices del grafo satisfacen su condición para determinar la casi-aleatoriedad de un grafo. Es decir, se debe corroborar sobre $2^{|X|}$ subconjuntos. Por esto, resulta sorprendente que la propiedad, aparentemente más débil, $\Count_{C_{4},p}$ sea una caracterización equivalente a todas las condiciones de casi-aleatoriedad que establece el teorema, puesto a que se verifica de manera polinomial. \fs{En verdad las otras también, pero siento que quizás le deba dar más énfasis a C4. Modifico el párrafo anterior??}\medskip
+La noción inicial presentada de un grafo cuasi-aleatorio por distribución de aristas según la Definición \ref{cuasi-aleatoriedad} contempla verificar si todo par de subconjuntos de vértices del grafo satisfacen la condición $\disc_p$ para determinar la cuasi-aleatoriedad. En otras palabras, se requiere verificar un número exponencial de subconjuntos. Por esto, resulta sorprendente que tal propiedad sea equivalente a todas las otras (salvo $\discp_p$), debido a que se verifican de manera polinomial. Otro aspecto interesante es que la propiedad más débil $\Count_{C_4,p}$, que solo requiere que la condición de conteo sea verdadera para el ciclo $C_4$, sea suficientemente sólida para implicar la afirmación de conteo de la propiedad $\Count_{p}$; que dice que el número etiquetadas de cualquier grafo $F$ de tamaño fijo en $G=([n],E)$ es aproximadamente el esperado de los grafos aleatorios $G(n,p)$.
 
-Una pregunta natural al observar la propiedad $\Count_{C_{4},p}$ es: ¿Podemos debilitar la condición para un conteo esperado de copias etiquetadas de $K_3$?. La respuesta es no, de hecho, la propiedad puede ser extendida a $\Count_{C_{2t},p}$ con $t\geq 2$. Es decir, para el grafo $G$,\medskip
+\fs{Cambiar el enfoque de este párrafo.} Una pregunta natural al observar la propiedad $\Count_{C_{4},p}$ es: ¿Podemos debilitar la condición para un conteo esperado de copias etiquetadas de $K_3$?. La respuesta es no, de hecho, la propiedad puede ser extendida a $\Count_{C_{2t},p}$ con $t\geq 2$. Es decir, para el grafo $G$,\medskip
 
 \[
     \Count_{C_{2t},p} :\ \left| \tbinom{G}{C_{2t}}\right| = \left( p^{2t} + o(1)\right)n^{2t}\ ,\ \forall t\geq 2.
