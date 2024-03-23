@@ -540,7 +540,7 @@ Una manera muy útil de representar un grafo es mediante una matriz cuadrada bin
     \begin{equation*}
         a_{ij} =
         \begin{cases}
-            1 & \mathrm{si}\  ij\in E(G)\\
+            1 & \mathrm{si}\  ij\in E(G),\\
             0 & \mathrm{en\ otro\ caso.}
         \end{cases}
     \end{equation*}
@@ -630,18 +630,17 @@ Es importante destacar que la matriz de adyacencia no solo describe las conexion
     \end{equation*}
 \end{proof}
 
-Una consecuencia directa de la proposición anterior, es que en cualquier grafo $G = ([n], E)$ con matriz de adyacencia $A$ se puede representar la cantidad total de caminatas cerradas de largo $t$ por medio de la traza, $\Tr(A^{t}) = \sum_{i=1}^{n}a_{ii}^{(t)}$. Con esto, note que $\Tr(A^{2}) = 2e_G$.\medskip
+Una consecuencia directa de la proposición anterior, es que en cualquier grafo $G = ([n], E)$ con matriz de adyacencia $A$ se puede representar la cantidad total de caminatas cerradas de largo $t$ por medio de la traza, $\Tr(A^{t}) = \sum_{i=1}^{n}a_{ii}^{(t)}$. Con esto, note que $\Tr(A^{2}) = 2e_G$.
 
 Por otro lado, para introducir algunos aspectos de la teoría espectral de grafos, recuerde que el vector no nulo $\boldsymbol{v}\in \mathbb{R}^{n}$ es un \textbf{vector propio} de alguna matriz $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ con \textbf{valor propio} $\lambda\in \mathbb{C}$ si $A\boldsymbol{v}=\lambda \boldsymbol{v}$. Esto significa que $\lambda$ es un valor propio si y solo si $\lambda I_{n} - A$ es una matriz singular. Así, los valores propios vienen dados por las raíces del polinomio característico $\det(xI_{n} - A)$. En este trabajo, cuando se haga referencia a los valores y vectores propios de un grafo $G$, siempre será con respecto a su matriz de adyacencia $A$. Por ejemplo. si $G$ es un grafo $d$-regular, entonces con la igualdad \eqref{A1=Mdeg} se puede deducir que $d$ es el valor propio asociado al vector propio normalizado de $1$-entradas de la matriz de adyacencia $A_G$.
 
 %%%% Proposición: VP relaes y vectores ortogonales.
 \begin{prop}
-    Sea $A\in\mathcal{M}_{n\times n}(\mathbb{R})$ una matriz real simétrica, entonces todos sus valores propios son reales. Además, si dos vectores propios están asociados a distintos valores propios, entonces éstos son ortogonales. Más aún, el conjunto de todos los vectores propios definen  una base ortonormal de $\mathbb{R}^{n}$.
+    Sea $A\in\mathcal{M}_{n\times n}(\mathbb{R})$ una matriz real simétrica, entonces todos sus valores propios son reales. Además, si dos vectores propios están asociados a distintos valores propios, entonces éstos son ortogonales. Más aún, el conjunto de todos los vectores propios define una base ortonormal de $\mathbb{R}^{n}$.
 \end{prop}
-
 %%%% Demostración
 \begin{proof}
-    Se comienza probando que los valores propios de $A$ son reales. Sea $\lambda$ un valor propio de $A$ y $\boldsymbol{x}\not=0$ su correspondiente vector propio, satisfaciendo $A\boldsymbol{x} = \lambda \boldsymbol{x}$. Tomando su conjugado (denotado por $\overline{z}$ al complejo conjugado de $z\in\mathbb{C}$), se obtiene paralelamente que
+    Se comienza probando que los valores propios de $A$ son reales. Sea $\lambda$ un valor propio de $A$ y $\boldsymbol{x}\not=0$ su correspondiente vector propio. Tomando su conjugado (denotado por $\overline{z}$ al complejo conjugado de $z\in\mathbb{C}$), se obtiene paralelamente que
 
     \begin{equation*}
         \begin{aligned}
@@ -713,7 +712,7 @@ Luego, de manera inductiva se obtiene que $A^{k} = P D^{k}P^{T}$. Esta propiedad
 
 %%%% Proposición: traza = suma valores propios
 \begin{prop} \label{Tr = autvalor}
-    La traza de toda matriz simétrica $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ es igual a la suma de sus autovalores.
+    La traza de toda matriz simétrica $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ es igual a la suma de sus valores propios.
 \end{prop}
 
 %%%% Demostración : traza = suma valores propios
@@ -739,12 +738,12 @@ El siguiente corolario extiende el resultado anterior sobre cualquier potencia d
 
 %%%% Corolario: Traza potencia k
 \begin{corolario} \label{Tr_Ak}
-    Sea $A \in\mathcal{M}_{n\times n}(\mathbb{R})$ una matriz simétrica y $\lambda_1 ,...,\lambda_n$ sus autovalores, entonces se cumple $\Tr(A^{k}) = \sum_{i = 1}^{n}\lambda_{i}^{k}$.
+    Sea $A \in\mathcal{M}_{n\times n}(\mathbb{R})$ una matriz simétrica y $\lambda_1 ,...,\lambda_n$ sus valores propios, entonces se cumple $\Tr(A^{k}) = \sum_{i = 1}^{n}\lambda_{i}^{k}$.
 \end{corolario}
 
 %%%% Demostración corolario traza potencia k
 \begin{proof}
-    El resultado sigue de utilizar que la traza de la multiplicación de dos matrices es invariante bajo orden del producto,
+    El resultado sigue de utilizar que la traza de la multiplicación de dos matrices es invariante bajo el orden de la multiplicación,
 
     \begin{align*}
         \Tr(A^{k}) = \Tr([PDP^{T}]^{k})
@@ -761,7 +760,7 @@ De esta manera, la cantidad de caminatas cerradas de largo $k$ entre dos vértic
     \left| \tbinom{G}{C_k}\right| = \Tr(A^{k}) + o(n^{k}) = \sum_{i=1}^{n}\lambda_{i}^{k} + o(n^{k})
 \end{equation}
 
-Por otro lado, es posible caracterizar cada valor propio de una matriz real simétrica por medio del teorema de \emph{Courant-Fischer}. Se enuncia sin demostración.
+Finalmente, es posible caracterizar cada valor propio de una matriz real simétrica por medio del teorema de \emph{Courant-Fischer}. Se enuncia sin demostración.
 
 %%%% Teorema: Courant-Fischer
 \begin{teorema} \label{Teo Courant-Fischer} (Teorema de Courant-Fischer)
@@ -777,11 +776,11 @@ Por otro lado, es posible caracterizar cada valor propio de una matriz real sim�
     \end{itemize}
 \end{teorema}
 
-Usualmente, el primer autovalor de todo grafo juega un papel protagónico. Para los fines de estas tesis, es necesario establecer una cota inferior del primer autovalor.
+Usualmente, el primer valor propio de todo grafo juega un papel protagónico. Para los fines de estas tesis, es necesario establecer una cota inferior del primer valor propio.
 
 %%%% Proposición : Primer autovalor >= promedio grados
 \begin{prop}\label{cota_primer_autovalor}
-    El primer autovalor de la matriz de adyacencia de un grafo es al menos el promedio de los grados. En particular, cuando el grafo es $d$-regular, el primer autovalor coincide con $d$.
+    El primer valor propio de la matriz de adyacencia de un grafo es al menos el promedio de los grados. En particular, cuando el grafo es $d$-regular, el primer valor propio coincide con $d$.
 \end{prop}
 
 %%%% Demostración : Primer autovalor >= promedio grados
@@ -790,33 +789,40 @@ Usualmente, el primer autovalor de todo grafo juega un papel protagónico. Para 
 
     \begin{equation*}
         \lambda_1 = \sup_{\substack{\boldsymbol{x}\in \mathbb{R}^{n} \\ \boldsymbol{x}\not= 0}} \frac{\langle \boldsymbol{x}, A\boldsymbol{x}\rangle}{\langle \boldsymbol{x}, \boldsymbol{x}\rangle}
-        \geq \frac{\langle \Bbbbone, A\Bbbbone \rangle}{\langle \Bbbbone, \Bbbbone \rangle}
+        \geq \frac{\langle \boldsymbol{1}, A\boldsymbol{1} \rangle}{\langle \boldsymbol{1}, \boldsymbol{1} \rangle}
         = \frac{2e_G}{n}\\
         = \dfrac{\sum_{v\in V(G)} \deg(v)}{n}.
     \end{equation*}
 
-    Adicionalmente, con apoyo de la igualdad \eqref{A1=Mdeg}, usando la cota anterior se concluye que si $G$ es $d$-regular, entonces $\lambda_1 = d$.
+    Adicionalmente, con apoyo de la igualdad \eqref{A1=Mdeg} y usando la cota anterior, se concluye que $\lambda_1 = d$ cada vez que $G$ es un grafo $d$-regular.
 \end{proof}
 
 \subsection{Grafos aleatorios} \label{Grafos aleatorios}
 
-El objetivo de la presente sección es proporcionar un breve contexto teórico para abordar más adelante la noción y propiedades de los grafos \emph{cuasi-aleatorios}. Para ello, se asumirán los conceptos básicos asociados a la teoría de la probabilidad.
+El objetivo de la presente sección es proporcionar un breve contexto teórico para abordar más adelante la noción y propiedades de los grafos \emph{cuasi-aleatorios}.
 
-De manera intuitiva, se podría pensar en primera instancia en un \emph{grafo aleatorio} de $n$ vértices como el resultado de selecciar aleatoriamente un subconjunto de aristas de $K_n$. La manera de seleccionar dicho subconjunto de aristas determina el tipo de modelo de grafo aleatorio. El modelo más popular, propuesto por Edgar Gilbert en 1959 \fs{referencia}, contempla una estructura que se desarrolla algoritmicamente agregando una arista a la vez, en la que comenzando con el grafo vacío $\overline{K_n}$, se decide iterativamente si existe una arista entre cada par de vértices del grafo con probabilidad independiente $p$.
-
-Cada repetición del proceso anterior genera un nuevo grafo de $n$ vértices. El conjunto de todos esos grafos constituye un espacio de probabilidad, al que denotaremos por $G(n,p)$ y llamaremos modelo binomial. Entonces, considerando $\mathcal{G}^{n}$ como el conjunto de todos los grafos de $n$ vértices, se define formalmente.
+Intuitivamente, se podría pensar en un \emph{grafo aleatorio} de $n$ vértices como el resultado de seleccionar aleatoriamente un subconjunto de aristas de $K_n$. En 1959, Erd$\ddot{o}$s-Rényi y Edgar Gilbert\fs{referencia} proponen dicha selección de la siguiente manera: comenzando con un grafo sin aristas $G = ([n],\emptyset)$, decidir sobre cada par de vértices de $G$ si agregar una arista con una probabilidad $p$ previamente establecida. En cada repetición del proceso anterior se genera un nuevo grafo de $n$ vértices, que contribuye a la creación del espacio de probabilidad conocido como $G(n,p)$, y se denomina modelo binomial. Entonces, considerando $\mathcal{G}^{n}$ como el conjunto de todos los grafos de $n$ vértices, se define formalmente.
 
 \begin{definicion} (Modelo binomial)
     Sea $p\in (0,1)$. Se define $G(n,p)$ como el espacio de probabilidad $\left( \mathcal{G}^{n}, \mathcal{P}(\mathcal{G}^{n}), \mathbb{P}\right)$, con
 
     \begin{equation*}
-        \mathbb{P}\left(G(n,p) = G\right) = p^{e_G}(1-p)^{\tbinom{n}{2} - e_G}\ \ ,\ \ \forall G \sim G(n,p). 
+        \mathbb{P}\left(\lbrace G\rbrace\right) = p^{e_G}(1-p)^{\tbinom{n}{2} - e_G}\ \ ,\ \ \forall G \sim G(n,p). 
     \end{equation*}
 \end{definicion}
 
-Se adopta el modelo binomial como referencia para trabajar más adelante con el concepto de un grafo \emph{cuasi-aleatorio}. La mayoría de la literatura sobre grafos aleatorios dedica su contenido a los casos en que $p=p(n)\to 0$ cuando $n\to\infty$. En esta tesis, se considera $p\in (0,1)$ constante.
+Diremos que $\mathcal{P}_{n}\subset \mathcal{G}^{n}$ es una propiedad de grafos si es cerrada bajo isomorfismos de grafos. Más aún, $G$ satisface la propiedad $\mathcal{P}_{n}$ \textbf{con alta probabilidad} si $\mathbb{P}(\mathcal{P}_{n})\to 1$ cuando $n\to\infty$. Dicho esto, se probará que $G(n,p)$ posee una distribución de aristas en el siguiente sentido:
 
-A continuación, se presenta sin demostración una de las cotas más importantes de la teoría de la probabilidad, la \emph{desigualdad de Chernov}. Existen diferentes formas de expresar la desigualdad de Chernov, y cada una varía levemente en su hipótesis. En esta tesis se estudia el resultado para el caso en que cada variable aleatoria solo toma valores $0$ o $1$, como se plantea en \fs{referencia} en la ecuación (2.12) de la observación 2.5. 
+%%%% Grafo aleatorio sat. DISC
+\begin{prop} \label{G(n,p) sat DISC}
+    Sea $\varepsilon > 0$ y $p\in(0,1)$. Si $G\sim G(n,p)$, entonces satisface con alta probabilidad la siguiente propiedad:
+
+    \begin{equation*}
+        \mathcal{P}_{n}^{p,\varepsilon} := \lbrace G\in \mathcal{G}^{n} : \big| e(A,B) - p|A||B|\big|\leq \varepsilon n^{2}\ ,\ \forall A,B\subset V(G)\rbrace.
+    \end{equation*}
+\end{prop}
+
+Para dar prueba a la proposición anterior es necesario utilizar la desigualdad de Chernov. Existiendo diversas formas de expresar tal desigualdad, en esta tesis se utiliza el resultado para el caso en que cada variable aleatoria solo toma los valores 0 o 1, como se plantea en \fs{referencia} en la ecuación (2.12) de la observación 2.5.
 
 %%%% Desigualdad de Chernov
 \begin{teorema} \label{desigualdad_Chernov} (Desigualdad de Chernov)
@@ -827,48 +833,61 @@ A continuación, se presenta sin demostración una de las cotas más importantes
     \end{equation*}
 \end{teorema}
 
-Por otro lado, diremos que $\mathcal{P}_{n}\subset \mathcal{G}^{n}$ es una propiedad de grafos si es cerrada bajo isomorfismos de grafos. Más aún, $G$ satisface la propiedad $\mathcal{P}_{n}$ \textbf{con alta probabilidad} si $\mathbb{P}(G\in\mathcal{P}_{n})\to 1$ cuando $n\to\infty$. Dicho esto, se probará que todo grafo en $G(n,p)$ posee casi seguramente una distribución uniforme de aristas a lo largo de todo el grafo.
+Con esto, damos paso a la demostración prometida.
 
-%%%% Grafo aleatorio sat. DISC
-\begin{prop}
-    Sea $\varepsilon > 0$ y $p\in(0,1)$. Si $G\sim G(n,p)$, entonces satisface con alta probabilidad la siguiente propiedad:
-
-    \begin{equation*}
-        \mathcal{P}_{n}^{p,\varepsilon} := \lbrace G\in \mathcal{G}^{n} : \big| e(A,B) - p|A||B|\big|\leq \varepsilon n^{2}\ ,\ \forall A,B\in V(G)\rbrace.
-    \end{equation*}
-\end{prop}
-%%%% Demostración Grafo aleatorio sat. DISC
-\begin{proof}
-    Al pendiente de resolver el cálculo de la esperanza
-\end{proof}
-
-%%%%% Proposición: Distribución de aristas grafo aleatorio binomial
-%\begin{prop}
-    Sea $p\in (0,1)$, $G\in G(n,p)$ y $X,Y\subset V(G)$. Entonces la cantidad de aristas esperadas entre $X$ e $Y$ es $p|X||Y|$.
-%\end{prop}
-%%%%% Demostración
-%\begin{proof}
-    Enumere las aristas del grafo bipartito completo $K_{|X|,|Y|}$ desde $1$ hasta $|X||Y|$, y para cada arista $1\leq i\leq |X||Y|$, considere $Z_i$ como la siguiente variable aleatoria indicadora:
+%%%% Demostración G(n,p) sat DISC
+\begin{proof}[Demostración Proposición \ref{G(n,p) sat DISC}]
+    Dado $p\in (0,1)$ y $\varepsilon > 0$, considere $G\sim G(n,p)$ y $A,B\subset V(G)$. Defina la variable aleatoria $X = e(A,B) = \sum_{a\in A}\sum_{b\in B}$, en donde
 
     \begin{equation*}
-        Z_i =
+        X_{ab} =
         \begin{cases}
-            1 & \mathrm{si}\ i\in E(G)\\
-            0 & \mathrm{en\ otro\ caso.}
-        \end{cases}.
-    \end{equation*}\medskip
+            1 & \text{si } ab\in E(G),\\
+            0 & \text{en otro caso.}
+        \end{cases}
+    \end{equation*}
 
-    Así, la variable aleatoria $Z = \sum_{i=1}^{|X||Y|} Z_i$ cuenta el número total de aristas que existen entre $X$ e $Y$. Finalmente,
+    Para utilizar la cota de Chernov más adelante, se separa la variable aleatoria $X$ en sumas de variables aleatorias independientes. Vale decir $X = X_1 + X_2$, en donde
+
+    \begin{equation*}
+        \begin{aligned}
+            &X_1 = 2\sum_{ab\in\tbinom{A\cap B}{2}} X_{ab} & \text{ , y } & X_2 = \sum_{\substack{a\in A, b\in B \\ a\not= b \\ ab\not\in\tbinom{A\cap B}{2}}} X_{ab}.
+        \end{aligned}
+    \end{equation*}
+
+    Ahora, al calcular la esperanza de $X_1$ y $X_2$ se obtiene el siguiente resultado:
+
+    \begin{equation*}
+        \begin{aligned}
+            &\mathbb{E}[X_1] = \mu_1 = 2p\tbinom{|A\cap B|}{2} & \text{ , y } & \mathbb{E}[X_2] = \mu_2 = p\left( |A||B| - |A\cap B| - 2\tbinom{|A\cap B|}{2}\right).
+        \end{aligned}
+    \end{equation*}
+
+    Notando ahora que $|A||B|\leq n^{2}$, se utiliza la desigualdad de Chernov con $t=\frac{\varepsilon}{3}n^{2}$ sobre $i\in\lbrace 1,2\rbrace$ para obtener lo siguiente:
+
+    \begin{align} \label{bound_chernov}
+        \mathcal{P}\left( |X_i - \mu_i| > \frac{\varepsilon}{3}n^{2}\right) &\leq 2\exp\left( - \frac{2\left( \frac{\varepsilon}{3}n^{2}\right)^{2}}{|A||B|}\right)\nonumber\\
+        &\leq 2\exp\left( -\frac{2}{9}\varepsilon^{2}n^{2}\right).
+    \end{align}
+
+    Luego, si ocurre simultáneamente que $|X_1 - \mu_1| \leq \frac{\varepsilon}{3}n^{2}$ y $|X_2 - \mu_2|\leq \frac{\varepsilon}{3}n^{2}$, entonces
+
+    \begin{equation*}
+        \Big| X_1 + X_2 - (\mu_1 + \mu_2)\Big| \leq \frac{2}{3}\varepsilon n^{2}\ ,\ \forall A,B\in V(G).
+    \end{equation*}
+
+    Y así, como $\mu_1 + \mu_2 = p(|A||B| - |A\cap B|) = p|A||B| \pm \varepsilon n$, se tendrá que todo $A,B\subset V(G)$ satisface $\Big|X - p|A||B|\Big|\leq \varepsilon n^{2}$.
+
+    Por lo anterior, se concluye utilizando la cota de la unión de la siguiente manera:
 
     \begin{align*}
-        \mathbb{E}[Z] = \sum_{i=1}^{|X||Y|} \mathbb{E} [Z_i]
-        = \sum_{i=1}^{|X||Y|} \mathbb{P} (Z_i = 1)
-        = \sum_{i=1}^{|X||Y|} p
-        = p|X||Y|.
+        1 - \mathbb{P}(\mathcal{P}_{n}^{p,\varepsilon}) &= \mathbb{P}\left( \exists A,B\subset V(G) : \Big| X - p|A||B|\Big| > \varepsilon n^{2}\right) \\
+        &\leq \mathbb{P}\left( \exists A,B\subset V(G) : |X_1 - \mu_1| > \frac{\varepsilon}{3}n^{2} \lor |X_2 - \mu_2| > \varepsilon n^{2}\right)\\
+        &\leq \mathbb{P}\left( \exists A,B\subset V(G) : |X_1 - \mu_1| > \frac{\varepsilon}{3}n^{2}\right) + \mathbb{P}\left( |X_2 - \mu_2| > \frac{\varepsilon}{3}n^{2}\right)\\
+        &\leq \sum_{\substack{A\subset V(G) \\ B\subset V(G)}} \mathbb{P}\left( |X_1 - \mu_1| > \frac{\varepsilon}{3}n^{2}\right) + \sum_{\substack{A\subset V(G) \\ B\subset V(G)}} \mathbb{P}\left( |X_2 - \mu_2| > \frac{\varepsilon}{3}n^{2}\right)\\
+        &\overset{\eqref{bound_chernov}}{\leq} 2^{2n+1}\exp\left( -\frac{2}{9}\varepsilon^{2}n^{2}\right) \underset{n \to \infty}{\longrightarrow} 0.
     \end{align*}
-%\end{proof}
-
-
+\end{proof}
 
 % DEFINICIONES PENDIENTES!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 %\begin{enumerate}
@@ -885,138 +904,12 @@ Por otro lado, diremos que $\mathcal{P}_{n}\subset \mathcal{G}^{n}$ es una propi
 %    \end{definicion}
 %    \item $I_n \in \mathcal{M}_{n\times n}(\mathbb{R})$ denota la matriz %identidad.
 %\end{enumerate}
-
-
-
-
-
-
     
     %Además, se define la \textbf{densidad de aristas} entre $X$ e $Y$ %mediante\medskip
 %
     %\begin{equation}
     %    d(X,Y) := \frac{e(X,Y)}{|X||Y|}.
     %\end{equation} 
-
-
-
-
-
-
-
-
-
-
-
-
-%\newpage
-%Como ya mencionamos en la introducción, un grafo pseudo aleatorio es un objeto determinístico que luce como un grafo aleatorio. Pongámonos en la situación de que queremos generar un grafo aleatorio sobre $n$ vértices; quizás la manera más sencilla es el proceso de considerar todos los posibles pares $(u,v)$ de vértices en $G$, y decidir independientemente con probabilidad $1/2$ si $(u,v)$ es una arista o no. \\
-%
-%Formalmente hablando, un \emph{grafo aleatorio} $G(n,p)$ es el espacio de probabilidad de todos los grafos etiquetados sobre $n$ vértices $[n]:=\lbrace 1,...,n\rbrace$, donde para cada par $1\leq i < j\leq n$, $(i,j)$ es una arista de $G(n,p)$ con probabilidad $p=p(n)$ independiente de cualquier otra arista. En otras palabras, la probabilidad de un grafo $G=([n],E)$ de estar en $G(n,p)$ es $Pr[G]= p^{|E(G)|}(1-p)^{\tbinom{n}{2}-|E(G)|}$.\\
-%
-%Un resultado de esta área que nos ayudará más adelante con la pseudo-aleatoriedad es el siguiente:\\
-%
-%\begin{flushleft}
-%    \textbf{Teorema 1.-} Sea $p=p(n)\leq 0.99$, entonces casi seguramente $G\in G(n,p)$ es tal que si:
-%        \begin{enumerate}
-%            \item[i)] $U\subset V(G)$ es cualquier subconjunto de vértices de $G$, entonces
-%            $$\left| e(U) - p\binom{|U|}{2} \right| = O(u^{3/2}p^{1/2}\log^{1/2}(2n/u)),$$
-%            donde $e(U)$ es el número de pares $(i,j)\in U\times U$ tales que $(i,j)\in E(G)$.
-%            \item[ii)] $U,W\subset V(G)$ subconjuntos disjuntos de vértices de $G$ que satisfacen $|U|\leq |W|$, entonces:
-%            $$\left| e(U,W)-p|U||W|\right| = O(u^{1/2}wp^{1/2}\log^{1/2}(2n/w)),$$
-%            donde $e(U,W)$ es el número de pares $(i,j)\in U\times W$ tales que $(i,j)\in E(G)$.
-%        \end{enumerate}
-%\end{flushleft}
-%Sin entrar en detalles con respecto a los términos de errores, el espíritu de este teorema es que dado un grafo $G\in G(n,p)$, entonces la densidad de aristas en cualquier subconjunto de vértices de $G$ es razonablemente similar a la de $G$. Más aún, note que las cantidades $e(U)$ y $e(U,W)$ son binomialmente distribuidas como variables aleatorias con parámetros $\left(\binom{|U|}{2},p\right)$, y $\left(|U||W|,p\right)$ respectivamente.
-%
-%\section{Definiciones y conceptos basicos}
-%
-%\hh{Lo siguientes solo serán definiciones y resultados sueltos para en un futuro cercano ser reordenado en el documento}.
-%
-%
-%\hh{La siguiente definición y teorema hacen recen referencia a la desigualdad de Jensen, cual será utilizada más adelante en la sección de regularidad}
-%
-%%%%% Definición función convexa
-%\begin{definicion}
-%    Sea $f:\mathbb{R}\to \mathbb{R}$ una función. Diremos que $f$ es \textbf{convexa} si para todo $x,y\in\mathbb{R}$ y $t\in [0,1]$ se verifica que
-%    \begin{equation*}
-%        f(tx +(t-1)y) \leq tf(x) + (1-t)f(y).
-%    \end{equation*}
-%\end{definicion}
-%
-%%%%% Teorema: Desigualdad de Jensen
-%\begin{teorema} \label{Teo_Desigualdad_Jensen} (Desigualdad de Jensen) 
-%    Sea $f:\mathbb{R}\to \mathbb{R}$ una función convexa. Para todo $n\in \mathbb{N}$ y $t_i\in \mathbb{R}$, con $i\in [n]$, tales que $t_i \geq 0$ y $\sum_{i = 1}^{n}t_i = 1$, se satisface
-%    \begin{equation} \label{Formula_Desigualdad_Jensen}
-%        f\left( \sum_{i = 1}^{n} t_i x_i\right) \leq \sum_{i = 1}^{n} t_i f(x_i),\ \ \forall x_i\in \mathbb{R}.
-%    \end{equation}
-%\end{teorema}
-%
-%%%%% Demostración: Desigualdad de Jensen
-%\begin{proof}
-%    Razonaremos por inducción sobre $n$. Cuando $n = 1$, entonces $t_1 = 1$ y el resultado ocurre trivialmente. También es verdad cuando $n = 2$ por la convexidad de $f$.
-%    Asumiendo que \eqref{Formula_Desigualdad_Jensen} se cumple para algún $n \geq 2$ fijo y que $t_{n+1} \not=1$ (en caso contrario, los otros $t_i = 0$ cuando $i\in [n]$, y por consecuencia se satisface \eqref{Formula_Desigualdad_Jensen}), el resultado se consigue de utilizar la convexidad de $f$ y la hipótesis inductiva,
-%    \begin{align*}
-%        f\left( \sum_{i = 1}^{n+1} t_ix_i\right) &= f\left( (1 - t_{n+1})\sum_{i = 1}^{n} \frac{t_i}{1 - t_{n+1}}x_i + t_{n+1}x_{n+1}\right)\\
-%        &\leq (1-t_{n+1})f\left( \sum_{i = 1}^{n} \frac{t_i}{1 - t_{n+1}}\right) + t_{n+1}f(x_{n+1})\\
-%        &\leq (1 - t_{n+1})\sum_{i = 1}^{n} \frac{t_i}{1-t_{n+1}}f(x_i) + t_{n+1}f(x_{n+1})\\
-%        &= \sum_{i = 1}^{n+1}t_if(x_i).
-%    \end{align*}
-%\end{proof}
-%
-%Sabemos que para una variable aleatoria $X$ con función de probabilidad $\mathbb{P}(X = x_i)$  con $i\in [n]$, su esperanza matemática está definida por
-%\[ \mathbb{E}[X] = \sum_{i = 1}^{n} \mathbb{P}(X = x_i)x_i.\]
-%Ahora, como $\sum_{i = 1}^{n}\mathbb{P}(X = x_i) =1$ y $\mathbb{P}(X = x_i) \geq 0$, podemos usar la desigualdad de Jensen eligiendo la función convexa $f(x) = x^{2}$ para obtener
-%\begin{equation} \label{Jensen_implicación}
-%    f\left( \sum_{i = 1}^{n} \mathbb{P}(X = x_i)x_i\right) \leq \sum_{i = 1}^{n} \mathbb{P}(X = x_i)f(x_i) \Rightarrow \mathbb{E}[X]^{2} \leq \mathbb{E}[X^{2}].
-%\end{equation}
-%\hh{Pregunta: Debería eliminar la implicancia y dejar solo el resultado? R: agregar un "Es decir,". De todas maneras debo adaptar la demostración de regularidad para no utilizar notación se probabilidad.}
-%    \begin{align*}
-%        f\left( \sum_{i = 1}^{n+1} t_ix_i\right) &= f\left( (1 - t_{n+1})\sum_{i = 1}^{n} \frac{t_i}{1 - t_{n+1}}x_i + t_{n+1}x_{n+1}\right)\\
-%        &\leq (1-t_{n+1})f\left( \sum_{i = 1}^{n} \frac{t_i}{1 - t_{n+1}}\right) + t_{n+1}f(x_{n+1})\\
-%        &\leq (1 - t_{n+1})\sum_{i = 1}^{n} \frac{t_i}{1-t_{n+1}}f(x_i) + t_{n+1}f(x_{n+1})\\
-%        &= \sum_{i = 1}^{n+1}t_if(x_i).
-%    \end{align*}
-%\end{proof}
-%
-%Sabemos que para una variable aleatoria $X$ con función de probabilidad $\mathbb{P}(X = x_i)$  con $i\in [n]$, su esperanza matemática está definida por
-%\[ \mathbb{E}[X] = \sum_{i = 1}^{n} \mathbb{P}(X = x_i)x_i.\]
-%Ahora, como $\sum_{i = 1}^{n}\mathbb{P}(X = x_i) =1$ y $\mathbb{P}(X = x_i) \geq 0$, podemos usar la desigualdad de Jensen eligiendo la función convexa $f(x) = x^{2}$ para obtener
-%\begin{equation} \label{Jensen_implicación}
-%    f\left( \sum_{i = 1}^{n} \mathbb{P}(X = x_i)x_i\right) \leq \sum_{i = 1}^{n} \mathbb{P}(X = x_i)f(x_i) \Rightarrow \mathbb{E}[X]^{2} \leq \mathbb{E}[X^{2}].
-%\end{equation}
-%\hh{Pregunta: Debería eliminar la implicancia y dejar solo el resultado? R: agregar un "Es decir,". De todas maneras debo adaptar la demostración de regularidad para no utilizar notación se probabilidad.}
-%    \begin{align*}
-%        f\left( \sum_{i = 1}^{n+1} t_ix_i\right) &= f\left( (1 - t_{n+1})\sum_{i = 1}^{n} \frac{t_i}{1 - t_{n+1}}x_i + t_{n+1}x_{n+1}\right)\\
-%        &\leq (1-t_{n+1})f\left( \sum_{i = 1}^{n} \frac{t_i}{1 - t_{n+1}}\right) + t_{n+1}f(x_{n+1})\\
-%        &\leq (1 - t_{n+1})\sum_{i = 1}^{n} \frac{t_i}{1-t_{n+1}}f(x_i) + t_{n+1}f(x_{n+1})\\
-%        &= \sum_{i = 1}^{n+1}t_if(x_i).
-%    \end{align*}
-%\end{proof}
-%
-%Sabemos que para una variable aleatoria $X$ con función de probabilidad $\mathbb{P}(X = x_i)$  con $i\in [n]$, su esperanza matemática está definida por
-%\[ \mathbb{E}[X] = \sum_{i = 1}^{n} \mathbb{P}(X = x_i)x_i.\]
-%Ahora, como $\sum_{i = 1}^{n}\mathbb{P}(X = x_i) =1$ y $\mathbb{P}(X = x_i) \geq 0$, podemos usar la desigualdad de Jensen eligiendo la función convexa $f(x) = x^{2}$ para obtener
-%\begin{equation} \label{Jensen_implicación}
-%    f\left( \sum_{i = 1}^{n} \mathbb{P}(X = x_i)x_i\right) \leq \sum_{i = 1}^{n} \mathbb{P}(X = x_i)f(x_i) \Rightarrow \mathbb{E}[X]^{2} \leq \mathbb{E}[X^{2}].
-%\end{equation}
-%\hh{Pregunta: Debería eliminar la implicancia y dejar solo el resultado? R: agregar un "Es decir,". De todas maneras debo adaptar la demostración de regularidad para no utilizar notación se probabilidad.}
-%    \begin{align*}
-%        f\left( \sum_{i = 1}^{n+1} t_ix_i\right) &= f\left( (1 - t_{n+1})\sum_{i = 1}^{n} \frac{t_i}{1 - t_{n+1}}x_i + t_{n+1}x_{n+1}\right)\\
-%        &\leq (1-t_{n+1})f\left( \sum_{i = 1}^{n} \frac{t_i}{1 - t_{n+1}}\right) + t_{n+1}f(x_{n+1})\\
-%        &\leq (1 - t_{n+1})\sum_{i = 1}^{n} \frac{t_i}{1-t_{n+1}}f(x_i) + t_{n+1}f(x_{n+1})\\
-%        &= \sum_{i = 1}^{n+1}t_if(x_i).
-%    \end{align*}
-%\end{proof}
-%
-%Sabemos que para una variable aleatoria $X$ con función de probabilidad $\mathbb{P}(X = x_i)$  con $i\in [n]$, su esperanza matemática está definida por
-%\[ \mathbb{E}[X] = \sum_{i = 1}^{n} \mathbb{P}(X = x_i)x_i.\]
-%Ahora, como $\sum_{i = 1}^{n}\mathbb{P}(X = x_i) =1$ y $\mathbb{P}(X = x_i) \geq 0$, podemos usar la desigualdad de Jensen eligiendo la función convexa $f(x) = x^{2}$ para obtener
-%\begin{equation} \label{Jensen_implicación}
-%    f\left( \sum_{i = 1}^{n} \mathbb{P}(X = x_i)x_i\right) \leq \sum_{i = 1}^{n} \mathbb{P}(X = x_i)f(x_i) \Rightarrow \mathbb{E}[X]^{2} \leq \mathbb{E}[X^{2}].
-%\end{equation}
-%\hh{Pregunta: Debería eliminar la implicancia y dejar solo el resultado? R: agregar un "Es decir,". De todas maneras debo adaptar la demostración de regularidad para no utilizar notación se probabilidad.}
-%
 \section{Cuasi-aleatoriedad} \label{cuasi-aleatoriedad}
 
 Trabajar con estructuras discretas aleatorias brinda una amplia gama de propiedades ideales y/o deseables, lo que las convierte en piezas fundamenteles tanto en matemáticas como en ciencias de la computación. Por ejemplo, el modelo de grafo aleatorio binomial goza de una distribución uniforme de aristas, buenas propiedades y es robusto. La cuestión ahora es cómo capturar las propiedades esenciales de la aleatoriedad dentro de un marco \emph{determinista}. Esta idea condujo a la noción de cuasi-aleatoriedad, que en la actualidad, es un tópico central en las matemáticas discretas. En términos generales, las propiedades cuasi-aleatorias son características deterministas que son propias de objetos realmente aleatorios. Aunque la noción de cuasi-aleatoriedad es interesante por sí misma, su estudio ha revelado profundas conexiones entre varias ramas de la matemática y ciencias de la computación, encontrando aplicaciones en teoría de grafos, teoría de números, teoría ergódica, geometría, y algoritmos y complejidad.
@@ -1569,7 +1462,7 @@ Ahora, se encontrará el parámetro $p\in(0,1)$ de manera tal que el grafo $G$ p
 
 \begin{equation*}
     \begin{cases}
-        p\frac{n^{2}}{2} = \frac{n_{1}^{2}}{2} + \frac{(n-n_1)^{2}}{4}\\
+        p\frac{n^{2}}{2} = \frac{n_{1}^{2}}{2} + \frac{(n-n_1)^{2}}{4},\\
         p^{3}n^{3} = n_{1}^{3}.
     \end{cases}
 \end{equation*}\medskip
