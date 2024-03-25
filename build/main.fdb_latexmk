@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1711220717.22105 "c:/Tesis/Documento Tesis/main.tex" "build/main.pdf" "main" 1711220720.12035 2
-  "C:/Tesis/Documento Tesis/build/main.aux" 1711220719.60254 9979 aa3915546fffd4b2b1735d7f6ac9c808 ""
-  "C:/Tesis/Documento Tesis/build/main.out" 1711220719.60705 2068 a02a097f276d949964564ce11de99654 ""
+["pdflatex"] 1711343833.39638 "c:/Tesis/Documento Tesis/main.tex" "build/main.pdf" "main" 1711343835.88777 2
+  "C:/Tesis/Documento Tesis/build/main.aux" 1711343835.44973 11265 8c700e8195542dbb05f125509330dd2c ""
+  "C:/Tesis/Documento Tesis/build/main.out" 1711343835.45273 3166 4e05d928fc40f5b309acce63ce93e3f5 ""
   "C:/Users/Felipe/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1711158832.11063 81232 66d05e7ef23c8c4f50ae117afd5d783c ""
   "C:/Users/Felipe/AppData/Local/MiKTeX/fonts/pk/ljfour/public/bbm/dpi600/bbm10.pk" 1706842796.44732 6984 2405299529704dbb29690b2d523fcd9a ""
   "C:/Users/Felipe/AppData/Local/MiKTeX/fonts/tfm/public/bbm/bbm10.tfm" 1706842790.79604 560 39fd35b5e4a6aca3672660cc548ba860 ""
@@ -66,9 +66,7 @@
   "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb" 1247596667 24420 52dbb8e8aa0069a1b987309557f8d303 ""
   "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1247596666 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
-  "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1247596667 32587 1788b0c1c5b39540c96f5e42ccd6dae8 ""
   "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1247596666 32716 08e384dc442464e7285e891af9f45947 ""
-  "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1247596667 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
   "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1247596667 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb" 1247596667 36118 fad905eba93cff5bce1e185fe980a177 ""
   "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb" 1247596670 30457 bc0868ebece724ed7c3d37e3d9bff7bd ""
@@ -236,9 +234,9 @@
   "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "Imágenes/logo_usach.png" 1706841963.69402 11162 93b2f2fb028a3d966b47a01940e2c848 ""
-  "build/main.aux" 1711220719.60254 9979 aa3915546fffd4b2b1735d7f6ac9c808 "pdflatex"
-  "build/main.out" 1711220719.60705 2068 a02a097f276d949964564ce11de99654 "pdflatex"
-  "c:/Tesis/Documento Tesis/main.tex" 1711220709.87654 171733 8649116d13ec63a2678977db2a7eef09 ""
+  "build/main.aux" 1711343835.44973 11265 8c700e8195542dbb05f125509330dd2c "pdflatex"
+  "build/main.out" 1711343835.45273 3166 4e05d928fc40f5b309acce63ce93e3f5 "pdflatex"
+  "c:/Tesis/Documento Tesis/main.tex" 1711343826.43722 174718 344ef0ea51fb1b0e5e0488cdfabdcb4b ""
   (generated)
   "build/main.aux"
   "build/main.log"

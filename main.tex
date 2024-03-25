@@ -630,7 +630,11 @@ Es importante destacar que la matriz de adyacencia no solo describe las conexion
     \end{equation*}
 \end{proof}
 
-Una consecuencia directa de la proposición anterior, es que en cualquier grafo $G = ([n], E)$ con matriz de adyacencia $A$ se puede representar la cantidad total de caminatas cerradas de largo $t$ por medio de la traza, $\Tr(A^{t}) = \sum_{i=1}^{n}a_{ii}^{(t)}$. Con esto, note que $\Tr(A^{2}) = 2e_G$.
+Como consecuencia de la proposición anterior, en cualquier grafo $G = ([n], E)$ con matriz de adyacencia $A$, se puede representar la cantidad total de caminatas cerradas de largo $t$ en el grafo por medio de la traza, $\Tr(A^{t}) = \sum_{i=1}^{n}a_{ii}^{(t)}$. Con esto, note que $\Tr(A^{2}) = 2e_G$. Con escencialmente la misma demostración, enuncia el siguiente corolario que nos será de utilidad más adelante.
+
+\begin{corolario}
+    Sea una matriz $F = (f_{ij})\in\mathcal{M}_{n\times n}(\mathbb{R})$, entonces $\Tr(F^{2}) = \sum_{(i,j)\in [n]^{2}}f_{ij}^{2}$.
+\end{corolario}
 
 Por otro lado, para introducir algunos aspectos de la teoría espectral de grafos, recuerde que el vector no nulo $\boldsymbol{v}\in \mathbb{R}^{n}$ es un \textbf{vector propio} de alguna matriz $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ con \textbf{valor propio} $\lambda\in \mathbb{C}$ si $A\boldsymbol{v}=\lambda \boldsymbol{v}$. Esto significa que $\lambda$ es un valor propio si y solo si $\lambda I_{n} - A$ es una matriz singular. Así, los valores propios vienen dados por las raíces del polinomio característico $\det(xI_{n} - A)$. En este trabajo, cuando se haga referencia a los valores y vectores propios de un grafo $G$, siempre será con respecto a su matriz de adyacencia $A$. Por ejemplo. si $G$ es un grafo $d$-regular, entonces con la igualdad \eqref{A1=Mdeg} se puede deducir que $d$ es el valor propio asociado al vector propio normalizado de $1$-entradas de la matriz de adyacencia $A_G$.
 
@@ -768,13 +772,35 @@ Finalmente, es posible caracterizar cada valor propio de una matriz real simétr
 
     \begin{itemize}
         \item[(i)] \[
-                \lambda_k = \inf_{\substack{\boldsymbol{x}\perp \lbrace \boldsymbol{v}_1,...,\boldsymbol{v}_{k-1}\rbrace \\ \boldsymbol{x}\not= 0}} \frac{\langle \boldsymbol{x}, A\boldsymbol{x}\rangle}{\langle \boldsymbol{x},\boldsymbol{x}\rangle}.
+                \lambda_k = \inf_{\substack{\boldsymbol{x}\perp \lbrace \boldsymbol{v}_1,...,\boldsymbol{v}_{k-1}\rbrace \\ \boldsymbol{x}\not= \boldsymbol{0}}} \frac{\langle \boldsymbol{x}, A\boldsymbol{x}\rangle}{\langle \boldsymbol{x},\boldsymbol{x}\rangle}.
                     \]
         \item[(ii)] \[
-                \lambda_k = \sup_{\substack{\boldsymbol{x}\perp \lbrace \boldsymbol{v}_{k+1},...,\boldsymbol{v}_n\rbrace \\ \boldsymbol{x}\not= 0}} \frac{\langle \boldsymbol{x}, A\boldsymbol{x}\rangle}{\langle \boldsymbol{x},\boldsymbol{x}\rangle}.
+                \lambda_k = \sup_{\substack{\boldsymbol{x}\perp \lbrace \boldsymbol{v}_{k+1},...,\boldsymbol{v}_n\rbrace \\ \boldsymbol{x}\not= \boldsymbol{0}}} \frac{\langle \boldsymbol{x}, A\boldsymbol{x}\rangle}{\langle \boldsymbol{x},\boldsymbol{x}\rangle}.
                     \]
     \end{itemize}
 \end{teorema}
+
+\begin{corolario}
+    Sea $\lambda_1$ valor propio más grande de la matriz simétrica $A\in\mathcal{M}_{n\times n}(\mathbb{R})$, entonces
+    
+    \begin{equation*}
+        \lambda_1 = \sup_{\boldsymbol{x}\not= \boldsymbol{0}} \frac{\norm{A\boldsymbol{x}}}{\norm{\boldsymbol{x}}}.
+    \end{equation*}
+\end{corolario}
+
+\begin{proof}
+    Si $\boldsymbol{v}_1$ un vector propio de $A$ correspondiente a $\lambda_1$, entonces
+    
+    \begin{equation*}
+        \lambda_1 = \frac{\norm{A\boldsymbol{v}_1}}{\norm{\boldsymbol{v}_1}} \leq \sup_{\boldsymbol{x}\not=\boldsymbol{0}}\frac{\norm{A\boldsymbol{x}}}{\norm{x}}.
+    \end{equation*}
+
+    Por otro lado, observando que el valor propio más grande de $A^{2}$ es $\lambda_{1}^{2}$, se concluye para cualquier $\boldsymbol{x}\in\mathbb{R}^{n}$ que
+
+    \begin{equation*}
+        \norm{A\boldsymbol{x}}^{2} = \langle A\boldsymbol{x}, A\boldsymbol{x}\rangle = \langle \boldsymbol{x}, A^{T}A\boldsymbol{x}\rangle = \langle \boldsymbol{x}, A^{2}\boldsymbol{x}\rangle \leq \lambda_{1}^{n}\langle \boldsymbol{x}, \boldsymbol{x}\rangle = \lambda_{1}^{2}\norm{\boldsymbol{x}}^{2}.
+    \end{equation*}
+\end{proof}
 
 Usualmente, el primer valor propio de todo grafo juega un papel protagónico. Para los fines de estas tesis, es necesario establecer una cota inferior del primer valor propio.
 
@@ -788,7 +814,7 @@ Usualmente, el primer valor propio de todo grafo juega un papel protagónico. Pa
     Considerando $A$ como la matriz de adyacencia del grafo $G = ([n], E)$, se desarrolla en función del Teorema \ref{Teo Courant-Fischer}:
 
     \begin{equation*}
-        \lambda_1 = \sup_{\substack{\boldsymbol{x}\in \mathbb{R}^{n} \\ \boldsymbol{x}\not= 0}} \frac{\langle \boldsymbol{x}, A\boldsymbol{x}\rangle}{\langle \boldsymbol{x}, \boldsymbol{x}\rangle}
+        \lambda_1 = \sup_{\substack{\boldsymbol{x}\in \mathbb{R}^{n} \\ \boldsymbol{x}\not= \boldsymbol{0}}} \frac{\langle \boldsymbol{x}, A\boldsymbol{x}\rangle}{\langle \boldsymbol{x}, \boldsymbol{x}\rangle}
         \geq \frac{\langle \boldsymbol{1}, A\boldsymbol{1} \rangle}{\langle \boldsymbol{1}, \boldsymbol{1} \rangle}
         = \frac{2e_G}{n}\\
         = \dfrac{\sum_{v\in V(G)} \deg(v)}{n}.
@@ -1675,42 +1701,378 @@ Finalmente, en un grafo $d$-regular, la equivalencia entre las propiedades $\eig
 
 \section{Lema de regularidad de Szemerédi} \label{Sec. LRS}
 
-\hh{Aquí debo ingresar una breve descripción del lema de regularidad de Szemerédi y la fuerza que toma al combinarlo con el teorema de Chung-Graham-Wilson y comentar la aplicación que se mostrará. (Quizás también hablar de las dos demostraciones de este lema, usual y espectral.)}
+El lema de regularidad de Szemerédi (1975) \fs{referencia} ha mostrado ser un resultado muy poderoso e importante en la teoría de grafos extremal. Sus aplicaciones no se restringen solo a la teoría de grafos, si no que también las tiene en teoría de números combinatorios, geometría discreta y ciencias de la computación. Originalmente, fue creado por Szemerédi como un lema auxiliar en la demostración de la famosa conjetura de Erd$\ddot{o}$s y Turán (1936) \fs{referencia}, que establece que todo conjunto de números enteros suficientemente grande debe contener una progresión aritmética de cualquier longitud finita.
 
-\subsection{Enunciado y demostración}\medskip
+A grandes rasgos, el lema dice que el conjunto de vértices de todo grafo puede ser particionado en una cantidad finita de partes que muestran comportamientos \emph{regulares} entre la mayoría de los pares de partes. Este hecho es importante debido a que permite entender cualquier grafo con menos información, y se aprovechan cada una de las propiedades equivalentes vistas en el Teorema \ref{Teorema CGW}.
 
-Se tratará el concepto de regularidad de una manera un poco diferente a como es tradicionalmente conocida. En particular, se permite intersección entre pares de subconjuntos de vértices de un grafo en las futuras definiciones.\medskip
+Hasta enunciar formalmente el lema de regularidad, se definirán los conceptos necesarios para su buena comprensión. Dado un grafo $G$ y los subconjuntos de vértices $X,Y\subset V(G)$, se define la \textbf{densidad de aristas} entre $X$ e $Y$ de la siguiente manera:
+
+\begin{equation} \label{densidad aristas}
+    d(X,Y) = \frac{e(X,Y)}{|X||Y|}.
+\end{equation}
+
+Diremos que $\mathcal{P} = \lbrace X_1,X_2,...,X_k\rbrace$ es una \textbf{partición} del conjunto $X$ si:
+
+\begin{itemize}
+    \item[i)] $\bigcup_{i=1}^{k} X_i = X$.
+    \item[ii)] $X_i \cap X_j = \emptyset$ para todo $i,j\in[k]$.
+\end{itemize}
+
+Cuando $|X_1|\leq|X_2|\leq ...\leq |X_k| = |X_1| + 1$, llamaremos a $\mathcal{P}$ como una \textbf{equipartición}. En particular, cada parte posee $\lceil |X|/k \rceil$ o $\lfloor |X|/k\rfloor$ elementos.
+
+También, es necesario conocer en qué sentido los pares de partes entregados por el lema son regulares.
 
 %%%% Definición par \varepsilon - regular
 \begin{definicion}
-    Sea $G$ un grafo y $X,Y \subset V(G)$ subconjuntos no necesariamente disjuntos. Diremos que $(X,Y)$ es un \textbf{par $\varepsilon$-regular} en $G$ si para todo $A\subset X$ y $B\subset Y$ con $|A| \geq \varepsilon |X|$ y $|B|\geq \varepsilon |Y|$, se cumple\medskip
+    Sea $G$ un grafo y $X,Y \subset V(G)$ subconjuntos no necesariamente disjuntos. Diremos que $(X,Y)$ es un \textbf{par $\varepsilon$-regular} en $G$ si para todo $A\subset X$ y $B\subset Y$ con $|A| \geq \varepsilon |X|$ y $|B|\geq \varepsilon |Y|$, se cumple
 
     \[
-    \Big| d(A,B) - d(X,Y)\Big| \leq \varepsilon
-    \]\medskip
+    \Big| d(A,B) - d(X,Y)\Big| \leq \varepsilon .
+    \]
 
     Cuando $(X,Y)$ no es un par $\varepsilon$-regular, entonces la irregularidad es evidenciada por algún $A\subseteq X$ y $B\subseteq Y$ que satisfacen $|A| \geq \varepsilon |X|$ y $|B|\geq \varepsilon |Y|$, pero $\Big| d(A,B) - d(X,Y)\Big| > \varepsilon$.
-\end{definicion}\medskip
+\end{definicion}
 
-Notaremos que la noción de un par $\varepsilon$-regular es, de hecho, una analogía de la propiedad $\disc_p(\varepsilon)$ para grafos bipartitos. Es decir, si $G$ es tal que $V(G) = U\cup W$ y $p\in (0,1)$, se cumple\medskip
+Notaremos que la noción de un par $\varepsilon$-regular es, de hecho, una analogía de la propiedad $\disc_p(\varepsilon)$ para grafos bipartitos. Es decir, si $G$ es tal que $V(G) = U\cup W$ y $p\in (0,1)$, se cumple
 
 \begin{equation} \label{BIDISC}
     \Big| e(X,Y) - p|X||Y|\Big| = o(|U||W|)\ ,\ \forall X\subset U,\ \forall Y\subset W.
-\end{equation}\medskip
+\end{equation}
 
-En efecto, si $(U,W)$ es un par $\varepsilon$-regular, entonces todo $A\subset U$ y $B\subset W$ tales que $|A|\geq\varepsilon |U|$ y $|B|\geq\varepsilon |W|$ satisfacen\medskip
+En efecto, si $(U,W)$ es un par $\varepsilon$-regular, entonces todo $A\subset U$ y $B\subset W$ tales que $|A|\geq\varepsilon |U|$ y $|B|\geq\varepsilon |W|$ satisfacen
 
 \begin{align*}
     e(A,B) = d(U,W)|A||B| \pm \varepsilon|A||B| = d(U,W)|A||B| \pm \varepsilon|U||W|.
-\end{align*}\medskip
+\end{align*}
 
-Ahora bien, si al menos uno de los subconjuntos de la condición de un par $\varepsilon$-regular no es suficientemente grande, digamos $|A| < \varepsilon|X|$, entonces\medskip
+Ahora bien, si al menos uno de los subconjuntos de la condición de un par $\varepsilon$-regular no es suficientemente grande, digamos $|A| < \varepsilon|X|$, entonces
 
 \begin{align*}
     d(U,W)|A||B| - \varepsilon |U||W| < 0 \leq e(A,B) \leq |A||B| \leq \varepsilon |U||W| < d(U,W)|A||B| + \varepsilon|U||W|.
-\end{align*}\medskip
+\end{align*}
 
-De esta manera, tomando $p = d(U,W)$, se obtiene la analogía planteada.\medskip
+De esta manera, tomando $p = d(U,W)$, se obtiene la analogía planteada.
+
+Por último, debemos saber la noción de regularidad en una partición del conjunto de vértices de un grafo.
+
+%%%% Definición partición \varepsilon - regular
+\begin{definicion}
+    Dado un grafo $G$, una partición $\mathcal{P} = \lbrace V_1,...,V_{k}\rbrace$ del conjunto de vértices $V(G)$ es una \textbf{partición $\varepsilon$-regular} si
+
+    \[
+    \sum_{\substack{ (i,j)\in [k]^{2} \\ (V_{i}, V_{j})\ \mathrm{no}\ \varepsilon-\mathrm{regular}}} |V_i||V_j| \leq \varepsilon |V(G)|^{2}.
+    \]
+
+    Es decir, todos los pares de subconjuntos de vértices en la partición son $\varepsilon$-regular salvo una fracción $\varepsilon$ de pares de vértices.
+
+    %% Ojo: Descomentar si quiero incorporar el conjunto excepcional.
+    %Más aún, si consideramos una partición $\mathcal{P} = \lbrace V_0, V_1,...,V_k\rbrace$ del conjunto de vértices $V(G)$, en donde $V_0$ es un conjunto excepcional (podría ser vacío), diremos que es una partioción $\varepsilon$-regular  de $G$ si satisface las siguientes condiciones:
+    %\begin{enumerate}
+    %    \item[i)] $|V_0| \leq \varepsilon |V(G)|$.
+    %    \item[ii)] $|V_1| = \cdots = |V_k| = \frac{k}{n}$.
+    %    \item[iii)] $\Big| (i,j)\in [k]^{2} : 1\leq i < j \leq k\ \text{y}\ (V_i, V_j)\ \text{no es par}\ \varepsilon\text{-regular}\Big| \leq \varepsilon k^{2}$. 
+    %\end{enumerate}
+\end{definicion}
+
+Note que si una partición $\varepsilon$-regular de $k$ partes es en particular una equipartición, entonces a lo más $\varepsilon k^{2}$ pares de elementos de la partición no son $\varepsilon$-regular. 
+
+Ya con todo lo requerido, se enuncia formalmente el lema de regularidad. 
+
+%%%% Enunciado Lema de regularidad de Szemerédi
+\begin{teorema} \label{szemeredi_regularity_lemma1} (Lema de regularidad de Szemerédi)
+    Para todo $\varepsilon > 0$, existe un entero $M = M(\varepsilon)$ tal que todo grafo admite una partición $\varepsilon$-regular de a lo más $M$ partes.
+\end{teorema}
+
+Otra forma de encontrar el resultado, es cuando todas las partes de la partición poseen aproximadamente el mismo tamaño.
+
+%%%% Teorema: Lema de regularidad, equipartición
+\begin{teorema} \label{szemeredi_regularity_lemma2} (Regularidad de Szemerédi - Equipartición)
+    Para todo $\varepsilon > 0$ y $m_0\in\mathbb{N}$, existe un entero $M = M(\varepsilon)$ tal que todo grafo admite una equipartición $\varepsilon$-regular de su conjunto de vértices de $k$ partes, con $m_0\leq k\leq M$. 
+\end{teorema}
+
+La elección de qué versión del lema utilizar dependerá netamente del tipo de aplicación que se tenga en mente. En las subsecciones \ref{Demo_ener} y \ref{Demo_esp} se desarrollará la demostración clásica y espectral respesctivamente del Teorema \ref{szemeredi_regularity_lemma1}, y se expone como extenderla para probar también el Teorema \ref{szemeredi_regularity_lemma2}. Finalmente, en la subsección \ref{Sec. Aplicaciones} se mostrarán las aplicaciones más famosas del lema de regularidad de Szemerédi.
+
+\subsection{Demostración por incremento de energía} \label{Demo_ener}
+
+Se empleará una técnica llamada \emph{argumento de incremento de energía}, cual para todo grafo $G$, funciona algorítmicamente de la siguiente manera:
+
+%%%% Algoritmo incremento de energía
+\begin{enumerate}
+    \item Comenzar con la partición trivial de $V(G)$, i.e, $\mathcal{P} = \lbrace V(G)\rbrace$.
+
+    \item Mientras la partición actual $\mathcal{P}$ no es $\varepsilon$-regular:
+    \begin{itemize}
+        \item[(a)] Para cada par $(V_i, V_j)$ no $\varepsilon$-regular, encontrar los subconjuntos $A^{ij}\subset V_i$ y $A^{ji}\subset V_j$ que evidencian la irregularidad del par.
+
+        \item[(b)] \label{Paso 2b} Refinar $\mathcal{P}$ utilizando simultáneamente los conjuntos $A^{ij}$ y $A^{ji}$ encontrados de cada par $(V_i, V_j)$ no $\varepsilon$-regular para obtener $\mathcal{Q}$. 
+
+        \item[(c)] Actualizar $\mathcal{P}$ con $\mathcal{Q}$. 
+    \end{itemize}
+\end{enumerate}
+
+Siendo $\mathcal{P}$ y $\mathcal{Q}$ dos particiones de un mismo conjunto de vértices, diremos que $\mathcal{Q}$ \textbf{refina} a $\mathcal{P}$ si cada parte de $\mathcal{Q}$ está contenida en una parte de $\mathcal{P}$. En lo que resta de esta subsección mostraremos que el algoritmo tiene un fin, y que entrega una partición $\varepsilon$-regular en un número de iteraciones que solo depende de $\varepsilon$.
+
+%%%% Definición Energía 
+\begin{definicion} (Energía)
+    Sea $G$ un grafo sobre $n$ vértices y $X,Y\subset V(G)$. Se define en primer lugar
+
+    \[
+    q(X,Y) := \frac{|X||Y|}{n^{2}}d(X,Y)^{2} = \frac{e(X,Y)^{2}}{n^{2}|X||Y|}.
+    \]
+
+    Luego, para particiones $\mathcal{P}_{X} = \lbrace X_1,...,X_k\rbrace$ de $X$ y $\mathcal{P}_{Y} = \lbrace Y_1,...,Y_\ell\rbrace$ de $Y$, se define
+
+    \[
+    q(\mathcal{P}_{X}, \mathcal{P}_{Y}) := \sum_{i = 1}^{k}\sum_{j = 1}^{\ell} q(X_i, Y_j).
+    \]
+
+    Finalmente, para una partición $\mathcal{P} = \lbrace V_1,...,V_k \rbrace$, se define su \textbf{energía} mediante
+
+    \[
+    q(\mathcal{P}) := \sum_{i = 1}^{k}\sum_{j = 1}^{k}q(V_i, V_j) = \sum_{i = 1}^{k}\sum_{j = 1}^{k} \frac{|V_i||V_j|}{n^{2}}d(V_i, V_j)^{2}. 
+    \]
+\end{definicion}
+
+Observe que en toda partición $\mathcal{P}$ de $V(G)$, siempre se tendrá que $0\leq q(\mathcal{P}) \leq 1$. En efecto,
+
+\begin{align*}
+    q(\mathcal{P}) &= \sum_{i = 1}^{k}\sum_{j = 1}^{k}\frac{|V_i||V_j|}{n^{2}}d(V_i,V_j)^{2}\\
+    &\leq \frac{1}{n^{2}}\sum_{i = 1}^{k}|V_i|\sum_{j = 1}^{k}|V_j|\\
+    &= 1.
+\end{align*}
+
+La última observación es crucial en la demostración del Teorema \ref{szemeredi_regularity_lemma1}, puesto que los Lemas \ref{energia_no_decrece}, \ref{Energy boost un conjunto} y \ref{Energy boost particiones} nos asegurarán que la energía de una partición nunca decrece bajo refinamiento. Por consecuencia, el algoritmo de la técnica \emph{argumento de incremento de energía} tendrá un fin, y entregará una partición $\varepsilon$-regular. Dicho esto, procedemos a enunciar y demostrar cada uno de los lemas mencionados para probar clásicamente el Teorema \ref{szemeredi_regularity_lemma1}.
+
+El priero de los lemas, afirma que la energía de una partición no decrece bajo cualquier refinamiento arbitrario.
+
+%%%% Lema: la energía nunca decrece bajo refinamiento
+\begin{lema} \label{energia_no_decrece}
+    Sea $G$ un grafo, $X,Y\subset V(G)$, y $\mathcal{P}_{X}$ y $\mathcal{P}_{Y}$ particiones de $X$ e $Y$ respectivamente, entonces $q(\mathcal{P}_{X}, \mathcal{P}_{Y}) \geq q(X,Y)$. Además, si $\mathcal{P}$ y $\mathcal{P'}$ son dos particiones de vértices de $G$, entonces $q(\mathcal{P}) \leq q(\mathcal{P'})$ cada vez que $\mathcal{P'}$ refina a $\mathcal{P}$. 
+\end{lema}
+
+%%%% Demostración nueva lema: la energía nunca decrece bajo refinamiento}
+\begin{proof}
+    Considere un grafo $G$ sobre $n$ vértices, los conjuntos $X,Y\subset V(G)$, y las particiones $\mathcal{P}_{X} = \lbrace X_1,...,X_k\rbrace$ y $\mathcal{P}_{Y} = \lbrace Y_1,...,Y_\ell\rbrace$ de $X$ e $Y$ respectivamente. En primera instancia, se utiliza la desigualdad \eqref{Desigualdad_from_CS} proveniente de Cauchy-Schwarz para probar que $q(\mathcal{P}_{X}, \mathcal{P}_{Y}) \geq q(X,Y)$. Para esto, se desarrolla como sigue:
+
+    \begin{equation} \label{q(P_X,P_Y) >= q(X,Y)}
+        \begin{split}
+            q(\mathcal{P}_{X}, \mathcal{P}_{Y}) &= \sum_{i = 1}^{k}\sum_{j = 1}^{\ell} q(X_{i}, Y_{j})\\
+            &= \frac{1}{n^{2}} \sum_{i = 1}^{k}\sum_{j = 1}^{\ell} \frac{e(X_i,Y_j)^{2}}{|X_i||Y_j|}\\
+            &\overset{\eqref{Desigualdad_from_CS}}{\geq} \frac{1}{n^{2}}\frac{\left( \sum_{i = 1}^{k}\sum_{j = 1}^{\ell} e(X_i,Y_j)\right)^{2}}{\sum_{i = 1}^{k}\sum_{j = 1}^{\ell} |X_i||Y_j|}\\
+            &= \frac{1}{n^{2}} \frac{e(X,Y)^{2}}{\left( \sum_{i = 1}^{k} |X_i| \right)\left( \sum_{j = 1}^{\ell} |Y_j|\right)}\\
+            &= \frac{e(X,Y)^{2}}{n^{2}|X||Y|}\\
+            &= q(X,Y).    
+        \end{split}
+    \end{equation}
+
+    Sea ahora la partición $\mathcal{P} = \lbrace V_1,...,V_k\rbrace$ de $V(G)$ y $\mathcal{P}' = \lbrace \mathcal{P}'_{V_1},...,\mathcal{P}'_{V_k}\rbrace$ un refinamiento de $\mathcal{P}$. Entonces, se utiliza el resultado probado previamente para completar el resultado:
+
+    \begin{equation*}
+        q(\mathcal{P}) = \sum_{i=1}^{k}\sum_{j=1}^{k} q(V_i,V_j) \overset{\eqref{q(P_X,P_Y) >= q(X,Y)}}{\leq} \sum_{i=1}^{k}\sum_{j=1}^{k} q(\mathcal{P}'_{V_i}, \mathcal{P}'_{V_j}).
+    \end{equation*}
+\end{proof}
+
+Ahora, veremos que refinar un par $(X,Y)$ no $\varepsilon$-regular de un grafo $G$, mediante los subconjuntos que evidencian su irregularidad, provoca un aumento estricto en la energía.
+
+%%%% Lema: Energy Boost
+\begin{lema} \label{Energy boost un conjunto}
+    Sea $\varepsilon > 0$, $G$ un grafo de $n$ vértices y $X,Y\subset V(G)$. Si $(X,Y)$ no es un par $\varepsilon$-regular, existen particiones $\mathcal{P}_{X} = \lbrace X_1, X_2\rbrace$ de $X$ y $\mathcal{P}_{Y} = \lbrace Y_1, Y_2\rbrace$ de $Y$ tales que
+
+    \[
+        q(\mathcal{P}_{X}, \mathcal{P}_{Y}) > q(X,Y) + \varepsilon^{4}\frac{|X||Y|}{n^{2}}.
+    \]
+\end{lema}
+
+%%%% Demostración Energy boost
+\begin{proof}
+    Dado $\varepsilon > 0$, considere el grafo $G$ sobre $n$ vértices y $X,Y\subset V(G)$ subconjuntos tales que el par $(X,Y)$ no es $\varepsilon$-regular. Entonces, existen los subconjuntos $X_1 \subset X$ e $Y_1 \subset Y$ que evidencian la irregularidad del par $(X,Y)$, y son tales que
+
+    \begin{equation} \label{condición tamaño conjunto regularidad}
+        |X_1| \geq \varepsilon |X|\ \ \text{y}\ \ |Y_1| \geq \varepsilon |Y|.
+    \end{equation}
+    
+    Se define adicionalmente los conjuntos $X_2 := X\setminus X_1$, $Y_2 := Y\setminus Y_1$, y $\eta := d(X_1, Y_1) - d(X,Y)$, cual por definición de par $\varepsilon$-regular, satisface
+
+    \begin{equation} \label{|eta| > epsilon}
+        \left| \eta\right| > \varepsilon.
+    \end{equation}
+
+    Por un lado, observe la siguiente descomposición,
+
+    \begin{align*}
+        e(X,Y) &= e(X_1, Y) + e(X_2, Y)\\
+        &= e(X_1, Y_1) + e(X_1, Y_2) + e(X_2, Y_1) + e(X_2, Y_2).
+    \end{align*}
+
+    De esta manera,
+
+    \begin{equation} \label{descomposición suma aristas}
+        \sum_{i+j>2} e(X_i, Y_j) = e(X,Y) - e(X_1, Y_1).
+    \end{equation}
+
+    Por otro lado, se tiene que,
+
+    \begin{align*}
+        |X||Y| &= (|X_1| + |X_2|)(|Y_1| + |Y_2|)\\
+        &= |X_1||Y_1| + |X_1||Y_2| + |X_2||Y_1| + |X_2||Y_2|.
+    \end{align*}
+
+    Así,
+
+    \begin{equation} \label{descomposición multiplicación conjuntos}
+        \sum_{i+j > 2} |X_i||Y_j| = |X||Y| - |X_1||Y_1| .
+    \end{equation}
+
+    Ahora, definiendo las particiones $\mathcal{P}_{X} = \lbrace X_1, X_2\rbrace$ de $X$ y $\mathcal{P}_{Y} = \lbrace Y_1, Y_2\rbrace$ de $Y$, desarrollamos,
+
+    \begin{align} \label{Primer cálculo energy boost}
+        q(\mathcal{P}_{X}, \mathcal{P}_{Y}) &= \sum_{i=1}^{2}\sum_{j=1}^{2} q(X_i, Y_j) \nonumber\\
+        &= \sum_{i=1}^{2}\sum_{j=1}^{2} \frac{e(X_i, Y_j)^{2}}{n^{2}|X_i||Y_j|} \nonumber\\
+        &= \frac{1}{n^{2}}\left( \frac{e(X_1, Y_1)^{2}}{|X_i||Y_j|} + \sum_{i+j > 2} \frac{e(X_i, Y_j)^{2}}{|X_i||Y_j|}\right) \nonumber\\
+        &\overset{\eqref{Desigualdad_from_CS}}{\geq} \frac{1}{n^{2}}\left( \frac{e(X_1, Y_1)^{2}}{|X_1||Y_1|} + \frac{\left( \sum_{i+j > 2} e(X_i, Y_j)\right)^{2}}{\sum_{i+j > 2} |X_i||Y_j|}\right) \nonumber\\
+        &\overset{\eqref{descomposición suma aristas}\ \text{y}\ \eqref{descomposición multiplicación conjuntos}}{=} \frac{1}{n^{2}}\left( \frac{e(X_1, Y_1)^{2}}{|X_1||Y_1|} + \frac{\left( e(X,Y) - e(X_1, Y_1)\right)^{2}}{|X||Y| - |X_1||Y_1|}\right).
+    \end{align}
+
+    Luego, por definición, note que
+
+    \begin{equation} \label{e(X_1,Y_1) = ...}
+        e(X_1, Y_1) = \frac{|X_1||Y_1| e(X,Y)}{|X||Y|} + \eta |X_1||Y_1|.
+    \end{equation}
+
+    Con esto, se continúa el cálculo desde la desigualdad \eqref{Primer cálculo energy boost} como sigue: 
+
+    \begin{align} \label{Segundo cálculo energy boost}
+        n^{2}q(\mathcal{P}_{X}, \mathcal{P}_{Y}) &\geq \frac{e(X_1, Y_1)^{2}}{|X_1||Y_1|} + \frac{\left( e(X,Y) - e(X_1, Y_1)\right)^{2}}{|X||Y| - |X_1||Y_1|}\nonumber\\
+        &\overset{\eqref{e(X_1,Y_1) = ...}}{=} \frac{1}{|X_1||Y_1|}\left( \frac{|X_1||Y_1|e(X,Y)}{|X||Y|} + \eta |X_1||Y_1|\right)^{2}\nonumber \\
+        &\quad + \frac{1}{|X||Y| - |X_1||Y_1|}\left( \frac{|X||Y| - |X_1||Y_1|}{|X||Y|}e(X,Y) - \eta |X_1||Y_1|\right)^{2}\nonumber \\   
+        %\begin{split}
+        %    &\overset{\eqref{e(X_1,Y_1) = ...}}{=} \frac{1}{|X_1||Y_1|}\left( \frac{|X_1||Y_1|e(X,Y)}{|X||Y|} + \eta |X_1||Y_1|\right)^{2} \\
+        %    &\qquad + \frac{1}{|X||Y| - |X_1||Y_1|}\left( \frac{|X||Y| - |X_1||Y_1|}{|X||Y|}e(X,Y) - \eta |X_1||Y_1|\right)^{2}    
+        %\end{split}\nonumber\\
+        %\intertext{}
+        &= \frac{|X_1||Y_1|}{|X|^{2}|Y|^{2}}e(X,Y)^{2} + 2\frac{|X_1||Y_1|}{|X||Y|}\eta e(X,Y) + \eta^{2}|X_1||Y_1|\nonumber \\
+        &\quad + \frac{|X||Y| - |X_1||Y_1|}{|X|^{2}|Y|^{2}}e(X,Y)^{2} - 2\frac{|X_1||Y_1|}{|X||Y|}\eta e(X,Y) + \frac{\eta^{2} |X_1|^{2}|Y_1|^{2}}{|X||Y| - |X_1||Y_1|}\nonumber \\
+        %\begin{split}
+        %    &= \frac{|X_1||Y_1|}{|X|^{2}|Y|^{2}}e(X,Y)^{2} + 2\frac{|X_1||Y_1|}{|X||Y|}\eta e(X,Y) + \eta^{2}|X_1||Y_1| \\
+        %    &\qquad + \frac{|X||Y| - |X_1||Y_1|}{|X|^{2}|Y|^{2}}e(X,Y)^{2} - 2\frac{|X_1||Y_1|}{|X||Y|}\eta e(X,Y) + \frac{\eta^{2} |X_1|^{2}|Y_1|^{2}}{|X||Y| - |X_1||Y_1|}    
+        %\end{split}\nonumber\\
+        %\intertext{ }
+        &= \frac{e(X,Y)^{2}}{|X||Y|} + \eta^{2}|X_1||Y_1|\left( 1 + \frac{|X_1||Y_1|}{|X||Y| - |X_1||Y_1|}\right)\nonumber\\
+        &\geq \frac{e(X,Y)^{2}}{|X||Y|} + \eta^{2}|X_1||Y_1|.
+    \end{align}
+
+    Finalmente, utilizando las cotas \eqref{condición tamaño conjunto regularidad} y \eqref{|eta| > epsilon}, podemos concluir desde la desigualdad \eqref{Segundo cálculo energy boost},
+
+    \begin{align*}
+        q(\mathcal{P}_{X}, \mathcal{P}_{Y}) &= \frac{e(X,Y)^{2}}{n^{2}|X||Y|} + \eta^{2}\frac{|X_1||Y_1|}{n^{2}}\\
+        &= q(X,Y) + \eta^{2}\frac{|X_1||Y_1|}{n^{2}}\\
+        &> q(X,Y) + \varepsilon^{4}\frac{|X||Y|}{n^{2}}.
+    \end{align*}
+\end{proof}
+
+Vimos que particionar cualquier par de conjuntos no $\varepsilon$-regular por medio de sus subconjuntos que evidencian la irregularidad produce un aumento en la energía. Entonces, haciendo alusión al paso \ref{Paso 2b}(b) del algoritmo de la técnica \emph{argumento de incremento de energía}, se mostrará que refinar simultáneamente todos los pares de conjuntos no $\varepsilon$-regular de un grafo produce un aumento estricto de al menos $\varepsilon^{5}$ en la energía.
+
+%%%% Lema: Energy boost para particiones
+\begin{lema} \label{Energy boost particiones}
+    Sea $\varepsilon > 0$, un grafo $G$ y una partición $\mathcal{P} = \lbrace V_1,...V_k\rbrace$ no $\varepsilon$-regular de $V(G)$. Entonces existe un refinamiento $\mathcal{Q}$ de $\mathcal{P}$, en el que cada $V_i$ se particiona en a lo más $2^{k}$ partes y es tal que
+
+    \begin{equation*}
+        q(\mathcal{Q}) > q(\mathcal{P}) + \varepsilon^{5}.
+    \end{equation*}
+\end{lema}
+
+%%%% Demostración energy boost para particiones
+\begin{proof}
+    Sea $\varepsilon > 0$ y $\mathcal{P} = \lbrace V_1,...,V_k\rbrace$ una partición no $\varepsilon$-regular del conjunto de $n$ vértices de un grafo $G$ . Sabemos que para todos los $(i,j)\in [k]^{2}$ tales que el par $(V_i, V_j)$ no es $\varepsilon$-regular, existen los subconjuntos $A^{ij}\subset V_i$ y $A^{ji}\subset V_j$ testigos de su irregularidad. Observe que en cada $V_i$ se podrían encontrar a lo más $k$ conjuntos no vacíos $A^{ij}$ que evidencian la irregularidad de los pares $(V_i, V_j)$ no $\varepsilon$-regular. Considere ahora la partición $\mathcal{Q} = \lbrace Q_1,...,Q_k\rbrace$ que refina a $\mathcal{P}$, en la que cada $Q_i$ es una partición resultante de dividir el conjunto $V_i$ según la intersección de todos los subconjuntos no vacíos $A^{ij}$ que atestiguan la irregularidad de los pares $(V_i, V_j)$ no $\varepsilon$-regular. En consecuencia, $|Q_i| \leq 2^{k}$.
+
+    Para simplicidad en la notación, se define $\Theta := \lbrace (i,j)\in [k]^{2} : (V_i,V_j)\ \text{es}\ \varepsilon\text{-regular}\rbrace$. Luego, como la partición $\mathcal{P}$ no es $\varepsilon$-regular, se cumple la desigualdad
+    \begin{equation} \label{condición partición no regular}
+        \sum_{(i,j)\not\in \Theta} \frac{|V_i||V_j|}{n^{2}} > \varepsilon.
+    \end{equation}
+
+    Así, junto a los lemas probados previamente, se da prueba al resultado de la siguiente manera:
+    \begin{align*}
+        q(\mathcal{Q}) &= \sum_{(i,j)\in [k]^{2}} q(\mathcal{Q}_i, \mathcal{Q}_j) \\
+        &= \sum_{(i,j)\in \Theta} q(\mathcal{Q}_i, \mathcal{Q}_j) + \sum_{(i,j)\not\in \Theta} q(\mathcal{Q}_i, \mathcal{Q}_j)\\
+        &\overset{\text{Lema \ref{energia_no_decrece}}}{\geq} \sum_{(i,j)\in \Theta} q(V_i, V_j) + \sum_{(i,j)\not\in \Theta} q(\lbrace A^{ij}, V_i\setminus A^{ij}\rbrace, \lbrace A^{ji}, V_{j}\setminus A^{ji}\rbrace)\\
+        &\overset{\text{Lema \ref{Energy boost un conjunto}}}{\geq} \sum_{(i,j)\in \Theta} q(V_i, V_j) + \sum_{(i,j)\not\in \Theta} \left( q(V_i, V_j) + \varepsilon^{4}\frac{|V_i||V_j|}{n^{2}} \right)\\
+        &= \sum_{(i,j)\in [k]^{2}} q(V_i, V_j) + \sum_{(i,j)\not\in \Theta} \varepsilon^{4}\frac{|V_i||V_j|}{n^{2}}\\
+        &\overset{\eqref{condición partición no regular}}{\geq} q(\mathcal{P}) + \varepsilon^{5}.
+    \end{align*}
+
+    \hh{Cambiar por $>$ en la última línea y donde dice lema 33, cuando lo cambio se me descuadra :c}
+\end{proof}
+
+Este último Lema culmina lo que se necesita para dar prueba formal del lema de regularidad de Szemerédi mediante el argumento de incremento de energía.
+
+%%%% Demostración Lema de regularidad de Szemerédi
+\begin{proof}[Demostración del Teorema \ref{szemeredi_regularity_lemma1}]
+    Dado $\varepsilon > 0$ y un grafo $G$, elegimos inicialmente la partición trivial del conjunto de vértices $\mathcal{P} = \lbrace V(G)\rbrace$. Ahora, iterativamente (actualizando $\mathcal{P}$), aplicaremos el Lema \ref{Energy boost particiones} cada vez que la partición actual no sea $\varepsilon$-regular. Observe que por cada aplicación del Lema \ref{Energy boost particiones} se consigue un aumento de al menos $\varepsilon^{5}$ en la energía, y como la energía de toda partición está acotada superiormente por 1, el proceso iterativo terminará luego de a lo más $\varepsilon^{-5}$ pasos. El resultado será necesariamente una partición $\varepsilon$-regular debido a la cota de la energía. 
+
+    Para una partición no $\varepsilon$-regular con $k$ elementos, el Lema \ref{Energy boost particiones} encuentra un refinamiento de a lo más $k2^{k}$ partes. Dicho refinamiento será producido en cada iteración del algoritmo de \emph{argumento de incremento de energía}, y la cantidad de partes producidas las acotaremos crudamente en cada paso por $k2^{k} < 2^{2^{k}}$. Comenzando con la partición trivial de una parte, ejemplificaremos con las tres primeras iteraciones del algoritmo para mostrar la cantidad de partes producidas en cada paso tras aplicar el Lema \ref{Energy boost particiones}.
+    
+    \begin{equation*}
+        \begin{aligned}
+            1^{\text{\underline{ra}}}\ \text{Iteración:}\quad & 1 & \to\quad & 2 < 2^{2} & \text{partes.}\\
+            2^{\text{\underline{da}}}\ \text{Iteración:}\quad & 2^{2} & \to\quad & \left( 2^{2}\right)2^{\left(  2^{2}\right)}  <  2^{2^{2^{2}}} & \text{partes.}\\
+            3^{\text{\underline{ra}}}\ \text{Iteración:}\quad & 2^{2^{2^{2}}} & \to\quad & \left( 2^{2^{2^{2}}} \right)2^{\left( 2^{2^{2^{2}}} \right)} < 2^{2^{2^{2^{2^{2}}}}} & \text{partes.}
+        \end{aligned}
+    \end{equation*}
+
+    Finalmente, como el algoritmo debe luego de a lo más $\varepsilon^{-5}$ iteraciones, la cantidad de partes al final de proceso será
+
+    \begin{equation*}
+        M(\varepsilon) \leq \left. 2^{2^{\cdot^{\cdot^{\cdot^{2}}}}}\right\rbrace\ \text{Altura }2\varepsilon^{-5}.
+    \end{equation*}
+\end{proof}\medskip
+
+Desde ahora en adelante, vamos a definir y consirar una \emph{torre de altura $k$} de la siguiente manera:
+
+\begin{equation*}
+    \mathrm{torre}(k) := \left.2^{2^{\cdot^{\cdot^{\cdot^{2}}}}}\right\rbrace \text{Altura } k.
+\end{equation*}
+
+Durante la demostración del Teorema \ref{szemeredi_regularity_lemma1} se utilizó una cota que podría parecer exagerada para encontrar la cantidad de partes que devuelve el algoritmo implementado, por sobre todo, considerando lo rápido que crece a medida que $\varepsilon$ se hace más pequeño. Sorprendentemente, en 1997, T. Gowers \fs{referencia} prueba que tal límite inferior de partes es necesario. Más precisamente, mostró que es posible encontrar una constante $c > 0$ tal que para todo suficientemente pequeño $\varepsilon > 0$, existe un grafo sin partición $\varepsilon$-regular siempre que posea una cantidad menor que $\mathrm{torre}(\lceil\varepsilon^{-c}\rceil)$ partes (ver Moshkovitz y Shapira \fs{referencia} (2016) para una demostración corta). 
+
+Finalmente, se expone la forma de probar el Teorema \ref{szemeredi_regularity_lemma2}. La idea de la demostración consiste en modificar el algoritmo de la técnica de argumento de incremento de energía, de manera que en cada iteración del refinamiento se logre obtener una equipartición. Este procedimiento conservará el incremento de energía en cada paso y  terminará con una equipartición del conjunto de vértices de un grafo cualquiera. Entonces, para todo grafo $G$, la modificación del algoritmo es la siguiente:
+
+%%%% Algoritmo modificado argumento de incremento de la energía para equiparticiones
+\begin{enumerate}
+    % !er paso
+    \item Comenzar con una equipartición inicial arbitraria $\mathcal{P}$ de $V(G)$ con $m_0$ partes.
+    % 2do paso
+    \item Mientras la partición actual $\mathcal{P}$ no es $\varepsilon$-regular:
+    \begin{itemize}
+        \item[(a)] Para cada par $(V_i, V_j)$ no $\varepsilon$-regular, encontrar los subconjuntos $A^{ij}\subset V_i$ y  $A^{ji}\subset V_j$ que evidencian la irregularidad de los pares.
+
+        \item[(b)] \label{paso_2b_mod} Refinar $\mathcal{P}$ usando simultáneamente los conjuntos $A^{ij}$ y $A^{ji}$ para obtener la partición $\mathcal{Q}$, cual divide cada parte de $\mathcal{P}$ en a lo más $2^{|\mathcal{P}|}$ partes.
+
+        \item[(c)] \label{paso_3c_mod} Modificar la partición $\mathcal{Q}$ refinando, si es posible, cada uno de sus elementos para formar partes iguales de tamaño $|V(G)|/m$, dada alguna elección apropiada del entero $m=m(|Q|,\varepsilon)$. Luego, los elementos de $\mathcal{Q}$ que no fueron refinados previamente a causa de su bajo tamaño y los conjuntos de vértices residuales del refinamiento anterior, deben ser combinados y posteriormente dividir el resultado en partes iguales de tamaño $|V(G)|/m$.
+
+        \item[(d)] Actualizar $\mathcal{P}$ con la modificación de $\mathcal{Q}$. 
+    \end{itemize}
+\end{enumerate}
+
+El algoritmo anterior obtiene una equipartición del conjunto de vértices del grafo $G$. En lo que respecta a la energía del proceso, el paso \ref{paso_2b_mod}(b) conserva un aumento de al menos $\varepsilon^{5}$ en cada iteración. El paso \ref{paso_3c_mod}(c) podría ocasionar una baja en la energía, sin embargo, no debería ser significativa con una elección de $m$ suficientemente grande. En resumidas cuentas, el proceso anterior aumenta la energía en cada iteración en al menos $\varepsilon^{5}/2$, logrando terminar luego de a lo más $2\varepsilon^{-5}$ pasos con una equipartición de a lo más $\mathrm{torre}(\varepsilon^{-5})$ partes.
+
+\subsection{Demostración espectral} \label{Demo_esp}
+
+\subsection{Aplicaciones} \label{Sec. Aplicaciones}
+
+\subsubsection{Eliminación de triángulos}
+
+\subsubsection{Emparejamiento inducido}
+
+\subsubsection{Teorema de Roth}
+
+
+\subsection{Enunciado y demostración}\medskip
+
+
+
+
+
+
 
 Por otro lado, con el espíritu del Teorema \ref{Teorema CGW}, es posible expresar un resultado análogo a la propiedad $\Count_p(\varepsilon)$ utilizando el concepto de par $\varepsilon$-regular. Dicho resultado, para $H=K_3$ es conocido como el lema de conteo de triángulos.\medskip
 
@@ -1803,115 +2165,18 @@ Bajo el mismo planteamiento de la inducción vista en la demostración del Lema 
 %
 %\hh{Escribo también la negación?, es decir, más de $\varepsilon |X|$ vértices tienen a lo más $(d(X,Y) + \varepsilon)|Y|$ vecinos.}
 
-Ya conociendo el concepto de regularidad entre pares de subconjuntos de vértices, estudiamos la regularidad en una partición del conjunto de vértices del grafo.\medskip
 
-%%%% Definición partición \varepsilon - regular
-\begin{definicion}
-    Dado un grafo $G$, una partición $\mathcal{P} = \lbrace V_1,...,V_{k}\rbrace$ del conjunto de vértices $V(G)$ es una \textbf{partición $\varepsilon$-regular} si\medskip
 
-    \[
-    \sum_{\substack{ (i,j)\in [k]^{2} \\ (V_{i}, V_{j})\ \mathrm{no}\ \varepsilon-\mathrm{regular}}} |V_i||V_j| \leq \varepsilon |V(G)|^{2}.
-    \]\medskip
 
-    Es decir, todos los pares de subconjuntos de vértices en la partición son $\varepsilon$-regular salvo una fracción $\varepsilon$ de pares de vértices.
-
-    %% Ojo: Descomentar si quiero incorporar el conjunto excepcional.
-    %Más aún, si consideramos una partición $\mathcal{P} = \lbrace V_0, V_1,...,V_k\rbrace$ del conjunto de vértices $V(G)$, en donde $V_0$ es un conjunto excepcional (podría ser vacío), diremos que es una partioción $\varepsilon$-regular  de $G$ si satisface las siguientes condiciones:
-    %\begin{enumerate}
-    %    \item[i)] $|V_0| \leq \varepsilon |V(G)|$.
-    %    \item[ii)] $|V_1| = \cdots = |V_k| = \frac{k}{n}$.
-    %    \item[iii)] $\Big| (i,j)\in [k]^{2} : 1\leq i < j \leq k\ \text{y}\ (V_i, V_j)\ \text{no es par}\ \varepsilon\text{-regular}\Big| \leq \varepsilon k^{2}$. 
-    %\end{enumerate}
-\end{definicion}\medskip
 %El papel que juega el subconjunto $V_0$ es únicamente por conveniencia; permite que los otros elementos de la partición posean exactamente el mismo tamaño.
 %\hh{Vale la pena incluir el conjunto excepcional para obtener el resultado del lema de regularidad en partes del mismo tamaño?, ¡desarrollaré la demostración sin utilizar este conjunto de primeras!!}
 
-Note que si una partición $\varepsilon$-regular de $k$ partes es en particular una equipartición, entonces a lo más $\varepsilon k^{2}$ pares de elementos de la partición no son $\varepsilon$-regular.\medskip
 
-Ya con todo lo necesario, se introduce el lema de regularidad de Szemerédi. Intuitivamente, el lema permite particionar el conjunto de vértices de todo grafo en una cantidad finita de partes, satisfaciendo que la mayoría de sus pares de partes son $\varepsilon$-regular. Enunciamos el célebre lema, y se dará prueba formal más adelante.\medskip
 
-%%%% Enunciado Lema de regularidad de Szemerédi
-\begin{teorema} \label{szemeredi_regularity_lemma} (Lema de regularidad de Szemerédi)
-    Para todo $\varepsilon > 0$, existe un entero $M = M(\varepsilon)$ tal que todo grafo admite una partición $\varepsilon$-regular de a lo más $M$ partes.
-\end{teorema}\medskip
 
-Para dar prueba a este teorema, se utilizará una técnica llamada \emph{argumento de incremento de energía}. Para todo grafo $G$, la técnica funciona algorítmicamente de la siguiente manera:\medskip
 
-%%%% Algoritmo incremento de energía
-\begin{enumerate}
-    \item Comenzar con la partición trivial de $V(G)$, i.e, $\mathcal{P} = \lbrace V(G)\rbrace$.
 
-    \item Mientras la partición actual $\mathcal{P}$ no es $\varepsilon$-regular:
-    \begin{itemize}
-        \item[(a)] Para cada par $(V_i, V_j)$ no $\varepsilon$-regular, encontrar los subconjuntos $A^{ij}\subset V_i$ y $A^{ji}\subset V_j$ que evidencian la irregularidad de cada par.
 
-        \item[(b)] \label{Paso 2b} Refinar $\mathcal{P}$ utilizando simultáneamente los conjuntos $A^{ij}$ y $A^{ji}$ encontrados de cada par $(V_i, V_j)$ no $\varepsilon$-regular para obtener $\mathcal{Q}$. 
-
-        \item[(c)] Actualizar $\mathcal{P}$ con $\mathcal{Q}$. 
-    \end{itemize}
-\end{enumerate}\medskip
-
-Siendo $\mathcal{P}$ y $\mathcal{Q}$ dos particiones de un mismo conjunto de vértices, diremos que $\mathcal{Q}$ refina a $\mathcal{P}$ si cada parte de $\mathcal{Q}$ está contenida en una parte de $\mathcal{P}$. En lo que resta de esta sección mostraremos que el algoritmo tiene un fin, y que entrega una partición $\varepsilon$-regular en un número de iteraciones que solo depende de $\varepsilon$.\medskip
-
-%%%% Definición Energía 
-\begin{definicion} (Energía)
-    Sea $G$ un grafo sobre $n$ vértices y $X,Y\subset V(G)$. Se define en primer lugar\medskip
-
-    \[
-    q(X,Y) := \frac{|X||Y|}{n^{2}}d(X,Y)^{2} = \frac{e(X,Y)^{2}}{n^{2}|X||Y|}.
-    \]\medskip
-
-    Luego, para particiones $\mathcal{P}_{X} = \lbrace X_1,...,X_k\rbrace$ de $X$ y $\mathcal{P}_{Y} = \lbrace Y_1,...,Y_\ell\rbrace$ de $Y$, se define\medskip
-
-    \[
-    q(\mathcal{P}_{X}, \mathcal{P}_{Y}) := \sum_{i = 1}^{k}\sum_{j = 1}^{\ell} q(X_i, Y_j).
-    \]\medskip
-
-    Finalmente, para una partición $\mathcal{P} = \lbrace V_1,...,V_k \rbrace$, se define la \textbf{energía} mediante\medskip
-
-    \[
-    q(\mathcal{P}) := \sum_{i = 1}^{k}\sum_{j = 1}^{k}q(V_i, V_j) = \sum_{i = 1}^{k}\sum_{j = 1}^{k} \frac{|V_i||V_j|}{n^{2}}d(V_i, V_j)^{2}. 
-    \]
-\end{definicion}\medskip
-
-Observe que en toda partición $\mathcal{P}$ de $V(G)$, siempre se tendrá que $0\leq q(\mathcal{P}) \leq 1$. En efecto,\medskip
-
-\begin{align*}
-    q(\mathcal{P}) &= \sum_{i = 1}^{k}\sum_{j = 1}^{k}\frac{|V_i||V_j|}{n^{2}}d(V_i,V_j)^{2}\\
-    &\leq \frac{1}{n^{2}}\sum_{i = 1}^{k}|V_i|\sum_{j = 1}^{k}|V_j|\\
-    &= 1.
-\end{align*}\medskip
-
-La última observación es crucial en la demostración del Teorema \ref{szemeredi_regularity_lemma}, puesto que los Lemas \ref{energia_no_decrece}, \ref{Energy boost un conjunto} y \ref{Energy boost particiones} nos asegurarán que la energía de una partición nunca decrece bajo refinamiento. Por consecuencia, el algoritmo de la técnica \emph{argumento de incremento de energía} tendrá un fin, entregando una partición $\varepsilon$-regular.\medskip
-
-El siguiente lema muestra que la energía no disminuye al particionar o refinar arbitrariamente un conjunto o partición respectivamente.\medskip
-
-%%%% Lema: la energía nunca decrece bajo refinamiento
-\begin{lema} \label{energia_no_decrece}
-    Sea $G$ un grafo, $X,Y\subset V(G)$, $\mathcal{P}_{X}$ y $\mathcal{P}_{Y}$ particiones de $X$ e $Y$ respectivamente, entonces $q(\mathcal{P}_{X}, \mathcal{P}_{Y}) \geq q(X,Y)$. Además, dadas dos particiones de vértices $\mathcal{P}$ y $\mathcal{P'}$ de $G$, $q(\mathcal{P}) \leq q(\mathcal{P'})$ cada vez que $\mathcal{P'}$ refina a $\mathcal{P}$. 
-\end{lema}\medskip
-
-%%%% Demostración nueva lema: la energía nunca decrece bajo refinamiento}
-\begin{proof}
-    Considere un grafo $G$ sobre $n$ vértices, los conjuntos $X,Y\subset V(G)$, y las particiones $\mathcal{P}_{X} = \lbrace X_1,...,X_k\rbrace$ y $\mathcal{P}_{Y} = \lbrace Y_1,...,Y_\ell\rbrace$ de $X$ e $Y$ respectivamente. En primera instancia, se utiliza la desigualdad \eqref{Desigualdad_from_CS} para probar que $q(\mathcal{P}_{X}, \mathcal{P}_{Y}) \geq q(X,Y)$. Para esto, se desarrolla como sigue:\medskip
-
-    \begin{equation} \label{q(P_X,P_Y) >= q(X,Y)}
-        \begin{split}
-            q(\mathcal{P}_{X}, \mathcal{P}_{Y}) &= \sum_{i = 1}^{k}\sum_{j = 1}^{\ell} q(X_{i}, Y_{j})\\
-            &= \frac{1}{n^{2}} \sum_{i = 1}^{k}\sum_{j = 1}^{\ell} \frac{e(X_i,Y_j)^{2}}{|X_i||Y_j|}\\
-            &\overset{\eqref{Desigualdad_from_CS}}{\geq} \frac{1}{n^{2}}\frac{\left( \sum_{i = 1}^{k}\sum_{j = 1}^{\ell} e(X_i,Y_j)\right)^{2}}{\sum_{i = 1}^{k}\sum_{j = 1}^{\ell} |X_i||Y_j|}\\
-            &= \frac{1}{n^{2}} \frac{e(X,Y)^{2}}{\left( \sum_{i = 1}^{k} |X_i| \right)\left( \sum_{j = 1}^{\ell} |Y_j|\right)}\\
-            &= \frac{e(X,Y)^{2}}{n^{2}|X||Y|}\\
-            &= q(X,Y).    
-        \end{split}
-    \end{equation}\medskip
-
-    Sea ahora la partición $\mathcal{P} = \lbrace V_1,...,V_k\rbrace$ de $V(G)$ y $\mathcal{P}' = \lbrace \mathcal{P}'_{V_1},...,\mathcal{P}'_{V_k}\rbrace$ un refinamiento de $\mathcal{P}$. Entonces, se utiliza el resultado probado previamente para completar el resultado:\medskip
-
-    \begin{equation*}
-        q(\mathcal{P}) = \sum_{i=1}^{k}\sum_{j=1}^{k} q(V_i,V_j) \overset{\eqref{q(P_X,P_Y) >= q(X,Y)}}{\leq} \sum_{i=1}^{k}\sum_{j=1}^{k} q(\mathcal{P}'_{V_i}, \mathcal{P}'_{V_j}).
-    \end{equation*}
-\end{proof}\medskip
 
 %%%% Demostración antigua lema: la energía nunca decrece bajo refinamiento
 %\begin{proof} \hh{Antigua}
@@ -1937,91 +2202,7 @@ El siguiente lema muestra que la energía no disminuye al particionar o refinar 
 %    \end{equation*}
 %\end{proof}
 
-Ahora, veremos que refinar un par $(X,Y)$ no $\varepsilon$-regular de un grafo $G$, mediante los subconjuntos que evidencian su irregularidad, provoca un aumento estricto en la energía.\medskip
 
-%%%% Lema: Energy Boost
-\begin{lema} \label{Energy boost un conjunto}
-    Sea $\varepsilon > 0$, $G$ un grafo de $n$ vértices y $X,Y\subset V(G)$. Si $(X,Y)$ no es un par $\varepsilon$-regular, existen particiones $\mathcal{P}_{X} = \lbrace X_1, X_2\rbrace$ de $X$ y $\mathcal{P}_{Y} = \lbrace Y_1, Y_2\rbrace$ de $Y$ tales que\medskip
-
-    \[
-        q(\mathcal{P}_{X}, \mathcal{P}_{Y}) > q(X,Y) + \varepsilon^{4}\frac{|X||Y|}{n^{2}}.
-    \]
-\end{lema}\medskip
-
-%%%% Demostración Energy boost
-\begin{proof}
-    Dado $\varepsilon > 0$, considere el grafo $G$ sobre $n$ vértices y $X,Y\subset V(G)$ subconjuntos tales que el par $(X,Y)$ no es $\varepsilon$-regular. Entonces, existen los subconjuntos $X_1 \subset X$ e $Y_1 \subset Y$ que evidencian la irregularidad del par $(X,Y)$, y son tales que\medskip
-
-    \begin{equation} \label{condición tamaño conjunto regularidad}
-        |X_1| \geq \varepsilon |X|\ \ \text{y}\ \ |Y_1| \geq \varepsilon |Y|.
-    \end{equation}\medskip
-    
-    Se define adicionalmente los conjuntos $X_2 := X\setminus X_1$, $Y_2 := Y\setminus Y_1$, y $\eta := d(X_1, Y_1) - d(X,Y)$, cual por definición de par $\varepsilon$-regular, satisface\fs{Aquí quedé}\medskip
-
-    \begin{equation} \label{|eta| > epsilon}
-        \left| \eta\right| > \varepsilon.
-    \end{equation}
-
-    Por un lado, observe la siguiente descomposición,
-    \begin{align*}
-        e(X,Y) &= e(X_1, Y) + e(X_2, Y)\\
-        &= e(X_1, Y_1) + e(X_1, Y_2) + e(X_2, Y_1) + e(X_2, Y_2).
-    \end{align*}
-
-    De esta manera,
-    \begin{equation} \label{descomposición suma aristas}
-        \sum_{i+j>2} e(X_i, Y_j) = e(X,Y) - e(X_1, Y_1).
-    \end{equation}
-
-    Por otro lado, se tiene que,
-    \begin{align*}
-        |X||Y| &= (|X_1| + |X_2|)(|Y_1| + |Y_2|)\\
-        &= |X_1||Y_1| + |X_1||Y_2| + |X_2||Y_1| + |X_2||Y_2|.
-    \end{align*}
-
-    Así,
-    \begin{equation} \label{descomposición multiplicación conjuntos}
-        \sum_{i+j > 2} |X_i||Y_j| = |X||Y| - |X_1||Y_1| .
-    \end{equation}
-
-    Ahora, definiendo las particiones $\mathcal{P}_{X} = \lbrace X_1, X_2\rbrace$ de $X$ y $\mathcal{P}_{Y} = \lbrace Y_1, Y_2\rbrace$ de $Y$, desarrollamos,
-    \begin{align} \label{Primer cálculo energy boost}
-        q(\mathcal{P}_{X}, \mathcal{P}_{Y}) &= \sum_{i=1}^{2}\sum_{j=1}^{2} q(X_i, Y_j) \nonumber\\
-        &= \sum_{i=1}^{2}\sum_{j=1}^{2} \frac{e(X_i, Y_j)^{2}}{n^{2}|X_i||Y_j|} \nonumber\\
-        &= \frac{1}{n^{2}}\left( \frac{e(X_1, Y_1)^{2}}{|X_i||Y_j|} + \sum_{i+j > 2} \frac{e(X_i, Y_j)^{2}}{|X_i||Y_j|}\right) \nonumber\\
-        &\overset{\eqref{Desigualdad_from_CS}}{\geq} \frac{1}{n^{2}}\left( \frac{e(X_1, Y_1)^{2}}{|X_1||Y_1|} + \frac{\left( \sum_{i+j > 2} e(X_i, Y_j)\right)^{2}}{\sum_{i+j > 2} |X_i||Y_j|}\right) \nonumber\\
-        &\overset{\eqref{descomposición suma aristas}\ \text{y}\ \eqref{descomposición multiplicación conjuntos}}{=} \frac{1}{n^{2}}\left( \frac{e(X_1, Y_1)^{2}}{|X_1||Y_1|} + \frac{\left( e(X,Y) - e(X_1, Y_1)\right)^{2}}{|X||Y| - |X_1||Y_1|}\right).
-    \end{align}
-
-    Luego, por definición, note que
-    \begin{equation} \label{e(X_1,Y_1) = ...}
-        e(X_1, Y_1) = \frac{|X_1||Y_1| e(X,Y)}{|X||Y|} + \eta |X_1||Y_1|.
-    \end{equation}
-
-    Con esto, se continúa el cálculo desde la desigualdad \eqref{Primer cálculo energy boost} como sigue, \hh{Me podré saltar un espacio más pequeño abajo?}
-    \begin{align} \label{Segundo cálculo energy boost}
-        n^{2}q(\mathcal{P}_{X}, \mathcal{P}_{Y}) &\geq \frac{e(X_1, Y_1)^{2}}{|X_1||Y_1|} + \frac{\left( e(X,Y) - e(X_1, Y_1)\right)^{2}}{|X||Y| - |X_1||Y_1|}\nonumber\\
-        \begin{split}
-            &\overset{\eqref{e(X_1,Y_1) = ...}}{=} \frac{1}{|X_1||Y_1|}\left( \frac{|X_1||Y_1|e(X,Y)}{|X||Y|} + \eta |X_1||Y_1|\right)^{2} \\
-            &\qquad + \frac{1}{|X||Y| - |X_1||Y_1|}\left( \frac{|X||Y| - |X_1||Y_1|}{|X||Y|}e(X,Y) - \eta |X_1||Y_1|\right)^{2}    
-        \end{split}\nonumber\\
-        \intertext{}
-        \begin{split}
-            &= \frac{|X_1||Y_1|}{|X|^{2}|Y|^{2}}e(X,Y)^{2} + 2\frac{|X_1||Y_1|}{|X||Y|}\eta e(X,Y) + \eta^{2}|X_1||Y_1| \\
-            &\qquad + \frac{|X||Y| - |X_1||Y_1|}{|X|^{2}|Y|^{2}}e(X,Y)^{2} - 2\frac{|X_1||Y_1|}{|X||Y|}\eta e(X,Y) + \frac{\eta^{2} |X_1|^{2}|Y_1|^{2}}{|X||Y| - |X_1||Y_1|}    
-        \end{split}\nonumber\\
-        \intertext{ }
-        &= \frac{e(X,Y)^{2}}{|X||Y|} + \eta^{2}|X_1||Y_1|\left( 1 + \frac{|X_1||Y_1|}{|X||Y| - |X_1||Y_1|}\right)\nonumber\\
-        &\geq \frac{e(X,Y)^{2}}{|X||Y|} + \eta^{2}|X_1||Y_1|.
-    \end{align}
-
-    Finalmente, utilizando las cotas \eqref{condición tamaño conjunto regularidad} y \eqref{|eta| > epsilon}, podemos concluir desde la desigualdad \eqref{Segundo cálculo energy boost},
-    \begin{align*}
-        q(\mathcal{P}_{X}, \mathcal{P}_{Y}) &= \frac{e(X,Y)^{2}}{n^{2}|X||Y|} + \eta^{2}\frac{|X_1||Y_1|}{n^{2}}\\
-        &= q(X,Y) + \eta^{2}\frac{|X_1||Y_1|}{n^{2}}\\
-        &> q(X,Y) + \varepsilon^{4}\frac{|X||Y|}{n^{2}}.
-    \end{align*}
-\end{proof}\medskip
 
 %%%% Demostración Energy boost
 %\begin{proof} \hh{Antigua}
@@ -2043,105 +2224,9 @@ Ahora, veremos que refinar un par $(X,Y)$ no $\varepsilon$-regular de un grafo $
 %    \end{equation*}
 %\end{proof}
 
-Vimos que particionar cualquier par de conjuntos no $\varepsilon$-regular por medio de sus subconjuntos que evidencian la irregularidad produce un aumento en la energía. Entonces, haciendo alusión al paso \ref{Paso 2b}(b) del algoritmo de la técnica \emph{argumento de incremento de energía}, se mostrará que refinar simultáneamente todos los pares de conjuntos no $\varepsilon$-regular de un grafo produce un aumento estricto de al menos $\varepsilon^{5}$ en la energía.\medskip
-
-%%%% Lema: Energy boost para particiones
-\begin{lema} \label{Energy boost particiones}
-    Sea $\varepsilon > 0$, un grafo $G$ y una partición $\mathcal{P} = \lbrace V_1,...V_k\rbrace$ no $\varepsilon$-regular de $V(G)$. Entonces existe un refinamiento $\mathcal{Q}$ de $\mathcal{P}$, en el que cada $V_i$ se particiona en a lo más $2^{k}$ partes y es tal que
-    \begin{equation*}
-        q(\mathcal{Q}) > q(\mathcal{P}) + \varepsilon^{5}.
-    \end{equation*}
-\end{lema}
-
-%%%% Demostración energy boost para particiones
-\begin{proof}
-    Sea $\varepsilon > 0$ y $\mathcal{P} = \lbrace V_1,...,V_k\rbrace$ una partición no $\varepsilon$-regular del conjunto de $n$ vértices de un grafo $G$ . Sabemos que para todos los $(i,j)\in [k]^{2}$ tales que el par $(V_i, V_j)$ no es $\varepsilon$-regular, existen los subconjuntos $A^{ij}\subset V_i$ y $A^{ji}\subset V_j$ testigos de su irregularidad. Observe que para cada $V_i$, podemos encontrar a lo más $k$ conjuntos no vacíos $A^{ij}$ que evidencian la irregularidad de los pares $(V_i, V_j)$ no $\varepsilon$-regular. Consideremos ahora la partición $\mathcal{Q} = \lbrace Q_1,...,Q_k\rbrace$ que refina a $\mathcal{P}$, en la que cada $Q_i$ es una partición resultante de dividir el conjunto $V_i$ según la intersección de todos los subconjuntos no vacíos $A^{ij}$ que atestiguan la irregularidad de los pares $(V_i, V_j)$ no $\varepsilon$-regular. En consecuencia, $|Q_i| \leq 2^{k}$.
-
-    Por simplicidad en la notación, se define $\Theta := \lbrace (i,j)\in [k]^{2} : (V_i,V_j)\ \text{es}\ \varepsilon\text{-regular}\rbrace$. Luego, como la partición $\mathcal{P}$ no es $\varepsilon$-regular, se cumple la desigualdad
-    \begin{equation} \label{condición partición no regular}
-        \sum_{(i,j)\not\in \Theta} \frac{|V_i||V_j|}{n^{2}} > \varepsilon.
-    \end{equation}
-
-    Así, junto a los lemas probados previamente, damos prueba al resultado de la siguiente manera,
-    \begin{align*}
-        q(\mathcal{Q}) &= \sum_{(i,j)\in [k]^{2}} q(\mathcal{Q}_i, \mathcal{Q}_j) \\
-        &= \sum_{(i,j)\in \Theta} q(\mathcal{Q}_i, \mathcal{Q}_j) + \sum_{(i,j)\not\in \Theta} q(\mathcal{Q}_i, \mathcal{Q}_j)\\
-        &\overset{\text{Lema \ref{energia_no_decrece}}}{\geq} \sum_{(i,j)\in \Theta} q(V_i, V_j) + \sum_{(i,j)\not\in \Theta} q(\lbrace A^{ij}, V_i\setminus A^{ij}\rbrace, \lbrace A^{ji}, V_{j}\setminus A^{ji}\rbrace)\\
-        &\overset{\text{Lema \ref{Energy boost un conjunto}}}{\geq} \sum_{(i,j)\in \Theta} q(V_i, V_j) + \sum_{(i,j)\not\in \Theta} \left( q(V_i, V_j) + \varepsilon^{4}\frac{|V_i||V_j|}{n^{2}} \right)\\
-        &= \sum_{(i,j)\in [k]^{2}} q(V_i, V_j) + \sum_{(i,j)\not\in \Theta} \varepsilon^{4}\frac{|V_i||V_j|}{n^{2}}\\
-        &\overset{\eqref{condición partición no regular}}{\geq} q(\mathcal{P}) + \varepsilon^{5}.
-    \end{align*}
-
-    \hh{Cambiar por $>$ en la última línea y donde dice lema 5, cuando lo cambio se me descuadra :c}
-\end{proof}\medskip
-
-Ya con todo lo necesario, damos prueba formal al Teorema \ref{szemeredi_regularity_lemma} mediante la técnica de \emph{argumento de incremento de energía}.\medskip
-
-%%%% Demostración Lema de regularidad de Szemerédi
-\begin{proof}[Demostración del Teorema \ref{szemeredi_regularity_lemma}]
-    Dado $\varepsilon > 0$ y un grafo $G$, elegimos inicialmente la partición trivial del conjunto de vértices $\mathcal{P} = \lbrace V(G)\rbrace$. Ahora, iterativamente (actualizando $\mathcal{P}$), aplicaremos el Lema \ref{Energy boost particiones} cada vez que la partición actual no sea $\varepsilon$-regular. Observe que por cada aplicación del Lema \ref{Energy boost particiones} se consigue un aumento de al menos $\varepsilon^{5}$ en la energía, y como la energía de toda partición está acotada superiormente por 1, el proceso iterativo terminará luego de a lo más $\varepsilon^{-5}$ pasos. El resultado será necesariamente una partición $\varepsilon$-regular debido a la cota de la energía. 
-
-    Para una partición no $\varepsilon$-regular con $k$ elementos, el Lema \ref{Energy boost particiones} encuentra un refinamiento de a lo más $k2^{k}$ partes. Dicho refinamiento será producido en cada iteración del algoritmo de \emph{argumento de incremento de energía}, y la cantidad de partes producidas las acotaremos crudamente en cada paso por $k2^{k} < 2^{2^{k}}$. Comenzando con la partición trivial de una parte, ejemplificaremos con las tres primeras iteraciones del algoritmo para mostrar la cantidad de partes producidas en cada paso tras aplicar el Lema \ref{Energy boost particiones}.
-    
-    \begin{equation*}
-        \begin{aligned}
-            1^{\text{\underline{ra}}}\ \text{Iteración:}\quad & 1 & \to\quad & 2 < 2^{2} & \text{partes.}\\
-            2^{\text{\underline{da}}}\ \text{Iteración:}\quad & 2^{2} & \to\quad & \left( 2^{2}\right)2^{\left(  2^{2}\right)}  <  2^{2^{2^{2}}} & \text{partes.}\\
-            3^{\text{\underline{ra}}}\ \text{Iteración:}\quad & 2^{2^{2^{2}}} & \to\quad & \left( 2^{2^{2^{2}}} \right)2^{\left( 2^{2^{2^{2}}} \right)} < 2^{2^{2^{2^{2^{2}}}}} & \text{partes.}
-        \end{aligned}
-    \end{equation*}
-
-    Así, como el algoritmo debe luego de a lo más $\varepsilon^{-5}$ iteraciones, la cantidad de partes al final de proceso será
-    \begin{equation*}
-        M(\varepsilon) \leq \left. 2^{2^{\cdot^{\cdot^{\cdot^{2}}}}}\right\rbrace\ \text{Altura }2\varepsilon^{-5}.
-    \end{equation*}
-\end{proof}\medskip
-
-Desde ahora en adelante, vamos a definir y consirar una \emph{torre de altura $k$} de la siguiente manera,
-\begin{equation}
-    \mathrm{torre}(k) := \left.2^{2^{\cdot^{\cdot^{\cdot^{2}}}}}\right\rbrace \text{Altura } k.
-\end{equation}\medskip
-
-\hh{En esta parte me gustaría dejar un comentario sobre lo grande que es la cota y el resultado que encontró Gowers en 1997 de cota inferior, pero no lo entiendo :c}\medskip
-
-Una de las peculiaridades del lema de regularidad de Szemerédi es la flexibilidad que posee su enunciado, adaptando su aplicación a diferentes contextos. Por ejemplo, si en la demostración del Teorema \ref{szemeredi_regularity_lemma} tomamos una partición inicial arbitraria en vez de la partición trivial del conjunto de vértices del grafo, se logra obtener la siguiente variante del lema de regularidad.\medskip
-
-%%%% Teorema: Lema de regularidad, partición inicial
-\begin{teorema} \label{Regularidad_part_ini} (Regularidad de Szemerédi - Partición inicial arbitraria)
-    Para todo $\varepsilon > 0$, existe un entero $M=M(\varepsilon)$ tal que todo grafo $G$ con una partición inicial $\mathcal{P}_0$ de $V(G)$ admite una partición $\varepsilon$-regular $\mathcal{P}$ de $V(G)$ que refina cada parte de $\mathcal{P}_0$ en a lo más $M$ partes.
-\end{teorema}\medskip
-
-Es posible fortalecer un poco más el lema de regularidad exigiendo que el resultado sea una equipartición del conjunto de vértices de un grafo $G$. Es decir, una partición $\mathcal{P} = \lbrace V_1,...,V_k \rbrace$ tal que $|V_1|\leq |V_2|\leq ...\leq |V_k| = |V_1| +1$.\medskip
-
-%%%% Teorema: Lema de regularidad, equipartición
-\begin{teorema} \label{Regularidad_equipart} (Regularidad de Szemerédi - Equipartición)
-    Para todo $\varepsilon > 0$ y $m_0\in\mathbb{N}$, existe un entero $M = M(\varepsilon)$ tal que todo grafo admite una equipartición $\varepsilon$-regular de su conjunto de vértices de $k$ partes, con $m_0\leq k\leq M$. 
-\end{teorema}\medskip
-
-\fs{Comentar que cuando tenemos esta versión del teorema (que es la clásica), entonces la definición de una partición $\varepsilon$-regular se traduce en $...\leq\varepsilon k^{2}$. También hablar un poco de $m_0$, cual ayuda a que ninguna de las partes sea demasiado grande.}\medskip
-
-La idea de la demostración del Teorema \ref{Regularidad_equipart} consiste en modificar el algoritmo de la técnica de argumento de incremento de energía, de manera que en cada iteración del refinamiento se logre obtener una equipartición. Este procedimiento conservará el incremento de energía en cada paso y  terminará con una equipartición del conjunto de vértices de un grafo cualquiera. Para todo grafo $G$, la modificación del algoritmo es la siguiente:\medskip
 
 
 
-%%%% Algoritmo modificado argumento de incremento de la energía para equiparticiones
-\begin{enumerate}
-    % !er paso
-    \item Comenzar con una equipartición inicial arbitraria $\mathcal{P}$ de $V(G)$ con $m_0$ partes.
-    % 2do paso
-    \item Mientras la partición actual $\mathcal{P}$ no es $\varepsilon$-regular:
-    \begin{itemize}
-        \item[(a)] Para cada par $(V_i, V_j)$ no $\varepsilon$-regular, encontrar los subconjuntos $A^{ij}\subset V_i$ y  $A^{ji}\subset V_j$ que evidencian la irregularidad de cada par.
-
-        \item[(b)] \label{paso_2b_mod} Refinar $\mathcal{P}$ usando simultáneamente los conjuntos $A^{ij}$ y $A^{ji}$ para obtener la partición $\mathcal{Q}$, cual divide cada parte de $\mathcal{P}$ en a lo más $2^{|\mathcal{P}|}$ partes.
-
-        \item[(c)] \label{paso_3c_mod} Modificar la partición $\mathcal{Q}$ refinando, si es posible, cada uno de sus elementos para formar partes iguales de tamaño $|V(G)|/m$ utilizando alguna elección apropiada del entero $m=m(|Q|,\varepsilon)$. Luego, los elementos de $\mathcal{Q}$ que no fueron refinados previamente a causa de su bajo tamaño y los conjuntos de vértices residuales del refinamiento anterior, deben ser combinados y posteriormente dividir el resultado en partes iguales de tamaño $|V(G)|/m$.
-
-        \item[(d)] Actualizar $\mathcal{P}$ con la modificación de $\mathcal{Q}$. 
-    \end{itemize}
-\end{enumerate}\medskip
-
-El algoritmo anterior obtiene una equipartición del conjunto de vértices del grafo $G$. En lo que respecta a la energía del proceso, el paso \ref{paso_2b_mod}(b) conserva un aumento de al menos $\varepsilon^{5}$ en cada iteración. El paso \ref{paso_3c_mod}(c) podría ocasionar una baja en la energía, sin embargo, no debería ser significativa con una elección de $m$ suficientemente grande.\footnote{\hh{Aquí quiero hacer un comentario/ejemplo de $m$. Yufei sugiere $m= \lfloor 100|\mathcal{Q}\varepsilon^{-5}|\rfloor$, pero tampoco lo entiendo mucho.}} En resumidas cuentas, el proceso anterior aumenta la energía en cada iteración en al menos $\varepsilon^{5}/2$, logrando terminar luego de a lo más $2\varepsilon^{-5}$ pasos con una equipartición de a lo más $\mathrm{torre}(\varepsilon^{-5})$ partes.
 
 \subsection{Aplicaciones}
 
