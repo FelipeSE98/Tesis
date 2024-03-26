@@ -632,7 +632,7 @@ Es importante destacar que la matriz de adyacencia no solo describe las conexion
 
 Como consecuencia de la proposición anterior, en cualquier grafo $G = ([n], E)$ con matriz de adyacencia $A$, se puede representar la cantidad total de caminatas cerradas de largo $t$ en el grafo por medio de la traza, $\Tr(A^{t}) = \sum_{i=1}^{n}a_{ii}^{(t)}$. Con esto, note que $\Tr(A^{2}) = 2e_G$. Con escencialmente la misma demostración, enuncia el siguiente corolario que nos será de utilidad más adelante.
 
-\begin{corolario}
+\begin{corolario} \label{cor:Fcuadrada}
     Sea una matriz $F = (f_{ij})\in\mathcal{M}_{n\times n}(\mathbb{R})$, entonces $\Tr(F^{2}) = \sum_{(i,j)\in [n]^{2}}f_{ij}^{2}$.
 \end{corolario}
 
@@ -780,8 +780,8 @@ Finalmente, es posible caracterizar cada valor propio de una matriz real simétr
     \end{itemize}
 \end{teorema}
 
-\begin{corolario}
-    Sea $\lambda_1$ valor propio más grande de la matriz simétrica $A\in\mathcal{M}_{n\times n}(\mathbb{R})$, entonces
+\begin{corolario} \label{cor:CFprimero}
+    Sea $\lambda_1$ el valor propio más grande de la matriz simétrica $A\in\mathcal{M}_{n\times n}(\mathbb{R})$, entonces
     
     \begin{equation*}
         \lambda_1 = \sup_{\boldsymbol{x}\not= \boldsymbol{0}} \frac{\norm{A\boldsymbol{x}}}{\norm{\boldsymbol{x}}}.
@@ -1790,7 +1790,9 @@ Otra forma de encontrar el resultado, es cuando todas las partes de la partició
     Para todo $\varepsilon > 0$ y $m_0\in\mathbb{N}$, existe un entero $M = M(\varepsilon)$ tal que todo grafo admite una equipartición $\varepsilon$-regular de su conjunto de vértices de $k$ partes, con $m_0\leq k\leq M$. 
 \end{teorema}
 
-La elección de qué versión del lema utilizar dependerá netamente del tipo de aplicación que se tenga en mente. En las subsecciones \ref{Demo_ener} y \ref{Demo_esp} se desarrollará la demostración clásica y espectral respesctivamente del Teorema \ref{szemeredi_regularity_lemma1}, y se expone como extenderla para probar también el Teorema \ref{szemeredi_regularity_lemma2}. Finalmente, en la subsección \ref{Sec. Aplicaciones} se mostrarán las aplicaciones más famosas del lema de regularidad de Szemerédi.
+Lo poderoso del lema de regularidad es que la cota de partes que entrega es independiente del tamaño del grafo, y solo depende del parámetro $\varepsilon$. Esto ya que en grafo más grandes, el tamaño de las partes podrían ser considerablemente más grandes.
+
+En la subsección \ref{Demo_ener} se demostrará rigurosamente el Teorema \ref{szemeredi_regularity_lemma1} desde una mirada clásica, y se expondrá la manera de probar el \ref{szemeredi_regularity_lemma2}. Más adelante, en la sección \ref{Demo_esp}, nos limitaremos a mostrar una forma novedosa e ingeniosa de demostrar el Teorema \ref{szemeredi_regularity_lemma1} desde una perspectiva espectral. Finalmente, en la subsección \ref{Sec. Aplicaciones} se mostrarán las aplicaciones más famosas del lema de regularidad de Szemerédi.
 
 \subsection{Demostración por incremento de energía} \label{Demo_ener}
 
@@ -2056,6 +2058,125 @@ Finalmente, se expone la forma de probar el Teorema \ref{szemeredi_regularity_le
 El algoritmo anterior obtiene una equipartición del conjunto de vértices del grafo $G$. En lo que respecta a la energía del proceso, el paso \ref{paso_2b_mod}(b) conserva un aumento de al menos $\varepsilon^{5}$ en cada iteración. El paso \ref{paso_3c_mod}(c) podría ocasionar una baja en la energía, sin embargo, no debería ser significativa con una elección de $m$ suficientemente grande. En resumidas cuentas, el proceso anterior aumenta la energía en cada iteración en al menos $\varepsilon^{5}/2$, logrando terminar luego de a lo más $2\varepsilon^{-5}$ pasos con una equipartición de a lo más $\mathrm{torre}(\varepsilon^{-5})$ partes.
 
 \subsection{Demostración espectral} \label{Demo_esp}
+
+En 2012, Terence Tao \fs{referencia} publica en su blog una prueba del lema de regularidad de Szemerédi usando la descomposición espectral de la matriz de adyacencia. La idea original de la demostración proviene de los autores Frieze y Kannan \fs{referencia}, a quieres Tao les da el crédito en su publicación. Más adelante, en 2013, Cioba y Martin \fs{referencia} escribieron la demostración con más detalles. La prueba que se expone en esta sección está basada escencialmente en la publicación de Cioba y Martin.
+
+%%%% Demostración espectral.
+\begin{proof}[Demostración espectral del Teorema \ref{szemeredi_regularity_lemma1}]
+    Dado $\varepsilon > 0$, consideramos la función $F : \mathbb{N}\to\mathbb{N}$ definida por
+
+    \begin{equation*}
+        F(\ell) = \left\lceil\frac{1}{\varepsilon^{6}}\left( \frac{2\ell^{2}}{\varepsilon^{2}}\right)^{4\ell}\right\rceil.
+    \end{equation*}
+
+    Denotaremos por $F^{(i)}$ a la $i$-ésima composición de $F$ con ella misma, y escogemos $n_0\in\mathbb{N}$ suficientemente grande.
+
+    Sea $G = ([n], E)$ un grafo con $n\geq n_0$ vértices, y $A$ su matriz de adyacencia. Ordenamos los valores propios $|\lambda_1|\geq ...\geq |\lambda_n|$ de $A$ de manera decreciente y consideramos $\boldsymbol{u}_1,...\boldsymbol{u}_n$ los vectores propios correspondientes, que forman una base ortonormal de $\mathbb{R}^{n}$.
+
+    Por la Proposición \ref{potencia_matriz_adyacencia = caminatas} y el Corolario \ref{Tr_Ak}, se satisface
+
+    \begin{equation} \label{eq_1 Spectral_Proof}
+        \Tr(T) = \sum_{i=1}^{n} \lambda_{1}^{2} =  2e_G \leq n^{2}.
+    \end{equation}
+
+    De lo anterior, al notar que $i\lambda_{i}^{2} \leq \sum_{j=1}^{i} \lambda_{j}^{2} \leq n^{2}$, se encuentra la cota
+
+    \begin{equation} \label{eq_2 Spectral_Proof}
+        \lambda_{i} \leq \frac{n}{\sqrt{i}}\ ,\ \forall i\in [n].
+    \end{equation}
+
+    Consideramos también los intervalos $I_1,\dots, I_{\lceil1/\varepsilon^3\rceil}\subset [n]$ definidos por
+
+    \begin{itemize}
+        \item $I_1=\{1,2,\dots, F^{(1)}(1)-1\}$ y
+        \item $I_k=\{F^{(k-1)}(1),\dots, F^{k}(1)-1\}$ para todo $k=2,\dots, I_{\lceil1/\varepsilon^3\rceil}$.
+    \end{itemize}
+
+    Con esta construcción, debe existir un natural $1\leq L \leq\lceil1/\varepsilon^3\rceil$ que cumple con
+
+    \begin{equation} \label{eq_3 Spectral_Proof}
+        \sum_{L \leq j < F(L)} \lambda_j^{2} \leq \varepsilon^{3}n^{2},
+    \end{equation}
+
+    porque de lo contrario, se obtiene
+
+    \[\sum_{i=1}^n\lambda_i^2\geq \sum_{k=1}^{\lceil1/\varepsilon^3\rceil}\sum_{i\in I_k}\lambda_i^2> \lceil1/\varepsilon^3\rceil \cdot \varepsilon^3n^2>n^2,\]
+
+    que contradice la desigualdad \eqref{eq_1 Spectral_Proof}.
+
+    Ahora, usando $L$, separamos la matriz $A$ en tres matrices simetricas:
+
+    \[        A= S + F + Q,\]
+
+    donde la matriz $S$ se intepretará como la componente \emph{estructural},
+
+    \begin{equation*}
+        S = \sum_{i < L} \lambda_i \boldsymbol{u}_i \boldsymbol{u}_{i}^{T},
+    \end{equation*}
+
+    la matriz $F$ como la componente de \emph{error},
+    
+    \begin{equation*}
+        F = \sum_{L \leq i < F(L)} \lambda_i \boldsymbol{u}_i \boldsymbol{u}_{i}^{T},
+    \end{equation*}
+
+    y la matriz $Q$ como la componente \emph{cuasi-aleatoria},
+
+    \begin{equation*}
+        Q = \sum_{i \geq F(L)} \lambda_i \boldsymbol{u}_i \boldsymbol{u}{i}^{T}.
+    \end{equation*}
+
+    Usaremos los vectores propios $\boldsymbol{u}_1,...\boldsymbol{u}_{L-1}$ de $S$ para definir una partición de $V(G)$ como mostraremos a continuación. Consideramos el intervalo de $\mathbb{R}$ de longitud $2\sqrt{({L}/{\varepsilon})}\cdot n^{-1/2}$ centrado en el origen y lo particionamos en $t = 2(L/\varepsilon)^{2}$ subintervalos $J_1,...,J_t$ de longitud $(\varepsilon /L)^{3/2}n^{-1/2}$ cada uno. Luego, clasificamos los vértices $v\in V(G)$ según su valor $\boldsymbol{u}_i(v)$ de la siguiente manera:
+
+    \[V^j_i=\big\{v\in V(G) :  \boldsymbol{u}_i(v)\in J_j\big\}\ ,\ 1\leq j\leq t.\]
+
+    Con esto, tomamos el refinamiento de todos estos conjuntos $\big\{V_i^j\neq\emptyset : i\in[L-1], j\in[t]\big\}$ para obtener los conjuntos $V_0,V_1,...,V_M$, en donde $M\leq (\frac{2L^2}{\varepsilon^2})^L$. El resultado anterior considera un conjunto excepcional de vértices $V_0$ que está definido como sigue:
+
+    \begin{equation*}
+        V_{0} = \left\lbrace v\in  V(G): |\boldsymbol{u}_i (v)| > \sqrt{\frac{L}{\varepsilon}}n^{-1/2}\text{ para alg\'un }i\in[L-1]\right\rbrace .
+    \end{equation*}
+
+    Mostraremos que el conjunto excepcional $V_0$ es suficientemente pequeño. En efecto, observando que
+
+    \begin{equation*}
+        L-1= \sum_{i=1}^{L-1} \norm{\boldsymbol{u}_i}^{2} \geq  \sum_{i=1}^{L-1}\sum_{v\in V(G)}^{n} \boldsymbol{u}_{i}(v)^{2} \geq |V_{0}|\left( {\frac{L}{\varepsilon n}}\right),
+    \end{equation*}
+
+    se determina que $|V_0| < \varepsilon n$.
+
+    Probaremos que la partición construida del conjunto de vértices del grafo $\mathcal{P} = \lbrace V_0,V_1,...,V_M\rbrace$ es $\varepsilon$-regular. Comenzamos identificando los pares excepcionales. Para esto, sea $F = (f_{xy})$ y defina
+
+    \begin{align*}
+        \Sigma_F &=\Big\{(i,j) : \sum_{(x,y)\in V_i\times V_j} f_{xy}^{2} > \varepsilon |V_i| |V_j|\Big\}
+    \end{align*}
+
+    Entonces, por la definición de $F$ y el Corolario \ref{cor:Fcuadrada}, tenemos que
+
+    \[\varepsilon^3n^2\geq \sum_{L\leq i<F(L)}\lambda_i^2 =\Tr(F^2)= \sum_{(x,y)\in V(G)^2} f_{xy}^2 \geq \sum_{(i,j)\in \Sigma_F}\sum_{(x,y)\in V_i\times V_j} f_{xy}^{2} > \varepsilon \sum_{(i,j)\in\Sigma_F} |V_i| |V_j|, \]
+
+    y por consecuencia
+
+    \begin{equation} \label{eq_8 Spectral_Proof}
+        \varepsilon^{2} n^{2}\geq  \sum_{(i,j)\in \Sigma_F} |V_i| |V_j|.
+    \end{equation}
+
+    Además, sea
+
+    \[\Sigma_Q=\Big\{(i,j) : \min\{|V_i|,|V_j|\}<\frac\varepsilon Mn\Big\} \cup \big\{(i,j) : i=0\text{ o }j=0\big\},\]
+
+    y observe que
+
+    \[ \sum_{(i,j)\in \Sigma_Q} |V_i| |V_j|\leq 2M\cdot\frac\varepsilon M n+ 2|V_0|n<4\varepsilon n.\]
+
+    Ahora, sea $(i,j)\not\in \Sigma_F\cup\Sigma_Q$, $d_{ij}=d(V_i,V_j)$ la densidad del par $(V_i,V_j)$. Entonces, dado los subconjuntos $X\subset V_i$ e $Y\subset V_j$, note la siguiente descomposición:
+
+    \begin{align*} 
+        \Big| e(X,Y) - d_{ij}|X||Y|\Big|& =\Big|\boldsymbol{v}_X^T A\boldsymbol{v}_Y - d_{ij}|X||Y|\Big|\\
+        &\leq \Big|\boldsymbol{v}_X^T S\boldsymbol{v}_Y - d_{ij}|X||Y| \Big|+\Big|\boldsymbol{v}_X^T F\boldsymbol{v}_Y \Big|+\Big|\boldsymbol{v}_X^T Q\boldsymbol{v}_Y \Big|.
+    \end{align*}
+        
+
+\end{proof}
 
 \subsection{Aplicaciones} \label{Sec. Aplicaciones}
 
@@ -2433,7 +2554,7 @@ Denotaremos por $k$-PA a una prograsión aritmética de $k$ elementos. En partic
 \fs{Explicar que ahora vamos a demostrar con teoría espectral el lema de regularidad de Szemerédi. Comentar también que esta versión la realizó Terence Tao.}\medskip
 
 %%%% Demostración espectral: Lema de regularidad Szemerédi
-\begin{proof}[Demostración espectral Teorema \ref{szemeredi_regularity_lemma}] 
+%\begin{proof}[Demostración espectral Teorema \ref{szemeredi_regularity_lemma}] 
     Sea $\varepsilon > 0$, $G = ([n],E)$ un grafo y $T$ su matriz de adyacencia. Consideramos además $\lbrace u_1,...,u_n\rbrace$ la base ortonormal de $\mathbb{R}^{n}$ formada por los vectores propios de $T$, y $|\lambda_1| \geq ... \geq |\lambda_n|$ los valores propios de $T$ ordenados de manera decreciente.\medskip
 
     Por la Proposición \ref{potencia_matriz_adyacencia = caminatas} y el Corolario \ref{Tr_Ak}, se satisface\medskip
@@ -2661,7 +2782,7 @@ Denotaremos por $k$-PA a una prograsión aritmética de $k$ elementos. En partic
     \begin{equation*}
         f(x) \geq \frac{1}{\varepsilon^{6}}\left( \frac{2x^{2}}{\varepsilon^{2}}\right)^{4x}.
     \end{equation*}
-    \end{proof}
+%   \end{proof}
 
 
 \section{Bibliografía}

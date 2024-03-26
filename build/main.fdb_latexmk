@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1711343833.39638 "c:/Tesis/Documento Tesis/main.tex" "build/main.pdf" "main" 1711343835.88777 2
-  "C:/Tesis/Documento Tesis/build/main.aux" 1711343835.44973 11265 8c700e8195542dbb05f125509330dd2c ""
-  "C:/Tesis/Documento Tesis/build/main.out" 1711343835.45273 3166 4e05d928fc40f5b309acce63ce93e3f5 ""
+["pdflatex"] 1711427799.53479 "c:/Tesis/Documento Tesis/main.tex" "build/main.pdf" "main" 1711427802.15309 2
+  "C:/Tesis/Documento Tesis/build/main.aux" 1711427801.69507 11696 998e67f497d3b3191ce844ec874d6848 ""
+  "C:/Tesis/Documento Tesis/build/main.out" 1711427801.69807 3166 4e05d928fc40f5b309acce63ce93e3f5 ""
   "C:/Users/Felipe/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1711158832.11063 81232 66d05e7ef23c8c4f50ae117afd5d783c ""
   "C:/Users/Felipe/AppData/Local/MiKTeX/fonts/pk/ljfour/public/bbm/dpi600/bbm10.pk" 1706842796.44732 6984 2405299529704dbb29690b2d523fcd9a ""
   "C:/Users/Felipe/AppData/Local/MiKTeX/fonts/tfm/public/bbm/bbm10.tfm" 1706842790.79604 560 39fd35b5e4a6aca3672660cc548ba860 ""
@@ -234,9 +234,9 @@
   "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "Imágenes/logo_usach.png" 1706841963.69402 11162 93b2f2fb028a3d966b47a01940e2c848 ""
-  "build/main.aux" 1711343835.44973 11265 8c700e8195542dbb05f125509330dd2c "pdflatex"
-  "build/main.out" 1711343835.45273 3166 4e05d928fc40f5b309acce63ce93e3f5 "pdflatex"
-  "c:/Tesis/Documento Tesis/main.tex" 1711343826.43722 174718 344ef0ea51fb1b0e5e0488cdfabdcb4b ""
+  "build/main.aux" 1711427801.69507 11696 998e67f497d3b3191ce844ec874d6848 "pdflatex"
+  "build/main.out" 1711427801.69807 3166 4e05d928fc40f5b309acce63ce93e3f5 "pdflatex"
+  "c:/Tesis/Documento Tesis/main.tex" 1711427790.01794 181727 054a8e7c0dd5f4c1c0ae4368f7c02c47 ""
   (generated)
   "build/main.aux"
   "build/main.log"
