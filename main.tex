@@ -2168,13 +2168,55 @@ En 2012, Terence Tao \fs{referencia} publica en su blog una prueba del lema de r
 
     \[ \sum_{(i,j)\in \Sigma_Q} |V_i| |V_j|\leq 2M\cdot\frac\varepsilon M n+ 2|V_0|n<4\varepsilon n.\]
 
-    Ahora, sea $(i,j)\not\in \Sigma_F\cup\Sigma_Q$, $d_{ij}=d(V_i,V_j)$ la densidad del par $(V_i,V_j)$. Entonces, dado los subconjuntos $X\subset V_i$ e $Y\subset V_j$, note la siguiente descomposición:
+    Ahora, sea $(i,j)\not\in \Sigma_F\cup\Sigma_Q$, y $d_{ij}=d(V_i,V_j)$ la densidad del par $(V_i,V_j)$. Entonces, dado los subconjuntos $X\subset V_i$ e $Y\subset V_j$, note la siguiente descomposición:
+
+    \begin{align} \label{tres_sumandos_demo_esp} 
+        \Big| e(X,Y) - d_{ij}|X||Y|\Big|& =\Big|\boldsymbol{v}_X^T A\boldsymbol{v}_Y - d_{ij}|X||Y|\Big|\nonumber\\
+        &\leq \Big|\boldsymbol{v}_X^T S\boldsymbol{v}_Y - d_{ij}|X||Y| \Big|+\Big|\boldsymbol{v}_X^T F\boldsymbol{v}_Y \Big|+\Big|\boldsymbol{v}_X^T Q\boldsymbol{v}_Y \Big|.
+    \end{align}
+
+    En este punto, el objetivo es encontrar cotas para cada uno de los sumandos anteriores.
+
+    Para comenzar, por la definición de $\Sigma_F$ y la desigualdad de Cauchy-Schwarz, se obtiene la primera de las cotas de la siguiente manera:
+
+    \begin{align} \label{cota_esp_1}
+        \left| \boldsymbol{v}_{X}^{T} F \boldsymbol{v}_Y\right|^{2} = \Big| \sum_{(x,y)\in X\times Y} f_{xy}\Big|^{2}\overset{\mathrm{DCS}}{\leq} \Big( \sum_{(x,y)\in X\times Y} f_{xy}^{2}\Big)|X||Y|
+        \leq \varepsilon^{2} |V_i| |V_j| |X| |Y|
+        \leq \varepsilon^{2} |V_i|^{2} |V_j|^{2}.
+    \end{align}
+        
+    Para la próxima cota, debemos observar por la construcción de $Q$ y el Teorema \ref{Teo Courant-Fischer} que
 
     \begin{align*} 
-        \Big| e(X,Y) - d_{ij}|X||Y|\Big|& =\Big|\boldsymbol{v}_X^T A\boldsymbol{v}_Y - d_{ij}|X||Y|\Big|\\
-        &\leq \Big|\boldsymbol{v}_X^T S\boldsymbol{v}_Y - d_{ij}|X||Y| \Big|+\Big|\boldsymbol{v}_X^T F\boldsymbol{v}_Y \Big|+\Big|\boldsymbol{v}_X^T Q\boldsymbol{v}_Y \Big|.
+        \left| \boldsymbol{v}_{X}^{T} Q \boldsymbol{v}_Y\right|   \overset{\mathrm{DCS}}{\leq} \norm{\boldsymbol{v}_X} \norm{Q \boldsymbol{v}_Y} \leq \norm{\boldsymbol{v}_X} \norm{\boldsymbol{v}_Y} \frac{n}{\sqrt{F(L)}} 
+        = \sqrt{|X| |Y|} \frac{n}{\sqrt{F(L)}}\leq \frac{n^{2}}{\sqrt{F(L)}}.
     \end{align*}
-        
+
+    Además, como $M\leq (\frac{2L^2}{\varepsilon^2})^L$, concluimos de la elección de $F(\cdot)$ que $F(L) \geq \frac{1}{\varepsilon^{6}}\left( \frac{2L^{2}}{\varepsilon^{2}}\right)^{4L}\geq  \frac{1}{\varepsilon^{6}} M^4$. Y así, cuando $(i,j)\not= \Sigma_Q$, se tiene
+
+    \begin{align} \label{cota_esp_2}
+        \left| \boldsymbol{v}_{X}^{T} Q \boldsymbol{v}_Y\right|\leq   \frac{n^{2}}{\sqrt{F(L)}} \leq  \frac{M^{2} |V_i| |V_j|}{\varepsilon^{2}\sqrt{F(L)}}\leq \varepsilon|V_i| |V_j|.
+    \end{align}
+
+    Por último, para la tercera cota, analizamos $S = (s_{xy})$. Sean $s_{ab}$ y $s_{cd}$ los valores mínimo y máximo de todos los $s_{xy}$ sobre $(u,v)\in V_{i}\times V_{j}$. Entonces,
+
+    \begin{align*}
+        s_{cd}-s_{ab}  &=  \sum_{i < L} \lambda_i \boldsymbol{u}_i(c) \boldsymbol{u}_i(d) - \lambda_i \boldsymbol{u}_i(a) \boldsymbol{u}_i(b)\\
+        &\leq \sum_{i < L} \left| \lambda_i\right| \Big| \boldsymbol{u}_i(c) \boldsymbol{u}_i(d) - \boldsymbol{u}_i(a)\boldsymbol{u}_i(d) + \boldsymbol{u}_i(a)\boldsymbol{u}_i(d) - \boldsymbol{u}_i(a)\boldsymbol{u}_i(b)\Big|\\
+        &\leq n\sum_{i < L}  \Big| \boldsymbol{u}_i(d)\big(\boldsymbol{u}_i(c) - \boldsymbol{u}_i(a)\big) + \boldsymbol{u}_i(a)\big(\boldsymbol{u}_i(d) - \boldsymbol{u}_i(b)\big)\big|\\
+        &\leq n\sum_{i < L}  \left| \boldsymbol{u}_i(b)\right| \Big| \boldsymbol{u}_i(a) - \boldsymbol{u}_i(c)\Big| + \left| \boldsymbol{u}_i(c)\right| \Big| \boldsymbol{u}_i(b) - \boldsymbol{u}_i(d)\Big|\\
+        &\leq L n\cdot 4\cdot \sqrt{\frac{L}{\varepsilon n}} \cdot \frac{\varepsilon}{L}\sqrt{\frac{\varepsilon}{L n}}\\
+        &= 4\varepsilon.
+    \end{align*}
+
+    Ahora bien, como $d_{ij}$ es el promedio de $S$ sobre $V_{i}\times V_j$, tenemos que $s_{ab} \leq d_{ij} \leq s_{cd}$, y por ende, $|s_{xy}-d_{ij}| \leq s_{cd}-s_{ab}$ para cada $(u,v)\in V_i \times V_j$. Como resultado,
+
+    \begin{align} \label{cota_esp_3}  
+        \left| \boldsymbol{v}_{X}^{T}S\boldsymbol{v}_Y-d_{ij}|V_i||V_j|\right| &\leq \sum_{(x,y)\in X\times Y} \left| s_{xy} - d_{ij}\right|\leq (s_{cd}-s_{ab})|X||Y|\leq 4\varepsilon |X||Y|.
+    \end{align}
+
+    Utilizando las desigualdades \eqref{cota_esp_1}, \eqref{cota_esp_2} y \eqref{cota_esp_3} en la expresión enunciada en \eqref{tres_sumandos_demo_esp} se concluye la demostración del teorema.
+
 
 \end{proof}
 
@@ -2551,237 +2593,237 @@ Denotaremos por $k$-PA a una prograsión aritmética de $k$ elementos. En partic
     Observe que cada $a\in A$ da lugar a exactamente $n$ elementos en $B$ con $x-y=a$, permitiendo determinar que $|B| = n|A| \geq \varepsilon n^{2}$. Luego, el Teorema \ref{Corner_Theorem} asegura la existencia de elementos de la forma $\lbrace (a,b), (a, b+d), (a+d,b)\rbrace$ en $B$. Por consecuencia, se encuentra una 3-PA no trivial en $A$ tomando $x = a-b$, e $y = d$.
 \end{proof}\medskip
 
-\fs{Explicar que ahora vamos a demostrar con teoría espectral el lema de regularidad de Szemerédi. Comentar también que esta versión la realizó Terence Tao.}\medskip
+
 
 %%%% Demostración espectral: Lema de regularidad Szemerédi
 %\begin{proof}[Demostración espectral Teorema \ref{szemeredi_regularity_lemma}] 
-    Sea $\varepsilon > 0$, $G = ([n],E)$ un grafo y $T$ su matriz de adyacencia. Consideramos además $\lbrace u_1,...,u_n\rbrace$ la base ortonormal de $\mathbb{R}^{n}$ formada por los vectores propios de $T$, y $|\lambda_1| \geq ... \geq |\lambda_n|$ los valores propios de $T$ ordenados de manera decreciente.\medskip
-
-    Por la Proposición \ref{potencia_matriz_adyacencia = caminatas} y el Corolario \ref{Tr_Ak}, se satisface\medskip
-
-    \begin{equation} \label{eq_1 Spectral_Proof}
-        \Tr(T) = \sum_{i=1}^{n} \lambda_{1}^{2} =  2e_G \leq n^{2}.
-    \end{equation}\medskip
-
-    De esta manera, al notar que $i\lambda_{i}^{2} \leq \sum_{j=1}^{i} \lambda_{j}^{2} \leq n^{2}$, es posible acotar cada valor propio de la siguiente manera:\medskip
-
-    \begin{equation} \label{eq_2 Spectral_Proof}
-        \lambda_{i} \leq \frac{n}{\sqrt{i}}\ ,\ \forall i\in [n].
-    \end{equation}\medskip
-
-    Al final de esta demostración se entregará una función $f:\mathbb{N}\to \mathbb{N}$ que depende únicamente de $\varepsilon$ y que satisface $f(i) > i$. Denotando por $f^{(k)}$ a la $k$-ésima composición de $f$ con ella misma, consideramos una partición de $[n]$ en intervalos de la forma $[f^{(k-1)}(1), f^{k}(1)]$, para $k\in \lbrace 1,...,\frac{1}{\varepsilon^{3}}\rbrace$. Con esta construcción, debe existir un natural $\ell = f^{(k-1)}(1)$ que cumple con\medskip
-
-    \begin{equation} \label{eq_3 Spectral_Proof}
-        \sum_{\ell \leq j < f(\ell)} |\lambda_j|^{2} \leq \varepsilon^{3}n^{2}.
-    \end{equation}\medskip
-
-    De lo contrario, la suma de $|\lambda_j|^{2}$ sobre todos los intervalos definidos es estrictamente mayor que $\varepsilon^{3}n^{2}$. Así, como son $\frac{1}{\varepsilon^{3}}$ intervalos, se contradice la desigualdad \eqref{eq_1 Spectral_Proof}, pues\medskip
-
-    \begin{equation*}
-        \sum_{j=1}^{n} |\lambda_j|^{2} > \frac{1}{\varepsilon^{3}}\cdot \varepsilon^{3}n^{2} = n^{2}.
-    \end{equation*}\medskip
-
-    Ahora, usando el natural $\ell$, separamos la matriz $T$ en tres partes. En específico,\medskip
-
-    \begin{equation*}
-        T = T_1 + T_2 + T_3.
-    \end{equation*}\medskip
-
-    Se interpretará $T_1$ como la componente \emph{estructural},\medskip
-
-    \begin{equation*}
-        T_1 := \sum_{i < \ell} \lambda u_i u_{i}^{T},
-    \end{equation*}\medskip
-
-    $T_2$ como la componente de \emph{error},\medskip
-
-    \begin{equation*}
-        T_2 := \sum_{\ell \leq i < f(\ell)} \lambda_i u_i u_{i}^{T},
-    \end{equation*}\medskip
-
-    y $T_3$ como la componente \emph{casi-aleatoria},\medskip
-
-    \begin{equation*}
-        T_3 := \sum_{i \geq f(\ell)} \lambda_i u_i u_{i}^{T}.
-    \end{equation*}\medskip
-
-    Pensamos cada vector propio de $T$ como una función $u_i : [n]\to \mathbb{R}$. En otras palabras, todo vector propio asigna un \emph{peso} a cada vértice de $G$.\medskip
-
-    \textbf{Analizamos} $\mathbf{T_1}$. La idea es particionar el conjunto de vértices $[n]$ de manera tal que $T_1$ es aproximadamente constante en la mayoría de las partes. Veremos que el número de partes será $O_{\ell, \varepsilon}(1)$, es decir, un valor constante que depende solo de $\ell$ y $\varepsilon$.\medskip
-
-    Para cada $i\in [\ell - 1]$ ordenamos de manera creciente los vértices de $G$ según la asignación de \emph{pesos} que otorga $u_i (\cdot)$. En primera instancia, se agrupa en un conjunto excepcional a aquellos vértices que presenten un \emph{peso} demasiado grande en magnitud. Dicho conjunto se define de la siguiente manera:\medskip
-
-    \begin{equation*}
-        V_{0}^{i} := \left\lbrace k\in [n]: |u_i (k)| > \sqrt{\frac{\ell}{\varepsilon}} n^{-1/2}\right\rbrace.
-    \end{equation*}\medskip
-
-    Dado que $\norm{u_i} = 1$, cada $V_{0}^{i}$ no puede tener muchos elementos. En efecto, al observar que\medskip
-
-    \begin{equation*}
-        |V_{0}^{i}|\left( \sqrt{\frac{\ell}{\varepsilon}}n^{-1/2}\right)^{2} < \sum_{k=1}^{n} u_{i}(k)^{2} = \norm{u_i}^{2} = 1,
-    \end{equation*}\medskip
-
-    es posible determinar que $|V_{0}^{i}| < \frac{\varepsilon}{\ell}n$.\medskip
-
-    Aquellos vértices que no están en $V_{0}^{i}$, serán agrupados particionando la recta de largo $2\sqrt{\frac{\ell}{\varepsilon}}n^{-1/2}$ en subintervalos de tamaño a lo más $\left( \frac{\varepsilon^{3/2}}{\ell^{3/2}}\right)n^{-1/2}$. Esta configuración provoca gráficamente el siguiente esquema para cada $u_i (\cdot)$.\medskip
-
-    \fs{Poner dibujito...}\medskip
-
-    Por consecuencia, para $i\in [\ell -1]$, la cantidad de partes que genera cada $u_{i}(\cdot)$ son a lo más\medskip
-
-    \begin{equation*}
-        \frac{
-            2\sqrt{\frac{\ell}{\varepsilon}} n^{-1/2}
-        }{
-            \frac{\varepsilon^{3/2}}{\ell^{3/2}} n^{-1/2}
-        } = \frac{2\ell^{2}}{\varepsilon^{2}} = O_{\ell, \varepsilon}(1).
-    \end{equation*}\medskip
-
-    
-    Para conseguir la partición deseada de $[n]$, por un lado, se toma la unión de todos los conjuntos excepcionales $V_{0}^{i}$ para dar lugar al conjunto $V_0$ de tamaño a lo más $(\ell - 1)\cdot \frac{\varepsilon n}{\ell} < \varepsilon n$. Por otro lado, combine las particiones generadas por los $\ell - 1$ primeros vectores propios mediante un refinamiento usual. Así, se consigue una partición del conjunto de vértices de $G$ de la forma $[n] = V_0 \cup V_1 \cup ...\cup V_{M}$. Dada la construcción, la cantidad de partes que se obtienen son\medskip
-
-    \begin{equation} \label{eq_4 Spectral_Proof}
-        M(\varepsilon) \leq \left( \frac{2\ell^{2}}{\varepsilon^{2}}\right)^{\ell}
-    \end{equation}\medskip
-
-    Ahora, intuitivamente, se mostrará que los valores de la matriz $T_1$ en cada bloque $V_i \times V_j$ son aproximadamente constante, i.e, no varían más que $o_{\varepsilon}(1)$. Para esto, como se hizo con los vectores propios, pensamos la matriz de adyacencia como una función $T: [n]\times [n]\to \mathbb{R}$ para identificar sus entradas. De esta manera, para cada $i,j\in [M]$, $a,c\in V_i$, y $b,d\in V_j$,\medskip
-
-    \begin{align*}
-        \left| T_1(a,b) - T_1(c,d)\right| &= \left| \sum_{i < \ell} \lambda_i u_i(a) u_i(b) - \lambda_i u_i(c) u_i(d)\right|\\
-        &\leq \sum_{i < \ell} \left| \lambda_i\right| \left| u_i(a) u_i(b) - u_i(c)u_i(b) + u_i(c)u_i(b) - u_i(c)u_i(d)\right|\\
-        &\leq \sum_{i < \ell} \left| \lambda_1\right| \left| u_i(b)(u_i(a) - u_i(c)) + u_i(c)(u_i(b) - u_i(d))\right|\\
-        &\leq \sum_{i < \ell} n \left| u_i(b)\right| \left| u_i(a) - u_i(c)\right| + n\left| u_i(c)\right| \left| u_i(b) - u_i(d)\right|\\
-        &\leq \ell n\left( 2\sqrt{\frac{\ell}{\varepsilon}} n^{-1/2}\cdot \frac{\varepsilon^{3/2}}{\ell^{3/2}} n^{-1/2} + 2\sqrt{\frac{\ell}{\varepsilon}} n^{-1/2}\cdot \frac{\varepsilon^{3/2}}{\ell^{3/2}} n^{-1/2}\right)\\
-        &= 4\varepsilon.
-    \end{align*}\medskip
-
-    Luego, para $i,j\in [M]$, defina $d_{ij}$ como el promedio de los valores del bloque $V_i \times V_j$ en $T_1$ y observe que se satisface\medskip
-
-    \begin{equation*}
-        \left| T_1(a,b) -d_{ij}\right| \leq 4\varepsilon\ ,\ \forall a\in V_1, \forall b\in V_j.
-    \end{equation*}\medskip
-
-    En efecto, como $d_{ij}$ es un promedio, deben existir los pares $(x_0, y_0), (x_1,y_1)\in V_i \times V_j$ tales que $T_1 (x_0, y_0) \leq d_{ij}$ y $T_1 (x_1,y_1) \geq d_{ij}$. Luego, si $\left| T_1 (a,b) - d_{ij}\right| > 4\varepsilon$, entonces se encuentra una contradicción al determinar que $T_1 (a,b) - T_1 (x_0, y_0) > 4\varepsilon$, o bien $T_1 (a,b) - T_1 (x_1, y_1) < -4\varepsilon$.\medskip
-
-    Usando lo anterior y la desigualdad triangular, para todo $A\subset V_i$ y $B\subset V_j$, obtenemos la siguiente cota.\medskip
-
-    \begin{align} \label{eq_5 Spectral_Proof}
-        \left| v_{A}^{T} (T_1 - d_{ij}\mathbbm{1}_{n\times n}) v_B\right| &\leq \sum_{a\in A}\sum_{b\in B} \left| T_1 (a,b) - d_{ij}\right| \nonumber\\
-        &\leq 4\varepsilon |A||B|\\
-        &\leq 4\varepsilon |V_i| |V_j|\nonumber.
-    \end{align}\medskip
-
-    \textbf{Analizamos} $\mathbf{T_2}$. Observe en primer lugar, por construcción,\medskip
-
-    \begin{equation*}
-        \Tr (T_{2}^{2}) = \sum_{\ell \leq j < f(\ell)} \lambda_{j}^{2} \leq \varepsilon^{3}n^{2}.
-    \end{equation*}\medskip
-
-    Adicionalmente, por la ortonormalidad de la base,\medskip
-
-    \begin{align*}
-        \sum_{a,b\in [n]} T_2 (a,b)^{2} &= \sum_{a,b\in [n]} \left( \sum_{\ell \leq i < f(\ell)} \lambda_i u_i(a) u_i(b)\right)^{2}\\
-        &= \sum_{a,b\in [n]} \sum_{\ell \leq i,j < f(\ell)} \lambda_i \lambda_j u_i(a) u_j(a) u_i(b) u_j(b)\\
-        &= \sum_{\ell \leq i,j < f(\ell)} \lambda_i \lambda_j \sum_{a\in [n]} u_i(a) u_j(a) \sum_{b\in [n]} u_i(b) u_j(b)\\
-        &= \sum_{\ell \leq i < f(\ell)} \lambda_{i}^{2} \norm{u_i}^{4}\\
-        &= \Tr (T_{2}^{2}).
-    \end{align*}\medskip
-
-    Entonces, dada la igualdad anterior, se determina que\medskip
-
-    \begin{equation} \label{eq_6 Spectral_Proof}
-        \sum_{a,b\in [n]} T_{2}(a,b)^{2} \leq \varepsilon^{3}n^{2}.
-    \end{equation}\medskip
-
-    Ahora, defina el conjunto $\Theta_1 \subset [M]^{2}$ de manera tal que todo par $(i,j)\not\in \Theta_1$ satisface\medskip
-
-    \begin{equation} \label{eq_7 Spectral_Proof}
-        \sum_{a\in V_i} \sum_{b\in V_j} T_{2}(a,b)^{2} \leq \varepsilon |V_i| |V_j|.
-    \end{equation}\medskip
-
-    Más aún, para los pares $(i,j)\in \Theta_1$, la desigualdad \eqref{eq_6 Spectral_Proof} en particular establece que\medskip
-
-    \begin{equation*}
-        \varepsilon^{3} n^{2} \geq \sum_{(i,j)\in \Theta_1} \sum_{a\in V_i} \sum_{b\in V_j} T_{2}(a,b)^{2} > \varepsilon \sum_{(i,j)\in \Theta_1} |V_i| |V_j|.
-    \end{equation*}\medskip
-
-    Por consecuencia,\medskip
-
-    \begin{equation} \label{eq_8 Spectral_Proof}
-        \sum_{(i,j)\in \Theta_1} |V_i| |V_j| \leq \varepsilon^{2} n^{2}.
-    \end{equation}\medskip
-
-    De esta manera, para $(i,j)\not\in \Theta_1$, $A\subset V_i$ y $B\subset V_j$, utilizamos la desigualdad \eqref{eq_7 Spectral_Proof} y Cauchy-Schwarz para conseguir\medskip
-
-    \begin{align*}
-    \left| v_{A}^{T} T_2 v_B\right|^{2} &= \left| \sum_{a\in A}\sum_{b\in B} T_{2}(a,b)\right|^{2}\\
-    &\overset{\mathrm{C-S}}{\leq} \left( \sum_{a\in A}\sum_{b\in B} T_{2}(a,b)^{2}\right)|A||B|\\
-    &\leq \varepsilon^{2} |V_i| |V_j| |A| |B|\\
-    &\leq \varepsilon^{2} |V_i|^{2} |V_j|^{2}.
-    \end{align*}\medskip
-
-    Así, se obtiene la cota asociada a $T_2$.\medskip
-
-    \begin{equation} \label{eq_9 Spectral_Proof}
-        |v_{A}^{T} T_2 v_B| \leq \varepsilon |V_i| |V_j|.
-    \end{equation}\medskip
-
-    \textbf{Analizamos} $\mathbf{T_3}$. Note que el valor propio más grande en magnitud de $T_3$ es $\lambda_{f(\ell)}$. Entonces, utilizando el operador norma \fs{Definir...} de la matriz $T_3$ y el Teorema \ref{Teo Courant-Fischer},\medskip
-
-    \begin{equation*}
-        \frac{\norm{T_3 v_B}}{\norm{v_B}} \leq \sup_{\substack{x\in \mathbb{R}^{n} \\ x\not= 0}} \frac{\norm{T_3 x}}{\norm{x}} = \left|\lambda_{f(\ell)}\right| \leq \frac{n}{\sqrt{f(\ell)}}.
-    \end{equation*}\medskip
-
-    Como resultado,\medskip
-
-    \begin{equation*}
-        \norm{T_3 v_B} \leq \norm{v_B}\frac{n}{\sqrt{f(\ell)}}.
-    \end{equation*}\medskip
-
-    Usando la desigualdad anterior junto a Cauchy-Schwarz se obtiene la siguiente cota para $T_3$.\medskip
-
-    \begin{align} \label{eq_10 Spectral_Proof}
-        \left| v_{A}^{T} T_3 v_B\right| &= \left| \langle v_A, T_3 v_B \rangle \right| \nonumber\\
-        &\overset{\mathrm{C-S}}{\leq} \norm{v_A} \norm{T_3 v_B} \nonumber\\
-        &\leq \norm{v_A} \norm{v_B} \frac{n}{\sqrt{f(\ell)}} \\
-        &= \sqrt{|A| |B|} \frac{n}{\sqrt{f(\ell)}} \nonumber\\
-        &\leq \frac{n^{2}}{\sqrt{f(\ell)}}.\nonumber
-    \end{align}\medskip
-
-    Ya con el control de $T_1$, $T_2$ y $T_3$, nos enfocamos en estudiar $G$ de manera global. Consideramos $\Theta \subset \lbrace 0,1,...,M\rbrace^{2}$ definido de la siguiente manera:\medskip
-
-    \begin{equation*}
-        \Theta := \left\lbrace (i,j)\in \lbrace 0,1,...,M\rbrace^{2} : (i,j)\in \Theta_1\  \vee\  i = 0\  \vee\  j = 0\  \vee\  \min\lbrace |V_i|, |V_j|\rbrace\leq \frac{\varepsilon n}{M}\right\rbrace.
-    \end{equation*}\medskip
-
-    Con esta definición, la desigualdad \eqref{eq_8 Spectral_Proof}, y recordando que $|V_0| < \varepsilon n$,\medskip
-
-    \begin{align*}
-        \sum_{(i,j)\in \Theta} |V_i| |V_j| &= \sum_{(i,j)\in \Theta_1} |V_i| |V_j| + \sum_{j=0}^{M} |V_0| |V_j| + \sum_{i=0}^{M} |V_i| |V_0| + \sum_{|V_i| \leq \frac{\varepsilon n}{M}} |V_i| |V_j| + \sum_{|V_j|\leq \frac{\varepsilon n}{M}} |V_i| |V_j| \\
-        &\leq \sum_{(i,j)\in \Theta_1} |V_i| |V_j| + 2|V_0|n + 2\sum_{|V_i|\leq \frac{\varepsilon n}{M}} |V_i| n \\
-        &\leq \varepsilon^{2} n^{2} + 2\varepsilon n^{2} + 2M\frac{\varepsilon}{M} n^{2}\\
-        &\leq 5\varepsilon n^{2}.
-    \end{align*}\medskip
-
-    Al ver la cota anterior, $\Theta$ se interpreta como un conjunto excepcional de pocos elementos que contiene los malos casos. Ahora bien, si $(i,j)\not\in \Theta$, todo $A\subset V_i$ y $B\subset V_j$ satisfacen la desigualdad\medskip
-
-    \begin{align} \label{eq_11 Spectral_Proof}
-        \Big| e(A,B) - d_{ij}|A||B|\Big| &= \left| v_{A}^{T}(T - d_{ij}\mathbbm{1}_{n\times n}) v_B \right|\nonumber\\
-        &\leq \left| v_{A}^{T} (T_1 -d_{ij}\mathbbm{1}_{n\times n}) v_B\right| + \left| v_{A}^{T} T_2 v_B\right| + \left| v_{A}^{T} T_3 v_B\right|\nonumber\\
-        &\leq 4\varepsilon |V_i| |V_j| + \varepsilon |V_i| |V_j| + \frac{n^{2}}{\sqrt{f(\ell)}}.
-    \end{align}\medskip
-
-    Observando la desigualdad en \eqref{eq_11 Spectral_Proof}, para $(i,j)\not\in \Theta$, se necesita que $\frac{n^{2}}{\sqrt{f(\ell)}} \leq \varepsilon |V_i| |V_j|$ para asegurar que la partición $\lbrace V_0, V_1,..., V_M\rbrace$ de $[n]$ es $(6\varepsilon)$-regular. Para esto, gracias a que $|V_i|, |V_j|\geq \frac{\varepsilon n}{M}$, se cumple la desigualdad $\frac{\varepsilon^{2} n^{2}}{M^{2}} \leq |V_i| |V_j|$, y por consecuencia\medskip
-
-    \begin{equation*}
-        \frac{n^{2}}{\sqrt{f(\ell)}} \leq \frac{M^{2} |V_i| |V_j|}{\varepsilon^{2}\sqrt{f(\ell)}}.
-    \end{equation*}\medskip
-
-    Finalmente, para obtener la partición $(6\varepsilon)$-regular del conjunto de vértices del grafo $G$, es suficiente asumir que $\frac{1}{\sqrt{f(\ell)}} \leq \frac{\varepsilon^{3}}{M^{2}}$. Así, recordando la cota vista en \eqref{eq_4 Spectral_Proof}, basta elegir\medskip
-
-    \begin{equation*}
-        f(x) \geq \frac{1}{\varepsilon^{6}}\left( \frac{2x^{2}}{\varepsilon^{2}}\right)^{4x}.
-    \end{equation*}
+%    Sea $\varepsilon > 0$, $G = ([n],E)$ un grafo y $T$ su matriz de %adyacencia. Consideramos además $\lbrace u_1,...,u_n\rbrace$ la base %ortonormal de $\mathbb{R}^{n}$ formada por los vectores propios de $T$, y %$|\lambda_1| \geq ... \geq |\lambda_n|$ los valores propios de $T$ %ordenados de manera decreciente.\medskip
+%
+%    Por la Proposición \ref{potencia_matriz_adyacencia = caminatas} y el %Corolario \ref{Tr_Ak}, se satisface\medskip
+%
+%    \begin{equation} \label{eq_1 Spectral_Proof}
+%        \Tr(T) = \sum_{i=1}^{n} \lambda_{1}^{2} =  2e_G \leq n^{2}.
+%    \end{equation}\medskip
+%
+%    De esta manera, al notar que $i\lambda_{i}^{2} \leq \sum_{j=1}^{i} \lambda_%{j}^{2} \leq n^{2}$, es posible acotar cada valor propio de la siguiente %manera:\medskip
+%
+%    \begin{equation} \label{eq_2 Spectral_Proof}
+%        \lambda_{i} \leq \frac{n}{\sqrt{i}}\ ,\ \forall i\in [n].
+%    \end{equation}\medskip
+%
+%    Al final de esta demostración se entregará una función $f:\mathbb{N}\to %\mathbb{N}$ que depende únicamente de $\varepsilon$ y que satisface $f(i) %> i$. Denotando por $f^{(k)}$ a la $k$-ésima composición de $f$ con ella %misma, consideramos una partición de $[n]$ en intervalos de la forma $[f^%{(k-1)}(1), f^{k}(1)]$, para $k\in \lbrace 1,...,\frac{1}{\varepsilon^{3}}%\rbrace$. Con esta construcción, debe existir un natural $\ell = f^{(k-1)}%(1)$ que cumple con\medskip
+%
+%    \begin{equation} \label{eq_3 Spectral_Proof}
+%        \sum_{\ell \leq j < f(\ell)} |\lambda_j|^{2} \leq \varepsilon^{3}n^{2}.
+%    \end{equation}\medskip
+%
+%    De lo contrario, la suma de $|\lambda_j|^{2}$ sobre todos los intervalos %definidos es estrictamente mayor que $\varepsilon^{3}n^{2}$. Así, como son %$\frac{1}{\varepsilon^{3}}$ intervalos, se contradice la desigualdad \eqref%{eq_1 Spectral_Proof}, pues\medskip
+%
+%    \begin{equation*}
+%        \sum_{j=1}^{n} |\lambda_j|^{2} > \frac{1}{\varepsilon^{3}}\cdot %\varepsilon^{3}n^{2} = n^{2}.
+%    \end{equation*}\medskip
+%
+%    Ahora, usando el natural $\ell$, separamos la matriz $T$ en tres partes. %En específico,\medskip
+%
+%    \begin{equation*}
+%        T = T_1 + T_2 + T_3.
+%    \end{equation*}\medskip
+%
+%    Se interpretará $T_1$ como la componente \emph{estructural},\medskip
+%
+%    \begin{equation*}
+%        T_1 := \sum_{i < \ell} \lambda u_i u_{i}^{T},
+%    \end{equation*}\medskip
+%
+%    $T_2$ como la componente de \emph{error},\medskip
+%
+%    \begin{equation*}
+%        T_2 := \sum_{\ell \leq i < f(\ell)} \lambda_i u_i u_{i}^{T},
+%    \end{equation*}\medskip
+%
+%    y $T_3$ como la componente \emph{casi-aleatoria},\medskip
+%
+%    \begin{equation*}
+%        T_3 := \sum_{i \geq f(\ell)} \lambda_i u_i u_{i}^{T}.
+%    \end{equation*}\medskip
+%
+%    Pensamos cada vector propio de $T$ como una función $u_i : [n]\to \mathbb%{R}$. En otras palabras, todo vector propio asigna un \emph{peso} a cada %vértice de $G$.\medskip
+%
+%    \textbf{Analizamos} $\mathbf{T_1}$. La idea es particionar el conjunto de %vértices $[n]$ de manera tal que $T_1$ es aproximadamente constante en la %mayoría de las partes. Veremos que el número de partes será $O_{\ell, %\varepsilon}(1)$, es decir, un valor constante que depende solo de $\ell$ %y $\varepsilon$.\medskip
+%
+%    Para cada $i\in [\ell - 1]$ ordenamos de manera creciente los vértices de %$G$ según la asignación de \emph{pesos} que otorga $u_i (\cdot)$. En %primera instancia, se agrupa en un conjunto excepcional a aquellos %vértices que presenten un \emph{peso} demasiado grande en magnitud. Dicho %conjunto se define de la siguiente manera:\medskip
+%
+%    \begin{equation*}
+%        V_{0}^{i} := \left\lbrace k\in [n]: |u_i (k)| > \sqrt{\frac{\ell}%{\varepsilon}} n^{-1/2}\right\rbrace.
+%    \end{equation*}\medskip
+%
+%    Dado que $\norm{u_i} = 1$, cada $V_{0}^{i}$ no puede tener muchos %elementos. En efecto, al observar que\medskip
+%
+%    \begin{equation*}
+%        |V_{0}^{i}|\left( \sqrt{\frac{\ell}{\varepsilon}}n^{-1/2}\right)^{2} < %\sum_{k=1}^{n} u_{i}(k)^{2} = \norm{u_i}^{2} = 1,
+%    \end{equation*}\medskip
+%
+%    es posible determinar que $|V_{0}^{i}| < \frac{\varepsilon}{\ell}n$.%\medskip
+%
+%    Aquellos vértices que no están en $V_{0}^{i}$, serán agrupados %particionando la recta de largo $2\sqrt{\frac{\ell}{\varepsilon}}n^{-1/2}$ %en subintervalos de tamaño a lo más $\left( \frac{\varepsilon^{3/2}}{\ell^%{3/2}}\right)n^{-1/2}$. Esta configuración provoca gráficamente el %siguiente esquema para cada $u_i (\cdot)$.\medskip
+%
+%    \fs{Poner dibujito...}\medskip
+%
+%    Por consecuencia, para $i\in [\ell -1]$, la cantidad de partes que genera %cada $u_{i}(\cdot)$ son a lo más\medskip
+%
+%    \begin{equation*}
+%        \frac{
+%            2\sqrt{\frac{\ell}{\varepsilon}} n^{-1/2}
+%        }{
+%            \frac{\varepsilon^{3/2}}{\ell^{3/2}} n^{-1/2}
+%        } = \frac{2\ell^{2}}{\varepsilon^{2}} = O_{\ell, \varepsilon}(1).
+%    \end{equation*}\medskip
+%
+%    
+%    Para conseguir la partición deseada de $[n]$, por un lado, se toma la %unión de todos los conjuntos excepcionales $V_{0}^{i}$ para dar lugar al %conjunto $V_0$ de tamaño a lo más $(\ell - 1)\cdot \frac{\varepsilon n}%{\ell} < \varepsilon n$. Por otro lado, combine las particiones generadas %por los $\ell - 1$ primeros vectores propios mediante un refinamiento %usual. Así, se consigue una partición del conjunto de vértices de $G$ de %la forma $[n] = V_0 \cup V_1 \cup ...\cup V_{M}$. Dada la construcción, la %cantidad de partes que se obtienen son\medskip
+%
+%    \begin{equation} \label{eq_4 Spectral_Proof}
+%        M(\varepsilon) \leq \left( \frac{2\ell^{2}}{\varepsilon^{2}}\right)^%{\ell}
+%    \end{equation}\medskip
+%
+%    Ahora, intuitivamente, se mostrará que los valores de la matriz $T_1$ en %cada bloque $V_i \times V_j$ son aproximadamente constante, i.e, no varían %más que $o_{\varepsilon}(1)$. Para esto, como se hizo con los vectores %propios, pensamos la matriz de adyacencia como una función $T: [n]\times %[n]\to \mathbb{R}$ para identificar sus entradas. De esta manera, para %cada $i,j\in [M]$, $a,c\in V_i$, y $b,d\in V_j$,\medskip
+%
+%    \begin{align*}
+%        \left| T_1(a,b) - T_1(c,d)\right| &= \left| \sum_{i < \ell} \lambda_i %u_i(a) u_i(b) - \lambda_i u_i(c) u_i(d)\right|\\
+%        &\leq \sum_{i < \ell} \left| \lambda_i\right| \left| u_i(a) u_i(b) - %u_i(c)u_i(b) + u_i(c)u_i(b) - u_i(c)u_i(d)\right|\\
+%        &\leq \sum_{i < \ell} \left| \lambda_1\right| \left| u_i(b)(u_i(a) - %u_i(c)) + u_i(c)(u_i(b) - u_i(d))\right|\\
+%        &\leq \sum_{i < \ell} n \left| u_i(b)\right| \left| u_i(a) - u_i(c)%\right| + n\left| u_i(c)\right| \left| u_i(b) - u_i(d)\right|\\
+%        &\leq \ell n\left( 2\sqrt{\frac{\ell}{\varepsilon}} n^{-1/2}\cdot \frac%{\varepsilon^{3/2}}{\ell^{3/2}} n^{-1/2} + 2\sqrt{\frac{\ell}%{\varepsilon}} n^{-1/2}\cdot \frac{\varepsilon^{3/2}}{\ell^{3/2}} n^%{-1/2}\right)\\
+%        &= 4\varepsilon.
+%    \end{align*}\medskip
+%
+%    Luego, para $i,j\in [M]$, defina $d_{ij}$ como el promedio de los valores %del bloque $V_i \times V_j$ en $T_1$ y observe que se satisface\medskip
+%
+%    \begin{equation*}
+%        \left| T_1(a,b) -d_{ij}\right| \leq 4\varepsilon\ ,\ \forall a\in V_1, %\forall b\in V_j.
+%    \end{equation*}\medskip
+%
+%    En efecto, como $d_{ij}$ es un promedio, deben existir los pares $(x_0, %y_0), (x_1,y_1)\in V_i \times V_j$ tales que $T_1 (x_0, y_0) \leq d_{ij}$ %y $T_1 (x_1,y_1) \geq d_{ij}$. Luego, si $\left| T_1 (a,b) - d_{ij}\right| %> 4\varepsilon$, entonces se encuentra una contradicción al determinar que %$T_1 (a,b) - T_1 (x_0, y_0) > 4\varepsilon$, o bien $T_1 (a,b) - T_1 (x_1, %y_1) < -4\varepsilon$.\medskip
+%
+%    Usando lo anterior y la desigualdad triangular, para todo $A\subset V_i$ y %$B\subset V_j$, obtenemos la siguiente cota.\medskip
+%
+%    \begin{align} \label{eq_5 Spectral_Proof}
+%        \left| v_{A}^{T} (T_1 - d_{ij}\mathbbm{1}_{n\times n}) v_B\right| &%\leq \sum_{a\in A}\sum_{b\in B} \left| T_1 (a,b) - d_{ij}\right| %\nonumber\\
+%        &\leq 4\varepsilon |A||B|\\
+%        &\leq 4\varepsilon |V_i| |V_j|\nonumber.
+%    \end{align}\medskip
+%
+%    \textbf{Analizamos} $\mathbf{T_2}$. Observe en primer lugar, por %construcción,\medskip
+%
+%    \begin{equation*}
+%        \Tr (T_{2}^{2}) = \sum_{\ell \leq j < f(\ell)} \lambda_{j}^{2} \leq %\varepsilon^{3}n^{2}.
+%    \end{equation*}\medskip
+%
+%    Adicionalmente, por la ortonormalidad de la base,\medskip
+%
+%    \begin{align*}
+%        \sum_{a,b\in [n]} T_2 (a,b)^{2} &= \sum_{a,b\in [n]} \left( \sum_{\ell %\leq i < f(\ell)} \lambda_i u_i(a) u_i(b)\right)^{2}\\
+%        &= \sum_{a,b\in [n]} \sum_{\ell \leq i,j < f(\ell)} \lambda_i %\lambda_j u_i(a) u_j(a) u_i(b) u_j(b)\\
+%        &= \sum_{\ell \leq i,j < f(\ell)} \lambda_i \lambda_j \sum_{a\in [n]} %u_i(a) u_j(a) \sum_{b\in [n]} u_i(b) u_j(b)\\
+%        &= \sum_{\ell \leq i < f(\ell)} \lambda_{i}^{2} \norm{u_i}^{4}\\
+%        &= \Tr (T_{2}^{2}).
+%    \end{align*}\medskip
+%
+%    Entonces, dada la igualdad anterior, se determina que\medskip
+%
+%    \begin{equation} \label{eq_6 Spectral_Proof}
+%        \sum_{a,b\in [n]} T_{2}(a,b)^{2} \leq \varepsilon^{3}n^{2}.
+%    \end{equation}\medskip
+%
+%    Ahora, defina el conjunto $\Theta_1 \subset [M]^{2}$ de manera tal que %todo par $(i,j)\not\in \Theta_1$ satisface\medskip
+%
+%    \begin{equation} \label{eq_7 Spectral_Proof}
+%        \sum_{a\in V_i} \sum_{b\in V_j} T_{2}(a,b)^{2} \leq \varepsilon |V_i| |%V_j|.
+%    \end{equation}\medskip
+%
+%    Más aún, para los pares $(i,j)\in \Theta_1$, la desigualdad \eqref{eq_6 %Spectral_Proof} en particular establece que\medskip
+%
+%    \begin{equation*}
+%        \varepsilon^{3} n^{2} \geq \sum_{(i,j)\in \Theta_1} \sum_{a\in V_i} %\sum_{b\in V_j} T_{2}(a,b)^{2} > \varepsilon \sum_{(i,j)\in \Theta_1} |%V_i| |V_j|.
+%    \end{equation*}\medskip
+%
+%    Por consecuencia,\medskip
+%
+%    \begin{equation} \label{eq_8 Spectral_Proof}
+%        \sum_{(i,j)\in \Theta_1} |V_i| |V_j| \leq \varepsilon^{2} n^{2}.
+%    \end{equation}\medskip
+%
+%    De esta manera, para $(i,j)\not\in \Theta_1$, $A\subset V_i$ y $B\subset %V_j$, utilizamos la desigualdad \eqref{eq_7 Spectral_Proof} y %Cauchy-Schwarz para conseguir\medskip
+%
+%    \begin{align*}
+%    \left| v_{A}^{T} T_2 v_B\right|^{2} &= \left| \sum_{a\in A}\sum_{b\in B} T_%{2}(a,b)\right|^{2}\\
+%    &\overset{\mathrm{C-S}}{\leq} \left( \sum_{a\in A}\sum_{b\in B} T_{2}(a,b)^%{2}\right)|A||B|\\
+%    &\leq \varepsilon^{2} |V_i| |V_j| |A| |B|\\
+%    &\leq \varepsilon^{2} |V_i|^{2} |V_j|^{2}.
+%    \end{align*}\medskip
+%
+%    Así, se obtiene la cota asociada a $T_2$.\medskip
+%
+%    \begin{equation} \label{eq_9 Spectral_Proof}
+%        |v_{A}^{T} T_2 v_B| \leq \varepsilon |V_i| |V_j|.
+%    \end{equation}\medskip
+%
+%    \textbf{Analizamos} $\mathbf{T_3}$. Note que el valor propio más grande en %magnitud de $T_3$ es $\lambda_{f(\ell)}$. Entonces, utilizando el operador %norma \fs{Definir...} de la matriz $T_3$ y el Teorema \ref{Teo %Courant-Fischer},\medskip
+%
+%    \begin{equation*}
+%        \frac{\norm{T_3 v_B}}{\norm{v_B}} \leq \sup_{\substack{x\in \mathbb{R}^%{n} \\ x\not= 0}} \frac{\norm{T_3 x}}{\norm{x}} = \left|\lambda_{f%(\ell)}\right| \leq \frac{n}{\sqrt{f(\ell)}}.
+%    \end{equation*}\medskip
+%
+%    Como resultado,\medskip
+%
+%    \begin{equation*}
+%        \norm{T_3 v_B} \leq \norm{v_B}\frac{n}{\sqrt{f(\ell)}}.
+%    \end{equation*}\medskip
+%
+%    Usando la desigualdad anterior junto a Cauchy-Schwarz se obtiene la %siguiente cota para $T_3$.\medskip
+%
+%    \begin{align} \label{eq_10 Spectral_Proof}
+%        \left| v_{A}^{T} T_3 v_B\right| &= \left| \langle v_A, T_3 v_B \rangle %\right| \nonumber\\
+%        &\overset{\mathrm{C-S}}{\leq} \norm{v_A} \norm{T_3 v_B} \nonumber\\
+%        &\leq \norm{v_A} \norm{v_B} \frac{n}{\sqrt{f(\ell)}} \\
+%        &= \sqrt{|A| |B|} \frac{n}{\sqrt{f(\ell)}} \nonumber\\
+%        &\leq \frac{n^{2}}{\sqrt{f(\ell)}}.\nonumber
+%    \end{align}\medskip
+%
+%    Ya con el control de $T_1$, $T_2$ y $T_3$, nos enfocamos en estudiar $G$ %de manera global. Consideramos $\Theta \subset \lbrace 0,1,...,M\rbrace^{2}%$ definido de la siguiente manera:\medskip
+%
+%    \begin{equation*}
+%        \Theta := \left\lbrace (i,j)\in \lbrace 0,1,...,M\rbrace^{2} : (i,j)%\in \Theta_1\  \vee\  i = 0\  \vee\  j = 0\  \vee\  \min\lbrace |%V_i|, |V_j|\rbrace\leq \frac{\varepsilon n}{M}\right\rbrace.
+%    \end{equation*}\medskip
+%
+%    Con esta definición, la desigualdad \eqref{eq_8 Spectral_Proof}, y %recordando que $|V_0| < \varepsilon n$,\medskip
+%
+%    \begin{align*}
+%        \sum_{(i,j)\in \Theta} |V_i| |V_j| &= \sum_{(i,j)\in \Theta_1} |V_i| |%V_j| + \sum_{j=0}^{M} |V_0| |V_j| + \sum_{i=0}^{M} |V_i| |V_0| + \sum_%{|V_i| \leq \frac{\varepsilon n}{M}} |V_i| |V_j| + \sum_{|V_j|\leq %\frac{\varepsilon n}{M}} |V_i| |V_j| \\
+%        &\leq \sum_{(i,j)\in \Theta_1} |V_i| |V_j| + 2|V_0|n + 2\sum_{|V_i|%\leq \frac{\varepsilon n}{M}} |V_i| n \\
+%        &\leq \varepsilon^{2} n^{2} + 2\varepsilon n^{2} + 2M\frac{\varepsilon}%{M} n^{2}\\
+%        &\leq 5\varepsilon n^{2}.
+%    \end{align*}\medskip
+%
+%    Al ver la cota anterior, $\Theta$ se interpreta como un conjunto %excepcional de pocos elementos que contiene los malos casos. Ahora bien, %si $(i,j)\not\in \Theta$, todo $A\subset V_i$ y $B\subset V_j$ satisfacen %la desigualdad\medskip
+%
+%    \begin{align} \label{eq_11 Spectral_Proof}
+%        \Big| e(A,B) - d_{ij}|A||B|\Big| &= \left| v_{A}^{T}(T - d_{ij}\mathbbm%{1}_{n\times n}) v_B \right|\nonumber\\
+%        &\leq \left| v_{A}^{T} (T_1 -d_{ij}\mathbbm{1}_{n\times n}) v_B\right| %+ \left| v_{A}^{T} T_2 v_B\right| + \left| v_{A}^{T} T_3 v_B\right|%\nonumber\\
+%        &\leq 4\varepsilon |V_i| |V_j| + \varepsilon |V_i| |V_j| + \frac{n^{2}}%{\sqrt{f(\ell)}}.
+%    \end{align}\medskip
+%
+%    Observando la desigualdad en \eqref{eq_11 Spectral_Proof}, para $(i,j)%\not\in \Theta$, se necesita que $\frac{n^{2}}{\sqrt{f(\ell)}} \leq %\varepsilon |V_i| |V_j|$ para asegurar que la partición $\lbrace V_0, %V_1,..., V_M\rbrace$ de $[n]$ es $(6\varepsilon)$-regular. Para esto, %gracias a que $|V_i|, |V_j|\geq \frac{\varepsilon n}{M}$, se cumple la %desigualdad $\frac{\varepsilon^{2} n^{2}}{M^{2}} \leq |V_i| |V_j|$, y por %consecuencia\medskip
+%
+%    \begin{equation*}
+%        \frac{n^{2}}{\sqrt{f(\ell)}} \leq \frac{M^{2} |V_i| |V_j|}{\varepsilon^%{2}\sqrt{f(\ell)}}.
+%    \end{equation*}\medskip
+%
+%    Finalmente, para obtener la partición $(6\varepsilon)$-regular del %conjunto de vértices del grafo $G$, es suficiente asumir que $\frac{1}%{\sqrt{f(\ell)}} \leq \frac{\varepsilon^{3}}{M^{2}}$. Así, recordando la %cota vista en \eqref{eq_4 Spectral_Proof}, basta elegir\medskip
+%
+%    \begin{equation*}
+%        f(x) \geq \frac{1}{\varepsilon^{6}}\left( \frac{2x^{2}}{\varepsilon^%{2}}\right)^{4x}.
+%    \end{equation*}
 %   \end{proof}
 
 
