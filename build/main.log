@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.3)  28 MAR 2024 03:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.3)  29 MAR 2024 04:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1185,13 +1185,44 @@ File: Imágenes/diag_demo_Sz_Teo.png Graphic file (type png)
 <use Imágenes/diag_demo_Sz_Teo.png>
 Package pdftex.def Info: Imágenes/diag_demo_Sz_Teo.png  used on input line 1717.
 (pdftex.def)             Requested size: 258.00539pt x 225.48938pt.
- [28 <./Imágenes/diag_demo_Sz_Teo.png>] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42] [43]
+ [28 <./Imágenes/diag_demo_Sz_Teo.png>]
+<Imágenes/szemerédi_lemma_ilustration.png, id=373, 408.3255pt x 221.628pt>
+File: Imágenes/szemerédi_lemma_ilustration.png Graphic file (type png)
+<use Imágenes/szemerédi_lemma_ilustration.png>
+Package pdftex.def Info: Imágenes/szemerédi_lemma_ilustration.png  used on input line 1727.
+(pdftex.def)             Requested size: 258.00539pt x 140.04233pt.
+ [29 <./Imágenes/szemerédi_lemma_ilustration.png>]
+<Imágenes/eps_regular_pair.png, id=382, 309.5565pt x 154.77824pt>
+File: Imágenes/eps_regular_pair.png Graphic file (type png)
+<use Imágenes/eps_regular_pair.png>
+Package pdftex.def Info: Imágenes/eps_regular_pair.png  used on input line 1761.
+(pdftex.def)             Requested size: 258.00539pt x 129.01146pt.
+ [30 <./Imágenes/eps_regular_pair.png>] [31] [32] [33] [34] [35]
+<Imágenes/Partition_by_irregularity.png, id=491, 481.8pt x 289.68225pt>
+File: Imágenes/Partition_by_irregularity.png Graphic file (type png)
+<use Imágenes/Partition_by_irregularity.png>
+Package pdftex.def Info: Imágenes/Partition_by_irregularity.png  used on input line 2021.
+(pdftex.def)             Requested size: 387.00153pt x 232.69202pt.
+ [36 <./Imágenes/Partition_by_irregularity.png>] [37] [38] [39] [40] [41] [42] [43] [44]
+<Imágenes/Esquema_TCL_chico.png, id=603, 434.22224pt x 157.7895pt>
+File: Imágenes/Esquema_TCL_chico.png Graphic file (type png)
+<use Imágenes/Esquema_TCL_chico.png>
+Package pdftex.def Info: Imágenes/Esquema_TCL_chico.png  used on input line 2392.
+(pdftex.def)             Requested size: 387.00153pt x 140.62964pt.
+ [45 <./Imágenes/Esquema_TCL_chico.png>]
 
-LaTeX Warning: Reference `szemeredi_regularity_lemma' on page 44 undefined on input line 2396.
+LaTeX Warning: Reference `szemeredi_regularity_lemma' on page 46 undefined on input line 2493.
 
-[44] [45] [46] [47]
-c:/Tesis/Documento Tesis/main.tex:2837: Misplaced alignment tab character &.
-l.2837     \item[[1]] Krivelevich, M., &
+[46]
+LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
+(Font)              scaled to size 24.88pt on input line 2576.
+LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
+(Font)              scaled to size 20.74pt on input line 2576.
+LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
+(Font)              scaled to size 17.28pt on input line 2576.
+ [47] [48] [49]
+c:/Tesis/Documento Tesis/main.tex:2990: Misplaced alignment tab character &.
+l.2990     \item[[1]] Krivelevich, M., &
                                          Sudakov, B. (2006). Pseudo-random G...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1200,8 +1231,8 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-c:/Tesis/Documento Tesis/main.tex:2838: Misplaced alignment tab character &.
-l.2838 ...m[[2]] Chung, F. R. K., Graham, R. L., &
+c:/Tesis/Documento Tesis/main.tex:2991: Misplaced alignment tab character &.
+l.2991 ...m[[2]] Chung, F. R. K., Graham, R. L., &
                                                    Wilson, R. M. (1989). Qua...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1210,8 +1241,8 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-c:/Tesis/Documento Tesis/main.tex:2839: Misplaced alignment tab character &.
-l.2839 ...l, J. A., Pehova, Y., Sharifzadeh, M., &
+c:/Tesis/Documento Tesis/main.tex:2992: Misplaced alignment tab character &.
+l.2992 ...l, J. A., Pehova, Y., Sharifzadeh, M., &
                                                    Volec, J. (2020). Charact...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1220,8 +1251,8 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-c:/Tesis/Documento Tesis/main.tex:2839: Misplaced alignment tab character &.
-l.2839 ...ns by a pattern sum. Random Structures &
+c:/Tesis/Documento Tesis/main.tex:2992: Misplaced alignment tab character &.
+l.2992 ...ns by a pattern sum. Random Structures &
                                                    Algorithms.
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1230,8 +1261,8 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-c:/Tesis/Documento Tesis/main.tex:2840: Misplaced alignment tab character &.
-l.2840     \item[[4]] Hàn, H., Kiwi, M., &
+c:/Tesis/Documento Tesis/main.tex:2993: Misplaced alignment tab character &.
+l.2993     \item[[4]] Hàn, H., Kiwi, M., &
                                             Pavez-Signé, M. (2021). Quasi-r...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1240,7 +1271,7 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-[48] (C:\Tesis\Documento Tesis\build\main.aux
+[50] (C:\Tesis\Documento Tesis\build\main.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -1256,17 +1287,17 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 5F80DA12636A2C4E830EB44AF530BB1C;2861.
  ) 
 Here is how much of TeX's memory you used:
- 27350 strings out of 474542
- 522761 string characters out of 5743975
+ 27624 strings out of 474542
+ 527612 string characters out of 5743975
  1958978 words of memory out of 5000000
- 48919 multiletter control sequences out of 15000+600000
- 573100 words of font info for 92 fonts, out of 8000000 for 9000
+ 49182 multiletter control sequences out of 15000+600000
+ 581424 words of font info for 124 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,20n,117p,1431b,1143s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\Felipe\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbm/dpi600\bbm10.pk><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/dsserif/DSSerif.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on "C:\Tesis\Documento Tesis\build\main.pdf" (49 pages, 651093 bytes).
+ <C:\Users\Felipe\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbm/dpi600\bbm10.pk><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/dsserif/DSSerif.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on "C:\Tesis\Documento Tesis\build\main.pdf" (51 pages, 788798 bytes).
 PDF statistics:
- 772 PDF objects out of 1000 (max. 8388607)
- 174 named destinations out of 1000 (max. 500000)
- 151 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 804 PDF objects out of 1000 (max. 8388607)
+ 182 named destinations out of 1000 (max. 500000)
+ 171 words of extra memory for PDF output out of 10000 (max. 10000000)
 

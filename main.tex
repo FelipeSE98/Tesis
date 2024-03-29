@@ -1428,7 +1428,7 @@ A continuación mostraremos que no es suficiente que la condición de conteo sea
         \draw[line width=1.2pt] (-1.5,0) ellipse (0.8 and 0.8);
         \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (1) at (-1.75,-0.4) {};
         \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (2) at (-1.25, 0.25) {}; 
-        \draw (1) -- (2);
+        \draw[line width=1.2pt] (1) -- (2);
 
         % K_n_2,n_2
         \node at (2.5,0) {$K_{n_2,n_2}$};
@@ -1436,7 +1436,7 @@ A continuación mostraremos que no es suficiente que la condición de conteo sea
         \draw[line width=1.2pt] (1.2,-0.7) ellipse (0.8 and 0.5);
         \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (3) at (1.2,0.7) {};
         \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (4) at (1.2,-0.7) {};
-        \draw (3) -- (4);
+        \draw[line width=1.2pt] (3) -- (4);
     \end{tikzpicture}
     \label{Esquema_Contraejemplo}
     \caption{Esquema de la configuración del grafo usado como contraejemplo. Aquí, 
@@ -1722,6 +1722,12 @@ Probablemente la complejidad de tal demostración motivó a otros matemáticos e
 
 En esta tesis, nos enfocaremos en uno de los elementos que compone la demostración entregada por Szemerédi del Teorema \ref{Teorema Szemeredi}, el hoy conocido como \emph{lema de regularidad de Szemerédi}. A grandes rasgos, el lema dice que el conjunto de vértices de todo grafo puede ser particionado en una cantidad finita de partes que muestran comportamientos \emph{regulares} (o cuasi-aleatorios) entre la mayoría de los pares de partes. Este hecho permite entender cualquier grafo con menos información, y se aprovechan cada una de las propiedades equivalentes vistas en el Teorema \ref{Teorema CGW}.
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Imágenes/szemerédi_lemma_ilustration.png}
+    \caption{Ejemplo ilustrativo con cinco partes del resultado del lema de regularidad de Szemerédi sobre un grafo.}
+\end{figure} 
+
 Hasta enunciar formalmente el lema de regularidad, se definirán los conceptos necesarios para su buena comprensión. Dado un grafo $G$ y los subconjuntos de vértices $X,Y\subset V(G)$, se define la \textbf{densidad de aristas} entre $X$ e $Y$ de la siguiente manera:
 
 \begin{equation} \label{densidad aristas}
@@ -1749,6 +1755,12 @@ También, es necesario conocer en qué sentido los pares de partes entregados po
 
     Cuando $(X,Y)$ no es un par $\varepsilon$-regular, entonces la irregularidad es evidenciada por algún $A\subseteq X$ y $B\subseteq Y$ que satisfacen $|A| \geq \varepsilon |X|$ y $|B|\geq \varepsilon |Y|$, pero $\Big| d(A,B) - d(X,Y)\Big| > \varepsilon$.
 \end{definicion}
+\newpage
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Imágenes/eps_regular_pair.png}
+    \caption{Ejemplo del par $(X,Y)$ $\varepsilon$-regular, cuando $X\cap Y = \emptyset$. Las densidades $d(X,Y)$ y $d(A,B)$ no varían demasiado.}
+\end{figure}
 
 Notaremos que la noción de un par $\varepsilon$-regular es, de hecho, una analogía de la propiedad $\disc_p(\varepsilon)$ para grafos bipartitos. Es decir, si $G$ es tal que $V(G) = U\cup W$ y $p\in (0,1)$, se cumple
 
@@ -2002,7 +2014,14 @@ Vimos que particionar cualquier par de conjuntos no $\varepsilon$-regular por me
 
 %%%% Demostración energy boost para particiones
 \begin{proof}
-    Sea $\varepsilon > 0$ y $\mathcal{P} = \lbrace V_1,...,V_k\rbrace$ una partición no $\varepsilon$-regular del conjunto de $n$ vértices de un grafo $G$ . Sabemos que para todos los $(i,j)\in [k]^{2}$ tales que el par $(V_i, V_j)$ no es $\varepsilon$-regular, existen los subconjuntos $A^{ij}\subset V_i$ y $A^{ji}\subset V_j$ testigos de su irregularidad. Observe que en cada $V_i$ se podrían encontrar a lo más $k$ conjuntos no vacíos $A^{ij}$ que evidencian la irregularidad de los pares $(V_i, V_j)$ no $\varepsilon$-regular. Considere ahora la partición $\mathcal{Q} = \lbrace Q_1,...,Q_k\rbrace$ que refina a $\mathcal{P}$, en la que cada $Q_i$ es una partición resultante de dividir el conjunto $V_i$ según la intersección de todos los subconjuntos no vacíos $A^{ij}$ que atestiguan la irregularidad de los pares $(V_i, V_j)$ no $\varepsilon$-regular. En consecuencia, $|Q_i| \leq 2^{k}$.
+    Sea $\varepsilon > 0$ y $\mathcal{P} = \lbrace V_1,...,V_k\rbrace$ una partición no $\varepsilon$-regular del conjunto de $n$ vértices de un grafo $G$ . Sabemos que para todos los $(i,j)\in [k]^{2}$ tales que el par $(V_i, V_j)$ no es $\varepsilon$-regular, existen los subconjuntos $A^{ij}\subset V_i$ y $A^{ji}\subset V_j$ testigos de su irregularidad. Observe que en cada $V_i$ se podrían encontrar a lo más $k$ conjuntos no vacíos $A^{ij}$ que evidencian la irregularidad de los pares $(V_i, V_j)$ no $\varepsilon$-regular. Considere ahora la partición $\mathcal{Q} = \lbrace Q_1,...,Q_k\rbrace$ que refina a $\mathcal{P}$, en la que cada $Q_i$ es una partición resultante de dividir el conjunto $V_i$ según la intersección de todos los subconjuntos no vacíos $A^{ij}$ que atestiguan la irregularidad de los pares $(V_i, V_j)$ no $\varepsilon$-regular (ver Figura \ref{refinamiento_irregularidad}). En consecuencia, $|Q_i| \leq 2^{k}$.
+    \newpage
+    \begin{figure}[h] 
+        \centering
+        \includegraphics[width=0.9\textwidth]{Imágenes/Partition_by_irregularity.png}
+        \caption{Ejemplo del refinamiento simultaneo por todos los subconjuntos que evidencian la irregularidad usando tres conjuntos de vértices \fs{referencia}.}
+        \label{refinamiento_irregularidad}
+    \end{figure}
 
     Para simplicidad en la notación, se define $\Theta := \lbrace (i,j)\in [k]^{2} : (V_i,V_j)\ \text{es}\ \varepsilon\text{-regular}\rbrace$. Luego, como la partición $\mathcal{P}$ no es $\varepsilon$-regular, se cumple la desigualdad
     \begin{equation} \label{condición partición no regular}
@@ -2366,7 +2385,13 @@ El lema de eliminación de triángulos fue probado por los autores Ruzsa y Szeme
 
     En total, en la limpieza, se eliminan a lo más $\varepsilon n^{2}$ aristas.
 
-    Ahora, nos falta probar que el grafo limpio $G' = (V, E')$ es libre de triángulos. Para esto, con nuestra elección de $\delta$, buscaremos formular la siguiente contradicción: si existe unn triángulo en el grafo limpio $G'$, el lema de conteo de triángulos asegura que en realidad existen más de $\delta n^{3}$ triángulos. No obstante, como el grafo original posee a lo más $\delta n^{3}$ triángulos, se podrá concluir que el grafo $G'$ es libre de triángulos eliminando a lo más $\varepsilon n^{2}$ aristas.
+    Ahora, nos falta probar que el grafo limpio $G' = (V, E')$ es libre de triángulos. Para esto, con nuestra elección de $\delta$, buscaremos formular la siguiente contradicción: si existe un triángulo en el grafo limpio $G'$, el lema de conteo de triángulos asegura que en realidad existen más de $\delta n^{3}$ triángulos. No obstante, como el grafo original posee a lo más $\delta n^{3}$ triángulos, se podrá concluir que el grafo $G'$ es libre de triángulos eliminando a lo más $\varepsilon n^{2}$ aristas.
+    \newpage
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.9\textwidth]{Imágenes/Esquema_TCL_chico.png}
+        \caption{Esquema de la consecuencia del lema de conteo de triángulos \fs{referencia}}
+    \end{figure}
 
     Dicho esto, estudiamos la cantidad de triángulos en $G'$. Dada la eliminación de aristas según la condición (a), cada par $(V_i , V_j)$ es $\varepsilon$-regular, y por ende se satisface la hipótesis del Lema \ref{Triangle_Counting_Lemma}. Entonces, gracias a la ausencia de las aristas que cumplían con las condiciones (b) y (c),
     
@@ -2382,7 +2407,79 @@ El lema de eliminación de triángulos fue probado por los autores Ruzsa y Szeme
 
 \subsubsection{Emparejamiento inducido}
 
-Dado un grafo $G = (V,E)$, un subconjunto $R\subset E$ es un \textbf{emparejamiento} en $G$ si no existe un par de aristas en $R$ que compartan algún vértice. Diremos que $R$ es un \textbf{emparejamiento inducido} si es un emparejamiento y toda arista de $G$ con un vértice en $V(R)$ es una arista en $R$, en donde $V(R)$ denota el conjunto de vértices de las aristas que componen a $R$.
+Dado un grafo $G = (V,E)$, un subconjunto $R\subset E$ es un \textbf{emparejamiento} en $G$ si no existe un par de aristas en $R$ que compartan algún vértice. Diremos que $R$ es un \textbf{emparejamiento inducido} si es un emparejamiento y no existen un par de aristas en $R$ que estén conectadas por una arista de $G$, es decir, no existen aristas en $G$ entre cada par de vértices de $R$.
+\newpage
+%%%% Ejemplo emparejamientos
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+        %% Grafo original, G
+        \node at (-5, -2) {Grafo original $G$};
+        % Vértices
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (1_l1) at (-6.5, 1.5) {};
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (1_l2) at (-6.5, 0.5) {};
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (1_l3) at (-6.5, -0.5) {};
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (1_l4) at (-6.5, -1.5) {};
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (1_r1) at (-3.5, 1.5) {};
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (1_r2) at (-3.5, 0.5) {};
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (1_r3) at (-3.5, -0.5) {};
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (1_r4) at (-3.5, -1.5) {};
+        % Aristas
+        \draw[line width=1.2pt] (1_l1) -- (1_r1);
+        \draw[line width=1.2pt] (1_l1) -- (1_r3);
+        \draw[line width=1.2pt] (1_l2) -- (1_r1);
+        \draw[line width=1.2pt] (1_l2) -- (1_r4);
+        \draw[line width=1.2pt] (1_l3) -- (1_r2);
+        \draw[line width=1.2pt] (1_l3) -- (1_r4);
+        \draw[line width=1.2pt] (1_l4) -- (1_r1);
+        \draw[line width=1.2pt] (1_l4) -- (1_r2);
+
+        %% Emaparejamiento en G
+        \node at (0, -2) {Emparejamiento en $G$};
+        % Vértices
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (2_l1) at (-1.5, 1.5) {};
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (2_l2) at (-1.5, 0.5) {};
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (2_l3) at (-1.5, -0.5) {};
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (2_l4) at (-1.5, -1.5) {};
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (2_r1) at (1.5, 1.5) {};
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (2_r2) at (1.5, 0.5) {};
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (2_r3) at (1.5, -0.5) {};
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (2_r4) at (1.5, -1.5) {};
+        % Aristas
+        \draw[line width=1.2pt] (2_l1) -- (2_r1);
+        \draw[line width=1.2pt, red!70!black] (2_l1) -- (2_r3);
+        \draw[line width=1.2pt, red!70!black] (2_l2) -- (2_r1);
+        \draw[line width=1.2pt] (2_l2) -- (2_r4);
+        \draw[line width=1.2pt] (2_l3) -- (2_r2);
+        \draw[line width=1.2pt, red!70!black] (2_l3) -- (2_r4);
+        \draw[line width=1.2pt] (2_l4) -- (2_r1);
+        \draw[line width=1.2pt, red!70!black] (2_l4) -- (2_r2);
+
+        %% Emparejamiento inducido
+        \node at (5,-2) {Emparejamiento inducido en $G$};
+        % Vértices
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (3_l1) at (3.5, 1.5) {};
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (3_l2) at (3.5, 0.5) {};
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (3_l3) at (3.5, -0.5) {};
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (3_l4) at (3.5, -1.5) {};
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (3_r1) at (6.5, 1.5) {};
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (3_r2) at (6.5, 0.5) {};
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (3_r3) at (6.5, -0.5) {};
+        \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (3_r4) at (6.5, -1.5) {};
+        % Aristas
+        \draw[line width=1.2pt] (3_l1) -- (3_r1);
+        \draw[line width=1.2pt, red!70!black] (3_l1) -- (3_r3);
+        \draw[line width=1.2pt] (3_l2) -- (3_r1);
+        \draw[line width=1.2pt, red!70!black] (3_l2) -- (3_r4);
+        \draw[line width=1.2pt] (3_l3) -- (3_r2);
+        \draw[line width=1.2pt] (3_l3) -- (3_r4);
+        \draw[line width=1.2pt] (3_l4) -- (3_r1);
+        \draw[line width=1.2pt, red!70!black] (3_l4) -- (3_r2);
+    \end{tikzpicture}
+    \caption{Ejemplo de un emparejamiento y un emparejamiento inducido.}
+\end{figure}
+
+
 
 La presente aplicación del método de regularidad responde a la pregunta: \emph{¿Cuántas aristas puede tener un grafo que es la unión de emparejamientos inducidos?}. \fs{No sabría si aquí agregar un comentario referente a que la intuición dice que deben ser "pocas" aristas, pero la prueba no es trivial}
 
@@ -2393,7 +2490,7 @@ La presente aplicación del método de regularidad responde a la pregunta: \emph
 
 %%%% Demostración: Emparejamiento inducido
 \begin{proof}
-    Dado $\varepsilon > 0$, aplique el Teorema \ref{szemeredi_regularity_lemma1} con $\varepsilon_r = \frac{\varepsilon}{10}$ para obtener la constante $M(\varepsilon_r)$. Considere $n_0\in\mathbb{N}$ suficientemente grande, y asuma que el grafo $G = (V,E)$ con $n\geq n_0$ vértices y compueston por $n$ emparejamientos inducidos satisface $e_G > \varepsilon n$. Nuevamente, por el Teorema \ref{szemeredi_regularity_lemma}, se asegura la existencia de la partición $\mathcal{P} = \lbrace V_1,...,V_k\rbrace$ con $k\leq M(\varepsilon)$ partes que es $\varepsilon_r$-regular.
+    Dado $\varepsilon > 0$, aplique el Teorema \ref{szemeredi_regularity_lemma1} con $\varepsilon_r = \frac{\varepsilon}{10}$ para obtener la constante $M(\varepsilon_r)$. Considere $n_0\in\mathbb{N}$ suficientemente grande, y asuma que el grafo $G = (V,E)$ con $n\geq n_0$ vértices y compuesto por $n$ emparejamientos inducidos satisface $e_G > \varepsilon n$. Nuevamente, por el Teorema \ref{szemeredi_regularity_lemma}, se asegura la existencia de la partición $\mathcal{P} = \lbrace V_1,...,V_k\rbrace$ con $k\leq M(\varepsilon)$ partes que es $\varepsilon_r$-regular.
     
     Para cada $(i,j)\in [k]^{2}$ se eliminan todas las aristas entre los conjuntos $V_i$ y $V_j$ cuando éstos presenten irregularidad, densidad menor que $2\varepsilon_r$, o al menos uno de los conjuntos es menor que $\frac{n}{k}\varepsilon_r$. En total, el proceso de limpieza remueve a lo más $4\varepsilon_r n^{2}$ aristas de $G$ para obtener un nuevo grafo $G'$. En consecuencia,
     
@@ -2403,7 +2500,7 @@ La presente aplicación del método de regularidad responde a la pregunta: \emph
 
     Ahora, observe que debe existir un emparejamiento inducido $R$ en $G'$ con al menos $\frac{\varepsilon}{2}n$ aristas (y al menos $\varepsilon n$ vértices). De no ser así, todos los emparejamientos tendrán a lo más $\frac{\varepsilon}{2}n$ aristas, por lo que $e_G' < \frac{\varepsilon}{2}n^{2}$.
 
-    Se define $U_i := V_i \cap V(R)$ como el subconjunto de vértices de $R$ que comparte elementos con $V_i$, y $U := \displaystyle\bigcup_{i\in [k]} \lbrace U_i : |U_i| \geq \varepsilon_r |V_i|\rbrace$. Es decir, $U$ es la unión de todos los conjuntos $U_i \subset V(R)$ que comparten una fracción suficientemente grande de vértices con $V_i$. Note que podemos obtener el conjunto $U$ removiendo a lo más $\varepsilon_r n = \frac{\varepsilon}{10}n$ vértices de $V(R)$, pues
+    Denotando por $V(R)$ al conjunto de vértices que componen las aristas de $R$, se define $U_i := V_i \cap V(R)$ como el subconjunto de vértices de $R$ que comparte elementos con $V_i$, y $U := \displaystyle\bigcup_{i\in [k]} \lbrace U_i : |U_i| \geq \varepsilon_r |V_i|\rbrace$. Es decir, $U$ es la unión de todos los conjuntos $U_i \subset V(R)$ que comparten una fracción suficientemente grande de vértices con $V_i$. Note que podemos obtener el conjunto $U$ removiendo a lo más $\varepsilon_r n = \frac{\varepsilon}{10}n$ vértices de $V(R)$, pues
 
     \begin{equation*}
         \sum_{i\in [k]} |U_i| < \sum_{i\in [k]} \varepsilon_r |V_i| = \frac{\varepsilon}{10} n.
@@ -2444,11 +2541,13 @@ Como hemos visto en el comienzo de la sección \ref{Sec. LRS}, el teorema de Rot
     Para todo $\varepsilon > 0$, existe $n_0 \in \mathbb{N}$ tal que si el conjunto $A\subset [n]$ posee $|A| \geq \varepsilon n$ elementos, entonces $A$ contiene una progresión aritmética no trivial de largo $3$.
 \end{teorema}
 
-En esta sección se entregarán dos demostraciones del teorema de Roth por medio del lema de regularidad de Szemerédi. La primera de ellas, se fundamenta con el Teorema \ref{Enunciado TRL}.
+En esta sección se entregarán dos demostraciones del teorema de Roth por medio del lema de regularidad de Szemerédi. Como el enunciado del Teorema \ref{Teorema_de_Roth} alude a la teoría de números, en ambas pruebas, la idea es traducir el problema al lenguaje de la teoría de grafos con la construcción de un grafo apropiado. La primera demostración se fundamenta en el Teorema \ref{Enunciado TRL}.
 
 %%%% Demo 1 teorema de Roth
 \begin{proof}[Primera demostración del Teorema \ref{Teorema_de_Roth}]
-    Sea $\varepsilon > 0$ y el conjunto $A\subset [n]$ con $|A|\geq\varepsilon n$ elementos. La idea es construir un grafo $3$-partito de manera conveniente para posteriormente utilizar el lema de eliminación de triángulos. Considere el grafo 3-partito $G = (V,E)$ con partición de vértices $V = V_1 \cup V_2 \cup V_3$, en donde $V_1 = [n]$, $V_2 = [2n]$ y $V_3 = [3n]$, y son disjuntos entre cada par de ellos. Así, $G$ tiene $6n$ vértices, y se definen las aristas de la siguiente manera:
+    Sea $\varepsilon > 0$ y el conjunto $A\subset [n]$ con $|A|\geq\varepsilon n$ elementos. Escogemos $n_0 \in\mathbb{N}$ suficientemente grande.
+
+    Una manera natural de construir un grafo de $n$ vértices utilizando el conjunto $A$, es definir una arista entre los vértices $i$ y $j$ si y solamente si $|i-j|\in A$. Sin embargo, con $n$ elementos no podemos describir una progresión aritmética de largo $3$ por medio de relaciones entre las aristas. Por esto, agregamos un poco de asimetría a la construcción. Para asegurar que las sumas siempre tengan la posibilidad de estar en $A$, consideramos el grafo $3$-partito $G=(V,E)$ con partición de vértices $V = V_1\cup V_2\cup V_3$, en donde $V_1 = [n]$, $V_2 = [2n]$ y $V_3 = [3n]$ son tales que $6n\geq n_0$. Las aristas de $G$ son definidas de la siguiente manera:
 
     \begin{enumerate}
         \item Existe una arista desde $i\in V_1$ hasta $j\in V_2$ si y solamente si $j-i\in A$.
@@ -2456,7 +2555,61 @@ En esta sección se entregarán dos demostraciones del teorema de Roth por medio
         \item Existe una arista desde $i\in V_1$ hasta $k\in V_3$ si y solamente si $\frac{k-i}{2}\in A$.
     \end{enumerate}
 
-    Luego, la tupla $(i,j,k)\in V_1\times V_2\times V_3$ define un triángulo en $G$ si y solamente si $j-i\in A$, $k-j\in A$ y $\frac{k-i}{2}\in A$, o bien, $\left\lbrace j-i, \frac{k-i}{2}, k-j\right\rbrace$ es una progresión aritmética de largo $3$ en $A$ con diferencia $\frac{k-2j+i}{2}$. También, diremos que un triángulo $(i,j,k)\in V_1\times V_2\times V_3$ es trivial en $G$ si para algún $a\in A$ se satisface que $j-i = \frac{k-i}{2} = k-j = a$.
+    %%%% Esquema de triángulo en $G$
+    \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            %\draw[step=0.5cm, gray, very thin] (-7.5, -3) grid (7.5, 3);
+            %\node[fill=red, circle, inner sep=2pt, minimum size=4pt] at (0,0) {};
+            %\node[fill=red, circle, inner sep=2pt, minimum size=4pt] at (-3.5,0) {};
+            %\node[fill=red, circle, inner sep=2pt, minimum size=4pt] at (3.5,0) {};
+
+            %%%%% V_1
+            \draw[line width=1.2pt] (-3.5,0) ellipse (1 and 2);
+            \node at (-4.5,1.75) {$V_1$};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (i) at (-3.5,0) {};
+            \node at (-3.82,0) {$i$};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt] at (-3.5, -1.5) {};
+            \node at (-3.82, -1.5) {$n$};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt] at (-3.5,1.5) {};
+            \node at (-3.82,1.5) {$1$};
+            \node at (-3.5,1.1) {\Huge$\vdots$};
+            \node at (-3.5,0.6) {\Huge$\vdots$};
+            \node at (-3.5, -0.4) {\Huge$\vdots$};
+            \node at (-3.5,-0.9) {\Huge$\vdots$};
+            %%%%% V_2
+            \draw[line width=1.2pt] (0,0) ellipse (1 and 2);
+            \node at (-1,1.75) {$V_2$};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (j) at (0,-0.7) {};
+            \node at (-0.32,-0.9) {$j$};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt] at (0, -1.5) {};
+            \node at (-0.32, -1.5) {$2n$};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt] at (0,1.5) {};
+            \node at (-0.32,1.5) {$1$};
+            \node at (0, -1) {\Huge$\vdots$};
+            \node at (0,1) {\Huge$\vdots$};
+            \node at (0,0.5) {\Huge$\vdots$};
+            \node at (0,0) {\Huge$\vdots$};
+            % V_3
+            \draw[line width=1.2pt] (3.5,0) ellipse (1 and 2);
+            \node at (2.5,1.75) {$V_3$};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt] at (3.5,1.5) {};
+            \node at (3.18,1.5) {$1$};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt] at (3.5, -1.5) {};
+            \node at (3.18, -1.5) {$3n$};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (k) at (3.5,0.5) {};
+            \node at (3.82,0.5) {$k$};
+            \node at (3.5,1.1) {\Huge$\vdots$};
+            \node at (3.5,0.1) {\Huge$\vdots$};
+            \node at (3.5,-0.4) {\Huge$\vdots$};
+            \node at (3.5,-0.9) {\Huge$\vdots$};
+            %%%% Triángulo
+            \draw[line width=1.2pt, red!70!black] (i) -- (j) -- (k) -- (i);
+        \end{tikzpicture}
+        \caption{Esquema de relación entre un triángulo en $G$ y una progresión aritmética de largo $3$ en $A$.}
+    \end{figure}
+
+    \fs{Pendiente cambiar el "no encontrar el $n_0$"}Luego, la tupla $(i,j,k)\in V_1\times V_2\times V_3$ define un triángulo en $G$ si y solamente si $j-i\in A$, $k-j\in A$ y $\frac{k-i}{2}\in A$, o bien, $\left\lbrace j-i, \frac{k-i}{2}, k-j\right\rbrace$ es una progresión aritmética de largo $3$ en $A$ con diferencia $\frac{k-2j+i}{2}$. También, diremos que un triángulo $(i,j,k)\in V_1\times V_2\times V_3$ es trivial en $G$ si para algún $a\in A$ se satisface que $j-i = \frac{k-i}{2} = k-j = a$.
 
     Ahora, observando que cada triángulo trivial se puede identificar con el par $(i,a)\in V_1 \times A$, la cantidad de triángulos triviales es exactamente $n|A| \geq \varepsilon n^{2}$. Además, por construcción, no existen triángulos triviales que compartan una arista, por lo que no se puede eliminar dos triángulos triviales removiendo solo una arista. En consecuencia, debemos eliminar al menos $\varepsilon n^{2} = \frac{\varepsilon}{36}(6n)^{2}$ aristas para hacer de $G$ libre de triángulos.
 
