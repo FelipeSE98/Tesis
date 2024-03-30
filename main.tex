@@ -18,6 +18,7 @@
 \usepackage{geometry}
 \usepackage{lineno}
 \usepackage{textcomp}
+\usepackage{fp}
 \usetikzlibrary{shapes.geometric}
 
 \usepackage[utf8]{inputenc}
@@ -1707,7 +1708,7 @@ Erd$\ddot{\text{o}}$s y Turán \fs{referencia} conjeturaron en 1936 que todo con
 
 %%%% Teorema de Szemerédi
 \begin{teorema} (Teorema de Szemerédi) \label{Teorema Szemeredi}
-    Para todo $\varepsilon > 0$, existe $n_0 \in \mathbb{N}$ tal que si el conjunto $A\subset [n]$ posee $|A|>\varepsilon n$ elementos, entonces $A$ contiene una progresión aritmética de largo $k$ no trivial cada vez que $n\geq n_0$.
+    Para todo $\varepsilon > 0$, existe $n_0 \in \mathbb{N}$ tal que si el conjunto $S\subset [n]$ posee $|S|>\varepsilon n$ elementos, entonces $S$ contiene una progresión aritmética de largo $k$ no trivial cada vez que $n\geq n_0$.
 \end{teorema}
 
 La demostración que propone Szemerédi es considerada una obra maestra del razonamiento combinatorio. El siguiente esquema entrega una noción de la complejidad de la idea.
@@ -2405,6 +2406,8 @@ El lema de eliminación de triángulos fue probado por los autores Ruzsa y Szeme
     Así, de la contradicción anterior, se determina que el grafo $G$ es libre de triángulos eliminando a lo más $\varepsilon n^{2}$ aristas.
 \end{proof}
 
+Otra forma de entender el Teorema \ref{Enunciado TRL} es de la siguiente manera: si se necesitan eliminar al menos $\varepsilon n^{2}$ para hacer de $G$ libre de tríangulos, entonces $G$ contiene al menos $\delta n^{3}$ triángulos.
+
 \subsubsection{Emparejamiento inducido}
 
 Dado un grafo $G = (V,E)$, un subconjunto $R\subset E$ es un \textbf{emparejamiento} en $G$ si no existe un par de aristas en $R$ que compartan algún vértice. Diremos que $R$ es un \textbf{emparejamiento inducido} si es un emparejamiento y no existen un par de aristas en $R$ que estén conectadas por una arista de $G$, es decir, no existen aristas en $G$ entre cada par de vértices de $R$.
@@ -2532,27 +2535,29 @@ La presente aplicación del método de regularidad responde a la pregunta: \emph
     La desigualdad anterior nos dice que existe una arista entre $U_k$ y $U_\ell$ que no pertenece a $R$, por lo que se contradice la hipótesis de que $R$ es un emparejamiento inducido. 
 \end{proof}
 
+Otra mirada del Teorema \ref{Teo_emp_ind} es la siguiente: si $G$ posee al menos $\varepsilon n^{2}$ aristas, entonces $G$ tiene al menos un emparejamiento no inducido.
+
 \subsubsection{Teorema de Roth}
 
 Como hemos visto en el comienzo de la sección \ref{Sec. LRS}, el teorema de Roth es un caso particular del teorema de Szemerédi, cual en un principio fue demostrado utilizando análisis de Fourier. 
 
 %%%% Enunciado Teorema de Roth
 \begin{teorema} (Teorema de Roth) \label{Teorema_de_Roth}
-    Para todo $\varepsilon > 0$, existe $n_0 \in \mathbb{N}$ tal que si el conjunto $A\subset [n]$ posee $|A| \geq \varepsilon n$ elementos, entonces $A$ contiene una progresión aritmética no trivial de largo $3$.
+    Para todo $\varepsilon > 0$, existe $n_0 \in \mathbb{N}$ tal que si el conjunto $S\subset [n]$ posee $|S| \geq \varepsilon n$ elementos, entonces $S$ contiene una progresión aritmética no trivial de largo $3$.
 \end{teorema}
 
 En esta sección se entregarán dos demostraciones del teorema de Roth por medio del lema de regularidad de Szemerédi. Como el enunciado del Teorema \ref{Teorema_de_Roth} alude a la teoría de números, en ambas pruebas, la idea es traducir el problema al lenguaje de la teoría de grafos con la construcción de un grafo apropiado. La primera demostración se fundamenta en el Teorema \ref{Enunciado TRL}.
 
 %%%% Demo 1 teorema de Roth
 \begin{proof}[Primera demostración del Teorema \ref{Teorema_de_Roth}]
-    Sea $\varepsilon > 0$ y el conjunto $A\subset [n]$ con $|A|\geq\varepsilon n$ elementos. Escogemos $n_0 \in\mathbb{N}$ suficientemente grande.
+    Sea $\varepsilon > 0$ y el conjunto $S\subset [n]$ con $|S|\geq\varepsilon n$ elementos. Escogemos $n_0 \in\mathbb{N}$ suficientemente grande.
 
-    Una manera natural de construir un grafo de $n$ vértices utilizando el conjunto $A$, es definir una arista entre los vértices $i$ y $j$ si y solamente si $|i-j|\in A$. Sin embargo, con $n$ elementos no podemos describir una progresión aritmética de largo $3$ por medio de relaciones entre las aristas. Por esto, agregamos un poco de asimetría a la construcción. Para asegurar que las sumas siempre tengan la posibilidad de estar en $A$, consideramos el grafo $3$-partito $G=(V,E)$ con partición de vértices $V = V_1\cup V_2\cup V_3$, en donde $V_1 = [n]$, $V_2 = [2n]$ y $V_3 = [3n]$ son tales que $6n\geq n_0$. Las aristas de $G$ son definidas de la siguiente manera:
+    Una manera natural de construir un grafo de $n$ vértices utilizando el conjunto $S$, es definir una arista entre los vértices $i$ y $j$ si y solamente si $|i-j|\in S$. Sin embargo, con $n$ elementos no podemos describir una progresión aritmética de largo $3$ por medio de relaciones entre las aristas. Por esto, agregamos un poco de asimetría a la construcción. Para asegurar que las sumas siempre tengan la posibilidad de estar en $S$, consideramos el grafo $3$-partito $G=(V,E)$ con partición de vértices $V = V_1\cup V_2\cup V_3$, en donde $V_1 = [n]$, $V_2 = [2n]$ y $V_3 = [3n]$ son tales que $6n\geq n_0$. Las aristas de $G$ son definidas de la siguiente manera:
 
     \begin{enumerate}
-        \item Existe una arista desde $i\in V_1$ hasta $j\in V_2$ si y solamente si $j-i\in A$.
-        \item Existe una arista desde $j\in V_2$ hasta $k\in V_3$ si y solamente si $k-j\in A$.
-        \item Existe una arista desde $i\in V_1$ hasta $k\in V_3$ si y solamente si $\frac{k-i}{2}\in A$.
+        \item Existe una arista desde $i\in V_1$ hasta $j\in V_2$ si y solamente si $j-i\in S$.
+        \item Existe una arista desde $j\in V_2$ hasta $k\in V_3$ si y solamente si $k-j\in S$.
+        \item Existe una arista desde $i\in V_1$ hasta $k\in V_3$ si y solamente si $\frac{k-i}{2}\in S$.
     \end{enumerate}
 
     %%%% Esquema de triángulo en $G$
@@ -2606,23 +2611,23 @@ En esta sección se entregarán dos demostraciones del teorema de Roth por medio
             %%%% Triángulo
             \draw[line width=1.2pt, red!70!black] (i) -- (j) -- (k) -- (i);
         \end{tikzpicture}
-        \caption{Esquema de relación entre un triángulo en $G$ y una progresión aritmética de largo $3$ en $A$.}
+        \caption{Esquema de relación entre un triángulo en $G$ y una progresión aritmética de largo $3$ en $S$.}
     \end{figure}
 
-    \fs{Pendiente cambiar el "no encontrar el $n_0$"}Luego, la tupla $(i,j,k)\in V_1\times V_2\times V_3$ define un triángulo en $G$ si y solamente si $j-i\in A$, $k-j\in A$ y $\frac{k-i}{2}\in A$, o bien, $\left\lbrace j-i, \frac{k-i}{2}, k-j\right\rbrace$ es una progresión aritmética de largo $3$ en $A$ con diferencia $\frac{k-2j+i}{2}$. También, diremos que un triángulo $(i,j,k)\in V_1\times V_2\times V_3$ es trivial en $G$ si para algún $a\in A$ se satisface que $j-i = \frac{k-i}{2} = k-j = a$.
+    Nótese que la tupla $(i,j,k)\in V_1\times V_2\times V_3$ define un triángulo en $G$ si y solamente si $j-i\in S$, $k-j\in S$ y $\frac{k-i}{2}\in S$, o bien, $\left\lbrace j-i, \frac{k-i}{2}, k-j\right\rbrace$ es una progresión aritmética de largo $3$ en $S$ con diferencia $\frac{k-2j+i}{2}$. 
 
-    Ahora, observando que cada triángulo trivial se puede identificar con el par $(i,a)\in V_1 \times A$, la cantidad de triángulos triviales es exactamente $n|A| \geq \varepsilon n^{2}$. Además, por construcción, no existen triángulos triviales que compartan una arista, por lo que no se puede eliminar dos triángulos triviales removiendo solo una arista. En consecuencia, debemos eliminar al menos $\varepsilon n^{2} = \frac{\varepsilon}{36}(6n)^{2}$ aristas para hacer de $G$ libre de triángulos.
+    Diremos que un triángulo $(i,j,k)\in V_1\times V_2\times V_3$ es trivial en $G$ si para algún $s\in S$ se satisface que $j-i = \frac{k-i}{2} = k-j = s$. Entonces, observando que cada triángulo trivial se puede identificar con el par $(i,s)\in V_1 \times S$, la cantidad de triángulos triviales es exactamente $n|S| \geq \varepsilon n^{2}$. Además, por construcción, no existen triángulos triviales que compartan una arista, por lo que no se pueden eliminar dos triángulos triviales removiendo solo una arista. Por consecuencia, se tienen que eliminar al menos $\varepsilon n^{2} = \frac{\varepsilon}{36}(6n)^{2}$ aristas para hacer de $G$ libre de triángulos. Luego, utilizando el lema de eliminación de triángulos con $\frac{\varepsilon}{36}$, recibimos $\delta\left(\frac{\varepsilon}{36}\right)$, y aseguramos que existen al menos $\delta (6n)^{3} = 216\delta n^{3}$ triángulos en $G$. De esta manera, existen al menos $216\delta n^{3} - n^{2}$ triángulos no triviales. En conclusión, como $216\delta n^{3} > n^{2}$, debe existir una progresión aritmética no trivial de largo $3$ en $S$.
 
-    Utilizando el lema eliminación de triángulos eligiendo $\varepsilon_0 = \frac{\varepsilon}{36}$, existen $\delta_0 > 0$ y $n'_0\in\mathbb{N}$ tal que el grafo $G$ con $6n \geq n'_0$ vértices y a lo más $\delta_0 (6n)^{3}$ triángulos, se convierte en libre de triángulos eliminando a lo más $\varepsilon_0 (6n)^{2}$ aristas. Entonces, estableciendo $\delta = 216\delta_0$, note que existen como máximo $\delta n^{3} - \varepsilon n^{2}$ triángulos no triviales. Sabiendo esto, aseguramos la existencia de un triángulo no trivial cuando $n > \frac{\varepsilon + 1}{\delta}$. En efecto,
-    
-    \begin{equation*}
-        n > \frac{\varepsilon + 1}{\delta} \ \Rightarrow\  \delta n - \varepsilon > 1 \ \Rightarrow\  n^{2}(\delta n - \varepsilon) > 1.
-    \end{equation*}
-
-    Finalmente, el resultado queda demostrado tomando $n_0 > \max\left\lbrace \frac{n'_0}{6}, \frac{\varepsilon + 1}{\delta}\right\rbrace$.
+    %Utilizando el lema eliminación de triángulos eligiendo $\varepsilon_0 = %\frac{\varepsilon}{36}$, existen $\delta_0 > 0$ y $n'_0\in\mathbb{N}$ tal %que el grafo $G$ con $6n \geq n'_0$ vértices y a lo más $\delta_0 (6n)^{3}%$ triángulos, se convierte en libre de triángulos eliminando a lo más %$\varepsilon_0 (6n)^{2}$ aristas. Entonces, estableciendo $\delta = %216\delta_0$, note que existen como máximo $\delta n^{3} - \varepsilon n^%{2}$ triángulos no triviales. Sabiendo esto, aseguramos la existencia de %un triángulo no trivial cuando $n > \frac{\varepsilon + 1}{\delta}$. En %efecto,
+    %
+    %\begin{equation*}
+    %    n > \frac{\varepsilon + 1}{\delta} \ \Rightarrow\  \delta n - %\varepsilon > 1 \ \Rightarrow\  n^{2}(\delta n - \varepsilon) > 1.
+    %\end{equation*}
+%
+    %Finalmente, el resultado queda demostrado tomando $n_0 > \max\left\lbrace %\frac{n'_0}{6}, \frac{\varepsilon + 1}{\delta}\right\rbrace$.
 \end{proof}
 
-Para la segunda demostración del teorema de Roth, será necesario un teorema intermedio proporcionado por los autores Ajtai y Szemerédi \fs{referencia}. Para su prueba, se utiliza el Teorema \ref{Teo_emp_ind}.
+Para la segunda demostración del teorema de Roth, será necesario un resultado intermedio proporcionado por los autores Ajtai y Szemerédi \fs{referencia}. Para su prueba, se utiliza el Teorema \ref{Teo_emp_ind}.
 
 %%%% Teorema: Esquina (Ajtai-Szemerédi)
 \begin{teorema} \label{Corner_Theorem} (Teorema de la esquina, Ajtai-Szemerédi)
@@ -2631,40 +2636,148 @@ Para la segunda demostración del teorema de Roth, será necesario un teorema in
 
 %%%% Demostración: Esquina (Ajtai-Szemerédi)
 \begin{proof}
-    Sea $\varepsilon > 0$, $n_0\in\mathbb{N}$ suficientemente grande tal que $n\geq n_0$, y $S\subset [n]^{2}$ un subconjunto con al menos $\varepsilon n^{2}$ elementos. Vamos a construir un grafo bipartito $G = (U\cup W, E)$ con conjunto de vértices $U = \lbrace u_1,...,u_n\rbrace$ y  $W = \lbrace w_1,...,w_n\rbrace$ definiendo las aristas de la siguiente manera:
+    Sea $\varepsilon > 0$. Considere $n_0\in\mathbb{N}$ suficientemente grande y $S\subset [n]^{2}$ con al menos $\varepsilon n$ elementos, y $n\geq n_0$.
+
+    Vamos a construir un grafo bipartito $G = (U\cup W, E)$ con conjunto de vértices $U = \lbrace u_1,...,u_n\rbrace$ y  $W = \lbrace w_1,...,w_n\rbrace$ definiendo las aristas de la siguiente manera:
 
     \[
         u_i w_j\in E \Longleftrightarrow (i,j)\in S.
     \]
 
-    Interpretando a $[n]^{2}$ como una grilla bidimensional, se puede definir una relación entre pares de aristas en $G$ en función de la distancia que abarca la suma de las coordenadas de sus respectivos pares en $S$. Esto es,
+    Ahora, interpretando a $[n]^{2}$ como una grilla bidimensional, se define una relación entre pares de aristas de $G$ de manera que se preserve cierta noción de distancia en la grilla. Esto es:
 
     \[
         u_i w_j \sim u_k w_\ell \Longleftrightarrow i + j = k + \ell = q.
     \]
 
-    \fs{Dibujito con 2 ejemplos de $q$.}
     Observe que para cada $2\leq q\leq 2n$ se define un emparejamiento en $G$ debido a que no existen aristas que compartan un vértice, por lo que las clases de equivalencia (cada una asociada a algún $q$) de la relación forman una partición de emparejamientos de $E$. En efecto, suponga que las aristas que pertenecen a la misma clase $u_i w_j$ y $u_k w_j$ comparten el vértice $w_j$. Entonces, como $i+j = k+j$, se determina que $u_i = u_k$ y se concluye que $u_i w_j$ y $u_k w_j$ son la misma arista.
 
-    Luego, como $e_G = |S| \geq \varepsilon n^{2}$, el Teorema \ref{Teo_emp_ind} asegura que existe al menos un emparejamiento no inducido. Esto significa que en un emparejamiento que contiene las aristas con la relación $u_i w_j \sim u_k w_\ell$ puede existir el trío de aristas $u_i w_j$, $u_k w_\ell$ y $u_i w_\ell$. Así, para algún $d\in \mathbb{N}$, $(i,j)$, $(k,\ell)$ y $(i,\ell)$ son elementos de $S$ que satisfacen
+    \usetikzlibrary {arrows.meta}
+    \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            %\draw[step=0.5cm, gray, very thin] (-7.5,-3) grid (7.5,3);
+            %\node[fill=red, circle, inner sep=2pt, minimum size=4pt] at (0,0) {};
+            %\node[fill=red, circle, inner sep=2pt, minimum size=4pt] at (-6,-2.5) {};
+            %%%% Plano cartesiano
+            %\draw[step=0.5cm, gray, very thin] (-6,-2) grid (-1.5, 2.5);
+            \draw[>-Stealth] (-5.5,-2) -- (-1,-2);
+            \draw[>-Stealth] (-5.5,-2) -- (-5.5,2.5);
+            % Label eje x
+            \draw (-5cm,-2cm - 1.5pt) -- (-5cm,-2cm + 1.5pt) node[anchor=north] {$1$};
+            \draw (-4.5cm,-2cm - 1.5pt) -- (-4.5cm,-2cm + 1.5pt) node[anchor=north] {$2$};
+            \draw (-4cm,-2cm - 1.5pt) -- (-4cm,-2cm + 1.5pt) node[anchor=north] {$3$};
+            \draw (-3.5cm,-2cm - 1.5pt) -- (-3.5cm,-2cm + 1.5pt) node[anchor=north] {$4$};
+            \draw (-3cm,-2cm - 1.5pt) -- (-3cm,-2cm + 1.5pt) node[anchor=north] {$5$};
+            \draw (-2.5cm,-2cm - 1.5pt) -- (-2.5cm,-2cm + 1.5pt) node[anchor=north] {$6$};
+            \draw (-2cm,-2cm - 1.5pt) -- (-2cm,-2cm + 1.5pt) node[anchor=north] {$7$};
+            \draw (-1.5cm,-2cm - 1.5pt) -- (-1.5cm,-2cm + 1.5pt) node[anchor=north] {$8$};
+            % Label eje y
+            \draw (-5.5cm - 1.5pt, -1.5cm) -- (-5.5cm + 1.5pt, -1.5cm) node[anchor=east] {$1$};
+            \draw (-5.5cm - 1.5pt, -1cm) -- (-5.5cm + 1.5pt, -1cm) node[anchor=east] {$2$};
+            \draw (-5.5cm - 1.5pt, -0.5cm) -- (-5.5cm + 1.5pt, -0.5cm) node[anchor=east] {$3$};
+            \draw (-5.5cm - 1.5pt, 0) -- (-5.5cm + 1.5pt, 0) node[anchor=east] {$4$};
+            \draw (-5.5cm - 1.5pt, 0.5cm) -- (-5.5cm + 1.5pt, 0.5cm) node[anchor=east] {$5$};
+            \draw (-5.5cm - 1.5pt, 1cm) -- (-5.5cm + 1.5pt, 1cm) node[anchor=east] {$6$};
+            \draw (-5.5cm - 1.5pt, 1.5cm) -- (-5.5cm + 1.5pt, 1.5cm) node[anchor=east] {$7$};
+            \draw (-5.5cm - 1.5pt, 2cm) -- (-5.5cm + 1.5pt, 2cm) node[anchor=east] {$8$};
+            % Coordenadas de S
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt] at (-5,-1) {};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt] at (-4.5,-1) {};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt] at (-5,0) {};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt] at (-4.5,-0.5) {};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt] at (-4,-0.5) {};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt] at (-3.5,0) {};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt] at (-3.5,-1.5) {};
+            % Trazas de q
+            \draw[black!70!white, dashed] (-6cm, 2.5cm) -- (-1cm, -2.5cm); % q=8
+            \node at (-6.5cm,2.5cm) {\scriptsize $q=8$};
+            \draw[black!70!white, dashed] (-6cm, 2cm) -- (-1.5cm, -2.5cm); % q=7
+            \node at (-6.5cm,2cm) {\scriptsize $q=7$};
+            \draw[black!70!white, dashed] (-6cm, 1.5cm) -- (-2cm, -2.5cm); % q=6
+            \node at (-6.5cm,1.5cm) {\scriptsize $q=6$};
+            \draw[red!70!black, dashed] (-6cm, 1cm) -- (-2.5cm, -2.5cm); % q=5
+            \node[red!70!black] at (-6.5cm,1cm) {\scriptsize $q=5$};
+            \draw[black!70!white, dashed] (-6cm, 0.5cm) -- (-3cm, -2.5cm); % q=4
+            \node at (-6.5cm,0.5cm) {\scriptsize $q=4$};
+            \draw[black!70!white, dashed] (-6cm, 0) -- (-3.5cm, -2.5cm); % q=3
+            \node at (-6.5cm,0) {\scriptsize $q=3$};
+            \draw[black!70!white, dashed] (-6cm, -0.5cm) -- (-4cm, -2.5cm); % q=2
+            \node at (-6.5cm,-0.5) {\scriptsize $q=2$};
+            %%%% Grafo
+            \node[fill=black,, circle, inner sep=2pt, minimum size=4pt, label={180:$u_1$}] (u_1) at (1.5cm,1.5cm) {};
+            \node[fill=black,, circle, inner sep=2pt, minimum size=4pt, label={180:$u_2$}] (u_2) at (1.5cm,0.5cm) {};
+            \node[fill=black,, circle, inner sep=2pt, minimum size=4pt, label={180:$u_3$}] (u_3) at (1.5cm,-0.5cm) {};
+            \node[fill=black,, circle, inner sep=2pt, minimum size=4pt, label={180:$u_4$}] (u_4) at (1.5cm,-1.5cm) {};
+            \node[fill=black,, circle, inner sep=2pt, minimum size=4pt, label={00:$\omega_1$}] (w_1) at (5.5cm,1.5cm) {};
+            \node[fill=black,, circle, inner sep=2pt, minimum size=4pt, label={00:$\omega_2$}] (w_2) at (5.5cm,0.5cm) {};
+            \node[fill=black,, circle, inner sep=2pt, minimum size=4pt, label={00:$\omega_3$}] (w_3) at (5.5cm,-0.5cm) {};
+            \node[fill=black,, circle, inner sep=2pt, minimum size=4pt, label={00:$\omega_4$}] (w_4) at (5.5cm,-1.5cm) {};
+            \draw[line width=1.2pt] (u_1) -- (w_2);
+            \draw[line width=1.2pt, red!70!black] (u_1) -- (w_4);
+            \draw[line width=1.2pt] (u_2) -- (w_2);
+            \draw[line width=1.2pt, red!70!black] (u_2) -- (w_3);
+            \draw[line width=1.2pt] (u_3) -- (w_3);
+            \draw[line width=1.2pt, red!70!black] (u_4) -- (w_1);
+            \draw[line width=1.2pt] (u_4) -- (w_4);
+        \end{tikzpicture}
+        \caption{Ejemplo del emparejamiento generado por la clase de equivalencia asociada a $q=5$, y $S = \lbrace (1,2), (1,4), (2,2), (2,3), (3,3), (4,1), (4,4) \rbrace$.}
+    \end{figure}
+
+    Luego, como $e_G = |S| \geq \varepsilon n^{2} = \frac{\varepsilon}{4}(2n)^{2}$, el teorema de emparejamiento inducido asegura que existe al menos un emparejamiento no inducido. Esto significa que en al menos un emparejamiento que contiene las aristas con la relación $u_i w_j \sim u_k w_\ell$ puede existir el trío de aristas $u_i w_j$, $u_k w_\ell$ y $u_i w_\ell$. Así, para algún $d\in \mathbb{N}$, $(i,j)$, $(k,\ell)$ y $(i,\ell)$ son elementos de $S$ que satisfacen
 
     \[
         k - i = j - \ell = d.
     \]
+    \newpage
+    \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            %\draw[step=0.5cm, gray, very thin] (-7.5,-3) grid (7.5,3);
+            %\node[fill=red, circle, inner sep=2pt, minimum size=4pt] at (0,0) {};
+            %%%% Plano cartesiano
+            \draw[>-Stealth] (-2.5,-2.5) -- (-2.5,2.5);
+            \draw[>-Stealth] (-2.5,-2.5) -- (2.5,-2.5);
+            % Label x
+            \draw (2cm,-2.5cm - 1.5pt) -- (2cm,-2.5cm + 1.5pt);
+            \node at (2cm, -2.75cm) {$n$};
+            \draw (0.5cm,-2.5cm - 1.5pt) -- (0.5cm,-2.5cm + 1.5pt);
+            \node at (0.5cm, -2.75cm) {$k$};
+            \draw (-1cm,-2.5cm - 1.5pt) -- (-1cm,-2.5cm + 1.5pt);
+            \node at (-1cm, -2.75cm) {$i$};
+            % Label eje y
+            \draw (-2.5cm - 1.5pt, -0.5cm) -- (-2.5cm + 1.5pt, -0.5cm);
+            \node at (-2.75cm, -0.5cm) {$\ell$};
+            \draw (-2.5cm - 1.5pt, 1cm) -- (-2.5cm + 1.5pt, 1cm);
+            \node at (-2.75cm, 1cm) {$j$};
+            \draw (-2.5cm - 1.5pt, 2cm) -- (-2.5cm + 1.5pt, 2cm);
+            \node at (-2.75cm, 2cm) {$n$};
+            % Coordenadas
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (1) at (-1,1) {};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (2) at (-1,-0.5) {};
+            \node[fill=black, circle, inner sep=2pt, minimum size=4pt] (3) at (0.5,-0.5) {};
+            % Lineas
+            \draw[line width=1.2pt] (1) -- (2) -- (3);
+            % textos
+            \node at (-1.25,0.25) {$d$};
+            \node at (-0.25,-0.75) {$d$};
+        \end{tikzpicture}
+        \caption{Esquema ilustrativo de la esquina formada en la demostración}
+    \end{figure}
 
-    Finalmente, la demostración del teorema se consigue tomando $(i,\ell)$ = $(a,b)$ para obtener $j = b + d$ y $k = a + d$. \fs{Poner dibujito de la esquina}
+    Finalmente, la demostración del teorema se consigue tomando $(i,\ell)$ = $(a,b)$ para obtener $j = b + d$ y $k = a + d$.
 \end{proof}
 
 El resultado anterior otorga lo necesario para la segunda demostración del teorema de Roth utilizando el lema de regularidad de Szemerédi.
 
 \begin{proof}[Segunda demostración Teorema \ref{Teorema_de_Roth}]
-    Dado $\varepsilon > 0$, escogemos $n_0\in\mathbb{N}$ suficientemente grande. Para $n\geq n_0$, sea $A\subset [n]$ un conjunto que posee al menos $\varepsilon n$ elementos. Se define el siguiente conjunto:
+    Dado $\varepsilon > 0$, escogemos $n_0\in\mathbb{N}$ suficientemente grande. Para $n\geq n_0$, sea $S\subset [n]$ un conjunto que posee al menos $\varepsilon n$ elementos. Se define el siguiente conjunto:
     
     \[
-        B = \lbrace (x,y)\in [2n]^{2} : x-y\in A\rbrace,
+        B = \lbrace (x,y)\in [2n]^{2} : x-y\in S\rbrace,
     \]
     
-    Observe que cada $a\in A$ da lugar a exactamente $n$ elementos en $B$ con $x-y=a$, permitiendo determinar que $|B| = n|A| \geq \varepsilon n^{2}$. Luego, el Teorema \ref{Corner_Theorem} asegura la existencia de elementos de la forma $\lbrace (a,b), (a, b+d), (a+d,b)\rbrace$ en $B$. Por consecuencia, se encuentra una progresión aritmética de largo $3$ no trivial en $A$ tomando $x = a-b$, e $y = d$.
+    Observe que cada $s\in S$ da lugar a exactamente $n$ elementos en $B$ con $x-y=s$, permitiendo determinar que $|B| = n|S| \geq \varepsilon n^{2}$. Luego, el Teorema \ref{Corner_Theorem} asegura la existencia de elementos de la forma $\lbrace (s,b), (s, b+d), (s+d,b)\rbrace$ en $B$. Por consecuencia, se encuentra una progresión aritmética de largo $3$ no trivial en $A$ tomando $x = s-b$, e $y = d$.
 \end{proof}
 
 

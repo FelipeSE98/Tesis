@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.3)  29 MAR 2024 04:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.3)  30 MAR 2024 16:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -481,7 +481,42 @@ Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 LaTeX Info: Redefining \\ on input line 3180.
 ) (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
-) (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.geometric.code.tex
+) (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/fp\fp.sty
+Package: fp 1995/04/02
+ `Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/fp\defpattern.sty
+Package: defpattern 1994/10/12
+\actioncount=\count313
+) (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/fp\fp-basic.sty
+Package: fp-basic 1996/05/13
+\FP@xs=\count314
+\FP@xia=\count315
+\FP@xib=\count316
+\FP@xfa=\count317
+\FP@xfb=\count318
+\FP@rega=\count319
+\FP@regb=\count320
+\FP@regs=\count321
+\FP@times=\count322
+) (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/fp\fp-addons.sty
+Package: fp-addons 1995/03/15
+) (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/fp\fp-snap.sty
+Package: fp-snap 1995/04/05
+) (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/fp\fp-exp.sty
+Package: fp-exp 1995/04/03
+) (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/fp\fp-trigo.sty
+Package: fp-trigo 1995/04/14
+) (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/fp\fp-pas.sty
+Package: fp-pas 1994/08/29
+) (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/fp\fp-random.sty
+Package: fp-random 1995/02/23
+\FPseed=\count323
+) (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/fp\fp-eqn.sty
+Package: fp-eqn 1995/04/03
+) (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/fp\fp-upn.sty
+Package: fp-upn 1996/10/21
+) (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/fp\fp-eval.sty
+Package: fp-eval 1995/04/03
+)) (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.geometric.code.tex
 File: tikzlibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\pgflibraryshapes.geometric.code.tex
 File: pgflibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -503,9 +538,9 @@ Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
 )
 \everycr=\toks49
 \minrowclearance=\skip62
-\rownum=\count313
+\rownum=\count324
 )
-\c@teorema=\count314
+\c@teorema=\count325
  (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/pgfgantt\pgfgantt.sty
 Package: pgfgantt 2018/01/10 v5.0 Draw Gantt diagrams with TikZ
  (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryarrows.code.tex
@@ -527,49 +562,49 @@ File: pgflibrarypatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfcalendar.sty (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfcalendar.code.tex
 File: pgfcalendar.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfcalendarcurrentjulian=\count315
-\pgf@cal@easter@Y=\count316
-\pgf@cal@easter@G=\count317
-\pgf@cal@easter@C=\count318
-\pgf@cal@easter@X=\count319
-\pgf@cal@easter@Z=\count320
-\pgf@cal@easter@D=\count321
-\pgf@cal@easter@E=\count322
-\pgf@cal@easter@N=\count323
-\pgf@cal@easter@M=\count324
-\pgf@cal@easter@julianday=\count325
+\pgfcalendarcurrentjulian=\count326
+\pgf@cal@easter@Y=\count327
+\pgf@cal@easter@G=\count328
+\pgf@cal@easter@C=\count329
+\pgf@cal@easter@X=\count330
+\pgf@cal@easter@Z=\count331
+\pgf@cal@easter@D=\count332
+\pgf@cal@easter@E=\count333
+\pgf@cal@easter@N=\count334
+\pgf@cal@easter@M=\count335
+\pgf@cal@easter@julianday=\count336
 ))
-\gtt@currentline=\count326
-\gtt@lasttitleline=\count327
-\gtt@currgrid=\count328
-\gtt@chartwidth=\count329
-\gtt@lasttitleslot=\count330
-\gtt@elementid=\count331
-\gtt@today@slot=\count332
-\gtt@startjulian=\count333
-\gtt@endjulian=\count334
-\gtt@chartid=\count335
-\gtt@vrule@slot=\count336
-\gtt@calendar@slots=\count337
-\gtt@calendar@weeknumber=\count338
-\gtt@calendar@startofweek=\count339
-\gtt@left@slot=\count340
-\gtt@right@slot=\count341
+\gtt@currentline=\count337
+\gtt@lasttitleline=\count338
+\gtt@currgrid=\count339
+\gtt@chartwidth=\count340
+\gtt@lasttitleslot=\count341
+\gtt@elementid=\count342
+\gtt@today@slot=\count343
+\gtt@startjulian=\count344
+\gtt@endjulian=\count345
+\gtt@chartid=\count346
+\gtt@vrule@slot=\count347
+\gtt@calendar@slots=\count348
+\gtt@calendar@weeknumber=\count349
+\gtt@calendar@startofweek=\count350
+\gtt@left@slot=\count351
+\gtt@right@slot=\count352
 ) (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/forloop\forloop.sty
 Package: forloop 2023/05/03 v3.0 For Loops for LaTeX
  (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 ))
-\c@loopcntr=\count342
+\c@loopcntr=\count353
 
 
-c:/Tesis/Documento Tesis/main.tex:124: LaTeX Error: Option clash for package geometry.
+c:/Tesis/Documento Tesis/main.tex:125: LaTeX Error: Option clash for package geometry.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.124 
+l.125 
       
 The package geometry has already been loaded with options:
   []
@@ -597,11 +632,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count343
+\c@section@level=\count354
 )
 \@linkdim=\dimen283
-\Hy@linkcounter=\count344
-\Hy@pagecounter=\count345
+\Hy@linkcounter=\count355
+\Hy@pagecounter=\count356
  (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -609,7 +644,7 @@ Now handling font encoding PD1 ...
 ) (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count346
+\Hy@SavedSpaceFactor=\count357
  (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -623,7 +658,7 @@ Package hyperref Info: Plain pages OFF on input line 4194.
 Package hyperref Info: Backreferencing OFF on input line 4199.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4446.
-\c@Hy@tempcnt=\count347
+\c@Hy@tempcnt=\count358
  (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
@@ -635,7 +670,7 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count348
+\Fld@menulength=\count359
 \Field@Width=\dimen285
 \Fld@charsize=\dimen286
 Package hyperref Info: Hyper figures OFF on input line 6063.
@@ -649,9 +684,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6093.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count349
-\c@Item=\count350
-\c@Hfootnote=\count351
+\Hy@abspage=\count360
+\c@Item=\count361
+\c@Hfootnote=\count362
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
@@ -660,8 +695,8 @@ File: hpdftex.def 2024-01-20 v7.01h Hyperref driver for pdfTeX
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
 )
-\Fld@listcount=\count352
-\c@bookmark@seq@number=\count353
+\Fld@listcount=\count363
+\c@bookmark@seq@number=\count364
  (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
  (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquecounter.sty
@@ -676,38 +711,38 @@ LaTeX Info: Redefining \% on input line 11.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for U/DSSerif/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Info: Redefining \. on input line 153.
-LaTeX Info: Redefining \% on input line 153.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for U/DSSerif/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Info: Redefining \. on input line 154.
+LaTeX Info: Redefining \% on input line 154.
  (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count354
+\scratchcounter=\count365
 \scratchdimen=\dimen287
 \scratchbox=\box70
-\nofMPsegments=\count355
-\nofMParguments=\count356
+\nofMPsegments=\count366
+\nofMParguments=\count367
 \everyMPshowfont=\toks50
-\MPscratchCnt=\count357
+\MPscratchCnt=\count368
 \MPscratchDim=\dimen288
-\MPnumerator=\count358
-\makeMPintoPDFobject=\count359
+\MPnumerator=\count369
+\makeMPintoPDFobject=\count370
 \everyMPtoPDFconversion=\toks51
 ) (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -753,7 +788,7 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 153.
+Package hyperref Info: Link coloring ON on input line 154.
 (C:\Tesis\Documento Tesis\build\main.out) (C:\Tesis\Documento Tesis\build\main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
@@ -761,7 +796,7 @@ Package hyperref Info: Link coloring ON on input line 153.
 <Imágenes/logo_usach.png, id=70, 206.7725pt x 245.91875pt>
 File: Imágenes/logo_usach.png Graphic file (type png)
 <use Imágenes/logo_usach.png>
-Package pdftex.def Info: Imágenes/logo_usach.png  used on input line 159.
+Package pdftex.def Info: Imágenes/logo_usach.png  used on input line 160.
 (pdftex.def)             Requested size: 141.9023pt x 168.77228pt.
  [1
 
@@ -769,24 +804,24 @@ Package pdftex.def Info: Imágenes/logo_usach.png  used on input line 159.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.194 \newpage
+l.195 \newpage
                [1]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 215.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 216.
  (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 215.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 216.
  (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 10.0pt on input line 215.
+(Font)              scaled to size 10.0pt on input line 216.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 7.0pt on input line 215.
+(Font)              scaled to size 7.0pt on input line 216.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 5.0pt on input line 215.
+(Font)              scaled to size 5.0pt on input line 216.
  [2]
-LaTeX Font Info:    Trying to load font information for U+bbm on input line 279.
+LaTeX Font Info:    Trying to load font information for U+bbm on input line 280.
  (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/bbm\ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 ) [3]
@@ -794,7 +829,7 @@ File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [4]
-Overfull \hbox (68.30766pt too wide) detected at line 468
+Overfull \hbox (68.30766pt too wide) detected at line 469
 []
  []
 
@@ -806,10 +841,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [6] [7] [8] [9] [10] [11] [12] [13]
-c:/Tesis/Documento Tesis/main.tex:968: Argument of \@makebox has an extra }.
+c:/Tesis/Documento Tesis/main.tex:969: Argument of \@makebox has an extra }.
 <inserted text> 
                 \par 
-l.968         \item[\makebox[0.5cm]
+l.969         \item[\makebox[0.5cm]
                                    {$\disc_p$:} Para todo $X,Y\subseteq V(G_...
 I've run across a `}' that doesn't seem to match anything.
 For example, `\def\a#1{...}' and `\a}' would produce
@@ -820,19 +855,19 @@ your `}' was spurious, just type `2' and it will go away.
 
 Runaway argument?
 0.5cm
-c:/Tesis/Documento Tesis/main.tex:968: Paragraph ended before \@makebox was complete.
+c:/Tesis/Documento Tesis/main.tex:969: Paragraph ended before \@makebox was complete.
 <to be read again> 
                    \par 
-l.968         \item[\makebox[0.5cm]
+l.969         \item[\makebox[0.5cm]
                                    {$\disc_p$:} Para todo $X,Y\subseteq V(G_...
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
 
-c:/Tesis/Documento Tesis/main.tex:974: Argument of \@makebox has an extra }.
+c:/Tesis/Documento Tesis/main.tex:975: Argument of \@makebox has an extra }.
 <inserted text> 
                 \par 
-l.974         \item[\makebox[1.0cm]
+l.975         \item[\makebox[1.0cm]
                                    {$\discp_p$:} Para todo $X\subseteq V(G_n)$,
 I've run across a `}' that doesn't seem to match anything.
 For example, `\def\a#1{...}' and `\a}' would produce
@@ -843,19 +878,19 @@ your `}' was spurious, just type `2' and it will go away.
 
 Runaway argument?
 1.0cm
-c:/Tesis/Documento Tesis/main.tex:974: Paragraph ended before \@makebox was complete.
+c:/Tesis/Documento Tesis/main.tex:975: Paragraph ended before \@makebox was complete.
 <to be read again> 
                    \par 
-l.974         \item[\makebox[1.0cm]
+l.975         \item[\makebox[1.0cm]
                                    {$\discp_p$:} Para todo $X\subseteq V(G_n)$,
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
 
-c:/Tesis/Documento Tesis/main.tex:980: Argument of \@makebox has an extra }.
+c:/Tesis/Documento Tesis/main.tex:981: Argument of \@makebox has an extra }.
 <inserted text> 
                 \par 
-l.980         \item[\makebox[1.0cm]
+l.981         \item[\makebox[1.0cm]
                                    {$\Count_p$:} Para cada grafo $H$, la can...
 I've run across a `}' that doesn't seem to match anything.
 For example, `\def\a#1{...}' and `\a}' would produce
@@ -866,19 +901,19 @@ your `}' was spurious, just type `2' and it will go away.
 
 Runaway argument?
 1.0cm
-c:/Tesis/Documento Tesis/main.tex:980: Paragraph ended before \@makebox was complete.
+c:/Tesis/Documento Tesis/main.tex:981: Paragraph ended before \@makebox was complete.
 <to be read again> 
                    \par 
-l.980         \item[\makebox[1.0cm]
+l.981         \item[\makebox[1.0cm]
                                    {$\Count_p$:} Para cada grafo $H$, la can...
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
 
-c:/Tesis/Documento Tesis/main.tex:986: Argument of \@makebox has an extra }.
+c:/Tesis/Documento Tesis/main.tex:987: Argument of \@makebox has an extra }.
 <inserted text> 
                 \par 
-l.986         \item[\makebox[1.0cm]
+l.987         \item[\makebox[1.0cm]
                                    {$\Count_{C4,p}$:} La cantidad de copias ...
 I've run across a `}' that doesn't seem to match anything.
 For example, `\def\a#1{...}' and `\a}' would produce
@@ -889,20 +924,20 @@ your `}' was spurious, just type `2' and it will go away.
 
 Runaway argument?
 1.0cm
-c:/Tesis/Documento Tesis/main.tex:986: Paragraph ended before \@makebox was complete.
+c:/Tesis/Documento Tesis/main.tex:987: Paragraph ended before \@makebox was complete.
 <to be read again> 
                    \par 
-l.986         \item[\makebox[1.0cm]
+l.987         \item[\makebox[1.0cm]
                                    {$\Count_{C4,p}$:} La cantidad de copias ...
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
 
 [14]
-c:/Tesis/Documento Tesis/main.tex:992: Argument of \@makebox has an extra }.
+c:/Tesis/Documento Tesis/main.tex:993: Argument of \@makebox has an extra }.
 <inserted text> 
                 \par 
-l.992         \item[\makebox[1.0cm]
+l.993         \item[\makebox[1.0cm]
                                    {$\codeg_p$:}
 I've run across a `}' that doesn't seem to match anything.
 For example, `\def\a#1{...}' and `\a}' would produce
@@ -913,19 +948,19 @@ your `}' was spurious, just type `2' and it will go away.
 
 Runaway argument?
 1.0cm
-c:/Tesis/Documento Tesis/main.tex:992: Paragraph ended before \@makebox was complete.
+c:/Tesis/Documento Tesis/main.tex:993: Paragraph ended before \@makebox was complete.
 <to be read again> 
                    \par 
-l.992         \item[\makebox[1.0cm]
+l.993         \item[\makebox[1.0cm]
                                    {$\codeg_p$:}
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
 
-c:/Tesis/Documento Tesis/main.tex:998: Argument of \@makebox has an extra }.
+c:/Tesis/Documento Tesis/main.tex:999: Argument of \@makebox has an extra }.
 <inserted text> 
                 \par 
-l.998         \item[\makebox[1.0cm]
+l.999         \item[\makebox[1.0cm]
                                    {$\eig_p$:} Si $\lambda_1 \geq \cdots \ge...
 I've run across a `}' that doesn't seem to match anything.
 For example, `\def\a#1{...}' and `\a}' would produce
@@ -936,24 +971,24 @@ your `}' was spurious, just type `2' and it will go away.
 
 Runaway argument?
 1.0cm
-c:/Tesis/Documento Tesis/main.tex:998: Paragraph ended before \@makebox was complete.
+c:/Tesis/Documento Tesis/main.tex:999: Paragraph ended before \@makebox was complete.
 <to be read again> 
                    \par 
-l.998         \item[\makebox[1.0cm]
+l.999         \item[\makebox[1.0cm]
                                    {$\eig_p$:} Si $\lambda_1 \geq \cdots \ge...
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
 
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 8.0pt on input line 1012.
+(Font)              scaled to size 8.0pt on input line 1013.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 6.0pt on input line 1012.
+(Font)              scaled to size 6.0pt on input line 1013.
 [15] [16] [17] [18] [19] [20]
-c:/Tesis/Documento Tesis/main.tex:1331: Extra }, or forgotten \right.
+c:/Tesis/Documento Tesis/main.tex:1332: Extra }, or forgotten \right.
 <template> }
             $}\ifmeasuring@ \savefieldlength@ \fi \set@field \hfil \endtempl...
-l.1331     \end{align*}
+l.1332     \end{align*}
                        
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -961,10 +996,10 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-c:/Tesis/Documento Tesis/main.tex:1331: Missing \right. inserted.
+c:/Tesis/Documento Tesis/main.tex:1332: Missing \right. inserted.
 <inserted text> 
                 \right .
-l.1331     \end{align*}
+l.1332     \end{align*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -972,10 +1007,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-c:/Tesis/Documento Tesis/main.tex:1331: Missing } inserted.
+c:/Tesis/Documento Tesis/main.tex:1332: Missing } inserted.
 <inserted text> 
                 }
-l.1331     \end{align*}
+l.1332     \end{align*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -983,10 +1018,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-c:/Tesis/Documento Tesis/main.tex:1331: Missing } inserted.
+c:/Tesis/Documento Tesis/main.tex:1332: Missing } inserted.
 <inserted text> 
                 }
-l.1331     \end{align*}
+l.1332     \end{align*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -994,26 +1029,26 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-c:/Tesis/Documento Tesis/main.tex:1331: Extra \right.
+c:/Tesis/Documento Tesis/main.tex:1332: Extra \right.
 <argument> ...yle \sum _{y\in Y} \deg (y) \right )
                                                   ^{1/2}\\ &= n^{1/2}\left (...
-l.1331     \end{align*}
+l.1332     \end{align*}
                        
 I'm ignoring a \right that had no matching \left.
 
-c:/Tesis/Documento Tesis/main.tex:1331: Missing { inserted.
+c:/Tesis/Documento Tesis/main.tex:1332: Missing { inserted.
 <inserted text> 
                 {
-l.1331     \end{align*}
+l.1332     \end{align*}
                        
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-c:/Tesis/Documento Tesis/main.tex:1331: Extra }, or forgotten \right.
+c:/Tesis/Documento Tesis/main.tex:1332: Extra }, or forgotten \right.
 <template> }
             $}\ifmeasuring@ \savefieldlength@ \fi \set@field \hfil \endtempl...
-l.1331     \end{align*}
+l.1332     \end{align*}
                        
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1021,10 +1056,10 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-c:/Tesis/Documento Tesis/main.tex:1331: Missing \right. inserted.
+c:/Tesis/Documento Tesis/main.tex:1332: Missing \right. inserted.
 <inserted text> 
                 \right .
-l.1331     \end{align*}
+l.1332     \end{align*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1032,10 +1067,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-c:/Tesis/Documento Tesis/main.tex:1331: Missing } inserted.
+c:/Tesis/Documento Tesis/main.tex:1332: Missing } inserted.
 <inserted text> 
                 }
-l.1331     \end{align*}
+l.1332     \end{align*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1043,10 +1078,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-c:/Tesis/Documento Tesis/main.tex:1331: Missing } inserted.
+c:/Tesis/Documento Tesis/main.tex:1332: Missing } inserted.
 <inserted text> 
                 }
-l.1331     \end{align*}
+l.1332     \end{align*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1054,17 +1089,17 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-c:/Tesis/Documento Tesis/main.tex:1331: Extra \right.
+c:/Tesis/Documento Tesis/main.tex:1332: Extra \right.
 <argument> ...yle \sum _{y\in Y} \deg (y) \right )
                                                   ^{1/2}\\ &= n^{1/2}\left (...
-l.1331     \end{align*}
+l.1332     \end{align*}
                        
 I'm ignoring a \right that had no matching \left.
 
-c:/Tesis/Documento Tesis/main.tex:1331: Missing \endgroup inserted.
+c:/Tesis/Documento Tesis/main.tex:1332: Missing \endgroup inserted.
 <inserted text> 
                 \endgroup 
-l.1331     \end{align*}
+l.1332     \end{align*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1072,37 +1107,27 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-c:/Tesis/Documento Tesis/main.tex:1331: Misplaced \omit.
+c:/Tesis/Documento Tesis/main.tex:1332: Misplaced \omit.
 \math@cr@@@ ...@ \@ne \add@amps \maxfields@ \omit 
                                                   \kern -\alignsep@ \iftag@ ...
-l.1331     \end{align*}
+l.1332     \end{align*}
                        
 I expect to see \omit only after tab marks or the \cr of
 an alignment. Proceed, and I'll ignore this case.
 
-c:/Tesis/Documento Tesis/main.tex:1331: Missing { inserted.
+c:/Tesis/Documento Tesis/main.tex:1332: Missing { inserted.
 <inserted text> 
                 {
-l.1331     \end{align*}
+l.1332     \end{align*}
                        
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
 [21]
-c:/Tesis/Documento Tesis/main.tex:1350: Misplaced alignment tab character &.
-l.1350         \left|\tbinom{G}{C_4}\right| &
-                                             = \Tr(A^{4}) \pm \delta n^{4}
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
 c:/Tesis/Documento Tesis/main.tex:1351: Misplaced alignment tab character &.
-l.1351         &
-                = \sum_{i = 1}^{n} \lambda_{i}^{4} \pm \delta n^{4}
+l.1351         \left|\tbinom{G}{C_4}\right| &
+                                             = \Tr(A^{4}) \pm \delta n^{4}
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -1112,6 +1137,16 @@ might try typing `S' now just to see what is salvageable.
 
 c:/Tesis/Documento Tesis/main.tex:1352: Misplaced alignment tab character &.
 l.1352         &
+                = \sum_{i = 1}^{n} \lambda_{i}^{4} \pm \delta n^{4}
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+c:/Tesis/Documento Tesis/main.tex:1353: Misplaced alignment tab character &.
+l.1353         &
                 = \lambda_{1}^{4} + \sum_{i = 2}^{n} \lambda_{i}^{4} \pm \de...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1121,10 +1156,10 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 [22]
-c:/Tesis/Documento Tesis/main.tex:1448: Undefined control sequence.
+c:/Tesis/Documento Tesis/main.tex:1449: Undefined control sequence.
 <argument> .... Aquí, \begin {tikzpicture} \node 
                                                   [fill=black, circle,inner ...
-l.1448 ...ristas permitidas dentro del grafo $G$.}
+l.1449 ...ristas permitidas dentro del grafo $G$.}
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1132,10 +1167,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-c:/Tesis/Documento Tesis/main.tex:1448: Undefined control sequence.
+c:/Tesis/Documento Tesis/main.tex:1449: Undefined control sequence.
 <argument> ...size=2pt] (a) at (0,0.06) {}; \node 
                                                   [fill=black, circle,inner ...
-l.1448 ...ristas permitidas dentro del grafo $G$.}
+l.1449 ...ristas permitidas dentro del grafo $G$.}
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1143,10 +1178,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-c:/Tesis/Documento Tesis/main.tex:1448: Undefined control sequence.
+c:/Tesis/Documento Tesis/main.tex:1449: Undefined control sequence.
 <argument> ...ze=2pt] (b) at (0.5,0.06) {}; \draw 
                                                   (a) -- (b); \end {tikzpict...
-l.1448 ...ristas permitidas dentro del grafo $G$.}
+l.1449 ...ristas permitidas dentro del grafo $G$.}
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1155,13 +1190,13 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-c:/Tesis/Documento Tesis/main.tex:1448: Package pgfkeys Error: I do not know the key '/tikz/minimim size', to which you passed '2pt', and I am going to ignore it. Perhaps you misspelled it.
+c:/Tesis/Documento Tesis/main.tex:1449: Package pgfkeys Error: I do not know the key '/tikz/minimim size', to which you passed '2pt', and I am going to ignore it. Perhaps you misspelled it.
 
 See the pgfkeys package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1448 ...ristas permitidas dentro del grafo $G$.}
+l.1449 ...ristas permitidas dentro del grafo $G$.}
                                                   
 This error message was generated by an \errmessage
 command, so I can't give any explicit help.
@@ -1169,13 +1204,13 @@ Pretend that you're Hercule Poirot: Examine all clues,
 and deduce the truth by order and method.
 
 
-c:/Tesis/Documento Tesis/main.tex:1448: Package pgfkeys Error: I do not know the key '/tikz/minimim size', to which you passed '2pt', and I am going to ignore it. Perhaps you misspelled it.
+c:/Tesis/Documento Tesis/main.tex:1449: Package pgfkeys Error: I do not know the key '/tikz/minimim size', to which you passed '2pt', and I am going to ignore it. Perhaps you misspelled it.
 
 See the pgfkeys package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1448 ...ristas permitidas dentro del grafo $G$.}
+l.1449 ...ristas permitidas dentro del grafo $G$.}
                                                   
 (That was another \errmessage.)
 
@@ -1183,46 +1218,52 @@ l.1448 ...ristas permitidas dentro del grafo $G$.}
 <Imágenes/diag_demo_Sz_Teo.png, id=362, 447.92343pt x 391.4625pt>
 File: Imágenes/diag_demo_Sz_Teo.png Graphic file (type png)
 <use Imágenes/diag_demo_Sz_Teo.png>
-Package pdftex.def Info: Imágenes/diag_demo_Sz_Teo.png  used on input line 1717.
+Package pdftex.def Info: Imágenes/diag_demo_Sz_Teo.png  used on input line 1718.
 (pdftex.def)             Requested size: 258.00539pt x 225.48938pt.
  [28 <./Imágenes/diag_demo_Sz_Teo.png>]
 <Imágenes/szemerédi_lemma_ilustration.png, id=373, 408.3255pt x 221.628pt>
 File: Imágenes/szemerédi_lemma_ilustration.png Graphic file (type png)
 <use Imágenes/szemerédi_lemma_ilustration.png>
-Package pdftex.def Info: Imágenes/szemerédi_lemma_ilustration.png  used on input line 1727.
+Package pdftex.def Info: Imágenes/szemerédi_lemma_ilustration.png  used on input line 1728.
 (pdftex.def)             Requested size: 258.00539pt x 140.04233pt.
  [29 <./Imágenes/szemerédi_lemma_ilustration.png>]
 <Imágenes/eps_regular_pair.png, id=382, 309.5565pt x 154.77824pt>
 File: Imágenes/eps_regular_pair.png Graphic file (type png)
 <use Imágenes/eps_regular_pair.png>
-Package pdftex.def Info: Imágenes/eps_regular_pair.png  used on input line 1761.
+Package pdftex.def Info: Imágenes/eps_regular_pair.png  used on input line 1762.
 (pdftex.def)             Requested size: 258.00539pt x 129.01146pt.
  [30 <./Imágenes/eps_regular_pair.png>] [31] [32] [33] [34] [35]
 <Imágenes/Partition_by_irregularity.png, id=491, 481.8pt x 289.68225pt>
 File: Imágenes/Partition_by_irregularity.png Graphic file (type png)
 <use Imágenes/Partition_by_irregularity.png>
-Package pdftex.def Info: Imágenes/Partition_by_irregularity.png  used on input line 2021.
+Package pdftex.def Info: Imágenes/Partition_by_irregularity.png  used on input line 2022.
 (pdftex.def)             Requested size: 387.00153pt x 232.69202pt.
  [36 <./Imágenes/Partition_by_irregularity.png>] [37] [38] [39] [40] [41] [42] [43] [44]
 <Imágenes/Esquema_TCL_chico.png, id=603, 434.22224pt x 157.7895pt>
 File: Imágenes/Esquema_TCL_chico.png Graphic file (type png)
 <use Imágenes/Esquema_TCL_chico.png>
-Package pdftex.def Info: Imágenes/Esquema_TCL_chico.png  used on input line 2392.
+Package pdftex.def Info: Imágenes/Esquema_TCL_chico.png  used on input line 2393.
 (pdftex.def)             Requested size: 387.00153pt x 140.62964pt.
  [45 <./Imágenes/Esquema_TCL_chico.png>]
 
-LaTeX Warning: Reference `szemeredi_regularity_lemma' on page 46 undefined on input line 2493.
+LaTeX Warning: Reference `szemeredi_regularity_lemma' on page 46 undefined on input line 2496.
 
-[46]
+[46] [47]
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 24.88pt on input line 2576.
+(Font)              scaled to size 24.88pt on input line 2581.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 20.74pt on input line 2576.
+(Font)              scaled to size 20.74pt on input line 2581.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 17.28pt on input line 2576.
- [47] [48] [49]
-c:/Tesis/Documento Tesis/main.tex:2990: Misplaced alignment tab character &.
-l.2990     \item[[1]] Krivelevich, M., &
+(Font)              scaled to size 17.28pt on input line 2581.
+ [48] (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowinset=\dimen289
+\pgfarrowlength=\dimen290
+\pgfarrowwidth=\dimen291
+\pgfarrowlinewidth=\dimen292
+) [49] [50]
+c:/Tesis/Documento Tesis/main.tex:3103: Misplaced alignment tab character &.
+l.3103     \item[[1]] Krivelevich, M., &
                                          Sudakov, B. (2006). Pseudo-random G...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1231,8 +1272,8 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-c:/Tesis/Documento Tesis/main.tex:2991: Misplaced alignment tab character &.
-l.2991 ...m[[2]] Chung, F. R. K., Graham, R. L., &
+c:/Tesis/Documento Tesis/main.tex:3104: Misplaced alignment tab character &.
+l.3104 ...m[[2]] Chung, F. R. K., Graham, R. L., &
                                                    Wilson, R. M. (1989). Qua...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1241,8 +1282,8 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-c:/Tesis/Documento Tesis/main.tex:2992: Misplaced alignment tab character &.
-l.2992 ...l, J. A., Pehova, Y., Sharifzadeh, M., &
+c:/Tesis/Documento Tesis/main.tex:3105: Misplaced alignment tab character &.
+l.3105 ...l, J. A., Pehova, Y., Sharifzadeh, M., &
                                                    Volec, J. (2020). Charact...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1251,8 +1292,8 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-c:/Tesis/Documento Tesis/main.tex:2992: Misplaced alignment tab character &.
-l.2992 ...ns by a pattern sum. Random Structures &
+c:/Tesis/Documento Tesis/main.tex:3105: Misplaced alignment tab character &.
+l.3105 ...ns by a pattern sum. Random Structures &
                                                    Algorithms.
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1261,8 +1302,8 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-c:/Tesis/Documento Tesis/main.tex:2993: Misplaced alignment tab character &.
-l.2993     \item[[4]] Hàn, H., Kiwi, M., &
+c:/Tesis/Documento Tesis/main.tex:3106: Misplaced alignment tab character &.
+l.3106     \item[[4]] Hàn, H., Kiwi, M., &
                                             Pavez-Signé, M. (2021). Quasi-r...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1271,7 +1312,7 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-[50] (C:\Tesis\Documento Tesis\build\main.aux
+[51] (C:\Tesis\Documento Tesis\build\main.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -1287,17 +1328,17 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 5F80DA12636A2C4E830EB44AF530BB1C;2861.
  ) 
 Here is how much of TeX's memory you used:
- 27624 strings out of 474542
- 527612 string characters out of 5743975
+ 28812 strings out of 474542
+ 548991 string characters out of 5743975
  1958978 words of memory out of 5000000
- 49182 multiletter control sequences out of 15000+600000
+ 50326 multiletter control sequences out of 15000+600000
  581424 words of font info for 124 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,20n,117p,1431b,1143s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,20n,117p,1431b,1302s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Felipe\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbm/dpi600\bbm10.pk><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/dsserif/DSSerif.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on "C:\Tesis\Documento Tesis\build\main.pdf" (51 pages, 788798 bytes).
+Output written on "C:\Tesis\Documento Tesis\build\main.pdf" (52 pages, 793806 bytes).
 PDF statistics:
- 804 PDF objects out of 1000 (max. 8388607)
- 182 named destinations out of 1000 (max. 500000)
+ 811 PDF objects out of 1000 (max. 8388607)
+ 185 named destinations out of 1000 (max. 500000)
  171 words of extra memory for PDF output out of 10000 (max. 10000000)
 

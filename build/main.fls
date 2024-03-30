@@ -209,6 +209,30 @@ INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\kvsetkeys\kvsetkey
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\kvsetkeys\kvsetkeys.sty
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\base\textcomp.sty
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\base\textcomp.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\fp\fp.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\fp\fp.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\fp\defpattern.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\fp\defpattern.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\fp\fp-basic.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\fp\fp-basic.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\fp\fp-addons.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\fp\fp-addons.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\fp\fp-snap.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\fp\fp-snap.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\fp\fp-exp.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\fp\fp-exp.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\fp\fp-trigo.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\fp\fp-trigo.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\fp\fp-pas.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\fp\fp-pas.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\fp\fp-random.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\fp\fp-random.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\fp\fp-eqn.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\fp\fp-eqn.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\fp\fp-upn.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\fp\fp-upn.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\fp\fp-eval.sty
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\latex\fp\fp-eval.sty
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryshapes.geometric.code.tex
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryshapes.geometric.code.tex
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\generic\pgf\libraries\shapes\pgflibraryshapes.geometric.code.tex
@@ -448,6 +472,9 @@ INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbsy10.
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\dsserif\DSSerif.tfm
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\dsserif\DSSerif.tfm
 INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\dsserif\DSSerif.tfm
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\generic\pgf\libraries\pgflibraryarrows.meta.code.tex
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\generic\pgf\libraries\pgflibraryarrows.meta.code.tex
+INPUT C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex\generic\pgf\libraries\pgflibraryarrows.meta.code.tex
 INPUT C:\Tesis\Documento Tesis\build\main.aux
 INPUT C:\Tesis\Documento Tesis\build\main.out
 INPUT C:\Tesis\Documento Tesis\build\main.out
