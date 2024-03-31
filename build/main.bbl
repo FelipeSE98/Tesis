@@ -19,6 +19,93 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global}
+    \entry{ajtai1974sets}{article}{}
+      \name{author}{2}{}{%
+        {{hash=701f8aef13f98671c1c0ad0fbf75afe6}{%
+           family={Ajtai},
+           familyi={A\bibinitperiod},
+           given={Miklós},
+           giveni={M\bibinitperiod}}}%
+        {{hash=11eac7d5df5a432005f8b6395c03384c}{%
+           family={Szemerédi},
+           familyi={S\bibinitperiod},
+           given={Endre},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{55bf77c34c7d69284e8cc95619487ca3}
+      \strng{fullhash}{e4f7ce56239a8421e51739efe3bd7519}
+      \strng{bibnamehash}{e4f7ce56239a8421e51739efe3bd7519}
+      \strng{authorbibnamehash}{e4f7ce56239a8421e51739efe3bd7519}
+      \strng{authornamehash}{55bf77c34c7d69284e8cc95619487ca3}
+      \strng{authorfullhash}{e4f7ce56239a8421e51739efe3bd7519}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Stud. Sci. Math. Hungar}
+      \field{number}{1975}
+      \field{title}{Sets of lattice points that form no squares}
+      \field{volume}{9}
+      \field{year}{1974}
+      \field{pages}{9\bibrangedash 11}
+      \range{pages}{3}
+    \endentry
+    \entry{bollobas2013modern}{book}{}
+      \name{author}{1}{}{%
+        {{hash=8f9aa69d12cd51c21f06c094b77eb30d}{%
+           family={Bollobás},
+           familyi={B\bibinitperiod},
+           given={Béla},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Science \& Business Media}%
+      }
+      \strng{namehash}{8f9aa69d12cd51c21f06c094b77eb30d}
+      \strng{fullhash}{8f9aa69d12cd51c21f06c094b77eb30d}
+      \strng{bibnamehash}{8f9aa69d12cd51c21f06c094b77eb30d}
+      \strng{authorbibnamehash}{8f9aa69d12cd51c21f06c094b77eb30d}
+      \strng{authornamehash}{8f9aa69d12cd51c21f06c094b77eb30d}
+      \strng{authorfullhash}{8f9aa69d12cd51c21f06c094b77eb30d}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Modern graph theory}
+      \field{volume}{184}
+      \field{year}{2013}
+      \true{nocite}
+    \endentry
+    \entry{bollobas1998random}{book}{}
+      \name{author}{2}{}{%
+        {{hash=8f9aa69d12cd51c21f06c094b77eb30d}{%
+           family={Bollobás},
+           familyi={B\bibinitperiod},
+           given={Béla},
+           giveni={B\bibinitperiod}}}%
+        {{hash=8f9aa69d12cd51c21f06c094b77eb30d}{%
+           family={Bollobás},
+           familyi={B\bibinitperiod},
+           given={Béla},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{70ce1cb882efc8b573b82dbe2a333841}
+      \strng{fullhash}{1b820ff84a56711ac04c7ed93cc391ba}
+      \strng{bibnamehash}{1b820ff84a56711ac04c7ed93cc391ba}
+      \strng{authorbibnamehash}{1b820ff84a56711ac04c7ed93cc391ba}
+      \strng{authornamehash}{70ce1cb882efc8b573b82dbe2a333841}
+      \strng{authorfullhash}{1b820ff84a56711ac04c7ed93cc391ba}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Random graphs}
+      \field{year}{1998}
+      \true{nocite}
+    \endentry
     \entry{chung1989quasi}{article}{}
       \name{author}{3}{}{%
         {{hash=ce1756c17f1256e62cd8740ce5e05805}{%
@@ -84,6 +171,30 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{TAO’S SPECTRAL PROOF OF THE SZEMERÉDI REGULARITY LEMMA}
+      \field{year}{2013}
+    \endentry
+    \entry{diestel2018graph}{article}{}
+      \name{author}{1}{}{%
+        {{hash=d7750765c1eb004bdcdce07ed2272ba7}{%
+           family={Diestel},
+           familyi={D\bibinitperiod},
+           given={Reinhard},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{d7750765c1eb004bdcdce07ed2272ba7}
+      \strng{fullhash}{d7750765c1eb004bdcdce07ed2272ba7}
+      \strng{bibnamehash}{d7750765c1eb004bdcdce07ed2272ba7}
+      \strng{authorbibnamehash}{d7750765c1eb004bdcdce07ed2272ba7}
+      \strng{authornamehash}{d7750765c1eb004bdcdce07ed2272ba7}
+      \strng{authorfullhash}{d7750765c1eb004bdcdce07ed2272ba7}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Graduate Texts in Mathematics. Springer, Berlin}
+      \field{title}{Graph theory. fifth. vol. 173}
+      \field{year}{2018}
+      \true{nocite}
     \endentry
     \entry{erdds1959random}{article}{}
       \name{author}{2}{}{%
@@ -336,6 +447,39 @@
       \field{title}{Random graphs}
       \field{year}{2011}
     \endentry
+    \entry{krivelevich2006pseudo}{incollection}{}
+      \name{author}{2}{}{%
+        {{hash=efe9ec8b40dd4c01118b482123c34596}{%
+           family={Krivelevich},
+           familyi={K\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=3f5218bd15d9c14a91245f7ecb0e44cd}{%
+           family={Sudakov},
+           familyi={S\bibinitperiod},
+           given={Benny},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{a10b7d7a85eb7732e94e64afc0f979b9}
+      \strng{fullhash}{68189e7ddba0fead04e9c9c3924db68b}
+      \strng{bibnamehash}{68189e7ddba0fead04e9c9c3924db68b}
+      \strng{authorbibnamehash}{68189e7ddba0fead04e9c9c3924db68b}
+      \strng{authornamehash}{a10b7d7a85eb7732e94e64afc0f979b9}
+      \strng{authorfullhash}{68189e7ddba0fead04e9c9c3924db68b}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{More sets, graphs and numbers: A Salute to Vera Sos and András Hajnal}
+      \field{title}{Pseudo-random graphs}
+      \field{year}{2006}
+      \true{nocite}
+      \field{pages}{199\bibrangedash 262}
+      \range{pages}{64}
+    \endentry
     \entry{moshkovitz2016short}{article}{}
       \name{author}{2}{}{%
         {{hash=89d44efde93da539a67a7e627c5b8b92}{%
@@ -455,6 +599,33 @@
       \field{year}{1978}
       \field{pages}{2}
       \range{pages}{1}
+    \endentry
+    \entry{solymosi2003note}{incollection}{}
+      \name{author}{1}{}{%
+        {{hash=cb80bb0e91521118b036d8bfd48a5c59}{%
+           family={Solymosi},
+           familyi={S\bibinitperiod},
+           given={József},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{cb80bb0e91521118b036d8bfd48a5c59}
+      \strng{fullhash}{cb80bb0e91521118b036d8bfd48a5c59}
+      \strng{bibnamehash}{cb80bb0e91521118b036d8bfd48a5c59}
+      \strng{authorbibnamehash}{cb80bb0e91521118b036d8bfd48a5c59}
+      \strng{authornamehash}{cb80bb0e91521118b036d8bfd48a5c59}
+      \strng{authorfullhash}{cb80bb0e91521118b036d8bfd48a5c59}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Discrete and Computational Geometry: The Goodman-Pollack Festschrift}
+      \field{title}{Note on a generalization of Roth’s theorem}
+      \field{year}{2003}
+      \field{pages}{825\bibrangedash 827}
+      \range{pages}{3}
     \endentry
     \entry{szemeredi1969sets}{article}{}
       \name{author}{1}{}{%

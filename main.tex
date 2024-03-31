@@ -1743,7 +1743,7 @@ Finalmente, en un grafo $d$-regular, la equivalencia entre las propiedades $\eig
 
 El lema de regularidad de Szemerédi ha mostrado ser un resultado muy poderoso e importante en la teoría extremal de grafos. Sus aplicaciones no solo se restringen a la teoría de grafos, sino que también las tiene en teoría de números combinatorios, geometría discreta y ciencias de la computación. A continuación, un poco de historia de su origen.
 
-P. Erd$\ddot{\text{o}}$s y P. Turán \cite{erdos1936some} conjeturaron en 1936 que todo conjunto de números enteros suficientemente grande posee una progresión aritmética de longitud arbitraria, digamos $k$. En 1953, K. Roth \cite{roth1953certain} da el primer resultado positivo a la conjetura para el caso en que $k=3$ utilizando análisis de Fourier, dando paso al teorema de Roth. Más adelante, en 1969, Szemerédi \cite{szemeredi1969sets} extendie el teorema de Roth a progesiones aritméticas de largo $4$ vía métodos combinatorios. Seis años después, en 1975, E. Szemerédi \cite{szemeredi1975sets} demuestra la conjetura de Erd$\ddot{\text{o}}$s-Turán para progresiones aritméticas de longitud arbitraria, lo que se conoce actualmente como el teorema de Szemerédi.
+P. Erd$\ddot{\text{o}}$s y P. Turán \cite{erdos1936some} conjeturaron en 1936 que todo conjunto de números enteros suficientemente grande posee una progresión aritmética de longitud arbitraria, digamos $k$. En 1953, K. Roth \cite{roth1953certain} da el primer resultado positivo a la conjetura para el caso en que $k=3$ utilizando análisis de Fourier, dando paso al teorema de Roth. Más adelante, en 1969, E. Szemerédi \cite{szemeredi1969sets} extendie el teorema de Roth a progesiones aritméticas de largo $4$ vía métodos combinatorios. Seis años después, en 1975, E. Szemerédi \cite{szemeredi1975sets} demuestra la conjetura de Erd$\ddot{\text{o}}$s-Turán para progresiones aritméticas de longitud arbitraria, lo que se conoce actualmente como el teorema de Szemerédi.
 
 %%%% Teorema de Szemerédi
 \begin{teorema} (Teorema de Szemerédi) \label{Teorema Szemeredi}
@@ -2116,7 +2116,7 @@ Desde ahora en adelante, vamos a definir y consirar una \emph{torre de altura $k
     \mathrm{torre}(k) := \left.2^{2^{\cdot^{\cdot^{\cdot^{2}}}}}\right\rbrace \text{Altura } k.
 \end{equation*}
 
-Durante la demostración del Teorema \ref{szemeredi_regularity_lemma1} se utilizó una cota que podría parecer exagerada para encontrar la cantidad de partes que devuelve el algoritmo implementado, por sobre todo, considerando lo rápido que crece a medida que $\varepsilon$ se hace más pequeño. Sorprendentemente, en 1997, T. Gowers \cite{gowers1997lower} prueba que tal límite inferior de partes es necesario. Más precisamente, mostró que es posible encontrar una constante $c > 0$ tal que para todo suficientemente pequeño $\varepsilon > 0$, existe un grafo sin partición $\varepsilon$-regular siempre que posea una cantidad menor que $\mathrm{torre}(\lceil\varepsilon^{-c}\rceil)$ partes (ver Moshkovitz y Shapira \cite{moshkovitz2016short} para una demostración corta). 
+Durante la demostración del Teorema \ref{szemeredi_regularity_lemma1} se utilizó una cota que podría parecer exagerada para encontrar la cantidad de partes que devuelve el algoritmo implementado, por sobre todo, considerando lo rápido que crece a medida que $\varepsilon$ se hace más pequeño. Sorprendentemente, en 1997, T. Gowers \cite{gowers1997lower} prueba que tal límite inferior de partes es necesario. Más precisamente, mostró que es posible encontrar una constante $c > 0$ tal que para todo suficientemente pequeño $\varepsilon > 0$, existe un grafo sin partición $\varepsilon$-regular siempre que posea una cantidad menor que $\mathrm{torre}(\lceil\varepsilon^{-c}\rceil)$ partes (ver G. Moshkovitz y A. Shapira \cite{moshkovitz2016short} para una demostración corta). 
 
 Finalmente, se expone la forma de probar el Teorema \ref{szemeredi_regularity_lemma2}. La idea de la demostración consiste en modificar el algoritmo de la técnica de argumento de incremento de energía, de manera que en cada iteración del refinamiento se logre obtener una equipartición. Este procedimiento conservará el incremento de energía en cada paso y  terminará con una equipartición del conjunto de vértices de un grafo cualquiera. Entonces, para todo grafo $G$, la modificación del algoritmo es la siguiente:
 
@@ -2141,7 +2141,7 @@ El algoritmo anterior obtiene una equipartición del conjunto de vértices del g
 
 \section{Demostración espectral} \label{Demo_esp}
 
-En 2012, Terence Tao \cite{taospectralproof2012} publica en su blog una prueba del lema de regularidad de Szemerédi usando la descomposición espectral de la matriz de adyacencia. La idea original de la demostración proviene de los autores Frieze y Kannan \cite{frieze1996regularity}, a quieres Tao les da el crédito en su publicación. Más adelante, en 2013, Cioba y Martin \cite{cioabatao} escribieron la demostración con más detalles. La prueba que se expone en esta sección está basada escencialmente en la publicación de Cioba y Martin.
+En 2012, T. Tao \cite{taospectralproof2012} publica en su blog una prueba del lema de regularidad de Szemerédi usando la descomposición espectral de la matriz de adyacencia. La idea original de la demostración proviene de los autores A. Frieze y R. Kannan \cite{frieze1996regularity}, a quieres Tao les da el crédito en su publicación. Más adelante, en 2013, S. Cioba y R. Martin \cite{cioabatao} escribieron la demostración con más detalles. La prueba que se expone en esta sección está basada escencialmente en la publicación de Cioba y Martin.
 
 %%%% Demostración espectral.
 \begin{proof}[Demostración espectral del Teorema \ref{szemeredi_regularity_lemma1}]
@@ -2397,7 +2397,7 @@ En las siguientes subsecciones se discutirán dos aplicaciones del método de re
 
 \subsection{Eliminación de triángulos}
 
-El lema de eliminación de triángulos fue probado por los autores Ruzsa y Szemerédi \cite{ruzsa1978triple} en 1976, y es una de las primeras aplicaciones del método de regularidad. La intuición del lema dice que todo grafo con \emph{pocos} triángulos se puede convertir en un grafo libre de triángulos eliminando \emph{pocas} aristas. Formalmente,
+El lema de eliminación de triángulos fue probado por los autores I. Ruzsa y E. Szemerédi \cite{ruzsa1978triple} en 1976, y es una de las primeras aplicaciones del método de regularidad. La intuición del lema dice que todo grafo con \emph{pocos} triángulos se puede convertir en un grafo libre de triángulos eliminando \emph{pocas} aristas. Formalmente,
 
 %%%% Teorema: Lema de eliminación de triángulos
 \begin{teorema} \label{Enunciado TRL} (Lema de eliminación de triángulos)
@@ -2678,7 +2678,7 @@ En esta sección se entregarán dos demostraciones del teorema de Roth por medio
     %Finalmente, el resultado queda demostrado tomando $n_0 > \max\left\lbrace %\frac{n'_0}{6}, \frac{\varepsilon + 1}{\delta}\right\rbrace$.
 \end{proof}
 
-Para la segunda demostración del teorema de Roth, será necesario un resultado intermedio proporcionado por los autores Ajtai y Szemerédi \fs{referencia}. Para su prueba, se utiliza el Teorema \ref{Teo_emp_ind}.
+Para la segunda demostración del teorema de Roth, será necesario un resultado intermedio proporcionado por los autores M. Ajtai y E. Szemerédi \cite{ajtai1974sets}. Para su prueba, se utiliza el Teorema \ref{Teo_emp_ind}.
 
 %%%% Teorema: Esquina (Ajtai-Szemerédi)
 \begin{teorema} \label{Corner_Theorem} (Teorema de la esquina, Ajtai-Szemerédi)
@@ -2819,7 +2819,7 @@ Para la segunda demostración del teorema de Roth, será necesario un resultado 
     Finalmente, la demostración del teorema se consigue tomando $(i,\ell)$ = $(a,b)$ para obtener $j = b + d$ y $k = a + d$.
 \end{proof}
 
-El resultado anterior otorga lo necesario para la segunda demostración del teorema de Roth utilizando el lema de regularidad de Szemerédi.
+El resultado anterior otorga lo necesario para la segunda demostración (J. Solymosi \cite{solymosi2003note}) del teorema de Roth utilizando el lema de regularidad de Szemerédi.
 
 \begin{proof}[Segunda demostración Teorema \ref{Teorema_de_Roth}]
     Dado $\varepsilon > 0$, escogemos $n_0\in\mathbb{N}$ suficientemente grande. Para $n\geq n_0$, sea $S\subset [n]$ un conjunto que posee al menos $\varepsilon n$ elementos. Se define el siguiente conjunto:

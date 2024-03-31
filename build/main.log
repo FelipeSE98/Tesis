@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.3)  31 MAR 2024 05:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.3)  31 MAR 2024 18:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1018,10 +1018,10 @@ Package hyperref Info: Link coloring ON on input line 177.
 \openout5 = `main.out'.
 
  (Preambulo/preambulo.tex
-<./Imágenes/logo5.png, id=78, 453.49425pt x 539.01375pt>
-File: ./Imágenes/logo5.png Graphic file (type png)
-<use ./Imágenes/logo5.png>
-Package pdftex.def Info: ./Imágenes/logo5.png  used on input line 19.
+<Imágenes/logo5.png, id=78, 453.49425pt x 539.01375pt>
+File: Imágenes/logo5.png Graphic file (type png)
+<use Imágenes/logo5.png>
+Package pdftex.def Info: Imágenes/logo5.png  used on input line 19.
 (pdftex.def)             Requested size: 56.9055pt x 67.63152pt.
 
 Overfull \hbox (13.96768pt too wide) in paragraph at lines 19--20
@@ -1032,9 +1032,9 @@ Overfull \hbox (13.96768pt too wide) in paragraph at lines 19--20
 
 
 {C:/Users/Felipe/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./Imágenes/logo5.png>] [1]
-File: ./Imágenes/logo5.png Graphic file (type png)
-<use ./Imágenes/logo5.png>
-Package pdftex.def Info: ./Imágenes/logo5.png  used on input line 102.
+File: Imágenes/logo5.png Graphic file (type png)
+<use Imágenes/logo5.png>
+Package pdftex.def Info: Imágenes/logo5.png  used on input line 102.
 (pdftex.def)             Requested size: 56.9055pt x 67.63152pt.
 
 Overfull \hbox (13.96768pt too wide) in paragraph at lines 102--103
@@ -1416,17 +1416,19 @@ LaTeX Info: Redefining \% on input line 2783.
 [73]
 LaTeX Info: Redefining \. on input line 3151.
 LaTeX Info: Redefining \% on input line 3151.
- [74]
+ [74] [75
+
+]
 Overfull \hbox (0.55585pt too wide) in paragraph at lines 3154--3154
 \OT1/cmr/m/n/12 lem-ma''. En: \OT1/cmr/m/it/12 Geo-me-tric & Fun-ctio-nal Analy-sis GA-FA \OT1/cmr/m/n/12 7.2 (1997), p^^Sags. 322[]337. 
  []
 
-[75
-
-]
+LaTeX Info: Redefining \. on input line 3154.
+LaTeX Info: Redefining \% on input line 3154.
+[76]
 LaTeX Info: Redefining \. on input line 3162.
 LaTeX Info: Redefining \% on input line 3162.
- [76] (C:\Tesis\Documento Tesis\build\main.aux
+ [77] (C:\Tesis\Documento Tesis\build\main.aux
 LaTeX Info: Redefining \sptext on input line 12.
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
@@ -1449,17 +1451,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36073 strings out of 474542
- 697222 string characters out of 5743975
+ 36098 strings out of 474542
+ 698239 string characters out of 5743975
  1950978 words of memory out of 5000000
- 57469 multiletter control sequences out of 15000+600000
+ 57487 multiletter control sequences out of 15000+600000
  586691 words of font info for 145 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,20n,117p,1431b,2311s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Felipe\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbm/dpi600\bbm12.pk> <C:\Users\Felipe\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/dsserif/DSSerif.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on "C:\Tesis\Documento Tesis\build\main.pdf" (84 pages, 877169 bytes).
+Output written on "C:\Tesis\Documento Tesis\build\main.pdf" (85 pages, 880934 bytes).
 PDF statistics:
- 1052 PDF objects out of 1200 (max. 8388607)
- 240 named destinations out of 1000 (max. 500000)
+ 1067 PDF objects out of 1200 (max. 8388607)
+ 247 named destinations out of 1000 (max. 500000)
  182 words of extra memory for PDF output out of 10000 (max. 10000000)
 

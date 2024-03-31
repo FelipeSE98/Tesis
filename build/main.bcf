@@ -2383,7 +2383,9 @@
     <bcf:citekey order="20" intorder="1">frieze1996regularity</bcf:citekey>
     <bcf:citekey order="21" intorder="1">cioabatao</bcf:citekey>
     <bcf:citekey order="22" intorder="1">ruzsa1978triple</bcf:citekey>
-    <bcf:citekey order="23" intorder="1" nocite="1">*</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">ajtai1974sets</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">solymosi2003note</bcf:citekey>
+    <bcf:citekey order="25" intorder="1" nocite="1">*</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">
