@@ -447,6 +447,36 @@
       \field{title}{Random graphs}
       \field{year}{2011}
     \endentry
+    \entry{komlos1995szemeredi}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=3756019aaa8edc42f2cf872c9850284c}{%
+           family={Komlós},
+           familyi={K\bibinitperiod},
+           given={János},
+           giveni={J\bibinitperiod}}}%
+        {{hash=6940bfccbf200c17ed75850ed2335305}{%
+           family={Simonovits},
+           familyi={S\bibinitperiod},
+           given={Miklós},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Center for Discrete Mathematics \& Theoretical Computer Science}%
+      }
+      \strng{namehash}{b0942041f613343fd740fc25fd8cfa58}
+      \strng{fullhash}{ee244506e3a89141e85b161aca13af53}
+      \strng{bibnamehash}{ee244506e3a89141e85b161aca13af53}
+      \strng{authorbibnamehash}{ee244506e3a89141e85b161aca13af53}
+      \strng{authornamehash}{b0942041f613343fd740fc25fd8cfa58}
+      \strng{authorfullhash}{ee244506e3a89141e85b161aca13af53}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Szemeredi''s Regularity Lemma and its applications in graph theory}
+      \field{year}{1995}
+      \true{nocite}
+    \endentry
     \entry{krivelevich2006pseudo}{incollection}{}
       \name{author}{2}{}{%
         {{hash=efe9ec8b40dd4c01118b482123c34596}{%
