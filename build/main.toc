@@ -1,0 +1,19 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{Agradecimientos}{\es@scroman {iv}}{chapter*.3}%
+\contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {vi}}{chapter*.4}%
+\contentsline {chapter}{Introducción}{1}{chapter*.6}%
+\contentsline {chapter}{\numberline {1}Preliminares}{2}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Teoría de grafos}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Álgebra lineal y teoría espectral de grafos}{8}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Grafos aleatorios}{17}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Cuasi-aleatoriedad}{21}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Teorema de Chung, Graham y Wilson}{22}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Aspectos adicionales del teorema de CGW}{35}{section.2.2}%
+\contentsline {chapter}{\numberline {3}Lema de regularidad de Szemerédi}{42}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Demostración por incremento de energía}{47}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Demostración espectral}{57}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Aplicaciones}{62}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Eliminación de triángulos}{65}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Emparejamiento inducido}{67}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Teorema de Roth}{70}{subsection.3.3.3}%
+\contentsline {chapter}{Bibliografía}{75}{chapter*.22}%
