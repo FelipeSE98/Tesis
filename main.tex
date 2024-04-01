@@ -234,6 +234,18 @@ Dōmo arigatōgozaimasu!
 \chapter*{Introducción}
 \addcontentsline{toc}{chapter}{Introducción}
 
+Esta tesis tiene lugar en la \emph{combinatoria extremal}, que en la actualidad, es una de las ramas más populares en la matemática discreta. Una figura destacada del área es el matemático húngaro Endre Szemerédi, cuyo logro más conocido es su demostración de lo que hoy se conoce como \emph{teorema de Szemerédi} (1975), pero que antes era una famosa conjetura con décadas de antigüedad propuesta por Erd$\mathrm{\ddot{o}}$s y Turán. Sus aportes fueron tales que, en 2012, fue nombrado ganador del premio Abel con la siguiente cita:
+
+\begin{quote}
+    \textit{Por sus contribuciones fundamentales a las matemáticas discretas y la informática teórica, y en reconocimiento al profundo y duradero impacto de sus aportaciones sobre la teoría aditiva de números y la teoría ergódica.}
+\end{quote}
+
+Uno de los ingredientes en la demostración del teorema de Szemerédi es el hoy denominado \emph{lema de regularidad}, el cual se ha singularizado como un potente instrumento con múltiples aplicaciones y ha sido analizado desde diversas perspectivas. Antes del lema de regularidad, los grafos se consideraban como objetos carentes de estructura, después de todo, al especificar un grafo se decide para cada par de vértices si unirlos con una arista, y no hay restricción en absoluto sobre la desición. No obstante, Szemerédi notó que con la aleatoriedad se puede dar una descripción estructural útil a cualquier grafo completamente arbitrario. De manera muy general, el lema dice lo siguiente: dado cualquier grafo, existe una forma de dividir sus vértices en un número finito de conjuntos de tal manera que si se observan las aristas que unen a dos de esos conjuntos, parecen haber sido elegidas al azar. En otras palabras, cada grafo está compuesto por un número acotado de $"$grafos similares a aleatorios$"$. Esto nos indica que se puede dar una buena descripción de un grafo utilizando una cantidad pequeña de datos, puesto que una vez se han encontrado los conjuntos que proporciona el lema, solo hay que decir aproximadamente cuántas aristas hay entre cada par de esos conjuntos, y sabemos de antemano que estarán distribuidas de manera que parezcan aleatorias.
+
+La tesis se divide esencialmente en tres partes. En la primera de ellas, se establecen las bases para las dos siguientes, abordando conceptos elementales de la teoría clásica y espectral de grafos, álgebra lineal, y la noción de un grafo aleatorio. La segunda, fundamenta la frase $"$grafos similares a aleatorios$"$ con la idea de \emph{cuasi-aleatoriedad}, es decir, el estudio de estructuras discretas deterministas que tienen propiedades con comportamientos esperados según su contraparte aleatoria. En particular, se presenta y demuestra rigurosamente el célebre teorema de Chung, Graham y Wilson, el cual entrega una extensa lista de propiedades equivalentes a la noción de cuasi-aleatoriedad. Por último, en la tercera parte, se exponen dos demostraciones del lema de regularidad de Szemerédi; la versión clásica vía \emph{incremento de energía}, y otra propuesta por Terence Tao usando un enfoque espectral. Seguido de esto, se estudia cómo utilizar el lema de regularidad en dos resultados particulares, los cuales prueban de manera independiente un caso particular del teorema de Szemerédi, el teorema de Roth.
+
+%Esta tesis está enmarcada en el área de la matemática conocida como \emph%{combinatoria}, particularmente, en la subárea llamada \emph{combinatoria %extremal}. Una posible definición de la combinatoria es que es el estudio de %estructuras discretas, pero, ¿qué son ellas?. Bueno, usualmente la palabra %$"$discreta$"$ se contrasta con la palabra $"$continua$"$; una estructura es %continua si puedes moverte suavemente de una parte a otra, mientras que una %estructura es discreta si hay que dar $"$saltos$"$ para moverse en ella. Por %ejemplo, si se desea modelar un fluido, la estuctura que se debe elegir es la %continua, puesto que se especificarán variables como velocidades o presiones %en diferentes puntos, y éstos varían suavemente. Por el contrario, si se desea %modelar el interior de un computador, entonces el interés se torna en las %secuencias de ceros y unos, que son un ejemplo de una estructura discreta. %Otra estructura discreta, y quizás la más relevante en combinatoria, es el %grafo. En palabras simples, un grafo consiste en algunos puntos (\emph%{vértices}), de los cuales algunos (o todos) pares de ellos pueden estar %conectados por una línea (\emph{aristas}). Uno podría pensar que un grafo es %una estructura continua, porque puedes moverte suavemente a lo largo de cada %arista que conecta a dos vértices. Sin embargo, solo la representación visual %es continua, todo lo que nos importa de un grafo es qué pares de vértices, y %eso se puede representar con una lista simple. Es decir, si el grafo se ve %como los vértices y aristas de un cuadrado, la información de él se reduce a %decir que los vértices son $a$, $b$, $c$ y $d$, y definir las aristas como %$ab$, $bc$, $cd$ y $da$. 
+
 %Para adentrarnos en esta historia, debemos de saber que las estructuras %pseudo-aleatorias son objetos determinísticos que tienen comportamientos, o %bien, lucen como un objeto aleatorio\hh{objetos aleatorios?}. A lo largo de la %historia, la formalización de este concepto se ha vuelto una herramienta muy %útil en diferentes áreas, tales como teoría de números, teoría de grafos, %combinatorial extremal, diseño de algoritmos, teoría de complejidad, entre %otras. Estas contribuciones son debidas, en general, a que si un objeto es %pseudo-aleatorio \hh{cuasi-aleatorio en vez de pseudo-aleatorio}, entonces %goza de muchas propiedades satisfacidas por su contraparte aleatoria.\\
 %
 %El trabajo fundamental sobre la pseudo-aleatoriedad se ha desarrollado en %grafos, probablemente por lo natural que muchas veces resulta modelar un %problema utilizándolos. Un \emph{grafo pseudo-aleatorio} $G = (V,E)$ es un %grafo que se comporta como un verdadero grafo aleatorio $G = (|V|,p)$ con la %misma densidad de aristas $p= |E| \Big/ \binom{|V|}{2}$. Si bien la sentencia %anterior nos entrega una idea inicial de este concepto, no logra ser demasiado %satisfactoria en el sentido de que no nos dice en qué aspecto  el %comportamiento del grafo pseaudo-aleatorio es similar al un grafo aleatorio, y %tampoco nos otorga ninguna medida cuantitativa de esta semejanza.\\
@@ -248,9 +260,9 @@ Dōmo arigatōgozaimasu!
 
 \chapter{Preliminares} \label{Preliminares}
 
-Este capítulo proporciona una introducción concisa de los conceptos y terminologías que se utilizarán en esta tesis. La sección \ref{Teoría de grafos} da un paseo por las nociones más básicas de la teoría de grafos, otorgando una línea de base para el desarrollo del documento. En la sección \ref{Teoría espectral} se repasan algunos conceptos y resultados clásicos del álgebra lineal para abordar las propiedades necesarias de la teoría espectral de grafos. Por último, la sección \ref{Grafos aleatorios} contextualiza y motiva el contenido de la sección \ref{cuasi-aleatoriedad}.
+Este capítulo proporciona una introducción concisa de los conceptos y terminologías que se utilizarán en esta tesis. La sección \ref{Teoría de grafos} repasa las nociones más básicas de la teoría de grafos, otorgando una línea de base para el desarrollo del documento. En la sección \ref{Teoría espectral} se repasan algunos conceptos y resultados clásicos del álgebra lineal para abordar las propiedades necesarias de la teoría espectral de grafos. Por último, la sección \ref{Grafos aleatorios} contextualiza y motiva el contenido de la sección \ref{cuasi-aleatoriedad}.
 
-En muchos de los resultados de esta tesis, la \emph{desigualdad de Cauchy-Schwarz} (DCS) es un argumento fundamental en sus demostraciones. En particular, se emplearán dos variantes que se enunciarán a continuación. Primero recuerde que la DCS establece que todo $\boldsymbol{a},\boldsymbol{b}\in\mathbb{R}^{k}$ satisfacen
+En muchos de los resultados de esta tesis, la \emph{desigualdad de Cauchy-Schwarz} (DCS) es un argumento fundamental en sus demostraciones. En particular, se emplearán dos variantes que se enunciarán a continuación. Primero, recuerde que la DCS establece que todo $\boldsymbol{a},\boldsymbol{b}\in\mathbb{R}^{k}$ satisfacen
 
 \begin{equation}
     \sum_{i=1}^{k}a_{i}^{2}\sum_{i=1}^{k}b_i^{2} \geq \left( \sum_{i=1}^{k}a_{i}b_{i}\right)^{2}.
@@ -281,7 +293,7 @@ Se denota al conjunto de los primeros $n$ naturales por $[n]:=\lbrace 1,2,...,n\
 
 %%%% Definir grafo
 Un \textbf{grafo} es un par $G = (V,E)$, donde $V$ representa el conjunto de \textbf{vértices}, y $E\subseteq \tbinom{V}{2}$ el conjunto de \textbf{aristas}. Dado un grafo $G$, se escribe $V(G)$ como su conjunto de vértices, $E(G)$ como su conjunto de aristas, y $e_G := |E(G)|$ como la cantidad de aristas presentes en el grafo.
-\newpage
+
 %%%% Ejemplo grafo
 \begin{figure}[h]
     \centering
@@ -326,7 +338,7 @@ En particular, cuando $Y=V$,
     \deg(u) = \sum_{v\in V} \mathbbm{1}_{E}(uv) = |N(u)|.
 \end{equation*}
 
-Una propiedad elemental en teoría de grafos, es la relación que guarda la suma del grado de todos los vértices y la cantidad de aristas de un grafo.
+Una propiedad elemental en teoría de grafos es la relación que guarda la suma del grado de todos los vértices y la cantidad de aristas de un grafo.
 %%%% Suma grados = 2e
 \begin{prop}
     Dado un grafo $G = (V,E)$, entonces
@@ -346,7 +358,7 @@ En algunas ocasiones estaremos interesados en la cantidad de vecinos que compart
     \cod(u,v) = \sum_{w\in V} \mathbbm{1}_{E}(wu) \mathbbm{1}_{E}(wv)=|N(u)\cap N(v)|.
 \end{equation*}
 
-Mostraremos que existe una relación intrínseca entre los conceptos de grado y cogrado, cual será de utilidad en la sección \ref{cuasi-aleatoriedad}.
+Mostraremos que existe una relación intrínseca entre los conceptos de grado y cogrado, la cual será de utilidad en la sección \ref{cuasi-aleatoriedad}.
 
 %%%% Proposición: Relación grado-cogrado
 \begin{prop} \label{Prop: grado-cogrado}
@@ -375,7 +387,7 @@ Observe que en particular, cuando $Y=V$, se satisface
 \end{equation}
 
 A continuación, se enuncian algunos grafos especiales que son contemplados en esta tesis. Diremos que un grafo $G = (V,E)$ es $k$-\textbf{partito} si $V$ se puede dividir en $k$ subconjuntos disjuntos $V_1,V_2,...,V_k$ tales que si $uv\in E$ entonces $u\in V_i$ y $v\in V_j$, con $i\not=j$. En particular, a un grafo $2$-partito lo llamaremos \textbf{bipartito}.
-
+\newpage
 %%%% Ejemplo grafo 3-partito
 \begin{figure}[h]
     \centering
@@ -409,8 +421,8 @@ A continuación, se enuncian algunos grafos especiales que son contemplados en e
     \caption[Ejemplo de un grafo 3-partito]{Ejemplo de un grafo 3-partito.}
 \end{figure}
 
-Un \textbf{grafo completo} de $n$ vértices, denotado por $K_n$, es un grafo en el cual todos sus vértices son adyacentes entre ellos, es decir, todo par de vértices en el grafo posee una arista que los conecta. Similarmente, se denota por $K_{n,m}$ al \textbf{grafo bipartito completo} con $n$ y $m$ elementos en sus respectivos conjuntos de vérrtices. Observe que la cantidad de aristas en los grafos anteriores son exactamente $e_{K_n} = \tbinom{n}{2}$ y $e_{K_{n,m}} = n\cdot m$. Por último, un grafo $d$-\textbf{regular} es aquel que presenta todos sus vértices con grado $d$.
-\newpage
+Un \textbf{grafo completo} de $n$ vértices, denotado por $K_n$, es un grafo en el cual todos sus vértices son adyacentes entre ellos, es decir, todo par de vértices en el grafo posee una arista que los conecta. Similarmente, se denota por $K_{n,m}$ al \textbf{grafo bipartito completo} con $n$ y $m$ elementos en sus respectivos conjuntos de vértices. Observe que la cantidad de aristas en los grafos anteriores son exactamente $e_{K_n} = \tbinom{n}{2}$ y $e_{K_{n,m}} = n\cdot m$. Por último, un grafo $d$-\textbf{regular} es aquel que presenta todos sus vértices con grado $d$.
+
 % Ejemplos grafos especiales
 \begin{figure}[h]
     \centering
@@ -463,11 +475,11 @@ Un \textbf{grafo completo} de $n$ vértices, denotado por $K_n$, es un grafo en 
 \end{figure}
 
 %%%% Definición caminata, caminata cerrada, camino y ciclos
-Otro término relevante en este trabajo, son las diferentes nociones de rutas que se pueden encontrar siguiendo una determinada secuencia de aristas en un grafo. Suponga que el grafo $G$ posee $n\geq k$ vértices, entonces se definen los siguientes conceptos:
+Otro término relevante en este trabajo son las diferentes nociones de rutas que se pueden encontrar siguiendo una determinada secuencia de aristas en un grafo. Suponga que el grafo $G$ posee $n\geq k$ vértices, entonces se definen los siguientes conceptos:
 
 \begin{itemize}
     % Caminata
-    \item Una \textbf{caminata}, es una secuencia de vértices no necesariamente distintos \newline $v_0,v_1,...,v_k$ tales que $v_{i-1}v_{i}\in E(G)$ para todo $i\in [k]$. Si $v_0 = v_k$, se dice que es una \textbf{caminata cerrada}. El \textbf{largo} de una caminata está determinado por la cantidad de aristas que ésta posea.
+    \item Una \textbf{caminata}, es una secuencia de vértices no necesariamente distintos \newline $v_0,v_1,...,v_k$ tales que $v_{i-1}v_{i}\in E(G)$ para todo $i\in [k]$. Si $v_0 = v_k$, se dice que es una \textbf{caminata cerrada}. El \textbf{largo} de una caminata está determinado por la cantidad de aristas que esta posea.
     % Camino
     %\item Un \textbf{camino} es una caminata con todos los vértices $v_i$ distintos.
     % Ciclo
@@ -509,10 +521,10 @@ Otro término relevante en este trabajo, son las diferentes nociones de rutas qu
     \label{ej caminos}
 \end{figure}
 
-Por otro lado, para estudiar posteriormente relaciones estructurales entre grafos, se define un \textbf{isomorfismo} entre los grafos $H$ y $G$ como una biyección $f: V(H)\to V(G)$ tal que $uv\in E(H)$ si y solamente si $f(u)f(v)\in E(G)$. Si existe tal biyección, diremos que $H$ y $G$ son isomorfismos.
+Por otro lado, para estudiar posteriormente relaciones estructurales entre grafos, se define un \textbf{isomorfismo} entre los grafos $H$ y $G$ como una biyección $f: V(H)\to V(G)$ tal que $uv\in E(H)$ si y solamente si $f(u)f(v)\in E(G)$. Si existe tal biyección, diremos que $H$ y $G$ son isomorfos.
 
 Finalmente, se define una \textbf{copia etiquetada} de un grafo $H$ en $G$, como la aplicación inyectiva $f: V(H)\to V(G)$ tal que $f(u)f(v)\in E(G)$ cada vez que $uv\in E(H)$. En otras palabras, es un mapeo de los vértices de $H$ a los de $G$ que preserva las aristas. Se denotará por $\tbinom{G}{H}$ al conjunto de copias etiquetadas de $H$ en $G$.
-
+\newpage
 \begin{figure}[h]
     \centering
     \begin{minipage}{0.49\linewidth}
@@ -555,9 +567,9 @@ Finalmente, se define una \textbf{copia etiquetada} de un grafo $H$ en $G$, como
 
 \section{Álgebra lineal y teoría espectral de grafos} \label{Teoría espectral}
 
-Se define $\mathcal{M}_{n\times m}(\mathbb{R})$ como el conjunto de matrices reales de $n$ filas y $m$ columnas, y denotaremos $A^{T}$ como la matriz traspuesta de $A\in\mathcal{M}_{n\times m}(\mathbb{R})$. También, representaremos por $\boldsymbol{1}$ $\in\mathcal{M}_{n\times 1}(\mathbb{R})$ al vector de solo $1$-entradas, $J\in\mathcal{M}_{n\times n}(\mathbb{R})$ a la matriz de solo $1$-entradas, $I_n\in \mathcal{M}_{n\times n}(\mathbb{R})$ a la matriz identidad, y $\boldsymbol{e}_i\in\mathcal{M}_{n\times 1}(\mathbb{R})$ como el vector de la base canónica de $\mathbb{R}^{n}$ con entrada $1$ en la posición $i$. Además, $\norm{\cdot}$ y $\langle \cdot, \cdot\rangle$ representarán en todo momento la norma y producto interno usales de $\mathbb{R}^{n}$ ($\mathbb{C}^{n}$, según corresponda) respectivamente.
+Se define $\mathcal{M}_{n\times m}(\mathbb{R})$ como el conjunto de matrices reales de $n$ filas y $m$ columnas, y denotaremos $A^{T}$ a la matriz traspuesta de $A\in\mathcal{M}_{n\times m}(\mathbb{R})$. También, representaremos por $\boldsymbol{1}$ $\in\mathcal{M}_{n\times 1}(\mathbb{R})$ al vector de solo $1$-entradas, $J\in\mathcal{M}_{n\times n}(\mathbb{R})$ a la matriz de solo $1$-entradas, $I_n\in \mathcal{M}_{n\times n}(\mathbb{R})$ a la matriz identidad, y $\boldsymbol{e}_i\in\mathcal{M}_{n\times 1}(\mathbb{R})$ como el vector de la base canónica de $\mathbb{R}^{n}$ con entrada $1$ en la posición $i$. Además, $\norm{\cdot}$ y $\langle \cdot, \cdot\rangle$ representarán en todo momento la norma y producto interno usales de $\mathbb{R}^{n}$ ($\mathbb{C}^{n}$, según corresponda) respectivamente.
 
-Considerando una matriz cuadrada $A\in \mathcal{M}_{n\times n}(\mathbb{R})$, se define la \textbf{traza} de $A$ como la suma de sus elementos de la diagonal principal. Esto es,
+Considerando una matriz cuadrada $A\in \mathcal{M}_{n\times n}(\mathbb{R})$, se define la \textbf{traza} de $A$ como la suma de los elementos de su diagonal principal. Esto es,
 
 \begin{equation*}
     \Tr(A) = a_{11} + a_{22} + ... + a_{nn}.
@@ -569,7 +581,7 @@ Si $A,B\in\mathcal{M}_{n\times n}(\mathbb{R})$, entonces la traza resulta invari
     \Tr(AB) = \sum_{i=1}^{n}\left( \sum_{j=1}^{n} a_{ij}b_{ji}\right) = \sum_{j=1}^{n}\left( \sum_{i=1}^{n} a_{ij}b_{ji}\right) = \Tr(BA).
 \end{equation*}
 
-Una manera muy útil de representar un grafo es mediante una matriz cuadrada binaria, en la que sus filas y columnas representarán todos los vértices del grafo. La matriz adopta el valor $1$ en las coordenadas en que sus respectivos vértices forman una arista, y $0$ cuando no. Bajo esta representación se consigue una visión clara y eficiente entre las relaciónes de los vértices del grafo, y se gozan de las propiedades que ofrece el álgebra lineal.
+Una manera muy útil de representar un grafo es mediante una matriz cuadrada binaria, en la que sus filas y columnas representarán todos los vértices del grafo. La matriz adopta el valor $1$ en las coordenadas en que sus respectivos vértices forman una arista, y $0$ cuando no. Bajo esta representación, se consigue una visión clara y eficiente entre las relaciones de los vértices del grafo y se goza de las propiedades que ofrece el álgebra lineal.
 
 %%%% Definición formal matriz de adyacencia
 \begin{definicion} \label{matriz_adyacencia}
@@ -585,7 +597,7 @@ Una manera muy útil de representar un grafo es mediante una matriz cuadrada bin
 
     Cuando el contexto sea claro, la matriz de adyacencia será representada simplemente por $A$.
 \end{definicion}
-\newpage
+
 %%%% Ejemplo de matriz de adyacencia de un grafo.
 \renewcommand{\kbldelim}{(}
 \renewcommand{\kbrdelim}{)}
@@ -627,7 +639,7 @@ Una manera muy útil de representar un grafo es mediante una matriz cuadrada bin
     \caption[Ejemplo de la matriz de adyacencia de un grafo]{Ejemplo de la representación de un grafo mediante la matriz de adyacencia.}
 \end{figure}
 
-Observe que la construcción anterior resulta siempre en una matriz simétrica, es decir, $A_{G}^{T} = A_{G}$. Además, a partir de todo grafo $G = ([n], E)$ con matriz de adyacencia $A$ ,se puede obtener un vector con los grados de todos los vértices del grafo aplicando el operador $A$ al vector de 1-entradas: 
+Observe que la construcción anterior resulta siempre en una matriz simétrica, es decir, $A_{G}^{T} = A_{G}$. Además, a partir de todo grafo $G = ([n], E)$ con matriz de adyacencia $A$, se puede obtener un vector con los grados de todos los vértices del grafo aplicando el operador $A$ al vector de 1-entradas: 
 
 \begin{equation} \label{A1=Mdeg}
     A\boldsymbol{1} = 
@@ -656,7 +668,7 @@ Es importante destacar que la matriz de adyacencia no solo describe las conexion
 
 %%%% Lema: Potencia matriz de adyacencia
 \begin{prop} \label{potencia_matriz_adyacencia = caminatas}
-    Sea $A$ la matriz de adyacencia de grafo $G = ([n], E)$. La $(i,j)$-ésima entrada $a_{ij}^{(t)}$ de $A^{t}$, cuenta la cantidad de caminatas de largo $t$ que comienzan y terminan en los vértices $i$ y $j$ respectivamente.
+    Sea $A$ la matriz de adyacencia del grafo $G = ([n], E)$. La $(i,j)$-ésima entrada $a_{ij}^{(t)}$ de $A^{t}$, cuenta la cantidad de caminatas de largo $t$ que comienzan y terminan en los vértices $i$ y $j$ respectivamente.
 \end{prop}
 
 %%%% Demostración Lema : Potencia matriz de adyacencia
@@ -668,7 +680,7 @@ Es importante destacar que la matriz de adyacencia no solo describe las conexion
     \end{equation*}
 \end{proof}
 
-Como consecuencia de la proposición anterior, en cualquier grafo $G = ([n], E)$ con matriz de adyacencia $A$, se puede representar la cantidad total de caminatas cerradas de largo $t$ en el grafo por medio de la traza, $\Tr(A^{t}) = \sum_{i=1}^{n}a_{ii}^{(t)}$. Con esto, note que $\Tr(A^{2}) = 2e_G$. Con escencialmente la misma demostración, enuncia el siguiente corolario que nos será de utilidad más adelante.
+Como consecuencia de la proposición anterior, en cualquier grafo $G = ([n], E)$ con matriz de adyacencia $A$, se puede representar la cantidad total de caminatas cerradas de largo $t$ en el grafo por medio de la traza, $\Tr(A^{t}) = \sum_{i=1}^{n}a_{ii}^{(t)}$. Con esto, note que $\Tr(A^{2}) = 2e_G$. Con esencialmente la misma demostración, se enuncia el siguiente corolario que nos será de utilidad más adelante.
 
 \begin{corolario} \label{cor:Fcuadrada}
     Sea la matriz cuadrada $F = (f_{ij})\in\mathcal{M}_{n\times n}(\mathbb{R})$, entonces $\Tr(F^{2}) = \sum_{(i,j)\in [n]^{2}}f_{ij}^{2}$.
@@ -742,7 +754,7 @@ A continuación, se enunciará sin demostración uno de los teoremas más import
 
 Con el teorema anterior es posible representar la matriz de adyacencia de un grafo por medio de dos matrices que dependen únicamente de sus valores y vectores propios para obtener propiedades desde una perspectiva espectral.
 
-En primera instancia, observe que la descomposición espectral \eqref{Descomposición espectral} permite trabajar eficientemente con las potencias de una matriz real simétrica, puesto a que el problema se reduce a calcular la respectiva potencia de la matriz diagonal de valores propios. Para visualizar este hecho, primero observe como se comporta el cuadrado de una matriz simétrica $A\in\mathcal{M}_{n\times n}(\mathbb{R})$:
+En primera instancia, observe que la descomposición espectral \eqref{Descomposición espectral} permite trabajar eficientemente con las potencias de una matriz real simétrica, puesto a que el problema se reduce a calcular la respectiva potencia de la matriz diagonal de valores propios. Para visualizar este hecho, primero observe cómo se comporta el cuadrado de una matriz simétrica $A\in\mathcal{M}_{n\times n}(\mathbb{R})$:
 
 \begin{align*}
     A^{2} = (PDP^{T})(PDP^{T})
@@ -976,11 +988,11 @@ Con esto, damos paso a la demostración prometida.
     %\end{equation} 
 \chapter{Cuasi-aleatoriedad} \label{cuasi-aleatoriedad}
 
-Trabajar con estructuras discretas aleatorias brinda una amplia gama de propiedades ideales y deseables, lo que las convierte en piezas fundamenteles tanto en matemáticas como en ciencias de la computación. Por ejemplo, el modelo de grafo aleatorio binomial goza de una distribución uniforme de aristas, buenas propiedades y es robusto. La cuestión ahora es cómo capturar las propiedades esenciales de la aleatoriedad dentro de un marco \emph{determinista}. Esta idea condujo a la noción de cuasi-aleatoriedad, que en la actualidad, es un tópico central en las matemáticas discretas. En términos generales, las propiedades cuasi-aleatorias son características deterministas que son propias de objetos realmente aleatorios. Aunque la noción de cuasi-aleatoriedad es interesante por sí misma, su estudio ha revelado profundas conexiones entre varias ramas de la matemática y ciencias de la computación, encontrando aplicaciones en teoría de grafos, teoría de números, teoría ergódica, geometría, y algoritmos y complejidad.
+Trabajar con estructuras discretas aleatorias brinda una amplia gama de propiedades ideales y deseables, lo que las convierte en piezas fundamenteles tanto en matemáticas como en ciencias de la computación. Por ejemplo, el modelo de grafo aleatorio binomial goza de una distribución uniforme de aristas, buenas propiedades y es robusto. El tema ahora es cómo capturar las propiedades esenciales de la aleatoriedad dentro de un marco \emph{determinista}. Esta idea condujo a la noción de cuasi-aleatoriedad, que en la actualidad, es un tópico central en las matemáticas discretas. En términos generales, las propiedades cuasi-aleatorias son características deterministas que son propias de objetos realmente aleatorios. Aunque la noción de cuasi-aleatoriedad es interesante por sí misma, su estudio ha revelado profundas conexiones entre varias ramas de la matemática y ciencias de la computación, encontrando aplicaciones en teoría de grafos, teoría de números, teoría ergódica, geometría, y algoritmos y complejidad.
 
 Como se verá a detalle más adelante en la sección \ref{Sec. LRS}, una de las razones principales por las cuales el estudio de la cuasi-aleatoriedad no se limita a un área específica, es el hecho de que existe un teorema de partición que permite la aproximación de cualquier objeto discreto por otros cuasi-aleatorios. Con esto, nos referimos al célebre lema de regularidad de Szemerédi, que establece que todo grafo se puede aproximar mediante un número finito de grafos cuasi-aleatorios, permitiendo la conexión entre un grafo arbitrario y los cuasi-aleatorios.
 
-El estudio sistemático de los grafos cuasi-aleatorios fue iniciado por V. R$\mathrm{\ddot{o}}$dl \cite{rodl1986universality} y A.  Thomason \cite{thomason1987pseudo}, y su punto incial es la siguiente noción de \emph{distribución uniforme de aristas} para definir la cuasi-aleatoriedad de un grafo.
+El estudio sistemático de los grafos cuasi-aleatorios fue iniciado por V. R$\mathrm{\ddot{o}}$dl \cite{rodl1986universality} y A.  Thomason \cite{thomason1987pseudo}, y su punto inicial es la siguiente noción de \emph{distribución uniforme de aristas} para definir la cuasi-aleatoriedad de un grafo.
 
 \begin{definicion} \label{def. cuasi-aleatoriedad}
     Sea $p\in(0,1)$ y $(G_n)_{n\to\infty}$ una secuencia de grafos, en donde cada $G_n$ posee $n$ vértices. Entonces el grafo $G_n$ es \textbf{cuasi-aleatorio} si en todo par de subconjuntos $X,Y\subset V(G_n)$ se encuentra una distribución de aristas similar, es decir,
@@ -1009,7 +1021,7 @@ En la presente sección se enuncia el teorema de Chung, Graham y Wilson junto a 
             \Big| e(X, Y)- p|X||Y| \Big| = o(n^{2}).
         \]
     
-        \item[{\makebox[0.2cm][l]{$\discp_p :$}}] \hspace{1.1cm} Para todo $X\subseteq V(G_n$,
+        \item[{\makebox[0.2cm][l]{$\discp_p :$}}] \hspace{1.1cm} Para todo $X\subseteq V(G_n)$,
         
         \[
             \Big| e(X) - p \tbinom{|X|}{2}\Big| = o(n^{2}).
@@ -1036,12 +1048,12 @@ En la presente sección se enuncia el teorema de Chung, Graham y Wilson junto a 
         \item[{\makebox[0.2cm][l]{$\eig_p :$}}] \hspace{0.7cm} Si $\lambda_1 \geq \cdots\geq \lambda_n$ son los valores propios de la matriz de adyacencia de $G_n$, entonces
         
         \[
-            \lambda_1 = pn + o(n)\quad ,\quad \max_{i\not= 1}|\lambda {i}| = o(n).
+            \lambda_1 = pn + o(n)\quad ,\quad \max_{i\not= 1}|\lambda_{i}| = o(n).
         \]
     \end{itemize}
 \end{teorema}
 
-Para una comprensión e intuición inicial de cada propiedad del Teorema \ref{Teorema CGW}, se ha utilizado notación asintótica en su enunciado. Sin embargo, con dicha formulación no queda del todo claro las dependencias cuantificadas de los errores en las implicancias cada par de propiedades. Entonces, se replantean equivalentemente las propiedades con una versión cuantitativa, asociando algún parámetro de error $\varepsilon$ en todo grafo específico $G$ con un conjunto de vértices suficientemente grande. Por ejemplo, bajo los supuestos del Teorema \ref{Teorema CGW}, asuma que la sucesión de grafos $(G_n)_{n\to\infty}$ satisface $\disc_p$, y luego, la versión equivalente establece que para todo $\varepsilon > 0$, existe $n_0 \in \mathbb{N}$ tal que el grafo $G$ sobre $n\geq n_0$ vértices satisface
+Para una comprensión e intuición inicial de cada propiedad del Teorema \ref{Teorema CGW}, se ha utilizado notación asintótica en su enunciado. Sin embargo, con dicha formulación no queda del todo claro las dependencias cuantificadas de los errores en las implicancias para cada par de propiedades. Entonces, se replantean equivalentemente las propiedades con una versión cuantitativa, asociando algún parámetro de error $\varepsilon$ en todo grafo específico $G$ con un conjunto de vértices suficientemente grande. Por ejemplo, bajo los supuestos del Teorema \ref{Teorema CGW}, asuma que la sucesión de grafos $(G_n)_{n\to\infty}$ satisface $\disc_p$, y luego, la versión equivalente establece que para todo $\varepsilon > 0$, existe $n_0 \in \mathbb{N}$ tal que el grafo $G$ sobre $n\geq n_0$ vértices satisface
 
 \begin{equation*}
     \disc_p(\varepsilon):\ \ \ e(X,Y) = p|X||Y| \pm \varepsilon n^2 , \ \ \forall X,Y \subseteq V(G).  
@@ -1085,7 +1097,7 @@ Con esto en mente, damos paso a la demostración de cada proposición considerad
         e(X) = p\dfrac{|X|^{2}}{2} \pm \delta n^{2} = p\tbinom{|X|}{2} \pm 2\delta n^{2}.
     \]
 
-    Las igualdades anteriores consideran $e(X,X) = 2e(X)$, por definición, y la aproximación  $\tbinom{|X|}{2}= \frac{|X|^2}{2} \pm \delta n^2$.
+    Las igualdades anteriores consideran, por definición, $e(X,X) = 2e(X)$, y la aproximación  $\tbinom{|X|}{2}= \frac{|X|^2}{2} \pm \delta n^2$.
 \end{proof}
 
 %%%%%%%%%% Proposición: DISC_p' => DISC_p
@@ -1156,7 +1168,7 @@ Con esto en mente, damos paso a la demostración de cada proposición considerad
     Así, con $\left| \tbinom{G}{F}\right| = pn^{\ell} \pm 4\delta n^{\ell}$, se prueba el caso inicial de la inducción. Ahora, sea $F$ un grafo con $e_F > 1$ aristas y asuma que se satisface la ecuación \eqref{ind_count} en cualquier grafo con una cantidad de aristas menor que $e_F$. Para desarrollar la inducción, suponga que $ij\in E(F)$ y considere la siguiente notación: 
 
     \begin{enumerate}
-        \item[i)] $F^{-}$ corresponde es el grafo producido por eliminar la arista $ij$ de $F$.
+        \item[i)] $F^{-}$ corresponde al grafo producido por eliminar la arista $ij$ de $F$.
         \item[ii)] $F^{*}$  es el resultado de eliminar los vértices de la arista $ij$ en $F$. 
     \end{enumerate}
 
@@ -1211,7 +1223,7 @@ Con esto en mente, damos paso a la demostración de cada proposición considerad
         &\overset{\eqref{ind_count}}{=} p^{e_F}n^{\ell} + \sum_{T^{-}\in \tbinom{G}{F^{-}}} \left[ \mathbbm{1}_{E}(e_{T^{-}}) -p\right] \pm 4(e_F - 1)\delta n^{\ell}.
     \end{align}
     
-    En este punto, es suficiente probar que el segundo sumando de la desigualdad \eqref{count_G_F} es pequeño. Para esto, considere $T^{*}$ una copia de $F^{*}$, y denote por $F_{i}^{*}$ y $F_{j}^{*}$ a los grafos resultantes de eliminar de $F^{-}$ los vértices $j$ e $i$ respectivamente. Con esto, defina los siguientes conjuntos:
+    En este punto, es suficiente probar que el segundo sumando de la igualdad \eqref{count_G_F} es pequeño. Para esto, considere $T^{*}$ una copia de $F^{*}$, y denote por $F_{i}^{*}$ y $F_{j}^{*}$ a los grafos resultantes de eliminar de $F^{-}$ los vértices $j$ e $i$ respectivamente. Con esto, defina los siguientes conjuntos:
     
     \[A_{i}^{T^{*}} := \lbrace v\in V\ :\ T^{*}\ \text{con}\ v\ \text{forma una copia de}\ F_{i}^{*}\rbrace \]
     \[A_{j}^{T^{*}} := \lbrace v\in V\ :\ T^{*}\ \text{con}\ v\ \text{forma una copia de}\ F_{j}^{*}\rbrace .\]
@@ -1279,7 +1291,7 @@ Con esto en mente, damos paso a la demostración de cada proposición considerad
 
 %%%%%%%%%% Demostración COUNT_p => COUNT_C4,p
 \begin{proof}
-    Se trata de un caso particular de $\Count_p$, en donde $H = C4$ y $\delta < \epsilon$.
+    Se trata de un caso particular de $\Count_p$, en donde $H = C_4$ y $\delta < \epsilon$.
 \end{proof}
 
 %%%%%%%%%% Proposición: COUNT_C4_p => CODEG_p
@@ -1336,7 +1348,7 @@ Con esto en mente, damos paso a la demostración de cada proposición considerad
 \begin{proof}
     Dado $\varepsilon > 0$, $p\in (0,1)$, seleccionamos $\delta < \frac{\varepsilon^{4}}{81}$ y $n_0\in\mathbb{N}$ suficientemente grande. Sea $G$ un grafo de $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas que satisface la propiedad $\codeg_p (\delta)$.
 
-    En primera instancia note que la propiedad $\codeg_p(\delta)$ induce una concentración en los grados de los vértices de $G$. En efecto,
+    En primera instancia, note que la propiedad $\codeg_p(\delta)$ induce una concentración en los grados de los vértices de $G$. En efecto,
 
     \begin{align*}
         \displaystyle\sum_{x\in V(G)} \Big|&\deg(x) - pn\Big| \overset{\mathrm{DCS}}{\leq} n^{1/2}\left( \displaystyle\sum_{x\in V(G)} (\deg(x) - pn)^{2}\right)^{1/2}\\
@@ -1355,7 +1367,7 @@ Con esto en mente, damos paso a la demostración de cada proposición considerad
         &\overset{DCS}{\leq} n^{1/2}\left( \displaystyle\sum_{x\in X} (\deg(x;Y) - p|Y|)^{2}\right)^{1/2}.
     \end{align}
 
-    En la desigualdad anterior se ha conseguido que el argumento de la suma sea siempre no negativo, lo que permite extender su dominio de $X$ a $V(G)$. De esta manera, usando a la cota proveniente de la conentración de los grados en los vértices de $G$, se prueba el resultado continuando desde \eqref{ec_prop_6}:
+    En la desigualdad anterior se ha conseguido que el argumento de la suma sea siempre no negativo, lo que permite extender su dominio de $X$ a $V(G)$. De esta manera, usando a la cota proveniente de la concentración de los grados en los vértices de $G$, se prueba el resultado continuando desde \eqref{ec_prop_6}:
 
     \begin{align*}
         \Big| e(X,Y) -& p|X||Y|\Big| \leq n^{1/2}\left( \sum_{x\in V(G)} (\deg(x;Y) - p|Y|)^{2}\right)^{1/2}\\
@@ -1364,7 +1376,7 @@ Con esto en mente, damos paso a la demostración de cada proposición considerad
         &\left.\quad + \sum_{y,y'\in Y} \cod(y, y') - 2p|Y|\displaystyle\sum_{y\in Y} \deg(y) \right)^{1/2}\\
         &= n^{1/2}\left( \displaystyle\sum_{y,y'\in Y} (\cod(y,y') - p^{2}n) - 2p|Y|\displaystyle\sum_{y\in Y} (\deg(y) - pn) \right)^{1/2}\\
         &\leq n^{1/2}\left( \left|\displaystyle\sum_{y,y'\in Y} (\cod(y,y') - p^{2}n)\right| + \left|2p|Y|\displaystyle\sum_{y\in Y} (\deg(y) - pn)\right| \right)^{1/2}\\
-        &\leq n^{1/2}\left( \displaystyle\sum_{u,v\in V(G)} \Big|\cod(u,v) - p^{2}n\Big| + 2p|Y|\displaystyle\sum_{x\in V(G)} \Big|\deg(x) - pn\Big|\right)^{2}\\
+        &\leq n^{1/2}\left( \displaystyle\sum_{u,v\in V(G)} \Big|\cod(u,v) - p^{2}n\Big| + 2p|Y|\displaystyle\sum_{x\in V(G)} \Big|\deg(x) - pn\Big|\right)^{1/2}\\
         &\leq n^{1/2}\left( \delta n^{3} + 6p\delta^{1/2}n^{3}\right)^{1/2}\\
         %&\leq 7^{1/2}\delta^{1/4}n^{2}
         &< 3\delta^{1/4}n^{2}.
@@ -1384,7 +1396,7 @@ Con esto en mente, damos paso a la demostración de cada proposición considerad
 \begin{proof}
     Dado $\varepsilon > 0$ y $p\in (0,1)$, se elige $\delta < \frac{\varepsilon}{20}$ y $n_0\in\mathbb{N}$ suficientemente grande. Consideramos el grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas que satisface la propiedad $\eig_p (\delta)$, $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ como la matriz de adyacencia de $G$, y $\lambda_1 \geq \cdots \geq \lambda_n$ los valores propios de $A$.
 
-    Recuerde que la cantidad de copias etiquetadas de caminatas cerradas de largo 4, que no son $C_4$, en $G$ se encuentran dentro de un error de a lo más $\delta n^{4}$ con respecto al número de copias etiquetadas de $C_4$ en $G$. Con esto, junto al Lema~\ref{potencia_matriz_adyacencia = caminatas} y el Corolario~\ref{Tr_Ak} se obtiene lo siguiente:
+    Como vimos en la ecuación \eqref{Aprox_Cop_C_k}, la cantidad de copias etiquetadas de caminatas cerradas de largo 4 que no son $C_4$ en $G$, se encuentran dentro de un error de a lo más $\delta n^{4}$ con respecto al número de copias etiquetadas de $C_4$ en $G$. Con esto, junto al Lema~\ref{potencia_matriz_adyacencia = caminatas} y el Corolario~\ref{Tr_Ak} se obtiene lo siguiente:
 
     \begin{equation} \label{ec_prop_7.1}
         \left|\tbinom{G}{C_4}\right| = \Tr(A^{4}) \pm \delta n^{4} 
@@ -1418,7 +1430,7 @@ Con esto en mente, damos paso a la demostración de cada proposición considerad
 \begin{proof}
     Sea $\varepsilon > 0$ y $p\in (0,1)$, escogemos $\delta < \frac{\varepsilon^{4}}{4}$ y $n_0\in\mathbb{N}$ suficientemente grande. Sea también $G$ un grafo sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas que satisface la propiedad $\Count_{C_4, p}(\delta)$, $A\in\mathcal{M}_{n\times n}(\mathbb{R})$ la matriz de adyacencia de $G$, y $\lambda_1 \geq \cdots \geq \lambda_n$ los valores propios de $A$.
 
-    En lo que respecta al primer valor propio, sabemos por un lado que éste es al menos el promedio de los grados gracias al Lema~\ref{cota_primer_autovalor}. Es decir,
+    En lo que respecta al primer valor propio, sabemos por un lado que este es al menos el promedio de los grados gracias al Lema~\ref{cota_primer_autovalor}. Es decir,
 
     \begin{equation} \label{cota1_lambda1}
         \lambda_1 \geq \frac{\sum_{x\in V(G)}\deg(x)}{n} = \frac{2e_G}{n} = \frac{2}{n}\left( \frac{pn^{2}}{2} \pm \delta n^{2}\right) \geq pn - 2\delta n.
@@ -1446,7 +1458,7 @@ Con esto en mente, damos paso a la demostración de cada proposición considerad
 
 La noción inicial presentada de un grafo cuasi-aleatorio por distribución de aristas según la Definición \ref{cuasi-aleatoriedad} contempla verificar que si todo par de subconjuntos de vértices del grafo satisfacen la condición $\disc_p$ para determinar la cuasi-aleatoriedad. En otras palabras, se requiere comprobar un número exponencial de subconjuntos. Por esto, resulta sorprendente que tal propiedad sea equivalente a todas las otras (salvo $\discp_p$), debido a que se verifican de manera polinomial. Otro aspecto interesante es que la propiedad más débil $\Count_{C_4,p}$, que solo requiere que la condición de conteo sea verdadera para el ciclo $C_4$, sea suficientemente sólida para implicar la afirmación de conteo de la propiedad $\Count_{p}$; que dice que el número de copias etiquetadas de cualquier grafo $F$ de tamaño fijo en $G=([n],E)$ es aproximadamente el esperado de los grafos aleatorios $G(n,p)$.
 
-A continuación mostraremos que no es suficiente que la condición de conteo sea verdadera para ciclos de largo inferior a $4$ para determinar la cuasi-aleatoriedad de un grafo. Para ver esto, en primer lugar se la construcción de un contraejemplo de un grafo que posee la cantidad de copias etiquetadas esperadas de $C_3$, pero que no cumple con las condiciones para ser cuasi-aleatorio.
+A continuación mostraremos que no es suficiente que la condición de conteo sea verdadera para ciclos de largo inferior a $4$ para determinar la cuasi-aleatoriedad de un grafo. Para ver esto, se realiza la construcción de un contraejemplo de un grafo que posee la cantidad de copias etiquetadas esperadas de $C_3$, pero que no cumple con las condiciones para ser cuasi-aleatorio.
 
 %%%% Proposición contraejemplo
 \begin{prop}
@@ -1635,7 +1647,7 @@ Es importante destacar que la demostración anterior es funcional gracias a que 
 %
 %Con la observación anterior es posible demostrar que todo grafo $G$ satisface %cada propiedad del Teorema \ref{Teorema CGW} si y solo si $G\times K_2$ %satisface su respectiva propiedad bipartita del Teorema \ref{Teorema CGW %Bipartito}.
 
-Finalmente, se explora un caso siempre interesante de estudio, ya que simplifica varios cálculos y surge de manera recurrente en la vida cotidiana: un grafo $d$-regulrar. En nuestro contexto, se verá que toda secuencia $(G_n)_{n\to \infty}$ de grafos $d$-regular satisface la propiedad $\disc_{\frac{d}{n}}$ si y solo si cumple con $\eig_{\frac{d}{n}}$. Dicha equivalencia nace como una consecuencia del siguiente teorema.
+Finalmente, se explora un caso siempre interesante de estudio, ya que simplifica varios cálculos y surge de manera recurrente en la vida cotidiana: un grafo $d$-regular. En nuestro contexto, se verá que toda secuencia $(G_n)_{n\to \infty}$ de grafos $d$-regular satisface la propiedad $\disc_{\frac{d}{n}}$ si y solo si cumple con $\eig_{\frac{d}{n}}$. Dicha equivalencia nace como una consecuencia del siguiente teorema.
 
 %%%% Enunciado Expander Mixing Lemma
 \begin{teorema} \label{Expander Mixing Lemma} (Expander Mixing Lemma)
@@ -1654,7 +1666,7 @@ Finalmente, se explora un caso siempre interesante de estudio, ya que simplifica
 
 %%%% Demostración Expander Mixing Lemma
 \begin{proof}
-    Sea $\mathcal{B} = \lbrace \boldsymbol{v}_1,...,\boldsymbol{v}_n\rbrace$ la base ortonormal de $\mathbb{R}^{n}$ compuesta por los vectores propios de $A$. Utilizando la descomposición espectral, se denotamos
+    Sea $\mathcal{B} = \lbrace \boldsymbol{v}_1,...,\boldsymbol{v}_n\rbrace$ la base ortonormal de $\mathbb{R}^{n}$ compuesta por los vectores propios de $A$. Utilizando la descomposición espectral, denotamos
 
     \begin{equation*}
         A_1 = \lambda_1 \boldsymbol{v}_1 \boldsymbol{v}_{1}^{T}\ \ \text{y}\ \ \Delta = \sum_{i=2}^{n} \lambda_i \boldsymbol{v}_i \boldsymbol{v}_{i}^{T},
@@ -1662,7 +1674,7 @@ Finalmente, se explora un caso siempre interesante de estudio, ya que simplifica
 
     de manera que $A = A_1 + \Delta$.
     
-    Coforme a la ecuación \eqref{e(X,Y)=espectral}, para todo $X,Y\subset [n]$, se cumple la siguiente igualdad:
+    Conforme a la ecuación \eqref{e(X,Y)=espectral}, para todo $X,Y\subset [n]$, se cumple la siguiente igualdad:
 
     \begin{equation} \label{1ra ec EML}
         e(X,Y) = \boldsymbol{v}_{X}^{T} A \boldsymbol{v}_Y = \boldsymbol{v}_{X}^{T} A_1 \boldsymbol{v}_Y + \boldsymbol{v}_{X}^{T} \Delta \boldsymbol{v}_Y.
@@ -1743,7 +1755,7 @@ Finalmente, en un grafo $d$-regular, la equivalencia entre las propiedades $\eig
 
 El lema de regularidad de Szemerédi ha mostrado ser un resultado muy poderoso e importante en la teoría extremal de grafos. Sus aplicaciones no solo se restringen a la teoría de grafos, sino que también las tiene en teoría de números combinatorios, geometría discreta y ciencias de la computación. A continuación, un poco de historia de su origen.
 
-P. Erd$\ddot{\text{o}}$s y P. Turán \cite{erdos1936some} conjeturaron en 1936 que todo conjunto de números enteros suficientemente grande posee una progresión aritmética de longitud arbitraria, digamos $k$. En 1953, K. Roth \cite{roth1953certain} da el primer resultado positivo a la conjetura para el caso en que $k=3$ utilizando análisis de Fourier, dando paso al teorema de Roth. Más adelante, en 1969, E. Szemerédi \cite{szemeredi1969sets} extendie el teorema de Roth a progesiones aritméticas de largo $4$ vía métodos combinatorios. Seis años después, en 1975, E. Szemerédi \cite{szemeredi1975sets} demuestra la conjetura de Erd$\ddot{\text{o}}$s-Turán para progresiones aritméticas de longitud arbitraria, lo que se conoce actualmente como el teorema de Szemerédi.
+P. Erd$\ddot{\text{o}}$s y P. Turán \cite{erdos1936some} conjeturaron en 1936 que todo conjunto de números enteros suficientemente grande posee una progresión aritmética de longitud arbitraria, digamos $k$. En 1953, K. Roth \cite{roth1953certain} da el primer resultado positivo a la conjetura para el caso en que $k=3$ utilizando análisis de Fourier, dando paso al teorema de Roth. Más adelante, en 1969, E. Szemerédi \cite{szemeredi1969sets} extiende el teorema de Roth a progresiones aritméticas de largo $4$ vía métodos combinatorios. Seis años después, en 1975, Szemerédi \cite{szemeredi1975sets} demuestra la conjetura de Erd$\ddot{\text{o}}$s-Turán para progresiones aritméticas de longitud arbitraria, lo que se conoce actualmente como el teorema de Szemerédi.
 
 %%%% Teorema de Szemerédi
 \begin{teorema} (Teorema de Szemerédi) \label{Teorema Szemeredi}
@@ -1758,7 +1770,7 @@ La demostración que propone Szemerédi es considerada una obra maestra del razo
     \caption[Diagrama de flujo de la demostración del teorema de Szemerédi]{El esquema representa el diagrama de flujo utilizado en la demostración del teorema de Szemerédi (\cite{szemeredi1975sets}, página 202). Algunos de los símbolos involucrados significan lo siguiente: $F_{k}\equiv$ Hecho $k$, $L_{k}\equiv$ Lema $k$, $T\equiv$ Teorema, $C\equiv$ Corolario, $D\equiv$ Definiciones varias, etc.}
 \end{figure}
 
-Probablemente la complejidad de tal demostración motivó a otros matemáticos en encontrar nuevas formas de probar el teorema. Poco después, en 1977, H. Furstenberg \cite{furstenberg1977ergodic} obtiene una demostración fundamentada en la teoría ergódica. También, en 2001, T. Gowers \cite{gowers2001new} entrega una tercera demostración por medio de análisis de Fourier, extendiendo el camino iniciado por Roth para progresiones aritméticas de largo $3$.
+Probablemente la dificultad de tal demostración motivó a otros matemáticos en encontrar nuevas formas de probar el teorema. Poco después, en 1977, H. Furstenberg \cite{furstenberg1977ergodic} obtiene una demostración fundamentada en la teoría ergódica. También, en 2001, T. Gowers \cite{gowers2001new} entrega una tercera demostración por medio de análisis de Fourier, extendiendo el camino iniciado por Roth para progresiones aritméticas de largo $3$.
 
 En esta tesis, nos enfocaremos en uno de los elementos que compone la demostración entregada por Szemerédi del Teorema \ref{Teorema Szemeredi}, el hoy conocido como \emph{lema de regularidad de Szemerédi}. A grandes rasgos, el lema dice que el conjunto de vértices de todo grafo puede ser particionado en una cantidad finita de partes que muestran comportamientos \emph{regulares} (o cuasi-aleatorios) entre la mayoría de los pares de partes. Este hecho permite entender cualquier grafo con menos información, y se aprovechan cada una de las propiedades equivalentes vistas en el Teorema \ref{Teorema CGW}.
 
@@ -1858,20 +1870,20 @@ Ya con todo lo requerido, se enuncia formalmente el lema de regularidad.
     Para todo $\varepsilon > 0$, existe un entero $M = M(\varepsilon)$ tal que todo grafo admite una partición $\varepsilon$-regular de a lo más $M$ partes.
 \end{teorema}
 
-Otra forma de encontrar el resultado, es cuando todas las partes de la partición poseen aproximadamente el mismo tamaño.
+Otra forma de encontrar el resultado es cuando todas las partes de la partición poseen aproximadamente el mismo tamaño.
 
 %%%% Teorema: Lema de regularidad, equipartición
 \begin{teorema} \label{szemeredi_regularity_lemma2} (Regularidad de Szemerédi - Equipartición)
     Para todo $\varepsilon > 0$ y $m_0\in\mathbb{N}$, existe un entero $M = M(\varepsilon)$ tal que todo grafo admite una equipartición $\varepsilon$-regular de su conjunto de vértices de $k$ partes, con $m_0\leq k\leq M$. 
 \end{teorema}
 
-Lo poderoso del lema de regularidad es que la cota de partes que entrega es independiente del tamaño del grafo, y solo depende del parámetro $\varepsilon$. Esto ya que en grafo más grandes, el tamaño de las partes podrían ser considerablemente más grandes.
+Lo poderoso del lema de regularidad es que la cota de partes que entrega no depende del tamaño del grafo, sino que únicamente del parámetro $\varepsilon$. Esto se debe a que en grafos más grandes, el tamaño de las partes podría ser considerablemente mayor.
 
 En la subsección \ref{Demo_ener} se demostrará rigurosamente el Teorema \ref{szemeredi_regularity_lemma1} desde una mirada clásica, y se expondrá la manera de probar el Teorema \ref{szemeredi_regularity_lemma2}. Más adelante, en la sección \ref{Demo_esp}, nos limitaremos a mostrar una forma novedosa e ingeniosa de demostrar el Teorema \ref{szemeredi_regularity_lemma1} desde una perspectiva espectral. Finalmente, la subsección \ref{Sec. Aplicaciones} tiene el objetivo de demostrar de dos maneras diferentes el teorema de Roth utilizando el lema de regularidad de Szemerédi.
 
 \section{Demostración por incremento de energía} \label{Demo_ener}
 
-Se empleará una técnica llamada \emph{argumento de incremento de energía}, cual para todo grafo $G$, funciona algorítmicamente de la siguiente manera:
+Se empleará una técnica llamada \emph{argumento de incremento de energía}, la cual para todo grafo $G$, funciona algorítmicamente de la siguiente manera:
 
 %%%% Algoritmo incremento de energía
 \begin{enumerate}
@@ -1887,7 +1899,7 @@ Se empleará una técnica llamada \emph{argumento de incremento de energía}, cu
     \end{itemize}
 \end{enumerate}
 
-Siendo $\mathcal{P}$ y $\mathcal{Q}$ dos particiones de un mismo conjunto de vértices, diremos que $\mathcal{Q}$ \textbf{refina} a $\mathcal{P}$ si cada parte de $\mathcal{Q}$ está contenida en una parte de $\mathcal{P}$. En lo que resta de esta subsección mostraremos que el algoritmo tiene un fin, y que entrega una partición $\varepsilon$-regular en un número de iteraciones que solo depende de $\varepsilon$.
+Siendo $\mathcal{P}$ y $\mathcal{Q}$ dos particiones de un mismo conjunto de vértices, diremos que $\mathcal{Q}$ \textbf{refina} a $\mathcal{P}$ si cada parte de $\mathcal{Q}$ está contenida en una parte de $\mathcal{P}$. En lo que resta de esta subsección, mostraremos que el algoritmo tiene un fin y que entrega una partición $\varepsilon$-regular en un número de iteraciones que solo depende de $\varepsilon$.
 
 %%%% Definición Energía 
 \begin{definicion} (Energía)
@@ -1920,7 +1932,7 @@ Observe que en toda partición $\mathcal{P}$ de $V(G)$, siempre se tendrá que $
 
 La última observación es crucial en la demostración del Teorema \ref{szemeredi_regularity_lemma1}, puesto que los Lemas \ref{energia_no_decrece}, \ref{Energy boost un conjunto} y \ref{Energy boost particiones} nos asegurarán que la energía de una partición nunca decrece bajo refinamiento. Por consecuencia, el algoritmo de la técnica \emph{argumento de incremento de energía} tendrá un fin, y entregará una partición $\varepsilon$-regular. Dicho esto, procedemos a enunciar y demostrar cada uno de los lemas mencionados para probar clásicamente el Teorema \ref{szemeredi_regularity_lemma1}.
 
-El priero de los lemas, afirma que la energía de una partición no decrece bajo cualquier refinamiento arbitrario.
+El primero de los lemas, afirma que la energía de una partición no decrece bajo cualquier refinamiento arbitrario.
 
 %%%% Lema: la energía nunca decrece bajo refinamiento
 \begin{lema} \label{energia_no_decrece}
@@ -1968,7 +1980,7 @@ Ahora, veremos que refinar un par $(X,Y)$ no $\varepsilon$-regular de un grafo $
         |X_1| \geq \varepsilon |X|\ \ \text{y}\ \ |Y_1| \geq \varepsilon |Y|.
     \end{equation}
     
-    Se define adicionalmente los conjuntos $X_2 := X\setminus X_1$, $Y_2 := Y\setminus Y_1$, y $\eta := d(X_1, Y_1) - d(X,Y)$, cual por definición de par $\varepsilon$-regular, satisface
+    Se define adicionalmente los conjuntos $X_2 := X\setminus X_1$, $Y_2 := Y\setminus Y_1$, y $\eta := d(X_1, Y_1) - d(X,Y)$, el cual por definición de par $\varepsilon$-regular, satisface
 
     \begin{equation} \label{|eta| > epsilon}
         \left| \eta\right| > \varepsilon.
@@ -2051,7 +2063,7 @@ Vimos que particionar cualquier par de conjuntos no $\varepsilon$-regular por me
 
 %%%% Lema: Energy boost para particiones
 \begin{lema} \label{Energy boost particiones}
-    Sea $\varepsilon > 0$, un grafo $G$ y una partición $\mathcal{P} = \lbrace V_1,...V_k\rbrace$ no $\varepsilon$-regular de $V(G)$. Entonces existe un refinamiento $\mathcal{Q}$ de $\mathcal{P}$, en el que cada $V_i$ se particiona en a lo más $2^{k}$ partes y es tal que
+    Sea $\varepsilon > 0$, un grafo $G$ y una partición $\mathcal{P} = \lbrace V_1,...,V_k\rbrace$ no $\varepsilon$-regular de $V(G)$. Entonces existe un refinamiento $\mathcal{Q}$ de $\mathcal{P}$, en el que cada $V_i$ se particiona en a lo más $2^{k}$ partes y es tal que
 
     \begin{equation*}
         q(\mathcal{Q}) > q(\mathcal{P}) + \varepsilon^{5}.
@@ -2070,11 +2082,13 @@ Vimos que particionar cualquier par de conjuntos no $\varepsilon$-regular por me
     \end{figure}
 
     Para simplicidad en la notación, se define $\Theta := \lbrace (i,j)\in [k]^{2} : (V_i,V_j)\ \text{es}\ \varepsilon\text{-regular}\rbrace$. Luego, como la partición $\mathcal{P}$ no es $\varepsilon$-regular, se cumple la desigualdad
+
     \begin{equation} \label{condición partición no regular}
         \sum_{(i,j)\not\in \Theta} \frac{|V_i||V_j|}{n^{2}} > \varepsilon.
     \end{equation}
 
     Así, junto a los lemas probados previamente, se da prueba al resultado de la siguiente manera:
+
     \begin{align*}
         q(\mathcal{Q}) &= \sum_{(i,j)\in [k]^{2}} q(\mathcal{Q}_i, \mathcal{Q}_j) \\
         &= \sum_{(i,j)\in \Theta} q(\mathcal{Q}_i, \mathcal{Q}_j) + \sum_{(i,j)\not\in \Theta} q(\mathcal{Q}_i, \mathcal{Q}_j)\\
@@ -2103,14 +2117,14 @@ Este último Lema culmina lo que se necesita para dar prueba formal del lema de 
         \end{aligned}
     \end{equation*}
 
-    Finalmente, como el algoritmo debe luego de a lo más $\varepsilon^{-5}$ iteraciones, la cantidad de partes al final de proceso será
+    Finalmente, como el algoritmo debe terminar luego de a lo más $\varepsilon^{-5}$ iteraciones, la cantidad de partes al final del proceso será
 
     \begin{equation*}
         M(\varepsilon) \leq \left. 2^{2^{\cdot^{\cdot^{\cdot^{2}}}}}\right\rbrace\ \text{Altura }2\varepsilon^{-5}.
     \end{equation*}
 \end{proof}\medskip
 
-Desde ahora en adelante, vamos a definir y consirar una \emph{torre de altura $k$} de la siguiente manera:
+Desde ahora en adelante, vamos a definir y considerar una \emph{torre de altura $k$} de la siguiente manera:
 
 \begin{equation*}
     \mathrm{torre}(k) := \left.2^{2^{\cdot^{\cdot^{\cdot^{2}}}}}\right\rbrace \text{Altura } k.
@@ -2137,11 +2151,11 @@ Finalmente, se expone la forma de probar el Teorema \ref{szemeredi_regularity_le
     \end{itemize}
 \end{enumerate}
 
-El algoritmo anterior obtiene una equipartición del conjunto de vértices del grafo $G$. En lo que respecta a la energía del proceso, el paso \ref{paso_2b_mod}(b) conserva un aumento de al menos $\varepsilon^{5}$ en cada iteración. El paso \ref{paso_3c_mod}(c) podría ocasionar una baja en la energía, sin embargo, no debería ser significativa con una elección de $m$ suficientemente grande. En resumidas cuentas, el proceso anterior aumenta la energía en cada iteración en al menos $\varepsilon^{5}/2$, logrando terminar luego de a lo más $2\varepsilon^{-5}$ pasos con una equipartición de a lo más $\mathrm{torre}(\varepsilon^{-5})$ partes.
+El algoritmo anterior obtiene una equipartición del conjunto de vértices del grafo $G$. En lo que respecta a la energía del proceso, el paso \ref{paso_2b_mod}(b) conserva un aumento de al menos $\varepsilon^{5}$ en cada iteración. El paso \ref{paso_3c_mod}(c) podría ocasionar una baja en la energía, sin embargo, no debería ser significativa con una elección de $m$ suficientemente grande. En resumidas cuentas, el proceso anterior aumenta la energía en cada iteración en al menos $\varepsilon^{5}/2$, logrando terminar luego de a lo más $2\varepsilon^{-5}$ pasos con una equipartición de a lo más $\mathrm{torre}(\lceil\varepsilon^{-5}\rceil)$ partes.
 
 \section{Demostración espectral} \label{Demo_esp}
 
-En 2012, T. Tao \cite{taospectralproof2012} publica en su blog una prueba del lema de regularidad de Szemerédi usando la descomposición espectral de la matriz de adyacencia. La idea original de la demostración proviene de los autores A. Frieze y R. Kannan \cite{frieze1996regularity}, a quieres Tao les da el crédito en su publicación. Más adelante, en 2013, S. Cioba y R. Martin \cite{cioabatao} escribieron la demostración con más detalles. La prueba que se expone en esta sección está basada escencialmente en la publicación de Cioba y Martin.
+En 2012, T. Tao \cite{taospectralproof2012} publica en su blog una prueba del lema de regularidad de Szemerédi usando la descomposición espectral de la matriz de adyacencia. La idea original de la demostración proviene de los autores A. Frieze y R. Kannan \cite{frieze1996regularity}, a quienes Tao les da el crédito en su publicación. Más adelante, en 2013, S. Cioba y R. Martin \cite{cioabatao} escribieron la demostración con más detalles. La prueba que se expone en esta sección está basada esencialmente en la publicación de Cioba y Martin.
 
 %%%% Demostración espectral.
 \begin{proof}[Demostración espectral del Teorema \ref{szemeredi_regularity_lemma1}]
@@ -2186,7 +2200,7 @@ En 2012, T. Tao \cite{taospectralproof2012} publica en su blog una prueba del le
 
     que contradice la desigualdad \eqref{eq_1 Spectral_Proof}.
 
-    Ahora, usando $L$, separamos la matriz $A$ en tres matrices simetricas:
+    Ahora, usando $L$, separamos la matriz $A$ en tres matrices simétricas:
 
     \[        A= S + F + Q,\]
 
@@ -2205,7 +2219,7 @@ En 2012, T. Tao \cite{taospectralproof2012} publica en su blog una prueba del le
     y la matriz $Q$ como la componente \emph{cuasi-aleatoria},
 
     \begin{equation*}
-        Q = \sum_{i \geq F(L)} \lambda_i \boldsymbol{u}_i \boldsymbol{u}{i}^{T}.
+        Q = \sum_{i \geq F(L)} \lambda_i \boldsymbol{u}_i \boldsymbol{u}_{i}^{T}.
     \end{equation*}
 
     Usaremos los vectores propios $\boldsymbol{u}_1,...\boldsymbol{u}_{L-1}$ de $S$ para definir una partición de $V(G)$ como mostraremos a continuación. Consideramos el intervalo de $\mathbb{R}$ de longitud $2\sqrt{({L}/{\varepsilon})}\cdot n^{-1/2}$ centrado en el origen y lo particionamos en $t = 2(L/\varepsilon)^{2}$ subintervalos $J_1,...,J_t$ de longitud $(\varepsilon /L)^{3/2}n^{-1/2}$ cada uno. Luego, clasificamos los vértices $v\in V(G)$ según su valor $\boldsymbol{u}_i(v)$ de la siguiente manera:
@@ -2310,8 +2324,8 @@ En 2012, T. Tao \cite{taospectralproof2012} publica en su blog una prueba del le
 Usualmente las aplicaciones del lema de regularidad de Szemerédi son abordadas con el \emph{método de regularidad} que se describe en los siguientes pasos:
 
 \begin{enumerate}
-    \item Obtener una \textbf{partición} del conjuntio de vértices un grafo con el lema de regularidad.
-    \item \textbf{Limpiar} el grafo las aristas que tengan un "mal comportamiento" según el problema. Generalmente, se eliminan las aristas entre los pares de partes que presentan:
+    \item Obtener una \textbf{partición} del conjunto de vértices de un grafo con el lema de regularidad.
+    \item \textbf{Limpiar} las aristas del que tengan un $"$mal comportamiento$"$ según el problema. Generalmente, se eliminan las aristas entre los pares de partes que presentan:
     \begin{itemize}
         \item[(i)] Irregularidad.
         \item[(ii)] Baja densidad.
@@ -2320,7 +2334,7 @@ Usualmente las aplicaciones del lema de regularidad de Szemerédi son abordadas 
     \item \textbf{Contar} un determinado patrón en el grafo limpio.
 \end{enumerate} 
 
-Para el último paso se utilizará un resultado análogo a la propiedad $\Count_{p}(\varepsilon)$ del Teorema \ref{Teorema CGW}, pero con el concepto de par $\varepsilon$-regular. Las aplicaciones que se estudiarán en esta tesis solo necesitan el caso en que $H = K_3$, cual es conocido como lema de conteo de triángulos.
+Para el último paso se utilizará un resultado análogo a la propiedad $\Count_{p}(\varepsilon)$ del Teorema \ref{Teorema CGW}, pero con el concepto de par $\varepsilon$-regular. Las aplicaciones que se estudiarán en esta tesis solo necesitan el caso en que $H = K_3$, el cual es conocido como lema de conteo de triángulos.
 
 %%%% Lema: Lema de conteo de triángulos
 \begin{lema} \label{Triangle_Counting_Lemma} (Lema de conteo de triángulos)
@@ -2380,7 +2394,7 @@ Para el último paso se utilizará un resultado análogo a la propiedad $\Count_
     Finalmente, aplicando la última desigualdad en la ecuación \eqref{2doSum_TCL} se prueba lo prometido.
 \end{proof}
 
-En la demostración anterior solo fue necesario utilizar que los pares $(X,Y)$ y $(X,Z)$ son $\varepsilon$-regular, por lo que es interesante destacar que uno de los pares de conjuntos de vértices podría no ser necesariamente un par $\varepsilon$-regular para el que lema de conteo de triángulos funcione correctamente.
+En la demostración anterior solo fue necesario utilizar que los pares $(X,Y)$ y $(X,Z)$ son $\varepsilon$-regular, por lo que es interesante destacar que uno de los pares de conjuntos de vértices podría no ser necesariamente un par $\varepsilon$-regular para que el lema de conteo de triángulos funcione correctamente.
 
 Bajo el mismo planteamiento de la inducción vista en la demostración del Lema \ref{Triangle_Counting_Lemma} (y Proposición \ref{discp => count}), es posible generalizar el resultado para contar apropiadamente cualquier grafo $H$. Se enuncia sin demostración.
 
@@ -2457,7 +2471,7 @@ El lema de eliminación de triángulos fue probado por los autores I. Ruzsa y E.
     Así, de la contradicción anterior, se determina que el grafo $G$ es libre de triángulos eliminando a lo más $\varepsilon n^{2}$ aristas.
 \end{proof}
 
-Otra forma de entender el Teorema \ref{Enunciado TRL} es de la siguiente manera: si se necesitan eliminar al menos $\varepsilon n^{2}$ para hacer de $G$ libre de tríangulos, entonces $G$ contiene al menos $\delta n^{3}$ triángulos.
+Otra forma de entender el Teorema \ref{Enunciado TRL} es de la siguiente manera: si se necesitan eliminar al menos $\varepsilon n^{2}$ para hacer de $G$ libre de trángulos, entonces $G$ contiene al menos $\delta n^{3}$ triángulos.
 
 \subsection{Emparejamiento inducido}
 
@@ -2544,9 +2558,9 @@ La presente aplicación del método de regularidad responde a la pregunta: \emph
 
 %%%% Demostración: Emparejamiento inducido
 \begin{proof}
-    Dado $\varepsilon > 0$, aplique el Teorema \ref{szemeredi_regularity_lemma1} con $\varepsilon_r = \frac{\varepsilon}{10}$ para obtener la constante $M(\varepsilon_r)$. Considere $n_0\in\mathbb{N}$ suficientemente grande, y asuma que el grafo $G = (V,E)$ con $n\geq n_0$ vértices y compuesto por $n$ emparejamientos inducidos satisface $e_G > \varepsilon n$. Nuevamente, por el Teorema \ref{szemeredi_regularity_lemma}, se asegura la existencia de la partición $\mathcal{P} = \lbrace V_1,...,V_k\rbrace$ con $k\leq M(\varepsilon)$ partes que es $\varepsilon_r$-regular.
+    Dado $\varepsilon > 0$, aplique el Teorema \ref{szemeredi_regularity_lemma1} con $\varepsilon_r = \frac{\varepsilon}{10}$ para obtener la constante $M(\varepsilon_r)$. Considere $n_0\in\mathbb{N}$ suficientemente grande, y asuma que el grafo $G = (V,E)$ con $n\geq n_0$ vértices y compuesto por $n$ emparejamientos inducidos satisface $e_G > \varepsilon n$. Nuevamente, por el Teorema \ref{szemeredi_regularity_lemma1}, se asegura la existencia de la partición $\mathcal{P} = \lbrace V_1,...,V_k\rbrace$ con $k\leq M(\varepsilon)$ partes que es $\varepsilon_r$-regular.
     
-    Para cada $(i,j)\in [k]^{2}$ se eliminan todas las aristas entre los conjuntos $V_i$ y $V_j$ cuando éstos presenten irregularidad, densidad menor que $2\varepsilon_r$, o al menos uno de los conjuntos es menor que $\frac{n}{k}\varepsilon_r$. En total, el proceso de limpieza remueve a lo más $4\varepsilon_r n^{2}$ aristas de $G$ para obtener un nuevo grafo $G'$. En consecuencia,
+    Para cada $(i,j)\in [k]^{2}$ se eliminan todas las aristas entre los conjuntos $V_i$ y $V_j$ cuando estos presenten irregularidad, densidad menor que $2\varepsilon_r$, o al menos uno de los conjuntos es menor que $\frac{n}{k}\varepsilon_r$. En total, el proceso de limpieza remueve a lo más $4\varepsilon_r n^{2}$ aristas de $G$ para obtener un nuevo grafo $G'$. En consecuencia,
     
     \begin{equation*}
         e_G' \geq e_G - 4\varepsilon_r n^{2} > \varepsilon n^{2} - \frac{4}{10}\varepsilon n^{2} > \frac{\varepsilon}{2}n^{2}.
@@ -2590,7 +2604,7 @@ Otra mirada del Teorema \ref{Teo_emp_ind} es la siguiente: si $G$ posee al menos
 
 \subsection{Teorema de Roth}
 
-Como hemos visto en el comienzo de la sección \ref{Sec. LRS}, el teorema de Roth es un caso particular del teorema de Szemerédi, cual en un principio fue demostrado utilizando análisis de Fourier. 
+Como hemos visto en el comienzo de la sección \ref{Sec. LRS}, el teorema de Roth es un caso particular del teorema de Szemerédi, el cual en un principio fue demostrado utilizando análisis de Fourier. 
 
 %%%% Enunciado Teorema de Roth
 \begin{teorema} (Teorema de Roth) \label{Teorema_de_Roth}
@@ -2667,7 +2681,7 @@ En esta sección se entregarán dos demostraciones del teorema de Roth por medio
 
     Nótese que la tupla $(i,j,k)\in V_1\times V_2\times V_3$ define un triángulo en $G$ si y solamente si $j-i\in S$, $k-j\in S$ y $\frac{k-i}{2}\in S$, o bien, $\left\lbrace j-i, \frac{k-i}{2}, k-j\right\rbrace$ es una progresión aritmética de largo $3$ en $S$ con diferencia $\frac{k-2j+i}{2}$. 
 
-    Diremos que un triángulo $(i,j,k)\in V_1\times V_2\times V_3$ es trivial en $G$ si para algún $s\in S$ se satisface que $j-i = \frac{k-i}{2} = k-j = s$. Entonces, observando que cada triángulo trivial se puede identificar con el par $(i,s)\in V_1 \times S$, la cantidad de triángulos triviales es exactamente $n|S| \geq \varepsilon n^{2}$. Además, por construcción, no existen triángulos triviales que compartan una arista, por lo que no se pueden eliminar dos triángulos triviales removiendo solo una arista. Por consecuencia, se tienen que eliminar al menos $\varepsilon n^{2} = \frac{\varepsilon}{36}(6n)^{2}$ aristas para hacer de $G$ libre de triángulos. Luego, utilizando el lema de eliminación de triángulos con $\frac{\varepsilon}{36}$, recibimos $\delta\left(\frac{\varepsilon}{36}\right)$, y aseguramos que existen al menos $\delta (6n)^{3} = 216\delta n^{3}$ triángulos en $G$. De esta manera, existen al menos $216\delta n^{3} - n^{2}$ triángulos no triviales. En conclusión, como $216\delta n^{3} > n^{2}$, debe existir una progresión aritmética no trivial de largo $3$ en $S$.
+    Diremos que un triángulo $(i,j,k)\in V_1\times V_2\times V_3$ es trivial en $G$ si para algún $s\in S$ se satisface que $j-i = \frac{k-i}{2} = k-j = s$. Entonces, observando que cada triángulo trivial se puede identificar con el par $(i,s)\in V_1 \times S$, la cantidad de estos es exactamente $n|S| \geq \varepsilon n^{2}$. Además, por construcción, no existen triángulos triviales que compartan una arista, por lo que no se pueden eliminar dos de ellos removiendo solo una arista. Por consecuencia, se tienen que eliminar al menos $\varepsilon n^{2} = \frac{\varepsilon}{36}(6n)^{2}$ aristas para hacer de $G$ libre de triángulos. Luego, utilizando el lema de eliminación de triángulos con $\frac{\varepsilon}{36}$, recibimos $\delta\left(\frac{\varepsilon}{36}\right)$, y aseguramos que existen al menos $\delta (6n)^{3} = 216\delta n^{3}$ triángulos en $G$. De esta manera, existen al menos $216\delta n^{3} - n^{2}$ triángulos no triviales. En conclusión, como $216\delta n^{3} > n^{2}$, debe existir una progresión aritmética no trivial de largo $3$ en $S$.
 
     %Utilizando el lema eliminación de triángulos eligiendo $\varepsilon_0 = %\frac{\varepsilon}{36}$, existen $\delta_0 > 0$ y $n'_0\in\mathbb{N}$ tal %que el grafo $G$ con $6n \geq n'_0$ vértices y a lo más $\delta_0 (6n)^{3}%$ triángulos, se convierte en libre de triángulos eliminando a lo más %$\varepsilon_0 (6n)^{2}$ aristas. Entonces, estableciendo $\delta = %216\delta_0$, note que existen como máximo $\delta n^{3} - \varepsilon n^%{2}$ triángulos no triviales. Sabiendo esto, aseguramos la existencia de %un triángulo no trivial cuando $n > \frac{\varepsilon + 1}{\delta}$. En %efecto,
     %

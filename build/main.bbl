@@ -50,6 +50,32 @@
       \field{pages}{9\bibrangedash 11}
       \range{pages}{3}
     \endentry
+    \entry{bollobas1998random}{book}{}
+      \name{author}{1}{}{%
+        {{hash=8f9aa69d12cd51c21f06c094b77eb30d}{%
+           family={Bollobás},
+           familyi={B\bibinitperiod},
+           given={Béla},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{8f9aa69d12cd51c21f06c094b77eb30d}
+      \strng{fullhash}{8f9aa69d12cd51c21f06c094b77eb30d}
+      \strng{bibnamehash}{8f9aa69d12cd51c21f06c094b77eb30d}
+      \strng{authorbibnamehash}{8f9aa69d12cd51c21f06c094b77eb30d}
+      \strng{authornamehash}{8f9aa69d12cd51c21f06c094b77eb30d}
+      \strng{authorfullhash}{8f9aa69d12cd51c21f06c094b77eb30d}
+      \field{extraname}{1}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Random graphs}
+      \field{year}{1998}
+      \true{nocite}
+    \endentry
     \entry{bollobas2013modern}{book}{}
       \name{author}{1}{}{%
         {{hash=8f9aa69d12cd51c21f06c094b77eb30d}{%
@@ -67,6 +93,7 @@
       \strng{authorbibnamehash}{8f9aa69d12cd51c21f06c094b77eb30d}
       \strng{authornamehash}{8f9aa69d12cd51c21f06c094b77eb30d}
       \strng{authorfullhash}{8f9aa69d12cd51c21f06c094b77eb30d}
+      \field{extraname}{2}
       \field{sortinit}{B}
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
       \field{labelnamesource}{author}
@@ -74,36 +101,6 @@
       \field{title}{Modern graph theory}
       \field{volume}{184}
       \field{year}{2013}
-      \true{nocite}
-    \endentry
-    \entry{bollobas1998random}{book}{}
-      \name{author}{2}{}{%
-        {{hash=8f9aa69d12cd51c21f06c094b77eb30d}{%
-           family={Bollobás},
-           familyi={B\bibinitperiod},
-           given={Béla},
-           giveni={B\bibinitperiod}}}%
-        {{hash=8f9aa69d12cd51c21f06c094b77eb30d}{%
-           family={Bollobás},
-           familyi={B\bibinitperiod},
-           given={Béla},
-           giveni={B\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Springer}%
-      }
-      \strng{namehash}{70ce1cb882efc8b573b82dbe2a333841}
-      \strng{fullhash}{1b820ff84a56711ac04c7ed93cc391ba}
-      \strng{bibnamehash}{1b820ff84a56711ac04c7ed93cc391ba}
-      \strng{authorbibnamehash}{1b820ff84a56711ac04c7ed93cc391ba}
-      \strng{authornamehash}{70ce1cb882efc8b573b82dbe2a333841}
-      \strng{authorfullhash}{1b820ff84a56711ac04c7ed93cc391ba}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Random graphs}
-      \field{year}{1998}
       \true{nocite}
     \endentry
     \entry{chung1989quasi}{article}{}
@@ -413,6 +410,36 @@
       \field{pages}{465\bibrangedash 588}
       \range{pages}{124}
     \endentry
+    \entry{gowers2012work}{article}{}
+      \name{author}{1}{}{%
+        {{hash=fca789c8d8642fdcf0c24e26455ba279}{%
+           family={Gowers},
+           familyi={G\bibinitperiod},
+           given={WT},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{fca789c8d8642fdcf0c24e26455ba279}
+      \strng{fullhash}{fca789c8d8642fdcf0c24e26455ba279}
+      \strng{bibnamehash}{fca789c8d8642fdcf0c24e26455ba279}
+      \strng{authorbibnamehash}{fca789c8d8642fdcf0c24e26455ba279}
+      \strng{authornamehash}{fca789c8d8642fdcf0c24e26455ba279}
+      \strng{authorfullhash}{fca789c8d8642fdcf0c24e26455ba279}
+      \field{extraname}{3}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Online}
+      \field{title}{The work of Endre Szemerédi}
+      \field{year}{2012}
+      \true{nocite}
+      \verb{urlraw}
+      \verb http://www.abelprize.no/c54147/binfil/download.php
+      \endverb
+      \verb{url}
+      \verb http://www.abelprize.no/c54147/binfil/download.php
+      \endverb
+    \endentry
     \entry{janson2011random}{book}{}
       \name{author}{3}{}{%
         {{hash=f636aecaf9ea5bf3a641d2c20e59a907}{%
@@ -447,6 +474,50 @@
       \field{title}{Random graphs}
       \field{year}{2011}
     \endentry
+    \entry{komlos2000regularity}{article}{}
+      \name{author}{4}{}{%
+        {{hash=3756019aaa8edc42f2cf872c9850284c}{%
+           family={Komlós},
+           familyi={K\bibinitperiod},
+           given={János},
+           giveni={J\bibinitperiod}}}%
+        {{hash=caf5e2b7c9b4da246deba96ed1d22dbf}{%
+           family={Shokoufandeh},
+           familyi={S\bibinitperiod},
+           given={Ali},
+           giveni={A\bibinitperiod}}}%
+        {{hash=6940bfccbf200c17ed75850ed2335305}{%
+           family={Simonovits},
+           familyi={S\bibinitperiod},
+           given={Miklós},
+           giveni={M\bibinitperiod}}}%
+        {{hash=11eac7d5df5a432005f8b6395c03384c}{%
+           family={Szemerédi},
+           familyi={S\bibinitperiod},
+           given={Endre},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{b0942041f613343fd740fc25fd8cfa58}
+      \strng{fullhash}{460679c9fb00b6d31a9383e4cc5349dc}
+      \strng{bibnamehash}{460679c9fb00b6d31a9383e4cc5349dc}
+      \strng{authorbibnamehash}{460679c9fb00b6d31a9383e4cc5349dc}
+      \strng{authornamehash}{b0942041f613343fd740fc25fd8cfa58}
+      \strng{authorfullhash}{460679c9fb00b6d31a9383e4cc5349dc}
+      \field{extraname}{1}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Summer school on theoretical aspects of computer science}
+      \field{title}{The regularity lemma and its applications in graph theory}
+      \field{year}{2000}
+      \true{nocite}
+      \field{pages}{84\bibrangedash 112}
+      \range{pages}{29}
+    \endentry
     \entry{komlos1995szemeredi}{misc}{}
       \name{author}{2}{}{%
         {{hash=3756019aaa8edc42f2cf872c9850284c}{%
@@ -469,6 +540,7 @@
       \strng{authorbibnamehash}{ee244506e3a89141e85b161aca13af53}
       \strng{authornamehash}{b0942041f613343fd740fc25fd8cfa58}
       \strng{authorfullhash}{ee244506e3a89141e85b161aca13af53}
+      \field{extraname}{2}
       \field{sortinit}{K}
       \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
       \field{labelnamesource}{author}
