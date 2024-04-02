@@ -223,7 +223,25 @@
 \chapter*{Agradecimientos}
 \addcontentsline{toc}{chapter}{Agradecimientos}
 
-Dōmo arigatōgozaimasu!
+Primero quiero agradecer a mi madre, por ser una figura y pilar fundamental en mi vida, que me ha brindado una comprensión y cariño que no se puede medir. A mi padre, por su apoyo completamente incondicional en todas las decisiones que he tomado, y por despertar mi curiosidad por los saberes de este mundo. A mi hermano, mi compañero de viaje, mi cómplice, gracias por traer alegrías a cada lugar que vas. Te amo y admiro mucho, y aunque este logro es personal, espero que solo sea uno de muchos en nuestro andar.
+
+También agredecer a los otros miembros de mi familia, quienes en todo momento me dieron palabras de aliento, y que de algún u otro modo, fueron parte de mi motivación en la elaboración de esta tesis. 
+
+Quiero dar una mención especial y profunda gratitud a mi amada, Lourdes. Sin su constante apoyo, los días habrían sido más grises en el desarrollo de este trabajo. Gracias por tu admirable empatía al entender mis problemas y tristezas, incluso cuando yo no les hallaba. Te agradezco por hacer que mis momentos de alegrías tengan muchos más colores.
+
+Mil gracias a aquellas personas que fueron parte de mi etapa universitaria y de la vida, hicieron que la travesía estuviese llena de momentos bellos. En particular, agradecer a Rodrigo, infinito amigo,  quien ha estado en todos los momentos más importantes de mi vida, y esta vez no fue la excepción. Cristian, por mostrarme lo lindas que pueden ser las coincidencias en la vida y la amistad duradera que a veces traen consigo. Catalina, por el Apoyo, Risas, Afecto y Motivación en la recta final de este trabajo. Ailine, por nuestras conversaciones terapéuticas y todas las veces que me dijiste ``Amigo, tú puedes''. Camilo, por mostrarme que la amistad puede ir más allá que el ser compañeros de trabajo, por tu dedicación, y por ser un referente para mí como profesional.
+
+Doy gracias a mis amistades de la música por mantener viva esta gran pasión que compartimos. En especial, a mis cofrades de la Tuna Mayor de Ciencia de la Universidad de Santiago de Chile. ¡Aúpa Tuna!.
+
+Quiero agradecer a mi profesor guía Hi\d{ê}p Hàn por su buena disposición, paciencia, y su inmensa comprensión y calidad humana. Aprecio mucho las conversaciones de la vida que tuvimos tomando un café. Fue realmente un honor trabajar con usted.
+
+Finalmente, agradezco al proyecto FONDECYT 1231599 por financiar esta tesis.
+
+\vfill
+\begin{quote}
+    \emph{Adiós, adiós, adiós, ciudad de mi querer, donde con ilusión mi carrera estudié. Adiós, mi universidad, cuyo reloj no volveré a escuchar...}
+\end{quote}
+
 
 \tableofcontents
 \addcontentsline{toc}{chapter}{\listfigurename}
@@ -237,12 +255,12 @@ Dōmo arigatōgozaimasu!
 Esta tesis tiene lugar en la \emph{combinatoria extremal}, que en la actualidad, es una de las ramas más populares en la matemática discreta. Una figura destacada del área es el matemático húngaro Endre Szemerédi, cuyo logro más conocido es su demostración de lo que hoy se conoce como \emph{teorema de Szemerédi} (1975), pero que antes era una famosa conjetura con décadas de antigüedad propuesta por Erd$\mathrm{\ddot{o}}$s y Turán. Sus aportes fueron tales que, en 2012, fue nombrado ganador del premio Abel con la siguiente cita:
 
 \begin{quote}
-    \textit{Por sus contribuciones fundamentales a las matemáticas discretas y la informática teórica, y en reconocimiento al profundo y duradero impacto de sus aportaciones sobre la teoría aditiva de números y la teoría ergódica.}
+    \textit{``Por sus contribuciones fundamentales a las matemáticas discretas y la informática teórica, y en reconocimiento al profundo y duradero impacto de sus aportaciones sobre la teoría aditiva de números y la teoría ergódica.''}
 \end{quote}
 
-Uno de los ingredientes en la demostración del teorema de Szemerédi es el hoy denominado \emph{lema de regularidad}, el cual se ha singularizado como un potente instrumento con múltiples aplicaciones y ha sido analizado desde diversas perspectivas. Antes del lema de regularidad, los grafos se consideraban como objetos carentes de estructura, después de todo, al especificar un grafo se decide para cada par de vértices si unirlos con una arista, y no hay restricción en absoluto sobre la desición. No obstante, Szemerédi notó que con la aleatoriedad se puede dar una descripción estructural útil a cualquier grafo completamente arbitrario. De manera muy general, el lema dice lo siguiente: dado cualquier grafo, existe una forma de dividir sus vértices en un número finito de conjuntos de tal manera que si se observan las aristas que unen a dos de esos conjuntos, parecen haber sido elegidas al azar. En otras palabras, cada grafo está compuesto por un número acotado de $"$grafos similares a aleatorios$"$. Esto nos indica que se puede dar una buena descripción de un grafo utilizando una cantidad pequeña de datos, puesto que una vez se han encontrado los conjuntos que proporciona el lema, solo hay que decir aproximadamente cuántas aristas hay entre cada par de esos conjuntos, y sabemos de antemano que estarán distribuidas de manera que parezcan aleatorias.
+Uno de los ingredientes en la demostración del teorema de Szemerédi es el hoy denominado \emph{lema de regularidad}, el cual se ha singularizado como un potente instrumento con múltiples aplicaciones y ha sido analizado desde diversas perspectivas. Antes del lema de regularidad, los grafos se consideraban como objetos carentes de estructura, después de todo, al especificar un grafo se decide para cada par de vértices si unirlos con una arista, y no hay restricción en absoluto sobre la desición. No obstante, Szemerédi notó que con la aleatoriedad se puede dar una descripción estructural útil a cualquier grafo completamente arbitrario. De manera muy general, el lema dice lo siguiente: dado cualquier grafo, existe una forma de dividir sus vértices en un número finito de conjuntos de tal manera que si se observan las aristas que unen a dos de esos conjuntos, parecen haber sido elegidas al azar. En otras palabras, cada grafo está compuesto por un número acotado de ``grafos similares a aleatorios''. Esto nos indica que se puede dar una buena descripción de un grafo utilizando una cantidad pequeña de datos, puesto que una vez se han encontrado los conjuntos que proporciona el lema, solo hay que decir aproximadamente cuántas aristas hay entre cada par de esos conjuntos, y sabemos de antemano que estarán distribuidas de manera que parezcan aleatorias.
 
-La tesis se divide esencialmente en tres partes. En la primera de ellas, se establecen las bases para las dos siguientes, abordando conceptos elementales de la teoría clásica y espectral de grafos, álgebra lineal, y la noción de un grafo aleatorio. La segunda, fundamenta la frase $"$grafos similares a aleatorios$"$ con la idea de \emph{cuasi-aleatoriedad}, es decir, el estudio de estructuras discretas deterministas que tienen propiedades con comportamientos esperados según su contraparte aleatoria. En particular, se presenta y demuestra rigurosamente el célebre teorema de Chung, Graham y Wilson, el cual entrega una extensa lista de propiedades equivalentes a la noción de cuasi-aleatoriedad. Por último, en la tercera parte, se exponen dos demostraciones del lema de regularidad de Szemerédi; la versión clásica vía \emph{incremento de energía}, y otra propuesta por Terence Tao usando un enfoque espectral. Seguido de esto, se estudia cómo utilizar el lema de regularidad en dos resultados particulares, los cuales prueban de manera independiente un caso particular del teorema de Szemerédi, el teorema de Roth.
+La tesis se divide esencialmente en tres partes. En la primera de ellas, se establecen las bases para las dos siguientes, abordando conceptos elementales de la teoría clásica y espectral de grafos, álgebra lineal, y la noción de un grafo aleatorio. La segunda, fundamenta la frase ``grafos similares a aleatorios'' con la idea de \emph{cuasi-aleatoriedad}, es decir, el estudio de estructuras discretas deterministas que tienen propiedades con comportamientos esperados según su contraparte aleatoria. En particular, se presenta y demuestra rigurosamente el célebre teorema de Chung, Graham y Wilson, el cual entrega una extensa lista de propiedades equivalentes a la noción de cuasi-aleatoriedad. Por último, en la tercera parte, se exponen dos demostraciones del lema de regularidad de Szemerédi; la versión clásica vía \emph{incremento de energía}, y otra propuesta por Terence Tao usando un enfoque espectral. Seguido de esto, se estudia cómo utilizar el lema de regularidad en dos resultados particulares, los cuales prueban de manera independiente un caso particular del teorema de Szemerédi, el teorema de Roth.
 
 %Esta tesis está enmarcada en el área de la matemática conocida como \emph%{combinatoria}, particularmente, en la subárea llamada \emph{combinatoria %extremal}. Una posible definición de la combinatoria es que es el estudio de %estructuras discretas, pero, ¿qué son ellas?. Bueno, usualmente la palabra %$"$discreta$"$ se contrasta con la palabra $"$continua$"$; una estructura es %continua si puedes moverte suavemente de una parte a otra, mientras que una %estructura es discreta si hay que dar $"$saltos$"$ para moverse en ella. Por %ejemplo, si se desea modelar un fluido, la estuctura que se debe elegir es la %continua, puesto que se especificarán variables como velocidades o presiones %en diferentes puntos, y éstos varían suavemente. Por el contrario, si se desea %modelar el interior de un computador, entonces el interés se torna en las %secuencias de ceros y unos, que son un ejemplo de una estructura discreta. %Otra estructura discreta, y quizás la más relevante en combinatoria, es el %grafo. En palabras simples, un grafo consiste en algunos puntos (\emph%{vértices}), de los cuales algunos (o todos) pares de ellos pueden estar %conectados por una línea (\emph{aristas}). Uno podría pensar que un grafo es %una estructura continua, porque puedes moverte suavemente a lo largo de cada %arista que conecta a dos vértices. Sin embargo, solo la representación visual %es continua, todo lo que nos importa de un grafo es qué pares de vértices, y %eso se puede representar con una lista simple. Es decir, si el grafo se ve %como los vértices y aristas de un cuadrado, la información de él se reduce a %decir que los vértices son $a$, $b$, $c$ y $d$, y definir las aristas como %$ab$, $bc$, $cd$ y $da$. 
 
@@ -2325,7 +2343,7 @@ Usualmente las aplicaciones del lema de regularidad de Szemerédi son abordadas 
 
 \begin{enumerate}
     \item Obtener una \textbf{partición} del conjunto de vértices de un grafo con el lema de regularidad.
-    \item \textbf{Limpiar} las aristas del que tengan un $"$mal comportamiento$"$ según el problema. Generalmente, se eliminan las aristas entre los pares de partes que presentan:
+    \item \textbf{Limpiar} las aristas del que tengan un ``mal comportamiento'' según el problema. Generalmente, se eliminan las aristas entre los pares de partes que presentan:
     \begin{itemize}
         \item[(i)] Irregularidad.
         \item[(ii)] Baja densidad.
@@ -2549,7 +2567,7 @@ Dado un grafo $G = (V,E)$, un subconjunto $R\subset E$ es un \textbf{emparejamie
 
 
 
-La presente aplicación del método de regularidad responde a la pregunta: \emph{¿Cuántas aristas puede tener un grafo que es la unión de emparejamientos inducidos?}. \fs{No sabría si aquí agregar un comentario referente a que la intuición dice que deben ser "pocas" aristas, pero la prueba no es trivial}
+La presente aplicación del método de regularidad responde a la pregunta: \emph{¿Cuántas aristas puede tener un grafo que es la unión de emparejamientos inducidos?}. \fs{No sabría si aquí agregar un comentario referente a que la intuición dice que deben ser ``pocas'' aristas, pero la prueba no es trivial}
 
 %%%% Teorema: Emparejamiento inducido
 \begin{teorema}  \label{Teo_emp_ind} (Emparejamiento inducido)

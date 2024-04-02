@@ -1,6 +1,6 @@
 \babel@toc {spanish}{}\relax 
 \contentsline {chapter}{Agradecimientos}{\es@scroman {iv}}{chapter*.3}%
-\contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {vi}}{chapter*.4}%
+\contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {vii}}{chapter*.4}%
 \contentsline {chapter}{Introducción}{1}{chapter*.6}%
 \contentsline {chapter}{\numberline {1}Preliminares}{3}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Teoría de grafos}{4}{section.1.1}%

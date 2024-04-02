@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.3)  1 APR 2024 03:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.3)  2 APR 2024 02:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1055,7 +1055,7 @@ Overfull \hbox (19.47154pt too wide) in paragraph at lines 135--153
 
 [2] [3]) [4
 
-] (C:\Tesis\Documento Tesis\build\main.toc
+] [5] (C:\Tesis\Documento Tesis\build\main.toc
 LaTeX Info: Redefining \sptext on input line 1.
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
@@ -1072,15 +1072,15 @@ Package spanish Warning: Replacing `OT1/cmr/bx/sc' by
 Package spanish Warning: Replacing `OT1/cmr/bx/sc' by 
 (spanish)                faked small caps on input line 3.
 
-[5
+[6
 
 ])
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
-LaTeX Info: Redefining \. on input line 230.
-LaTeX Info: Redefining \% on input line 230.
- [6] (C:\Tesis\Documento Tesis\build\main.lof
+LaTeX Info: Redefining \. on input line 248.
+LaTeX Info: Redefining \% on input line 248.
+ [7] (C:\Tesis\Documento Tesis\build\main.lof
 LaTeX Info: Redefining \sptext on input line 1.
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
@@ -1088,149 +1088,149 @@ LaTeX Info: Redefining \% on input line 1.
 \tf@lof=\write7
 \openout7 = `main.lof'.
 
- [7
+ [8
 
 ]
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.244 
+l.262 
        [1
 
 
 ]
-LaTeX Info: Redefining \. on input line 261.
-LaTeX Info: Redefining \% on input line 261.
+LaTeX Info: Redefining \. on input line 279.
+LaTeX Info: Redefining \% on input line 279.
  [2]
 Cap\'{\i }tulo 1.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 12.0pt on input line 265.
+(Font)              scaled to size 12.0pt on input line 283.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 8.0pt on input line 265.
+(Font)              scaled to size 8.0pt on input line 283.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 6.0pt on input line 265.
+(Font)              scaled to size 6.0pt on input line 283.
 [3
 
 ]
-LaTeX Info: Redefining \. on input line 321.
-LaTeX Info: Redefining \% on input line 321.
+LaTeX Info: Redefining \. on input line 339.
+LaTeX Info: Redefining \% on input line 339.
  [4]
-LaTeX Font Info:    Trying to load font information for U+bbm on input line 329.
+LaTeX Font Info:    Trying to load font information for U+bbm on input line 347.
  (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/latex/bbm\ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
-LaTeX Info: Redefining \. on input line 359.
-LaTeX Info: Redefining \% on input line 359.
+LaTeX Info: Redefining \. on input line 377.
+LaTeX Info: Redefining \% on input line 377.
  [5]
-LaTeX Info: Redefining \. on input line 390.
-LaTeX Info: Redefining \% on input line 390.
+LaTeX Info: Redefining \. on input line 408.
+LaTeX Info: Redefining \% on input line 408.
  [6]
-LaTeX Info: Redefining \. on input line 486.
-LaTeX Info: Redefining \% on input line 486.
+LaTeX Info: Redefining \. on input line 504.
+LaTeX Info: Redefining \% on input line 504.
  [7]
-Overfull \hbox (91.9455pt too wide) detected at line 518
+Overfull \hbox (91.9455pt too wide) detected at line 536
 []
  []
 
-LaTeX Info: Redefining \. on input line 527.
-LaTeX Info: Redefining \% on input line 527.
+LaTeX Info: Redefining \. on input line 545.
+LaTeX Info: Redefining \% on input line 545.
 [8]
-LaTeX Info: Redefining \. on input line 582.
-LaTeX Info: Redefining \% on input line 582.
+LaTeX Info: Redefining \. on input line 600.
+LaTeX Info: Redefining \% on input line 600.
  [9]
-LaTeX Info: Redefining \. on input line 643.
-LaTeX Info: Redefining \% on input line 643.
+LaTeX Info: Redefining \. on input line 661.
+LaTeX Info: Redefining \% on input line 661.
  [10]
-LaTeX Info: Redefining \. on input line 677.
-LaTeX Info: Redefining \% on input line 677.
+LaTeX Info: Redefining \. on input line 695.
+LaTeX Info: Redefining \% on input line 695.
  [11]
-LaTeX Info: Redefining \. on input line 694.
-LaTeX Info: Redefining \% on input line 694.
+LaTeX Info: Redefining \. on input line 712.
+LaTeX Info: Redefining \% on input line 712.
  [12]
-LaTeX Info: Redefining \. on input line 733.
-LaTeX Info: Redefining \% on input line 733.
+LaTeX Info: Redefining \. on input line 751.
+LaTeX Info: Redefining \% on input line 751.
  [13]
-LaTeX Info: Redefining \. on input line 766.
-LaTeX Info: Redefining \% on input line 766.
+LaTeX Info: Redefining \. on input line 784.
+LaTeX Info: Redefining \% on input line 784.
  [14]
-LaTeX Info: Redefining \. on input line 801.
-LaTeX Info: Redefining \% on input line 801.
+LaTeX Info: Redefining \. on input line 819.
+LaTeX Info: Redefining \% on input line 819.
  [15]
-LaTeX Info: Redefining \. on input line 838.
-LaTeX Info: Redefining \% on input line 838.
+LaTeX Info: Redefining \. on input line 856.
+LaTeX Info: Redefining \% on input line 856.
  [16]
-LaTeX Info: Redefining \. on input line 879.
-LaTeX Info: Redefining \% on input line 879.
+LaTeX Info: Redefining \. on input line 897.
+LaTeX Info: Redefining \% on input line 897.
  [17]
-LaTeX Info: Redefining \. on input line 902.
-LaTeX Info: Redefining \% on input line 902.
+LaTeX Info: Redefining \. on input line 920.
+LaTeX Info: Redefining \% on input line 920.
  [18]
-LaTeX Info: Redefining \. on input line 947.
-LaTeX Info: Redefining \% on input line 947.
+LaTeX Info: Redefining \. on input line 965.
+LaTeX Info: Redefining \% on input line 965.
  [19]
-LaTeX Info: Redefining \. on input line 989.
-LaTeX Info: Redefining \% on input line 989.
+LaTeX Info: Redefining \. on input line 1007.
+LaTeX Info: Redefining \% on input line 1007.
  [20]
 Cap\'{\i }tulo 2.
 [21
 
 ]
-LaTeX Info: Redefining \. on input line 1019.
-LaTeX Info: Redefining \% on input line 1019.
+LaTeX Info: Redefining \. on input line 1037.
+LaTeX Info: Redefining \% on input line 1037.
  [22]
-LaTeX Info: Redefining \. on input line 1057.
-LaTeX Info: Redefining \% on input line 1057.
+LaTeX Info: Redefining \. on input line 1075.
+LaTeX Info: Redefining \% on input line 1075.
  [23]
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 10.0pt on input line 1062.
+(Font)              scaled to size 10.0pt on input line 1080.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 7.0pt on input line 1062.
+(Font)              scaled to size 7.0pt on input line 1080.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 5.0pt on input line 1062.
-LaTeX Info: Redefining \. on input line 1086.
-LaTeX Info: Redefining \% on input line 1086.
+(Font)              scaled to size 5.0pt on input line 1080.
+LaTeX Info: Redefining \. on input line 1104.
+LaTeX Info: Redefining \% on input line 1104.
  [24]
-LaTeX Info: Redefining \. on input line 1123.
-LaTeX Info: Redefining \% on input line 1123.
+LaTeX Info: Redefining \. on input line 1141.
+LaTeX Info: Redefining \% on input line 1141.
  [25]
-LaTeX Info: Redefining \. on input line 1157.
-LaTeX Info: Redefining \% on input line 1157.
+LaTeX Info: Redefining \. on input line 1175.
+LaTeX Info: Redefining \% on input line 1175.
  [26]
-LaTeX Info: Redefining \. on input line 1224.
-LaTeX Info: Redefining \% on input line 1224.
+LaTeX Info: Redefining \. on input line 1242.
+LaTeX Info: Redefining \% on input line 1242.
  [27]
-LaTeX Info: Redefining \. on input line 1241.
-LaTeX Info: Redefining \% on input line 1241.
+LaTeX Info: Redefining \. on input line 1259.
+LaTeX Info: Redefining \% on input line 1259.
  [28]
-LaTeX Info: Redefining \. on input line 1311.
-LaTeX Info: Redefining \% on input line 1311.
+LaTeX Info: Redefining \. on input line 1329.
+LaTeX Info: Redefining \% on input line 1329.
  [29]
-LaTeX Info: Redefining \. on input line 1341.
-LaTeX Info: Redefining \% on input line 1341.
+LaTeX Info: Redefining \. on input line 1359.
+LaTeX Info: Redefining \% on input line 1359.
  [30]
-LaTeX Info: Redefining \. on input line 1368.
-LaTeX Info: Redefining \% on input line 1368.
+LaTeX Info: Redefining \. on input line 1386.
+LaTeX Info: Redefining \% on input line 1386.
  [31]
-LaTeX Info: Redefining \. on input line 1389.
-LaTeX Info: Redefining \% on input line 1389.
+LaTeX Info: Redefining \. on input line 1407.
+LaTeX Info: Redefining \% on input line 1407.
  [32]
-LaTeX Info: Redefining \. on input line 1426.
-LaTeX Info: Redefining \% on input line 1426.
+LaTeX Info: Redefining \. on input line 1444.
+LaTeX Info: Redefining \% on input line 1444.
  [33]
-LaTeX Info: Redefining \. on input line 1460.
-LaTeX Info: Redefining \% on input line 1460.
+LaTeX Info: Redefining \. on input line 1478.
+LaTeX Info: Redefining \% on input line 1478.
  [34]
-LaTeX Info: Redefining \. on input line 1470.
-LaTeX Info: Redefining \% on input line 1470.
+LaTeX Info: Redefining \. on input line 1488.
+LaTeX Info: Redefining \% on input line 1488.
  [35]
 
-c:/Tesis/Documento Tesis/main.tex:1500: Package pgfkeys Error: I do not know the key '/tikz/minimim size', to which you passed '2pt', and I am going to ignore it. Perhaps you misspelled it.
+c:/Tesis/Documento Tesis/main.tex:1518: Package pgfkeys Error: I do not know the key '/tikz/minimim size', to which you passed '2pt', and I am going to ignore it. Perhaps you misspelled it.
 
 See the pgfkeys package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1500 ...ristas permitidas dentro del grafo $G$.}
+l.1518 ...ristas permitidas dentro del grafo $G$.}
                                                   
 This error message was generated by an \errmessage
 command, so I can't give any explicit help.
@@ -1238,159 +1238,159 @@ Pretend that you're Hercule Poirot: Examine all clues,
 and deduce the truth by order and method.
 
 
-c:/Tesis/Documento Tesis/main.tex:1500: Package pgfkeys Error: I do not know the key '/tikz/minimim size', to which you passed '2pt', and I am going to ignore it. Perhaps you misspelled it.
+c:/Tesis/Documento Tesis/main.tex:1518: Package pgfkeys Error: I do not know the key '/tikz/minimim size', to which you passed '2pt', and I am going to ignore it. Perhaps you misspelled it.
 
 See the pgfkeys package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1500 ...ristas permitidas dentro del grafo $G$.}
+l.1518 ...ristas permitidas dentro del grafo $G$.}
                                                   
 (That was another \errmessage.)
 
-LaTeX Info: Redefining \. on input line 1534.
-LaTeX Info: Redefining \% on input line 1534.
+LaTeX Info: Redefining \. on input line 1552.
+LaTeX Info: Redefining \% on input line 1552.
 [36]
-LaTeX Info: Redefining \. on input line 1569.
-LaTeX Info: Redefining \% on input line 1569.
+LaTeX Info: Redefining \. on input line 1587.
+LaTeX Info: Redefining \% on input line 1587.
  [37]
-LaTeX Info: Redefining \. on input line 1684.
-LaTeX Info: Redefining \% on input line 1684.
+LaTeX Info: Redefining \. on input line 1702.
+LaTeX Info: Redefining \% on input line 1702.
  [38]
-LaTeX Info: Redefining \. on input line 1717.
-LaTeX Info: Redefining \% on input line 1717.
+LaTeX Info: Redefining \. on input line 1735.
+LaTeX Info: Redefining \% on input line 1735.
  [39]
-LaTeX Info: Redefining \. on input line 1745.
-LaTeX Info: Redefining \% on input line 1745.
+LaTeX Info: Redefining \. on input line 1763.
+LaTeX Info: Redefining \% on input line 1763.
  [40]
-LaTeX Info: Redefining \. on input line 1754.
-LaTeX Info: Redefining \% on input line 1754.
+LaTeX Info: Redefining \. on input line 1772.
+LaTeX Info: Redefining \% on input line 1772.
  [41]
 Cap\'{\i }tulo 3.
 [42
 
 ]
-<Imágenes/diag_demo_Sz_Teo.png, id=530, 447.92343pt x 391.4625pt>
+<Imágenes/diag_demo_Sz_Teo.png, id=534, 447.92343pt x 391.4625pt>
 File: Imágenes/diag_demo_Sz_Teo.png Graphic file (type png)
 <use Imágenes/diag_demo_Sz_Teo.png>
-Package pdftex.def Info: Imágenes/diag_demo_Sz_Teo.png  used on input line 1769.
+Package pdftex.def Info: Imágenes/diag_demo_Sz_Teo.png  used on input line 1787.
 (pdftex.def)             Requested size: 257.61388pt x 225.14891pt.
-<Imágenes/szemerédi_lemma_ilustration.png, id=537, 408.3255pt x 221.628pt>
+<Imágenes/szemerédi_lemma_ilustration.png, id=541, 408.3255pt x 221.628pt>
 File: Imágenes/szemerédi_lemma_ilustration.png Graphic file (type png)
 <use Imágenes/szemerédi_lemma_ilustration.png>
-Package pdftex.def Info: Imágenes/szemerédi_lemma_ilustration.png  used on input line 1779.
+Package pdftex.def Info: Imágenes/szemerédi_lemma_ilustration.png  used on input line 1797.
 (pdftex.def)             Requested size: 257.61388pt x 139.82928pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Info: Redefining \. on input line 1784.
-LaTeX Info: Redefining \% on input line 1784.
+LaTeX Info: Redefining \. on input line 1802.
+LaTeX Info: Redefining \% on input line 1802.
 [43 <./Imágenes/diag_demo_Sz_Teo.png>]
-LaTeX Info: Redefining \. on input line 1809.
-LaTeX Info: Redefining \% on input line 1809.
+LaTeX Info: Redefining \. on input line 1827.
+LaTeX Info: Redefining \% on input line 1827.
  [44 <./Imágenes/szemerédi_lemma_ilustration.png>]
-<Imágenes/eps_regular_pair.png, id=552, 309.5565pt x 154.77824pt>
+<Imágenes/eps_regular_pair.png, id=556, 309.5565pt x 154.77824pt>
 File: Imágenes/eps_regular_pair.png Graphic file (type png)
 <use Imágenes/eps_regular_pair.png>
-Package pdftex.def Info: Imágenes/eps_regular_pair.png  used on input line 1813.
+Package pdftex.def Info: Imágenes/eps_regular_pair.png  used on input line 1831.
 (pdftex.def)             Requested size: 257.61388pt x 128.81543pt.
-LaTeX Info: Redefining \. on input line 1844.
-LaTeX Info: Redefining \% on input line 1844.
+LaTeX Info: Redefining \. on input line 1862.
+LaTeX Info: Redefining \% on input line 1862.
  [45 <./Imágenes/eps_regular_pair.png>]
-LaTeX Info: Redefining \. on input line 1883.
-LaTeX Info: Redefining \% on input line 1883.
+LaTeX Info: Redefining \. on input line 1901.
+LaTeX Info: Redefining \% on input line 1901.
  [46]
-LaTeX Info: Redefining \. on input line 1916.
-LaTeX Info: Redefining \% on input line 1916.
+LaTeX Info: Redefining \. on input line 1934.
+LaTeX Info: Redefining \% on input line 1934.
  [47]
-LaTeX Info: Redefining \. on input line 1945.
-LaTeX Info: Redefining \% on input line 1945.
+LaTeX Info: Redefining \. on input line 1963.
+LaTeX Info: Redefining \% on input line 1963.
  [48]
-LaTeX Info: Redefining \. on input line 1978.
-LaTeX Info: Redefining \% on input line 1978.
+LaTeX Info: Redefining \. on input line 1996.
+LaTeX Info: Redefining \% on input line 1996.
  [49]
-LaTeX Info: Redefining \. on input line 2016.
-LaTeX Info: Redefining \% on input line 2016.
+LaTeX Info: Redefining \. on input line 2034.
+LaTeX Info: Redefining \% on input line 2034.
  [50]
-LaTeX Info: Redefining \. on input line 2054.
-LaTeX Info: Redefining \% on input line 2054.
+LaTeX Info: Redefining \. on input line 2072.
+LaTeX Info: Redefining \% on input line 2072.
  [51]
-LaTeX Info: Redefining \. on input line 2076.
-LaTeX Info: Redefining \% on input line 2076.
+LaTeX Info: Redefining \. on input line 2094.
+LaTeX Info: Redefining \% on input line 2094.
  [52]
-<Imágenes/Partition_by_irregularity.png, id=667, 481.8pt x 289.68225pt>
+<Imágenes/Partition_by_irregularity.png, id=672, 481.8pt x 289.68225pt>
 File: Imágenes/Partition_by_irregularity.png Graphic file (type png)
 <use Imágenes/Partition_by_irregularity.png>
-Package pdftex.def Info: Imágenes/Partition_by_irregularity.png  used on input line 2079.
+Package pdftex.def Info: Imágenes/Partition_by_irregularity.png  used on input line 2097.
 (pdftex.def)             Requested size: 386.41426pt x 232.33841pt.
-LaTeX Info: Redefining \. on input line 2099.
-LaTeX Info: Redefining \% on input line 2099.
+LaTeX Info: Redefining \. on input line 2117.
+LaTeX Info: Redefining \% on input line 2117.
  [53 <./Imágenes/Partition_by_irregularity.png>]
-LaTeX Info: Redefining \. on input line 2111.
-LaTeX Info: Redefining \% on input line 2111.
+LaTeX Info: Redefining \. on input line 2129.
+LaTeX Info: Redefining \% on input line 2129.
  [54]
-LaTeX Info: Redefining \. on input line 2136.
-LaTeX Info: Redefining \% on input line 2136.
+LaTeX Info: Redefining \. on input line 2154.
+LaTeX Info: Redefining \% on input line 2154.
  [55]
-LaTeX Info: Redefining \. on input line 2159.
-LaTeX Info: Redefining \% on input line 2159.
+LaTeX Info: Redefining \. on input line 2177.
+LaTeX Info: Redefining \% on input line 2177.
  [56]
-LaTeX Info: Redefining \. on input line 2189.
-LaTeX Info: Redefining \% on input line 2189.
+LaTeX Info: Redefining \. on input line 2207.
+LaTeX Info: Redefining \% on input line 2207.
  [57]
-LaTeX Info: Redefining \. on input line 2226.
-LaTeX Info: Redefining \% on input line 2226.
+LaTeX Info: Redefining \. on input line 2244.
+LaTeX Info: Redefining \% on input line 2244.
  [58]
-LaTeX Info: Redefining \. on input line 2254.
-LaTeX Info: Redefining \% on input line 2254.
+LaTeX Info: Redefining \. on input line 2272.
+LaTeX Info: Redefining \% on input line 2272.
  [59]
-LaTeX Info: Redefining \. on input line 2287.
-LaTeX Info: Redefining \% on input line 2287.
+LaTeX Info: Redefining \. on input line 2305.
+LaTeX Info: Redefining \% on input line 2305.
  [60]
-LaTeX Info: Redefining \. on input line 2317.
-LaTeX Info: Redefining \% on input line 2317.
+LaTeX Info: Redefining \. on input line 2335.
+LaTeX Info: Redefining \% on input line 2335.
  [61]
-LaTeX Info: Redefining \. on input line 2346.
-LaTeX Info: Redefining \% on input line 2346.
+LaTeX Info: Redefining \. on input line 2364.
+LaTeX Info: Redefining \% on input line 2364.
  [62]
-LaTeX Info: Redefining \. on input line 2374.
-LaTeX Info: Redefining \% on input line 2374.
+LaTeX Info: Redefining \. on input line 2392.
+LaTeX Info: Redefining \% on input line 2392.
  [63]
-LaTeX Info: Redefining \. on input line 2400.
-LaTeX Info: Redefining \% on input line 2400.
+LaTeX Info: Redefining \. on input line 2418.
+LaTeX Info: Redefining \% on input line 2418.
  [64]
-LaTeX Info: Redefining \. on input line 2426.
-LaTeX Info: Redefining \% on input line 2426.
+LaTeX Info: Redefining \. on input line 2444.
+LaTeX Info: Redefining \% on input line 2444.
  [65]
-LaTeX Info: Redefining \. on input line 2460.
-LaTeX Info: Redefining \% on input line 2460.
+LaTeX Info: Redefining \. on input line 2478.
+LaTeX Info: Redefining \% on input line 2478.
  [66]
-LaTeX Info: Redefining \. on input line 2479.
-LaTeX Info: Redefining \% on input line 2479.
+LaTeX Info: Redefining \. on input line 2497.
+LaTeX Info: Redefining \% on input line 2497.
  [67]
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 10.95pt on input line 2485.
-LaTeX Info: Redefining \. on input line 2570.
-LaTeX Info: Redefining \% on input line 2570.
+(Font)              scaled to size 10.95pt on input line 2503.
+LaTeX Info: Redefining \. on input line 2588.
+LaTeX Info: Redefining \% on input line 2588.
  [68]
-LaTeX Info: Redefining \. on input line 2598.
-LaTeX Info: Redefining \% on input line 2598.
+LaTeX Info: Redefining \. on input line 2616.
+LaTeX Info: Redefining \% on input line 2616.
  [69]
-LaTeX Info: Redefining \. on input line 2621.
-LaTeX Info: Redefining \% on input line 2621.
+LaTeX Info: Redefining \. on input line 2639.
+LaTeX Info: Redefining \% on input line 2639.
  [70]
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 24.88pt on input line 2646.
+(Font)              scaled to size 24.88pt on input line 2664.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 20.74pt on input line 2646.
+(Font)              scaled to size 20.74pt on input line 2664.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 17.28pt on input line 2646.
-LaTeX Info: Redefining \. on input line 2685.
-LaTeX Info: Redefining \% on input line 2685.
+(Font)              scaled to size 17.28pt on input line 2664.
+LaTeX Info: Redefining \. on input line 2703.
+LaTeX Info: Redefining \% on input line 2703.
  [71]
-LaTeX Info: Redefining \. on input line 2719.
-LaTeX Info: Redefining \% on input line 2719.
+LaTeX Info: Redefining \. on input line 2737.
+LaTeX Info: Redefining \% on input line 2737.
  [72] (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryarrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfarrowinset=\dimen289
@@ -1398,32 +1398,32 @@ File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfarrowwidth=\dimen291
 \pgfarrowlinewidth=\dimen292
 )
-Underfull \hbox (badness 2269) in paragraph at lines 2789--2789
+Underfull \hbox (badness 2269) in paragraph at lines 2807--2807
 []\OT1/cmr/m/n/12 Figura 3.7: |Ejem-plo del em-pa-re-ja-mien-to ge-ne-ra-do por la
  []
 
 
-Underfull \hbox (badness 6927) in paragraph at lines 2789--2789
+Underfull \hbox (badness 6927) in paragraph at lines 2807--2807
 \OT1/cmr/m/n/12 cla-se de equi-va-len-cia aso-cia-da a $\OML/cmm/m/it/12 q \OT1/cmr/m/n/12 = 5$, y $\OML/cmm/m/it/12 S \OT1/cmr/m/n/12 =
  []
 
-LaTeX Info: Redefining \. on input line 2797.
-LaTeX Info: Redefining \% on input line 2797.
+LaTeX Info: Redefining \. on input line 2815.
+LaTeX Info: Redefining \% on input line 2815.
 [73]
-LaTeX Info: Redefining \. on input line 3165.
-LaTeX Info: Redefining \% on input line 3165.
+LaTeX Info: Redefining \. on input line 3183.
+LaTeX Info: Redefining \% on input line 3183.
  [74] [75
 
 ]
-Overfull \hbox (0.55585pt too wide) in paragraph at lines 3168--3168
+Overfull \hbox (0.55585pt too wide) in paragraph at lines 3186--3186
 \OT1/cmr/m/n/12 lem-ma''. En: \OT1/cmr/m/it/12 Geo-me-tric & Fun-ctio-nal Analy-sis GA-FA \OT1/cmr/m/n/12 7.2 (1997), p^^Sags. 322[]337. 
  []
 
-LaTeX Info: Redefining \. on input line 3168.
-LaTeX Info: Redefining \% on input line 3168.
+LaTeX Info: Redefining \. on input line 3186.
+LaTeX Info: Redefining \% on input line 3186.
 [76]
-LaTeX Info: Redefining \. on input line 3176.
-LaTeX Info: Redefining \% on input line 3176.
+LaTeX Info: Redefining \. on input line 3194.
+LaTeX Info: Redefining \% on input line 3194.
  [77] (C:\Tesis\Documento Tesis\build\main.aux
 LaTeX Info: Redefining \sptext on input line 12.
 LaTeX Info: Redefining \. on input line 12.
@@ -1444,17 +1444,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36109 strings out of 474542
- 698759 string characters out of 5743975
+ 36104 strings out of 474542
+ 698690 string characters out of 5743975
  1950978 words of memory out of 5000000
- 57495 multiletter control sequences out of 15000+600000
+ 57489 multiletter control sequences out of 15000+600000
  586691 words of font info for 145 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,20n,117p,1776b,2311s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,20n,117p,1776b,2309s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Felipe\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbm/dpi600\bbm12.pk> <C:\Users\Felipe\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/dsserif/DSSerif.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on "C:\Tesis\Documento Tesis\build\main.pdf" (85 pages, 887096 bytes).
+Output written on "C:\Tesis\Documento Tesis\build\main.pdf" (86 pages, 890466 bytes).
 PDF statistics:
- 1075 PDF objects out of 1200 (max. 8388607)
- 250 named destinations out of 1000 (max. 500000)
+ 1079 PDF objects out of 1200 (max. 8388607)
+ 251 named destinations out of 1000 (max. 500000)
  182 words of extra memory for PDF output out of 10000 (max. 10000000)
 
