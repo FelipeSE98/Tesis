@@ -304,7 +304,7 @@ Un \textbf{grafo} es un par $G = (V,E)$, donde $V$ representa el conjunto de \te
     \end{tikzpicture}
     \caption[Ejemplo de un grafo]{Ejemplo de un grafo con conjunto de vértices $V = \lbrace 1,2,3,4,5\rbrace$ y conjunto de aristas $E =  \lbrace 12, 23, 13, 45\rbrace$.}
 \end{figure} 
-Si $G = (V,E)$ es un grafo cualquiera y $u,v\in V$, se dirá que $u$ es \textbf{adyacente} a $v$ (o viceversa) si y solamente si $uv\in E$. Si $X,Y\subset V$ son dos subconjuntos no necesariamente disjuntos, se define el conjunto de tuplas que forman una arista de la siguiente manera:
+Si $G = (V,E)$ es un grafo cualquiera y $u,v\in V$, se dirá que $u$ es \textbf{adyacente} a $v$ (o viceversa) si y solamente si $uv\in E$. Si $X,Y\subset V$ son dos subconjuntos no necesariamente disjuntos, se define la cantidad de tuplas que forman una arista de la siguiente manera:
 \begin{equation} \label{eq e(X,Y)}
     e(X,Y) := \Big|\lbrace (x,y)\in X\times Y : xy\in E\rbrace\Big|.
 \end{equation}
@@ -599,8 +599,8 @@ Observe que la construcción anterior resulta siempre en una matriz simétrica, 
         \deg(1) \\
         \vdots \\
         \deg(n)
-    \end{pmatrix}
-\end{equation}.
+    \end{pmatrix}.
+\end{equation}
 Otro aspecto interesante de la matriz de adyacencia que será de utilidad en la sección~\ref{Sec. LRS}, es que nos permite reescribir la ecuación~\eqref{eq e(X,Y)} en función de ella. Para ver esto, considere la matriz de adyacencia $A$ del grafo $G = ([n], E)$, y los vértices $i,j\in [n]$. Luego, según la Definición~\ref{matriz_adyacencia},
 \begin{equation*}
     e(\lbrace i\rbrace, \lbrace j\rbrace) = \boldsymbol{e}_i^{T} A \boldsymbol{e}_{j} = a_{ij}.
@@ -1962,7 +1962,7 @@ Para la segunda demostración del Teorema de Roth, será necesario un resultado 
     Para todo $\varepsilon > 0$, existe $n_0\in\mathbb{N}$ tal que siempre que $n\geq n_0$, todo subconjunto $S\subset [n]^{2}$ con $|S| \geq \varepsilon n^{2}$ posee elementos de la forma $\lbrace (a,b), (a+d, b), (a, b+d)\rbrace$ para algún $a,b,d \in \mathbb{N}$, con $d \not= 0$.
 \end{teorema}
 \begin{proof} %%%% Demostración: Esquina (Ajtai-Szemerédi)
-    Sea $\varepsilon > 0$. Consideramos $n_0\in\mathbb{N}$ suficientemente grande y $S\subset [n]^{2}$ con al menos $\varepsilon n^{2}$ elementos, y $n\geq n_0$.
+    Dado $\varepsilon >0$, utilizamos el Teorema~\ref{Teo_emp_ind} con $\frac{\varepsilon}{4}$ para recibir $n_0 \in \mathbb{N}$. Entonces, para $n\geq n_0$, sea el conjunto $S\subset [n]^{2}$ con al menos $\varepsilon n^{2}$ elementos.
 
     Vamos a construir un grafo bipartito $G = (U\cup W, E)$ con conjunto de vértices $U = \lbrace u_1,...,u_n\rbrace$ y  $W = \lbrace w_1,...,w_n\rbrace$ definiendo las aristas de la siguiente manera:
     \[
@@ -2046,7 +2046,7 @@ Para la segunda demostración del Teorema de Roth, será necesario un resultado 
         \caption[Ejemplo de emparejamiento generado por una clase de equivalencia]{Ejemplo del emparejamiento generado por la clase de equivalencia asociada a $q=5$, y $S = \lbrace (1,2), (1,4), (2,2), (2,3), (3,3), (4,1), (4,4) \rbrace$.}
     \end{figure}
 
-    Luego, como $e_G = |S| \geq \varepsilon n^{2} = \frac{\varepsilon}{4}(2n)^{2}$, el Teorema de emparejamiento inducido asegura que existe al menos un emparejamiento no inducido. Esto significa que en al menos un emparejamiento que contiene las aristas con la relación $u_i w_j \sim u_k w_\ell$ puede existir el trío de aristas $u_i w_j$, $u_k w_\ell$ y $u_i w_\ell$. Así, para algún $d\in \mathbb{N}$, $(i,j)$, $(k,\ell)$ y $(i,\ell)$ son elementos de $S$ que satisfacen
+    Luego, como $e_G = |S| \geq \varepsilon n^{2} = \frac{\varepsilon}{4}(2n)^{2}$, el Teorema~\ref{Teo_emp_ind} asegura que existe al menos un emparejamiento no inducido. Esto significa que en al menos un emparejamiento que contiene las aristas con la relación $u_i w_j \sim u_k w_\ell$ puede existir el trío de aristas $u_i w_j$, $u_k w_\ell$ y $u_i w_\ell$. Así, para algún $d\in \mathbb{N}$, $(i,j)$, $(k,\ell)$ y $(i,\ell)$ son elementos de $S$ que satisfacen
     \[
         k - i = j - \ell = d.
     \]
@@ -2090,11 +2090,9 @@ Para la segunda demostración del Teorema de Roth, será necesario un resultado 
 \end{proof}
 El resultado anterior otorga lo necesario para la segunda demostración (J. Solymosi \cite{solymosi2003note}) del Teorema de Roth utilizando el Lema de regularidad de Szemerédi.
 \begin{proof}[Segunda demostración Teorema~\ref{Teorema_de_Roth}]
-    Dado $\varepsilon > 0$, escogemos $n_0\in\mathbb{N}$ suficientemente grande. Para $n\geq n_0$, sea $S\subset [n]$ un conjunto que posee al menos $\varepsilon n$ elementos. Se define el siguiente conjunto:
-    \[
-        B = \lbrace (x,y)\in [2n]^{2} : x-y\in S\rbrace,
-    \]
-    Observe que cada $s\in S$ da lugar a exactamente $n$ elementos en $B$ con $x-y=s$, permitiendo determinar que $|B| = n|S| \geq \varepsilon n^{2}$. Luego, el Teorema~\ref{Corner_Theorem} asegura la existencia de elementos de la forma $\lbrace (s,b), (s, b+d), (s+d,b)\rbrace$ en $B$. Por consecuencia, se encuentra una progresión aritmética de largo $3$ no trivial en $A$ tomando $x = s-b$, e $y = d$.
+    Dado $\varepsilon > 0$, se utiliza el Teorema~\ref{Corner_Theorem} con esta elección para obtener $n_0 \in\mathbb{N}$. Para $n\geq n_0$, sea $S\subset [n]$ un conjunto que posee al menos $\varepsilon n$ elementos. Defina el siguiente conjunto:
+
+    Observe que cada $s\in S$ da lugar a exactamente $n$ elementos en $B$ con $x-y=s$, permitiendo determinar que $|B| = n|S| \geq \varepsilon n^{2}$. Entonces, el Teorema~\ref{Corner_Theorem} asegura la existencia de elementos de la forma $\lbrace (s,b), (s, b+d), (s+d,b)\rbrace$ en $B$. Por consecuencia, se encuentra una progresión aritmética de largo $3$ no trivial en $A$ tomando $x = s-b$, e $y = d$.
 \end{proof}
 
 \chapter*{Bibliografía}
