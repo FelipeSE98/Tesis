@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.3)  4 APR 2024 17:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.3)  5 APR 2024 02:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1286,58 +1286,48 @@ LaTeX Info: Redefining \% on input line 1491.
 File: Imágenes/Partition_by_irregularity.png Graphic file (type png)
 <use Imágenes/Partition_by_irregularity.png>
 Package pdftex.def Info: Imágenes/Partition_by_irregularity.png  used on input line 1494.
-(pdftex.def)             Requested size: 386.41426pt x 232.33841pt.
-LaTeX Info: Redefining \. on input line 1511.
-LaTeX Info: Redefining \% on input line 1511.
+(pdftex.def)             Requested size: 343.48299pt x 206.5245pt.
+LaTeX Info: Redefining \. on input line 1512.
+LaTeX Info: Redefining \% on input line 1512.
  [45 <./Imágenes/Partition_by_irregularity.png>]
-LaTeX Info: Redefining \. on input line 1524.
-LaTeX Info: Redefining \% on input line 1524.
+LaTeX Info: Redefining \. on input line 1533.
+LaTeX Info: Redefining \% on input line 1533.
  [46]
-LaTeX Info: Redefining \. on input line 1542.
-LaTeX Info: Redefining \% on input line 1542.
+LaTeX Info: Redefining \. on input line 1545.
+LaTeX Info: Redefining \% on input line 1545.
  [47]
-LaTeX Info: Redefining \. on input line 1555.
-LaTeX Info: Redefining \% on input line 1555.
+LaTeX Info: Redefining \. on input line 1571.
+LaTeX Info: Redefining \% on input line 1571.
  [48]
-LaTeX Info: Redefining \. on input line 1588.
-LaTeX Info: Redefining \% on input line 1588.
+LaTeX Info: Redefining \. on input line 1602.
+LaTeX Info: Redefining \% on input line 1602.
  [49]
-Overfull \hbox (2.5728pt too wide) in paragraph at lines 1596--1598
-\OT1/cmr/m/n/12 mo mos-tra-re-mos a con-ti-nua-ci^^Son. Con-si-de-ra-mos el in-ter-va-lo de $\U/DSSerif/m/n/12 R$ \OT1/cmr/m/n/12 de lon-gi-tud $2[] \OMS/cmsy/m/n/12 ^^A
+LaTeX Info: Redefining \. on input line 1627.
+LaTeX Info: Redefining \% on input line 1627.
+ [50]
+LaTeX Info: Redefining \. on input line 1658.
+LaTeX Info: Redefining \% on input line 1658.
+ [51]
+Overfull \hbox (0.59267pt too wide) in paragraph at lines 1662--1664
+\OT1/cmr/m/n/12 Utilizando las des-igual-da-des [], [] y [] en la ex-pre-si^^Son enun-cia-da en []
  []
 
-LaTeX Info: Redefining \. on input line 1612.
-LaTeX Info: Redefining \% on input line 1612.
-[50]
-
-LaTeX Warning: Reference `cor:Fcuadrada' on page 51 undefined on input line 1613.
-
-LaTeX Info: Redefining \. on input line 1640.
-LaTeX Info: Redefining \% on input line 1640.
-[51]
-Overfull \hbox (8.8629pt too wide) in paragraph at lines 1643--1645
-\OT1/cmr/m/n/12 Adem^^Sas, co-mo $\OML/cmm/m/it/12 M \OMS/cmsy/m/n/12 ^^T \OT1/cmr/m/n/12 ([])[]$, con-clui-mos de la elec-ci^^Son de $\OML/cmm/m/it/12 F\OT1/cmr/m/n/12 (\OMS/cmsy/m/n/12 ^^A\OT1/cmr/m/n/12 )$ que $\OML/cmm/m/it/12 F\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 L\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^U [] [][] ^^U
- []
-
-LaTeX Info: Redefining \. on input line 1668.
-LaTeX Info: Redefining \% on input line 1668.
+LaTeX Info: Redefining \. on input line 1675.
+LaTeX Info: Redefining \% on input line 1675.
 [52]
-LaTeX Info: Redefining \. on input line 1691.
-LaTeX Info: Redefining \% on input line 1691.
+LaTeX Info: Redefining \. on input line 1704.
+LaTeX Info: Redefining \% on input line 1704.
  [53]
-LaTeX Info: Redefining \. on input line 1718.
-LaTeX Info: Redefining \% on input line 1718.
+LaTeX Info: Redefining \. on input line 1724.
+LaTeX Info: Redefining \% on input line 1724.
  [54]
-LaTeX Info: Redefining \. on input line 1738.
-LaTeX Info: Redefining \% on input line 1738.
+LaTeX Info: Redefining \. on input line 1744.
+LaTeX Info: Redefining \% on input line 1744.
  [55]
-LaTeX Info: Redefining \. on input line 1760.
-LaTeX Info: Redefining \% on input line 1760.
- [56]
-c:/Tesis/Documento Tesis/Tesis.tex:1768: Extra }, or forgotten \right.
+c:/Tesis/Documento Tesis/Tesis.tex:1770: Extra }, or forgotten \right.
 <template> }
             $}\ifmeasuring@ \savefieldlength@ \fi \set@field \endtemplate 
-l.1768     \end{align*}
+l.1770     \end{align*}
                        
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1345,10 +1335,10 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-c:/Tesis/Documento Tesis/Tesis.tex:1768: Missing \right. inserted.
+c:/Tesis/Documento Tesis/Tesis.tex:1770: Missing \right. inserted.
 <inserted text> 
                 \right .
-l.1768     \end{align*}
+l.1770     \end{align*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1356,10 +1346,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-c:/Tesis/Documento Tesis/Tesis.tex:1768: Missing } inserted.
+c:/Tesis/Documento Tesis/Tesis.tex:1770: Missing } inserted.
 <inserted text> 
                 }
-l.1768     \end{align*}
+l.1770     \end{align*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1367,10 +1357,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-c:/Tesis/Documento Tesis/Tesis.tex:1768: Missing } inserted.
+c:/Tesis/Documento Tesis/Tesis.tex:1770: Missing } inserted.
 <inserted text> 
                 }
-l.1768     \end{align*}
+l.1770     \end{align*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1378,26 +1368,26 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-c:/Tesis/Documento Tesis/Tesis.tex:1768: Extra \right.
+c:/Tesis/Documento Tesis/Tesis.tex:1770: Extra \right.
 <argument> ...l : xy,yz,xz\in & E'\rbrace \right |
                                                    \geq d(V_i, V_j)d(V_i, V_...
-l.1768     \end{align*}
+l.1770     \end{align*}
                        
 I'm ignoring a \right that had no matching \left.
 
-c:/Tesis/Documento Tesis/Tesis.tex:1768: Missing { inserted.
+c:/Tesis/Documento Tesis/Tesis.tex:1770: Missing { inserted.
 <inserted text> 
                 {
-l.1768     \end{align*}
+l.1770     \end{align*}
                        
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-c:/Tesis/Documento Tesis/Tesis.tex:1768: Extra }, or forgotten \right.
+c:/Tesis/Documento Tesis/Tesis.tex:1770: Extra }, or forgotten \right.
 <template> }
             $}\ifmeasuring@ \savefieldlength@ \fi \set@field \endtemplate 
-l.1768     \end{align*}
+l.1770     \end{align*}
                        
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1405,10 +1395,10 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-c:/Tesis/Documento Tesis/Tesis.tex:1768: Missing \right. inserted.
+c:/Tesis/Documento Tesis/Tesis.tex:1770: Missing \right. inserted.
 <inserted text> 
                 \right .
-l.1768     \end{align*}
+l.1770     \end{align*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1416,10 +1406,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-c:/Tesis/Documento Tesis/Tesis.tex:1768: Missing } inserted.
+c:/Tesis/Documento Tesis/Tesis.tex:1770: Missing } inserted.
 <inserted text> 
                 }
-l.1768     \end{align*}
+l.1770     \end{align*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1427,10 +1417,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-c:/Tesis/Documento Tesis/Tesis.tex:1768: Missing } inserted.
+c:/Tesis/Documento Tesis/Tesis.tex:1770: Missing } inserted.
 <inserted text> 
                 }
-l.1768     \end{align*}
+l.1770     \end{align*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1438,17 +1428,17 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-c:/Tesis/Documento Tesis/Tesis.tex:1768: Extra \right.
+c:/Tesis/Documento Tesis/Tesis.tex:1770: Extra \right.
 <argument> ...l : xy,yz,xz\in & E'\rbrace \right |
                                                    \geq d(V_i, V_j)d(V_i, V_...
-l.1768     \end{align*}
+l.1770     \end{align*}
                        
 I'm ignoring a \right that had no matching \left.
 
-c:/Tesis/Documento Tesis/Tesis.tex:1768: Missing \endgroup inserted.
+c:/Tesis/Documento Tesis/Tesis.tex:1770: Missing \endgroup inserted.
 <inserted text> 
                 \endgroup 
-l.1768     \end{align*}
+l.1770     \end{align*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1456,49 +1446,48 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-c:/Tesis/Documento Tesis/Tesis.tex:1768: Misplaced \omit.
+c:/Tesis/Documento Tesis/Tesis.tex:1770: Misplaced \omit.
 \math@cr@@@ ...@ \@ne \add@amps \maxfields@ \omit 
                                                   \kern -\alignsep@ \iftag@ ...
-l.1768     \end{align*}
+l.1770     \end{align*}
                        
 I expect to see \omit only after tab marks or the \cr of
 an alignment. Proceed, and I'll ignore this case.
 
-c:/Tesis/Documento Tesis/Tesis.tex:1768: Missing { inserted.
+c:/Tesis/Documento Tesis/Tesis.tex:1770: Missing { inserted.
 <inserted text> 
                 {
-l.1768     \end{align*}
+l.1770     \end{align*}
                        
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-LaTeX Info: Redefining \. on input line 1776.
-LaTeX Info: Redefining \% on input line 1776.
-[57]
+LaTeX Info: Redefining \. on input line 1770.
+LaTeX Info: Redefining \% on input line 1770.
+[56]
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1782.
-LaTeX Info: Redefining \. on input line 1861.
-LaTeX Info: Redefining \% on input line 1861.
+(Font)              scaled to size 10.95pt on input line 1783.
+LaTeX Info: Redefining \. on input line 1849.
+LaTeX Info: Redefining \% on input line 1849.
+ [57]
+LaTeX Info: Redefining \. on input line 1867.
+LaTeX Info: Redefining \% on input line 1867.
  [58]
-LaTeX Info: Redefining \. on input line 1888.
-LaTeX Info: Redefining \% on input line 1888.
+LaTeX Info: Redefining \. on input line 1893.
+LaTeX Info: Redefining \% on input line 1893.
  [59]
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 24.88pt on input line 1919.
+(Font)              scaled to size 24.88pt on input line 1920.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 20.74pt on input line 1919.
+(Font)              scaled to size 20.74pt on input line 1920.
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 17.28pt on input line 1919.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-LaTeX Info: Redefining \. on input line 1956.
-LaTeX Info: Redefining \% on input line 1956.
-[60]
-LaTeX Info: Redefining \. on input line 1966.
-LaTeX Info: Redefining \% on input line 1966.
+(Font)              scaled to size 17.28pt on input line 1920.
+LaTeX Info: Redefining \. on input line 1957.
+LaTeX Info: Redefining \% on input line 1957.
+ [60]
+LaTeX Info: Redefining \. on input line 1975.
+LaTeX Info: Redefining \% on input line 1975.
  [61] (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryarrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfarrowinset=\dimen289
@@ -1506,32 +1495,32 @@ File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfarrowwidth=\dimen291
 \pgfarrowlinewidth=\dimen292
 )
-Underfull \hbox (badness 2269) in paragraph at lines 2046--2046
+Underfull \hbox (badness 2269) in paragraph at lines 2047--2047
 []\OT1/cmr/m/n/12 Figura 3.4: |Ejem-plo del em-pa-re-ja-mien-to ge-ne-ra-do por la
  []
 
 
-Underfull \hbox (badness 6927) in paragraph at lines 2046--2046
+Underfull \hbox (badness 6927) in paragraph at lines 2047--2047
 \OT1/cmr/m/n/12 cla-se de equi-va-len-cia aso-cia-da a $\OML/cmm/m/it/12 q \OT1/cmr/m/n/12 = 5$, y $\OML/cmm/m/it/12 S \OT1/cmr/m/n/12 =
  []
 
-LaTeX Info: Redefining \. on input line 2050.
-LaTeX Info: Redefining \% on input line 2050.
+LaTeX Info: Redefining \. on input line 2054.
+LaTeX Info: Redefining \% on input line 2054.
 [62]
-LaTeX Info: Redefining \. on input line 2098.
-LaTeX Info: Redefining \% on input line 2098.
+LaTeX Info: Redefining \. on input line 2099.
+LaTeX Info: Redefining \% on input line 2099.
  [63] [64
 
 ]
-Overfull \hbox (0.55585pt too wide) in paragraph at lines 2100--2100
+Overfull \hbox (0.55585pt too wide) in paragraph at lines 2101--2101
 \OT1/cmr/m/n/12 lem-ma''. En: \OT1/cmr/m/it/12 Geo-me-tric & Fun-ctio-nal Analy-sis GA-FA \OT1/cmr/m/n/12 7.2 (1997), p^^Sags. 322[]337. 
  []
 
-LaTeX Info: Redefining \. on input line 2100.
-LaTeX Info: Redefining \% on input line 2100.
+LaTeX Info: Redefining \. on input line 2101.
+LaTeX Info: Redefining \% on input line 2101.
 [65]
-LaTeX Info: Redefining \. on input line 2102.
-LaTeX Info: Redefining \% on input line 2102.
+LaTeX Info: Redefining \. on input line 2103.
+LaTeX Info: Redefining \% on input line 2103.
  [66] (C:\Tesis\Documento Tesis\build\Tesis.aux
 LaTeX Info: Redefining \sptext on input line 12.
 LaTeX Info: Redefining \. on input line 12.
@@ -1545,9 +1534,6 @@ L3 programming layer <2024-01-22>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `Tesis.out' has not changed.
 (rerunfilecheck)             Checksum: 09EC5E159D76F838ECF47E9793AD38D2;2997.
 Package logreq Info: Writing requests to 'Tesis.run.xml'.
@@ -1555,17 +1541,17 @@ Package logreq Info: Writing requests to 'Tesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36078 strings out of 474542
- 698348 string characters out of 5743975
- 1950978 words of memory out of 5000000
- 57478 multiletter control sequences out of 15000+600000
+ 36088 strings out of 474542
+ 698746 string characters out of 5743975
+ 1948978 words of memory out of 5000000
+ 57486 multiletter control sequences out of 15000+600000
  586391 words of font info for 144 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,20n,117p,1432b,2293s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Felipe\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbm/dpi600\bbm12.pk> <C:\Users\Felipe\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/dsserif/DSSerif.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on "C:\Tesis\Documento Tesis\build\Tesis.pdf" (75 pages, 751171 bytes).
+Output written on "C:\Tesis\Documento Tesis\build\Tesis.pdf" (75 pages, 752265 bytes).
 PDF statistics:
- 1017 PDF objects out of 1200 (max. 8388607)
- 237 named destinations out of 1000 (max. 500000)
+ 1020 PDF objects out of 1200 (max. 8388607)
+ 239 named destinations out of 1000 (max. 500000)
  167 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -12,8 +12,8 @@
 \contentsline {chapter}{\numberline {3}Lema de regularidad de Szemerédi}{36}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Demostración por incremento de energía}{39}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Demostración espectral}{48}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Aplicaciones}{53}{section.3.3}%
+\contentsline {section}{\numberline {3.3}Aplicaciones}{52}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}Eliminación de triángulos}{55}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2}Emparejamiento inducido}{57}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Teorema de Roth}{60}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.3}Teorema de Roth}{59}{subsection.3.3.3}%
 \contentsline {chapter}{Bibliografía}{64}{chapter*.19}%

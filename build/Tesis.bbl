@@ -350,6 +350,37 @@
       \field{pages}{1141\bibrangedash 1144}
       \range{pages}{4}
     \endentry
+    \entry{godsil2001algebraic}{book}{}
+      \name{author}{2}{}{%
+        {{hash=9f6f47abf5bc40b14b1f97987d145304}{%
+           family={Godsil},
+           familyi={G\bibinitperiod},
+           given={Chris},
+           giveni={C\bibinitperiod}}}%
+        {{hash=37a5c20d3e995f21f069be83f5bbd464}{%
+           family={Royle},
+           familyi={R\bibinitperiod},
+           given={Gordon\bibnamedelima F},
+           giveni={G\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Science \& Business Media}%
+      }
+      \strng{namehash}{990b9b5b4b39f1555d1911a6c4093643}
+      \strng{fullhash}{f5e0ca61f600f7b4b64c01dbe05e2a37}
+      \strng{bibnamehash}{f5e0ca61f600f7b4b64c01dbe05e2a37}
+      \strng{authorbibnamehash}{f5e0ca61f600f7b4b64c01dbe05e2a37}
+      \strng{authornamehash}{990b9b5b4b39f1555d1911a6c4093643}
+      \strng{authorfullhash}{f5e0ca61f600f7b4b64c01dbe05e2a37}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Algebraic graph theory}
+      \field{volume}{207}
+      \field{year}{2001}
+      \true{nocite}
+    \endentry
     \entry{gowers2007hypergraph}{article}{}
       \name{author}{1}{}{%
         {{hash=dabf8ba7692300ea4c17be3699695d1d}{%
@@ -858,6 +889,35 @@
       \field{year}{2003}
       \field{pages}{825\bibrangedash 827}
       \range{pages}{3}
+    \endentry
+    \entry{spielman2012spectral}{article}{}
+      \name{author}{1}{}{%
+        {{hash=e0e0891c0cc6a5702262bce678f18f0c}{%
+           family={Spielman},
+           familyi={S\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {CRC Press Boca Raton, Florida}%
+      }
+      \strng{namehash}{e0e0891c0cc6a5702262bce678f18f0c}
+      \strng{fullhash}{e0e0891c0cc6a5702262bce678f18f0c}
+      \strng{bibnamehash}{e0e0891c0cc6a5702262bce678f18f0c}
+      \strng{authorbibnamehash}{e0e0891c0cc6a5702262bce678f18f0c}
+      \strng{authornamehash}{e0e0891c0cc6a5702262bce678f18f0c}
+      \strng{authorfullhash}{e0e0891c0cc6a5702262bce678f18f0c}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Combinatorial scientific computing}
+      \field{title}{Spectral graph theory}
+      \field{volume}{18}
+      \field{year}{2012}
+      \true{nocite}
+      \field{pages}{18}
+      \range{pages}{1}
     \endentry
     \entry{szemeredi1969sets}{article}{}
       \name{author}{1}{}{%

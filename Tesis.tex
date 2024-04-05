@@ -613,7 +613,7 @@ En la ecuación anterior, y desde ahora en adelante, el vector $\boldsymbol{v}_{
 
 Es importante destacar que la matriz de adyacencia no solo describe las conexiones entre cada par de vértices en un grafo, sino que también revela la cantidad exacta de caminatas que existen entre dos vértices de un largo determinado. En específico, la posición $ij$ de la $t$-ésima potencia de la matriz de adyacencia de un grafo guarda la cantidad de caminatas de largo $t$ entre los vértices $i$ y $j$.
 \begin{prop} \label{potencia_matriz_adyacencia = caminatas} %%%% Lema: Potencia matriz de adyacencia
-    Sea $A$ la matriz de adyacencia del grafo $G = ([n], E)$. La $(i,j)$-ésima entrada $a_{ij}^{(t)}$ de $A^{t}$, cuenta la cantidad de caminatas de largo $t$ que comienzan y terminan en los vértices $i$ y $j$ respectivamente.
+    Sea $A$ la matriz de adyacencia del grafo $G = ([n], E)$. La $(i,j)$~-ésima entrada $a_{ij}^{(t)}$ de $A^{t}$, cuenta la cantidad de caminatas de largo $t$ que comienzan y terminan en los vértices $i$ y $j$ respectivamente.
 \end{prop}
 \begin{proof} %%%% Demostración Lema : Potencia matriz de adyacencia
     Cuando $t=1$, existe una caminata de largo $1$ que conecta los vértices $i$ y $j$ si y solamente si $a_{ij}^{(1)} = 1$. Ahora, asuma que el enunciado se cumple para algún $t > 1$ fijo. Note que cualquier caminata de largo $t+1$ entre $i$ y $j$ contiene una caminata de largo $t$ desde $i$ hasta un vecino de $j$, digamos $k$. Entonces si $k\in N(j)$, por la asunción del enunciado, el número de caminatas de largo $t$ entre $i$ y $k$ es $a_{ik}^{(t)}$. Por lo tanto, el número total de caminatas de largo $t+1$ desde $i$ hasta $t$ es exactamente
@@ -840,7 +840,7 @@ Con esto, damos paso a la demostración prometida.
     %\end{equation} 
 \chapter{Grafos cuasi-aleatorios} \label{cuasi-aleatoriedad}
 
-Comenzamos este capítulo estableciendo que un grafo es cuasi-aleatorio si cumple ciertas propiedades que los grafos aleatorios satisfacen con alta probabilidad. El estudio sistemático de los grafos cuasi-aleatorios fue iniciado por V. R\H{o}dl \cite{rodl1986universality} y A.  Thomason \cite{thomason1987pseudo}, y su punto inicial es la siguiente noción de \emph{distribución uniforme de aristas}, la cual llamaremos \emph{discrepancia}: sea $p\in(0,1)$ y $(G_n)_{n\to\infty}$ una secuencia de grafos con $V(G_n) = n$, entonces
+Comenzamos este capítulo estableciendo que un grafo es cuasi-aleatorio si cumple ciertas propiedades que los grafos aleatorios satisfacen con alta probabilidad. El estudio sistemático de los grafos cuasi-aleatorios fue iniciado por V. R\H{o}dl \cite{rodl1986universality} y A.~Thomason \cite{thomason1987pseudo}, y su punto inicial es la siguiente noción de \emph{distribución uniforme de aristas}, la cual llamaremos \emph{discrepancia}: sea $p\in(0,1)$ y $(G_n)_{n\to\infty}$ una secuencia de grafos con $V(G_n) = n$, entonces
 \begin{equation*}
     \disc_p:\ \ \ \Big| e(X,Y) - p|X||Y|\Big| = o(n^{2})\ ,\ \ \forall X,Y\subset V(G_n).
 \end{equation*}
@@ -962,7 +962,7 @@ Con esto en mente, damos paso a la demostración de cada proposición considerad
         \item[i)] $F^{-}$ corresponde al grafo producido por eliminar la arista $ij$ de $F$.
         \item[ii)] $F^{*}$  es el resultado de eliminar los vértices de la arista $ij$ en $F$. 
     \end{enumerate}
-    Sea $T^{-}$ una copia etiquetada de $F^{-}$ en $G$, es decir, $T^{-}$ se corresponde una aplicación inyectiva $f: V(F^{-}) \to V(T^{-})\subseteq V$ tal que $f(u)f(v)\in E(T^{-})$ cada vez que $uv\in E(F^{-})$. Entonces, considerando $e_{T^{-}}:= f(i)f(j)$, se escribe la cantidad de copias etiquetadas de $F$ en $G$ de manera conveniente para utilizar la hipótesis inductiva como se muestra a continuación:
+    Sea $T^{-}$ una copia etiquetada de $F^{-}$ en $G$, es decir, $T^{-}$ se corresponde una aplicación inyectiva $f: V(F^{-}) \to V(T^{-})\subseteq V$ tal que $f(u)f(v)\in E(T^{-})$ cada vez que $uv\in~E(F^{-})$. Entonces, considerando $e_{T^{-}}:= f(i)f(j)$, se escribe la cantidad de copias etiquetadas de $F$ en $G$ de manera conveniente para utilizar la hipótesis inductiva como se muestra a continuación:
     \begin{align} \label{count_G_F}
         \left| \tbinom{G}{F}\right| &= \sum_{T^{-}\in \tbinom{G}{F^{-}}} \mathbbm{1}_{E}(e_{T^{-}})\nonumber \\
         &= \sum_{T^{-}\in \tbinom{G}{F^{-}}} \left[ \mathbbm{1}_{E}(e_{T^{-}}) + p - p\right]\nonumber \\
@@ -973,7 +973,7 @@ Con esto en mente, damos paso a la demostración de cada proposición considerad
     En este punto, es suficiente probar que el segundo sumando de la igualdad \eqref{count_G_F} es pequeño. Para esto, considere $T^{*}$ una copia de $F^{*}$, y denote por $F_{i}^{*}$ y $F_{j}^{*}$ a los grafos resultantes de eliminar de $F^{-}$ los vértices $j$ e $i$ respectivamente. Con esto, defina los siguientes conjuntos:
     \[A_{i}^{T^{*}} := \lbrace v\in V\ :\ T^{*}\ \text{con}\ v\ \text{forma una copia de}\ F_{i}^{*}\rbrace \]
     \[A_{j}^{T^{*}} := \lbrace v\in V\ :\ T^{*}\ \text{con}\ v\ \text{forma una copia de}\ F_{j}^{*}\rbrace .\]
-    Los conjuntos anteriores, por construcción, son tales que para cada tupla $(a,b)\in A_{i}^{T^{*}}\times A_{j}^{T^{*}}$ añadida a $T^{*}$ se obtiene una copia de $F^{-}$. Así, reescribiendo el segundo sumando de la igualdad \eqref{count_G_F} convenientemente y utilizando la propiedad $\discp_p(\delta)$,
+    Los conjuntos anteriores son tales que al añadir cada tupla $(a,b)\in~A_{i}^{T^{*}}\times~A_{j}^{T^{*}}$ a $T^{*}$, se forma una copia etiquetada de  $F^{-}$. Así, reescribiendo el segundo sumando de la igualdad~\eqref{count_G_F} convenientemente y utilizando la propiedad $\discp_p(\delta)$,
     \begin{align*}
         \left| \sum_{T^{-}\in \tbinom{G}{F^{-}}} \left[\mathbbm{1}_{E}(e_{T^{-}}) - p\right]\right|
         &=  \left| \sum_{T^{*}\in \tbinom{G}{F^{*}}}\sum_{f\in A_{i}^{T^{*}}\times A_{j}^{T^{*}}} \left[ \mathbbm{1}_{E}(f) - p\right]\right| \\
@@ -1491,7 +1491,7 @@ Vimos que particionar cualquier par de conjuntos no $\varepsilon$-regular por me
     \newpage
     \begin{figure}[h] %% Ojito con el tilde en simultáneo uwu
         \centering
-        \includegraphics[width=0.9\textwidth]{Imágenes/Partition_by_irregularity.png}
+        \includegraphics[width=0.8\textwidth]{Imágenes/Partition_by_irregularity.png}
         \caption[Ilustración del procedimiento de refinamiento simultáneo]{Ejemplo del refinamiento simultáneo por todos los subconjuntos que evidencian la irregularidad usando tres conjuntos de vértices (\cite{zhao2023graph}, página 59).}
         \label{refinamiento_irregularidad}
     \end{figure}
@@ -1548,20 +1548,22 @@ El algoritmo anterior obtiene una equipartición del conjunto de vértices del g
 
 \section{Demostración espectral} \label{Demo_esp}
 
-En 2012, T. Tao \cite{taospectralproof2012} publica en su blog una prueba del Lema de regularidad de Szemerédi usando la descomposición espectral de la matriz de adyacencia. La idea original de la demostración proviene de los autores A. Frieze y R. Kannan \cite{frieze1996regularity}, a quienes Tao les da el crédito en su publicación. Más adelante, en 2013, S. Cioba y R. Martin \cite{cioabatao} escribieron la demostración con más detalles. La prueba que se expone en esta sección está basada esencialmente en la publicación de Cioba y Martin.
+En esta sección presentamos la demostración espectral del Lema de regularidad de Szemerédi. Originalmente, la prueba proviene de los autores A. Frieze y R. Kannan~\cite{frieze1996regularity}, y fue popularizada por T. Tao~\cite{taospectralproof2012}. Nuestra demostración se basa de la versión de T. Tao~\cite{taospectralproof2012} (ver también~\cite{cioabatao}).
+
+%En 2012, T. Tao \cite{taospectralproof2012} publica en su blog una prueba del Lema de %regularidad de Szemerédi usando la descomposición espectral de la matriz de adyacencia. %La idea original de la demostración proviene de los autores A. Frieze y R. Kannan \cite%{frieze1996regularity}, a quienes Tao les da el crédito en su publicación. Más %adelante, en 2013, S. Cioba y R. Martin \cite{cioabatao} escribieron la demostración %con más detalles. La prueba que se expone en esta sección está basada esencialmente en %la publicación de Cioba y Martin.
 %%%% Demostración espectral.
 \begin{proof}[Demostración espectral del Teorema~\ref{szemeredi_regularity_lemma1}]
-    Dado $\varepsilon > 0$, consideramos la función $F : \mathbb{N}\to\mathbb{N}$ definida por
+    Dado $\varepsilon > 0$, consideramos la función\newline $h:\mathbb{N}~\to\mathbb{N}$ definida por
     \begin{equation*}
-        F(\ell) = \left\lceil\frac{1}{\varepsilon^{6}}\left( \frac{2\ell^{2}}{\varepsilon^{2}}\right)^{4\ell}\right\rceil.
+        h(\ell) = \left\lceil\frac{1}{\varepsilon^{6}}\left( \frac{2\ell^{2}}{\varepsilon^{2}}\right)^{4\ell}\right\rceil.
     \end{equation*}
-    Denotaremos por $F^{(i)}$ a la $i$-ésima composición de $F$ con ella misma, y escogemos $n_0\in\mathbb{N}$ suficientemente grande.
+    Denotaremos por $h^{(i)}$ a la $i$-ésima composición de $h$ con ella misma, y escogemos $n_0\in\mathbb{N}$ suficientemente grande.
 
     Sea $G = ([n], E)$ un grafo con $n\geq n_0$ vértices, y $A$ su matriz de adyacencia. Ordenamos los valores propios $|\lambda_1|\geq ...\geq |\lambda_n|$ de $A$ de manera decreciente y consideramos $\boldsymbol{u}_1,...\boldsymbol{u}_n$ los vectores propios correspondientes, que forman una base ortonormal de $\mathbb{R}^{n}$.
 
     Por la Proposición~\ref{potencia_matriz_adyacencia = caminatas} y el Corolario~\ref{Tr_Ak}, se satisface
     \begin{equation} \label{eq_1 Spectral_Proof}
-        \Tr(T) = \sum_{i=1}^{n} \lambda_{1}^{2} =  2e_G \leq n^{2}.
+        \Tr(A) = \sum_{i=1}^{n} \lambda_{1}^{2} =  2e_G \leq n^{2}.
     \end{equation}
     De lo anterior, al notar que $i\lambda_{i}^{2} \leq \sum_{j=1}^{i} \lambda_{j}^{2} \leq n^{2}$, se encuentra la cota
     \begin{equation} \label{eq_2 Spectral_Proof}
@@ -1569,12 +1571,12 @@ En 2012, T. Tao \cite{taospectralproof2012} publica en su blog una prueba del Le
     \end{equation}
     Consideramos también los intervalos $I_1,\dots, I_{\lceil1/\varepsilon^3\rceil}\subset [n]$ definidos por
     \begin{itemize}
-        \item $I_1=\{1,2,\dots, F^{(1)}(1)-1\}$ y
-        \item $I_k=\{F^{(k-1)}(1),\dots, F^{k}(1)-1\}$ para todo $k=2,\dots, I_{\lceil1/\varepsilon^3\rceil}$.
+        \item $I_1=\{1,2,\dots, h^{(1)}(1)-1\}$ y
+        \item $I_k=\{h^{(k-1)}(1),\dots, h^{k}(1)-1\}$ para todo $k=2,\dots, I_{\lceil1/\varepsilon^3\rceil}$.
     \end{itemize}
     Con esta construcción, debe existir un natural $1\leq L \leq\lceil1/\varepsilon^3\rceil$ que cumple con
     \begin{equation} \label{eq_3 Spectral_Proof}
-        \sum_{L \leq j < F(L)} \lambda_j^{2} \leq \varepsilon^{3}n^{2},
+        \sum_{L \leq j < h(L)} \lambda_j^{2} \leq \varepsilon^{3}n^{2},
     \end{equation}
     porque de lo contrario, se obtiene
     \[\sum_{i=1}^n\lambda_i^2\geq \sum_{k=1}^{\lceil1/\varepsilon^3\rceil}\sum_{i\in I_k}\lambda_i^2> \lceil1/\varepsilon^3\rceil \cdot \varepsilon^3n^2>n^2,\]
@@ -1588,15 +1590,15 @@ En 2012, T. Tao \cite{taospectralproof2012} publica en su blog una prueba del Le
     \end{equation*}
     la matriz $F$ como la componente de \emph{error},
     \begin{equation*}
-        F = \sum_{L \leq i < F(L)} \lambda_i \boldsymbol{u}_i \boldsymbol{u}_{i}^{T},
+        F = \sum_{L \leq i < h(L)} \lambda_i \boldsymbol{u}_i \boldsymbol{u}_{i}^{T},
     \end{equation*}
     y la matriz $Q$ como la componente \emph{cuasi-aleatoria},
     \begin{equation*}
-        Q = \sum_{i \geq F(L)} \lambda_i \boldsymbol{u}_i \boldsymbol{u}_{i}^{T}.
+        Q = \sum_{i \geq h(L)} \lambda_i \boldsymbol{u}_i \boldsymbol{u}_{i}^{T}.
     \end{equation*}
-    Usaremos los vectores propios $\boldsymbol{u}_1,...\boldsymbol{u}_{L-1}$ de $S$ para definir una partición de $V(G)$ como mostraremos a continuación. Consideramos el intervalo de $\mathbb{R}$ de longitud $2\sqrt{({L}/{\varepsilon})}\cdot n^{-1/2}$ centrado en el origen y lo particionamos en $t = 2(L/\varepsilon)^{2}$ subintervalos $J_1,...,J_t$ de longitud $(\varepsilon /L)^{3/2}n^{-1/2}$ cada uno. Luego, clasificamos los vértices $v\in V(G)$ según su valor $\boldsymbol{u}_i(v)$ de la siguiente manera:
+    Usaremos los vectores propios $\boldsymbol{u}_1,...\boldsymbol{u}_{L-1}$ de $S$ para definir una partición de $V(G)$ como mostraremos a continuación. Consideramos el intervalo centrado en el origen de longitud $2\sqrt{({L}/{\varepsilon})}~\cdot n^{-1/2}$ de $\mathbb{R}$, y lo particionamos en $t = 2(L/\varepsilon)^{2}$ subintervalos $J_1,...,J_t$ de longitud $(\varepsilon /L)^{3/2}n^{-1/2}$ cada uno. Luego, clasificamos los vértices $v\in~V(G)$ según su valor $\boldsymbol{u}_i(v)$ de la siguiente manera:
     \[V^j_i=\big\{v\in V(G) :  \boldsymbol{u}_i(v)\in J_j\big\}\ ,\ 1\leq j\leq t.\]
-    Con esto, tomamos el refinamiento de todos estos conjuntos $\big\{V_i^j\neq\emptyset : i\in[L-1], j\in[t]\big\}$ para obtener los conjuntos $V_0,V_1,...,V_M$, en donde $M\leq (\frac{2L^2}{\varepsilon^2})^L$. El resultado anterior considera un conjunto excepcional de vértices $V_0$ que está definido como sigue:
+    Tomamos el refinamiento de todos estos conjuntos $\big\{V_i^j\neq\emptyset : i\in[L-1], j\in[t]\big\}$ para obtener los conjuntos $V_0,V_1,...,V_M$, en donde $M\leq (\frac{2L^2}{\varepsilon^2})^L$. El resultado anterior considera un conjunto excepcional de vértices $V_0$ que está definido como sigue:
     \begin{equation*}
         V_{0} = \left\lbrace v\in  V(G): |\boldsymbol{u}_i (v)| > \sqrt{\frac{L}{\varepsilon}}n^{-1/2}\text{ para alg\'un }i\in[L-1]\right\rbrace .
     \end{equation*}
@@ -1606,21 +1608,21 @@ En 2012, T. Tao \cite{taospectralproof2012} publica en su blog una prueba del Le
     \end{equation*}
     se determina que $|V_0| < \varepsilon n$.
 
-    Probaremos que la partición construida del conjunto de vértices del grafo $\mathcal{P} = \lbrace V_0,V_1,...,V_M\rbrace$ es $\varepsilon$-regular. Comenzamos identificando los pares excepcionales. Para esto, sea $F = (f_{xy})$ y defina
+    Probaremos que la partición construida del conjunto de vértices del grafo\newline $\mathcal{P} =\lbrace V_0,V_1,...,V_M\rbrace$ es $\varepsilon$-regular. Comenzamos identificando los pares excepcionales. Para esto, sea $F = (f_{xy})$ y defina
     \begin{align*}
-        \Sigma_F &=\Big\{(i,j) : \sum_{(x,y)\in V_i\times V_j} f_{xy}^{2} > \varepsilon |V_i| |V_j|\Big\}
+        \Sigma_F &=\Big\{(i,j) : \sum_{(x,y)\in V_i\times V_j} f_{xy}^{2} > \varepsilon |V_i| |V_j|\Big\}.
     \end{align*}
-    Entonces, por la definición de $F$ y el Corolario~\ref{cor:Fcuadrada}, tenemos que
+    Entonces, por la simetría de $F$ se tiene que $\Tr(F^2)=  \sum_{x\in V(G)} \sum_{y\in V(G)}  f_{xy}^2$, y por lo tanto
     \begin{align*}
-        \varepsilon^3n^2\geq \sum_{L\leq i<F(L)}\lambda_i^2 =\Tr(F^2)&= \sum_{(x,y)\in V(G)^2} f_{xy}^2\\
+        \varepsilon^3n^2\geq \sum_{L\leq i<h(L)}\lambda_i^2 =\Tr(F^2)&=  \sum_{(x,y)\in V(G)^2} f_{xy}^2\\
         &\geq \sum_{(i,j)\in \Sigma_F}\sum_{(x,y)\in V_i\times V_j} f_{xy}^{2} > \varepsilon \sum_{(i,j)\in\Sigma_F} |V_i| |V_j|.
     \end{align*}
-    y por consecuencia
+    Así,
     \begin{equation} \label{eq_8 Spectral_Proof}
         \varepsilon^{2} n^{2}\geq  \sum_{(i,j)\in \Sigma_F} |V_i| |V_j|.
     \end{equation}
     Además, sea
-    \[\Sigma_Q=\Big\{(i,j) : \min\{|V_i|,|V_j|\}<\frac\varepsilon Mn\Big\} \cup \big\{(i,j) : i=0\text{ o }j=0\big\},\]
+    \[\Sigma_Q=\Big\{(i,j) : \min\{|V_i|,|V_j|\}<\frac\varepsilon Mn\Big\} \cup \big\{(i,j) : i=0\lor j=0\big\},\]
     y observe que
     \[ \sum_{(i,j)\in \Sigma_Q} |V_i| |V_j|\leq 2M\cdot\frac\varepsilon M n+ 2|V_0|n<4\varepsilon n.\]
     Ahora, sea $(i,j)\not\in \Sigma_F\cup\Sigma_Q$, y $d_{ij}=d(V_i,V_j)$ la densidad del par $(V_i,V_j)$. Entonces, dado los subconjuntos $X\subset V_i$ e $Y\subset V_j$, note la siguiente descomposición:
@@ -1638,12 +1640,12 @@ En 2012, T. Tao \cite{taospectralproof2012} publica en su blog una prueba del Le
     \end{align}    
     Para la próxima cota, debemos observar por la construcción de $Q$ y el Teorema~\ref{Teo Courant-Fischer} que
     \begin{align*} 
-        \left| \boldsymbol{v}_{X}^{T} Q \boldsymbol{v}_Y\right|   \overset{\mathrm{DCS}}{\leq} \norm{\boldsymbol{v}_X} \norm{Q \boldsymbol{v}_Y} \leq \norm{\boldsymbol{v}_X} \norm{\boldsymbol{v}_Y} \frac{n}{\sqrt{F(L)}} 
-        = \sqrt{|X| |Y|} \frac{n}{\sqrt{F(L)}}\leq \frac{n^{2}}{\sqrt{F(L)}}.
+        \left| \boldsymbol{v}_{X}^{T} Q \boldsymbol{v}_Y\right|   \overset{\mathrm{DCS}}{\leq} \norm{\boldsymbol{v}_X} \norm{Q \boldsymbol{v}_Y} \leq \norm{\boldsymbol{v}_X} \norm{\boldsymbol{v}_Y} \frac{n}{\sqrt{h(L)}}
+        = \sqrt{|X| |Y|} \frac{n}{\sqrt{h(L)}}\leq \frac{n^{2}}{\sqrt{h(L)}}.
     \end{align*}
-    Además, como $M\leq (\frac{2L^2}{\varepsilon^2})^L$, concluimos de la elección de $F(\cdot)$ que $F(L) \geq \frac{1}{\varepsilon^{6}}\left( \frac{2L^{2}}{\varepsilon^{2}}\right)^{4L}\geq  \frac{1}{\varepsilon^{6}} M^4$. Y así, cuando $(i,j)\not= \Sigma_Q$, se tiene
+    Como $M\leq (\frac{2L^2}{\varepsilon^2})^L$, concluimos de la elección de $h(\cdot)$ que $h(L) \geq \frac{1}{\varepsilon^{6}}\left( \frac{2L^{2}}{\varepsilon^{2}}\right)^{4L}\geq  \frac{1}{\varepsilon^{6}} M^4$. Y así, cuando $(i,j)\not= \Sigma_Q$, se tiene
     \begin{align} \label{cota_esp_2}
-        \left| \boldsymbol{v}_{X}^{T} Q \boldsymbol{v}_Y\right|\leq   \frac{n^{2}}{\sqrt{F(L)}} \leq  \frac{M^{2} |V_i| |V_j|}{\varepsilon^{2}\sqrt{F(L)}}\leq \varepsilon|V_i| |V_j|.
+        \left| \boldsymbol{v}_{X}^{T} Q \boldsymbol{v}_Y\right|\leq   \frac{n^{2}}{\sqrt{h(L)}} \leq  \frac{M^{2} |V_i| |V_j|}{\varepsilon^{2}\sqrt{h(L)}}\leq \varepsilon|V_i| |V_j|.
     \end{align}
     Por último, para la tercera cota, analizamos $S = (s_{xy})$. Sean $s_{ab}$ y $s_{cd}$ los valores mínimo y máximo de todos los $s_{xy}$ sobre $(u,v)\in V_{i}\times V_{j}$. Entonces,
     \begin{align*}
@@ -1658,7 +1660,7 @@ En 2012, T. Tao \cite{taospectralproof2012} publica en su blog una prueba del Le
     \begin{align} \label{cota_esp_3}  
         \left| \boldsymbol{v}_{X}^{T}S\boldsymbol{v}_Y-d_{ij}|V_i||V_j|\right| &\leq \sum_{(x,y)\in X\times Y} \left| s_{xy} - d_{ij}\right|\leq (s_{cd}-s_{ab})|X||Y|\leq 4\varepsilon |X||Y|.
     \end{align}
-    Utilizando las desigualdades \eqref{cota_esp_1}, \eqref{cota_esp_2} y \eqref{cota_esp_3} en la expresión enunciada en \eqref{tres_sumandos_demo_esp} se concluye la demostración del teorema.
+    Utilizando las desigualdades~\eqref{cota_esp_1}, \eqref{cota_esp_2} y~\eqref{cota_esp_3} en la expresión enunciada en~\eqref{tres_sumandos_demo_esp} se concluye la demostración del teorema.
 \end{proof}
 
 \section{Aplicaciones} \label{Sec. Aplicaciones}
@@ -1773,7 +1775,6 @@ Otra forma de entender el Teorema~\ref{Enunciado TRL} es de la siguiente manera:
 \subsection{Emparejamiento inducido}
 
 Dado un grafo $G = (V,E)$, un subconjunto $R\subset E$ es un \textbf{emparejamiento} en $G$ si no existe un par de aristas en $R$ que compartan algún vértice. Diremos que $R$ es un \textbf{emparejamiento inducido} si es un emparejamiento y no existen un par de aristas en $R$ que estén conectadas por una arista de $G$, es decir, no existen aristas en $G$ entre cada par de vértices de $R$.
-\newpage
 %%%% Ejemplo emparejamientos
 \begin{figure}[h]
     \centering
@@ -1861,12 +1862,12 @@ La presente aplicación del método de regularidad responde a la pregunta: \emph
     \begin{equation*}
         \sum_{i\in [k]} |U_i| < \sum_{i\in [k]} \varepsilon_r |V_i| = \frac{\varepsilon}{10} n.
     \end{equation*}
-    De esta manera, recordando que $|V(R)| \geq \varepsilon n$, se determina que $|U| > \varepsilon n - \frac{\varepsilon}{10}n = \frac{9}{10}\varepsilon n$. Además, como también $|R| \geq \frac{\varepsilon}{2}n$, debe existir al menos un vértice en $U$ que sea parte de una arista en $R$. Luego, dada la limpieza de $G$, dicha arista debe pertenecer a algún par $U_t\times U_\ell$ que satisfacen $|U_k| \geq \varepsilon_r |V_k|$ y  $|U_\ell| \geq \varepsilon_r |V_\ell|$, y son tales que 
+    Luego, recordando que $|V(R)| \geq \varepsilon n$, se determina que $|U| > \varepsilon n - \frac{\varepsilon}{10}n = \frac{9}{10}\varepsilon n$. Además, como también $|R| \geq \frac{\varepsilon}{2}n$, debe existir al menos un vértice en $U$ que sea parte de una arista en $R$. Luego, dada la limpieza de $G$, dicha arista debe pertenecer a algún par $U_t\times U_\ell$ que satisfacen $|U_k| \geq \varepsilon_r |V_k|$ y  $|U_\ell| \geq \varepsilon_r |V_\ell|$, y son tales que 
     su correspondiente par $(V_t, V_\ell)$ es $\varepsilon_r$-regular con densidad $d(V_t, V_\ell) \geq 2\varepsilon_r$. Entonces, por regularidad,
     \begin{equation} \label{eq1_emp_ind}
         d(U_t, U_\ell) = d(V_t, V_\ell) \pm \varepsilon_r \geq 2\varepsilon_r - \varepsilon_r = \varepsilon_r.
     \end{equation}
-    Ahora, como $R$ es un emparejamiento inducido, todo par de subconjuntos $A,B\subset V(M)$ debe satisfacer
+    Así, como $R$ es un emparejamiento inducido, todo par de subconjuntos $A,B\subset V(M)$ debe satisfacer
     \begin{equation*}
         e(A,B) \leq \min\lbrace |A|, |B|\rbrace.
     \end{equation*}
@@ -1901,7 +1902,7 @@ En esta sección se entregarán dos demostraciones del Teorema de Roth por medio
     %%%% Esquema de triángulo en $G$
     \begin{figure}[h]
         \centering
-        \begin{tikzpicture}
+        \begin{tikzpicture}[scale=0.95]
             %\draw[step=0.5cm, gray, very thin] (-7.5, -3) grid (7.5, 3);
             %\node[fill=red, circle, inner sep=2pt, minimum size=4pt] at (0,0) {};
             %\node[fill=red, circle, inner sep=2pt, minimum size=4pt] at (-3.5,0) {};
@@ -2050,7 +2051,7 @@ Para la segunda demostración del Teorema de Roth, será necesario un resultado 
     \[
         k - i = j - \ell = d.
     \]
-
+    \newpage
     \begin{figure}[h]
         \centering
         \begin{tikzpicture}
