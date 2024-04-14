@@ -905,7 +905,7 @@ La demostración del teorema fue descompuesta en ocho proposiciones, las cuales 
 \end{equation}
 Con esto en mente, damos paso a la demostración de cada proposición considerada en el esquema \eqref{Ciclo demo CGW}.
 \begin{prop} \label{disc => discp} %%% Proposición: DISC_p => DISC_p'
-    Para todo $\varepsilon > 0$ y $p\in(0,1)$, existe $\delta > 0$ y $n_0\in\mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices satisface $\discp_p (\varepsilon)$ cada vez que cumpla con $\disc_p (\delta)$. En particular,
+    Para todo $\varepsilon > 0$ y $p\in(0,1)$, existe $\delta > 0$ y $n_0\in\mathbb{N}$ tales que todo grafo $G$ sobre $n\geq n_0$ vértices satisface $\discp_p (\varepsilon)$ cada vez que cumpla con $\disc_p (\delta)$. En particular,
     \[
         \disc_p \Rightarrow \discp_p.
     \]
@@ -918,7 +918,7 @@ Con esto en mente, damos paso a la demostración de cada proposición considerad
     Las igualdades anteriores consideran, por definición, $e(X,X) = 2e(X)$, y la aproximación  $\tbinom{|X|}{2}= \frac{|X|^2}{2} \pm \delta n^2$.
 \end{proof}
 \begin{prop} \label{discp => disc} %%%%%%%%%% Proposición: DISC_p' => DISC_p
-    Para todo $\varepsilon > 0$ y $p\in(0,1)$, existe $\delta > 0$ y $n_0\in\mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices satisface $\disc_p (\varepsilon)$ cada vez que cumpla con $\discp_p (\delta)$. En particular,
+    Para todo $\varepsilon > 0$ y $p\in(0,1)$, existe $\delta > 0$ y $n_0\in\mathbb{N}$ tales que todo grafo $G$ sobre $n\geq n_0$ vértices satisface $\disc_p (\varepsilon)$ cada vez que cumpla con $\discp_p (\delta)$. En particular,
     \[
         \discp_p \Rightarrow \disc_p.
     \]
@@ -938,7 +938,7 @@ Con esto en mente, damos paso a la demostración de cada proposición considerad
     \end{align*}
 \end{proof}
 \begin{prop} \label{discp => count} %%%%%%%%%% Proposición: DISC'_P => COUNT_P
-    Para todo $\varepsilon > 0$ y $p\in(0,1)$, existe $\delta > 0$ y $n_0\in\mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices satisface $\Count_p (\varepsilon)$ cada vez que cumpla con $\discp_p (\delta)$. En otras palabras,
+    Para todo $\varepsilon > 0$ y $p\in(0,1)$, existe $\delta > 0$ y $n_0\in\mathbb{N}$ tales que todo grafo $G$ sobre $n\geq n_0$ vértices satisface $\Count_p (\varepsilon)$ cada vez que cumpla con $\discp_p (\delta)$. En otras palabras,
     \[
         \discp_p \Rightarrow \Count_p.
     \]
@@ -991,7 +991,7 @@ Con esto en mente, damos paso a la demostración de cada proposición considerad
     De esta manera, tomando la elección de $\delta$ y $F=H$ se obtiene el resultado.    
 \end{proof}
 \begin{prop} \label{count => C4} %%%%%%%%%% Proposición: COUNT_p => COUNT_C4,p
-    Para todo $\varepsilon > 0$ y $p\in (0,1)$, existe $\delta > 0$ y $n_0\in \mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices satisface $\Count_{C_4,p} (\varepsilon)$ cada vez que cumpla con $\Count_p(\delta)$. En otras palabras,
+    Para todo $\varepsilon > 0$ y $p\in (0,1)$, existe $\delta > 0$ y $n_0\in \mathbb{N}$ tales que todo grafo $G$ sobre $n\geq n_0$ vértices satisface $\Count_{C_4,p} (\varepsilon)$ cada vez que cumpla con $\Count_p(\delta)$. En otras palabras,
     \[
         \Count_p \Rightarrow \Count_{C_4,p}.
     \]
@@ -1000,7 +1000,7 @@ Con esto en mente, damos paso a la demostración de cada proposición considerad
     Se trata de un caso particular de $\Count_p$, en donde $H = C_4$ y $\delta < \epsilon$.
 \end{proof}
 \begin{prop} \label{C4 => codeg} %%%%%%%%%% Proposición: COUNT_C4_p => CODEG_p
-    Para todo $\varepsilon > 0$ y $p\in (0,1)$, existe $\delta > 0$ y $n_0\in \mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas satisface $\codeg_p (\varepsilon)$ cada vez que cumpla con $\Count_{C_4,p}(\delta)$. En particular,
+    Para todo $\varepsilon > 0$ y $p\in (0,1)$, existe $\delta > 0$ y $n_0\in \mathbb{N}$ tales que todo grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas satisface $\codeg_p (\varepsilon)$ cada vez que cumpla con $\Count_{C_4,p}(\delta)$. En particular,
     \[
         \Count_{C_4,p} \Rightarrow \codeg_p.
     \]
@@ -1031,7 +1031,7 @@ Con esto en mente, damos paso a la demostración de cada proposición considerad
     \end{align*}
 \end{proof}
 \begin{prop} \label{codeg => disc} %%%%%%%%%% Proposición: CODEG_p => DISC_p
-    Para todo $\varepsilon > 0$ y $p\in (0,1)$, existe $\delta > 0$ y $n_0\in \mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas satisface $\disc_p (\varepsilon)$ cada vez que cumpla con $\codeg_p(\delta)$. En particular,
+    Para todo $\varepsilon > 0$ y $p\in (0,1)$, existe $\delta > 0$ y $n_0\in \mathbb{N}$ tales que todo grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas satisface $\disc_p (\varepsilon)$ cada vez que cumpla con $\codeg_p(\delta)$. En particular,
     \[
         \codeg_p \Rightarrow \disc_p.
     \]
@@ -1069,7 +1069,7 @@ Con esto en mente, damos paso a la demostración de cada proposición considerad
     \end{align*} 
 \end{proof}
 \begin{prop} \label{eig => C4} %%%%%%%%%% Proposición: EIG_p => COUNT_C4,p
-    Para todo $\varepsilon > 0$ y $p\in (0,1)$, existe $\delta > 0$ y $n_0\in \mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas satisface $\Count_{C_4,p} (\varepsilon)$ cada vez que cumpla con $\eig_p(\delta)$. En particular,
+    Para todo $\varepsilon > 0$ y $p\in (0,1)$, existe $\delta > 0$ y $n_0\in \mathbb{N}$ tales que todo grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas satisface $\Count_{C_4,p} (\varepsilon)$ cada vez que cumpla con $\eig_p(\delta)$. En particular,
     \[
         \eig_p \Rightarrow \Count_{C_4,p}.
     \]
@@ -1093,7 +1093,7 @@ Con esto en mente, damos paso a la demostración de cada proposición considerad
     \]
 \end{proof}
 \begin{prop} \label{C4 => eig} %%%%%%%%%% Proposición: COUNT_C4,p => EIG_p
-    Para todo $\varepsilon > 0$ y $p\in (0,1)$, existe $\delta > 0$ y $n_0\in\mathbb{N}$ tales que el grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas satisface $\eig_p(\varepsilon)$ cada vez que cumpla la propiedad $\Count_{C_4, p}(\delta)$. Es decir,
+    Para todo $\varepsilon > 0$ y $p\in (0,1)$, existe $\delta > 0$ y $n_0\in\mathbb{N}$ tales que todo grafo $G$ sobre $n\geq n_0$ vértices y $e_G = \frac{pn^{2}}{2} \pm \delta n^{2}$ aristas satisface $\eig_p(\varepsilon)$ cada vez que cumpla la propiedad $\Count_{C_4, p}(\delta)$. Es decir,
     \[
         \Count_{C_4,p} \Rightarrow \eig_p .
     \]
