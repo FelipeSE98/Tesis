@@ -308,7 +308,9 @@ Si $G = (V,E)$ es un grafo cualquiera y $u,v\in V$, se dirá que $u$ es \textbf{
 \begin{equation} \label{eq e(X,Y)}
     e(X,Y) := \Big|\lbrace (x,y)\in X\times Y : xy\in E\rbrace\Big|.
 \end{equation}
-Cuando $X\cap Y = \emptyset$, $e(X,Y)$ cuenta el número de aristas entre $X$ e $Y$, y cuando $X\cap Y\not=\emptyset$, $e(X,Y)$ realiza un doble conteo sobre las aristas que se encuentran en $X\cap Y$. Se entenderá por \textbf{vecindad} de $u\in V$ como el conjunto de todos los vértices adyacentes a $u$, es decir,
+Cuando $X\cap Y = \emptyset$, $e(X,Y)$ cuenta el número de aristas entre $X$ e $Y$, y cuando $X\cap Y\not=\emptyset$, $e(X,Y)$ realiza un doble conteo sobre las aristas que se encuentran en $X\cap Y$. Además, por lo anterior, se define naturalmente $e(X) = \frac{e(X,X)}{2}$.
+
+Se entenderá por \textbf{vecindad} de $u\in V$ como el conjunto de todos los vértices adyacentes a $u$, es decir,
 \begin{equation} \label{vecindad}
     N(u) := \lbrace v\in V(G) : uv\in E(G)\rbrace.
 \end{equation}
@@ -713,17 +715,20 @@ De esta manera, la cantidad de caminatas cerradas de largo $k$ entre dos vértic
 \begin{equation} \label{Aprox_Cop_C_k}
     \left| \tbinom{G}{C_k}\right| = \Tr(A^{k}) + O(n^{k-1}) = \sum_{i=1}^{n}\lambda_{i}^{k} + O(n^{k-1})
 \end{equation}
-Finalmente, es posible caracterizar cada valor propio de una matriz real simétrica por medio del Teorema de Courant-Fischer. Se enuncia sin demostración.
+También, es posible caracterizar cada valor propio de una matriz real simétrica por medio del Teorema de Courant-Fischer. Se enuncia sin demostración una versión particular del resultado que nos será de utilidad (\cite{zhao2023graph}, pag 113.).
 \begin{teorema} \label{Teo Courant-Fischer} (Teorema de Courant-Fischer) %%%% Teorema: Courant-Fischer
-    Sea $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ una matriz real simétrica, cuyos valores propios son $\lambda_1 \leq \lambda_2 \leq ...\leq \lambda_n$, y $\lbrace \boldsymbol{v}_1, \boldsymbol{v}_2,..., \boldsymbol{v}_n \rbrace$ sus vectores propios. Entonces,
-    \begin{itemize}
-        \item[(i)] \[
-                \lambda_k = \inf_{\substack{\boldsymbol{x}\perp \lbrace \boldsymbol{v}_1,...,\boldsymbol{v}_{k-1}\rbrace \\ \boldsymbol{x}\not= \boldsymbol{0}}} \frac{\langle \boldsymbol{x}, A\boldsymbol{x}\rangle}{\langle \boldsymbol{x},\boldsymbol{x}\rangle}.
-                    \]
-        \item[(ii)] \[
-                \lambda_k = \sup_{\substack{\boldsymbol{x}\perp \lbrace \boldsymbol{v}_{k+1},...,\boldsymbol{v}_n\rbrace \\ \boldsymbol{x}\not= \boldsymbol{0}}} \frac{\langle \boldsymbol{x}, A\boldsymbol{x}\rangle}{\langle \boldsymbol{x},\boldsymbol{x}\rangle}.
-                    \]
-    \end{itemize}
+    Sea $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ una matriz real simétrica, cuyos valores propios son $\lambda_1 \geq \lambda_2 \geq ...\geq \lambda_n$, y $\lbrace \boldsymbol{v}_1, \boldsymbol{v}_2,..., \boldsymbol{v}_n \rbrace$ sus vectores propios. Entonces,
+    \begin{equation*}
+        \lambda_k = \sup_{\substack{\boldsymbol{x}\perp \lbrace \boldsymbol{v}_1,...,\boldsymbol{v}_{k-1}\rbrace \\ \boldsymbol{x}\not= \boldsymbol{0}}} \frac{\langle \boldsymbol{x}, A\boldsymbol{x}\rangle}{\langle \boldsymbol{x},\boldsymbol{x}\rangle}. 
+    \end{equation*}
+    %\begin{itemize}
+    %    \item[(i)] \[
+    %            \lambda_k = \inf_{\substack{\boldsymbol{x}\perp \lbrace %\boldsymbol{v}_1,...,\boldsymbol{v}_{k-1}\rbrace \\ \boldsymbol%{x}\not= \boldsymbol{0}}} \frac{\langle \boldsymbol{x}, %A\boldsymbol{x}\rangle}{\langle \boldsymbol{x},\boldsymbol{x}%\rangle}.
+    %                \]
+    %    \item[(ii)] \[
+    %            \lambda_k = \sup_{\substack{\boldsymbol{x}\perp \lbrace %\boldsymbol{v}_{k+1},...,\boldsymbol{v}_n\rbrace \\ \boldsymbol%{x}\not= \boldsymbol{0}}} \frac{\langle \boldsymbol{x}, %A\boldsymbol{x}\rangle}{\langle \boldsymbol{x},\boldsymbol{x}%\rangle}.
+    %                \]
+    %\end{itemize}
 \end{teorema}
 \begin{corolario} \label{cor:CFprimero}
     Sea $\lambda_1$ el valor propio más grande de la matriz simétrica $A\in\mathcal{M}_{n\times n}(\mathbb{R})$, entonces
@@ -734,11 +739,11 @@ Finalmente, es posible caracterizar cada valor propio de una matriz real simétr
 \begin{proof}
     Si $\boldsymbol{v}_1$ un vector propio de $A$ correspondiente a $\lambda_1$, entonces
     \begin{equation*}
-        \lambda_1 = \frac{\norm{A\boldsymbol{v}_1}}{\norm{\boldsymbol{v}_1}} \leq \sup_{\boldsymbol{x}\not=\boldsymbol{0}}\frac{\norm{A\boldsymbol{x}}}{\norm{x}}.
+        \lambda_1 = \frac{\norm{A\boldsymbol{v}_1}}{\norm{\boldsymbol{v}_1}} \leq \sup_{\boldsymbol{x}\not=\boldsymbol{0}}\frac{\norm{A\boldsymbol{x}}}{\norm{\boldsymbol{x}}}.
     \end{equation*}
     Por otro lado, observando que el valor propio más grande de $A^{2}$ es $\lambda_{1}^{2}$, se concluye para cualquier $\boldsymbol{x}\in\mathbb{R}^{n}$ que
     \begin{equation*}
-        \norm{A\boldsymbol{x}}^{2} = \langle A\boldsymbol{x}, A\boldsymbol{x}\rangle = \langle \boldsymbol{x}, A^{T}A\boldsymbol{x}\rangle = \langle \boldsymbol{x}, A^{2}\boldsymbol{x}\rangle \leq \lambda_{1}^{n}\langle \boldsymbol{x}, \boldsymbol{x}\rangle = \lambda_{1}^{2}\norm{\boldsymbol{x}}^{2}.
+        \norm{A\boldsymbol{x}}^{2} = \langle A\boldsymbol{x}, A\boldsymbol{x}\rangle = \langle \boldsymbol{x}, A^{T}A\boldsymbol{x}\rangle = \langle \boldsymbol{x}, A^{2}\boldsymbol{x}\rangle \leq \lambda_{1}^{2}\langle \boldsymbol{x}, \boldsymbol{x}\rangle = \lambda_{1}^{2}\norm{\boldsymbol{x}}^{2}.
     \end{equation*}
 \end{proof}
 Usualmente, el primer valor propio de todo grafo juega un papel protagónico. Para los fines de estas tesis, es necesario establecer una cota inferior del primer valor propio.
@@ -811,7 +816,7 @@ Con esto, damos paso a la demostración prometida.
     Por lo anterior, se concluye utilizando la cota de la unión de la siguiente manera:
     \begin{align*}
         1 - \mathbb{P}(\mathcal{P}_{n}^{p,\varepsilon}) &= \mathbb{P}\left( \exists A,B\subset V(G) : \Big| X - p|A||B|\Big| > \varepsilon n^{2}\right) \\
-        &\leq \mathbb{P}\left(\exists A,B\subset V(G): |X_i - \mu_i| > \frac{\varepsilon}{3}n^{2}\ ,\ i\in\lbrace 1,2\rbrace\right)\\
+        &\leq \mathbb{P}\left(\exists A,B\subset V(G): |X_i - \mu_i| > \frac{\varepsilon}{3}n^{2}\ ,\ \exists i\in\lbrace 1,2\rbrace\right)\\
         &\leq \sum_{\substack{A\subset V(G) \\ B\subset V(G)}} \mathbb{P}\left( |X_1 - \mu_1| > \frac{\varepsilon}{3}n^{2}\right) + \sum_{\substack{A\subset V(G) \\ B\subset V(G)}} \mathbb{P}\left( |X_2 - \mu_2| > \frac{\varepsilon}{3}n^{2}\right)\\
         &\overset{\eqref{bound_chernov}}{\leq} 2^{2n+2}\exp\left( -\frac{2}{9}\varepsilon^{2}n^{2}\right) \overset{n \to \infty}{\longrightarrow} 0.
     \end{align*}
@@ -864,7 +869,7 @@ En la presente sección se enuncia el Teorema de Chung, Graham y Wilson junto a 
         \]
         \item[{\makebox[0.2cm][l]{$\Count_p :$}}] \hspace{1.5cm} Para cada grafo $H$, la cantidad de copias etiquetadas de $H$ en $G_n$ está dada por
         \[
-            \left|\tbinom{G_n}{H}\right| = \left(p^{e(H)} + o(1)\right) n^{(H)}.
+            \left|\tbinom{G_n}{H}\right| = \left(p^{e_H} + o(1)\right) n^{e_H}.
         \]
         \item[{\makebox[0.2cm][l]{$\Count_{C4,p} :$}}] \hspace{2cm} La cantidad de copias etiquetadas de ciclos de largo 4 es
         \[
@@ -1015,7 +1020,7 @@ Con esto en mente, damos paso a la demostración de cada proposición considerad
     \begin{equation*}
         \displaystyle\sum_{u,v\in V(G)} \cod(u,v)^{2} = \left|\tbinom{G}{C_4}\right| \pm \delta n^{4} \leq p^{4}n^{4} + 2\delta n^{4}.
     \end{equation*}
-    Así, con las cotas anteriores, se obtiene el resultado de la siguiente manera:
+    De la ecuación anterior, el término de error $\delta n^{4}$ se debe a las caminatas cerradas de largo $4$ que involucran vértices repetidos. Así, con las cotas anteriores, se obtiene el resultado de la siguiente manera:
     \begin{align*}
         \displaystyle\sum_{u,v\in V(G)} \Big|&\cod(u,v) - p^{2}n\Big| \overset{\mathrm{DCS}}{\leq} n\left(\displaystyle\sum_{u,v\in V(G)} (\cod(u,v) - p^{2}n)^{2} \right)^{1/2}\\
         &= n\left(\displaystyle\sum_{u,v\in V(G)} \cod(u,v)^{2} - 2p^{2}n\displaystyle\sum_{u,v\in V(G)} \cod(u,v) + \displaystyle\sum_{u,v\in V(G)} p^{4}n^{2} \right)^{1/2}\\
@@ -1106,7 +1111,7 @@ Con esto en mente, damos paso a la demostración de cada proposición considerad
     \end{equation}
     La desigualdad \eqref{cota2_lambda1} implica que $\lambda_1 \leq pn + (2\delta)^{1/4} n$, y en combinación con la cota vista en $\eqref{cota1_lambda1}$, se obtiene que $\lambda_1 = pn \pm (2\delta)^{1/4} n$. Por último, observe por las cotas vistas anteriormente que
     \begin{align*}
-        \max_{i\not= 1} |\lambda_1|^{4} &\leq \sum_{i = 2}^{n} \lambda_{i}^{4} + \lambda_1^{4} - \lambda_1^{4} \\
+        \max_{i\not= 1} |\lambda_i|^{4} &\leq \sum_{i = 2}^{n} \lambda_{i}^{4} + \lambda_1^{4} - \lambda_1^{4} \\
         &= \Tr(A^{4}) - \lambda_{1}^{4}\\
         &\leq p^{4}n^{4}  + 2\delta n^{2} - p^{4}n^{4} + 2\delta n^{4}\\
         &= 4\delta n^{4}.
@@ -1287,7 +1292,7 @@ P. Erd\H{o}s y P. Turán \cite{erdos1936some} conjeturaron en 1936 que todo conj
 
 %%%% Teorema de Szemerédi
 \begin{teorema} (Teorema de Szemerédi) \label{Teorema Szemeredi}
-    Para todo $\varepsilon > 0$, existe $n_0 \in \mathbb{N}$ tal que si el conjunto $S\subset [n]$ posee $|S|>\varepsilon n$ elementos, entonces $S$ contiene una progresión aritmética de largo $k$ no trivial cada vez que $n\geq n_0$.
+    Para todo entero positivo $k\geq 1$ y todo $\varepsilon > 0$, existe $n_0 \in \mathbb{N}$ tal que si el conjunto $S\subset [n]$ posee $|S|>\varepsilon n$ elementos, entonces $S$ contiene una progresión aritmética de largo $k$ no trivial cada vez que $n\geq n_0$.
 \end{teorema}
 
 La demostración que propone Szemerédi es considerada una obra maestra del razonamiento combinatorio, pero de extrema complejidad. Quizás esto motivó a otros matemáticos en encontrar nuevas formas de probar el teorema. En 1977, H. Furstenberg \cite{furstenberg1977ergodic} obtiene una demostración fundamentada en la teoría ergódica. También, en 2001, T. Gowers \cite{gowers2001new} entrega una tercera demostración por medio de análisis de Fourier, extendiendo el camino iniciado por Roth para progresiones aritméticas de largo $3$. Más adelante se consigue una versión análoga del Lema de regularidad para hipergrafos por T. Gowers, e independientemente, por los autores M. Schacht, B. Nagle, V. R\H{o}dl, y J. Skokan (\cite{gowers2007hypergraph}, \cite{nagle2006counting}, \cite{rodl2004regularity}, \cite{rodl2005regular}).
@@ -1322,7 +1327,7 @@ En efecto, si $(U,W)$ es un par $\varepsilon$-regular, entonces todo $A\subset U
 \begin{align*}
     e(A,B) = d(U,W)|A||B| \pm \varepsilon|A||B| = d(U,W)|A||B| \pm \varepsilon|U||W|.
 \end{align*}
-Ahora bien, si al menos uno de los subconjuntos de la condición de un par $\varepsilon$-regular no es suficientemente grande, digamos $|A| < \varepsilon|X|$, entonces
+Ahora bien, si al menos uno de los subconjuntos de la condición de un par $\varepsilon$-regular no es suficientemente grande, digamos $|A| < \varepsilon|U|$, entonces
 \begin{equation*}
     e(A,B) \leq |A||B| \leq \varepsilon |U||W| < d(U,W)|A||B| + \varepsilon|U||W|.
 \end{equation*}
@@ -1563,7 +1568,7 @@ En esta sección presentamos la demostración espectral del Lema de regularidad 
 
     Por la Proposición~\ref{potencia_matriz_adyacencia = caminatas} y el Corolario~\ref{Tr_Ak}, se satisface
     \begin{equation} \label{eq_1 Spectral_Proof}
-        \Tr(A) = \sum_{i=1}^{n} \lambda_{1}^{2} =  2e_G \leq n^{2}.
+        \Tr(A^{2}) = \sum_{i=1}^{n} \lambda_{1}^{2} =  2e_G \leq n^{2}.
     \end{equation}
     De lo anterior, al notar que $i\lambda_{i}^{2} \leq \sum_{j=1}^{i} \lambda_{j}^{2} \leq n^{2}$, se encuentra la cota
     \begin{equation} \label{eq_2 Spectral_Proof}
@@ -1608,7 +1613,7 @@ En esta sección presentamos la demostración espectral del Lema de regularidad 
     \end{equation*}
     se determina que $|V_0| < \varepsilon n$.
 
-    Probaremos que la partición construida del conjunto de vértices del grafo\newline $\mathcal{P} =\lbrace V_0,V_1,...,V_M\rbrace$ es $\varepsilon$-regular. Comenzamos identificando los pares excepcionales. Para esto, sea $F = (f_{xy})$ y defina
+    Probaremos que la partición construida del conjunto de vértices del grafo\newline $\mathcal{P} =\lbrace V_0,V_1,...,V_M\rbrace$ es $\varepsilon$-regular. Comenzamos identificando los pares excepcionales. Para esto, sea $F = (f_{xy})$ indexando $(x,y)$ con $V_i \times V_j$, y defina
     \begin{align*}
         \Sigma_F &=\Big\{(i,j) : \sum_{(x,y)\in V_i\times V_j} f_{xy}^{2} > \varepsilon |V_i| |V_j|\Big\}.
     \end{align*}
@@ -1697,7 +1702,7 @@ Para el último paso se utilizará un resultado análogo a la propiedad $\Count_
     \begin{equation*}
         \Big|\lbrace (x,y,z)\in X,Y,Z : xy,yz\in E\rbrace\Big| = d(X,Y)d(Y,Z)|X||Y||Z| \pm 2\varepsilon |X||Y||Z|.
     \end{equation*}
-    Defina  $e^{-} = \varphi(1)\varphi(3)$, y $T^{-}$ como el grafo correspondido a una copia etiquetada del grafo $([3],\lbrace 12,23\rbrace)$ en $G$ bajo la apliación inyectiva $\varphi : [3]\to V(T^{-})\subset V$. Con esto, se desarrolla inductivamente como sigue:
+    Sea $T^{-}$ el grafo correspondido a una copia etiquetada del grafo $([3],\lbrace 12,23\rbrace)$ en $G$ bajo la apliación inyectiva $\varphi : [3]\to V(T^{-})\subset V$. Con esto, defina $e^{-} = \varphi(1)\varphi(3)$ y se desarrolla inductivamente como sigue:
     \begin{align} \label{2doSum_TCL}
         \Big|&\lbrace (x,y,z)\in X\times Y\times Z : xy,yz,xz\in E\rbrace\Big| = \sum_{T^{-}} \left[ \mathbbm{1}_{E}(e^{-}) + d(X,Z) - d(X,Z) \right]\nonumber \\
         &= d(X,Y)d(Y,Z)d(X,Z)|X||Y||Z| + \sum_{T^{-}} \left( \mathbbm{1}_{E}(e^{-}) - d(X,Z)\right) \pm 2\varepsilon |X||Y||Z|.
@@ -1850,7 +1855,7 @@ La presente aplicación del método de regularidad responde a la pregunta: \emph
     Para todo $\varepsilon > 0$, existe $n_0\in \mathbb{N}$ tal que todo grafo $G = (V,E)$ de $n\geq n_0$ vértices que está compuesto por la unión de $n$ emparejamientos inducidos, posee a lo más $\varepsilon n^{2}$ aristas.
 \end{teorema}
 \begin{proof} %%%% Demostración: Emparejamiento inducido
-    Dado $\varepsilon > 0$, aplique el Teorema~\ref{szemeredi_regularity_lemma1} con $\varepsilon_r = \frac{\varepsilon}{10}$ para obtener la constante $M(\varepsilon_r)$. Considere $n_0\in\mathbb{N}$ suficientemente grande, y asuma que el grafo $G = (V,E)$ con $n\geq n_0$ vértices y compuesto por $n$ emparejamientos inducidos satisface $e_G > \varepsilon n$. Nuevamente, por el Teorema~\ref{szemeredi_regularity_lemma1}, se asegura la existencia de la partición $\mathcal{P} = \lbrace V_1,...,V_k\rbrace$ con $k\leq M(\varepsilon)$ partes que es $\varepsilon_r$-regular.
+    Dado $\varepsilon > 0$, aplique el Teorema~\ref{szemeredi_regularity_lemma1} con $\varepsilon_r = \frac{\varepsilon}{10}$ para obtener la constante $M(\varepsilon_r)$. Considere $n_0\in\mathbb{N}$ suficientemente grande, y asuma que el grafo $G = (V,E)$ con $n\geq n_0$ vértices y compuesto por $n$ emparejamientos inducidos satisface $e_G > \varepsilon n^{2}$. Nuevamente, por el Teorema~\ref{szemeredi_regularity_lemma1}, se asegura la existencia de la partición $\mathcal{P} = \lbrace V_1,...,V_k\rbrace$ con $k\leq M(\varepsilon)$ partes que es $\varepsilon_r$-regular.
     
     Para cada $(i,j)\in [k]^{2}$ se eliminan todas las aristas entre los conjuntos $V_i$ y $V_j$ cuando estos presenten irregularidad, densidad menor que $2\varepsilon_r$, o al menos uno de los conjuntos es menor que $\frac{n}{k}\varepsilon_r$. En total, el proceso de limpieza remueve a lo más $4\varepsilon_r n^{2}$ aristas de $G$ para obtener un nuevo grafo $G'$. En consecuencia,
     \begin{equation*}
@@ -2092,7 +2097,9 @@ Para la segunda demostración del Teorema de Roth, será necesario un resultado 
 El resultado anterior otorga lo necesario para la segunda demostración (J. Solymosi \cite{solymosi2003note}) del Teorema de Roth utilizando el Lema de regularidad de Szemerédi.
 \begin{proof}[Segunda demostración Teorema~\ref{Teorema_de_Roth}]
     Dado $\varepsilon > 0$, se utiliza el Teorema~\ref{Corner_Theorem} con esta elección para obtener $n_0 \in\mathbb{N}$. Para $n\geq n_0$, sea $S\subset [n]$ un conjunto que posee al menos $\varepsilon n$ elementos. Defina el siguiente conjunto:
-
+    \begin{equation*}
+        B := \lbrace (x,y)\in [2n]^{2} : x-y\in A\rbrace .
+    \end{equation*}
     Observe que cada $s\in S$ da lugar a exactamente $n$ elementos en $B$ con $x-y=s$, permitiendo determinar que $|B| = n|S| \geq \varepsilon n^{2}$. Entonces, el Teorema~\ref{Corner_Theorem} asegura la existencia de elementos de la forma $\lbrace (s,b), (s, b+d), (s+d,b)\rbrace$ en $B$. Por consecuencia, se encuentra una progresión aritmética de largo $3$ no trivial en $A$ tomando $x = s-b$, e $y = d$.
 \end{proof}
 
