@@ -50,6 +50,30 @@
       \field{pages}{9\bibrangedash 11}
       \range{pages}{3}
     \endentry
+    \entry{axler2024linear}{book}{}
+      \name{author}{1}{}{%
+        {{hash=71493eec7caacea528ad39dbfb52773a}{%
+           family={Axler},
+           familyi={A\bibinitperiod},
+           given={Sheldon},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Nature}%
+      }
+      \strng{namehash}{71493eec7caacea528ad39dbfb52773a}
+      \strng{fullhash}{71493eec7caacea528ad39dbfb52773a}
+      \strng{bibnamehash}{71493eec7caacea528ad39dbfb52773a}
+      \strng{authorbibnamehash}{71493eec7caacea528ad39dbfb52773a}
+      \strng{authornamehash}{71493eec7caacea528ad39dbfb52773a}
+      \strng{authorfullhash}{71493eec7caacea528ad39dbfb52773a}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Linear algebra done right}
+      \field{year}{2024}
+    \endentry
     \entry{bollobas1998random}{book}{}
       \name{author}{1}{}{%
         {{hash=8f9aa69d12cd51c21f06c094b77eb30d}{%

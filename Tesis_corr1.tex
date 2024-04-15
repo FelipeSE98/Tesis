@@ -626,54 +626,69 @@ Es importante destacar que la matriz de adyacencia no solo describe las conexion
 Como consecuencia de la proposición anterior, en cualquier grafo $G = ([n], E)$ con matriz de adyacencia $A$, se puede representar la cantidad total de caminatas cerradas de largo $t$ en el grafo por medio de la traza, $\Tr(A^{t}) = \sum_{i=1}^{n}a_{ii}^{(t)}$. Con esto, note que $\Tr(A^{2}) = 2e_G$.
 
 Por otro lado, para introducir algunos aspectos de la teoría espectral de grafos, recuerde que el vector no nulo $\boldsymbol{v}\in \mathbb{R}^{n}$ es un \textbf{vector propio} de alguna matriz $A\in \mathcal{M}_{n\times n}(\mathbb{R})$ con \textbf{valor propio} $\lambda\in \mathbb{C}$ si $A\boldsymbol{v}=\lambda \boldsymbol{v}$. Esto significa que $\lambda$ es un valor propio si y solo si $\lambda I_{n} - A$ es una matriz singular. Así, los valores propios vienen dados por las raíces del polinomio característico $\det(xI_{n} - A)$. En este trabajo, cuando se haga referencia a los valores y vectores propios de un grafo $G$, siempre será con respecto a su matriz de adyacencia $A$. Por ejemplo. si $G$ es un grafo $d$-regular, entonces con la igualdad \eqref{A1=Mdeg} se puede deducir que $d$ es el valor propio asociado al vector propio normalizado de $1$-entradas de la matriz de adyacencia $A_G$.
-\begin{prop} %%%% Proposición: VP relaes y vectores ortogonales.
-    Sea $A\in\mathcal{M}_{n\times n}(\mathbb{R})$ una matriz real simétrica, entonces todos sus valores propios son reales. Además, si dos vectores propios están asociados a distintos valores propios, entonces éstos son ortogonales. Más aún, el conjunto de todos los vectores propios define una base ortonormal de $\mathbb{R}^{n}$.
-\end{prop}
-\begin{proof} %%%% Demostración
-    Se comienza probando que los valores propios de $A$ son reales. Sea $\lambda$ un valor propio de $A$ y $\boldsymbol{x}\not=0$ su correspondiente vector propio. Tomando su conjugado (denotado por $\overline{z}$ al complejo conjugado de $z\in\mathbb{C}$), se obtiene paralelamente que
-    \begin{equation*}
-        \begin{aligned}
-            A\boldsymbol{x} &= \lambda \boldsymbol{x} & \hspace{2cm}  A\overline{\boldsymbol{\boldsymbol{x}}} &= \overline{\lambda}\overline{\boldsymbol{x}}\\
-            &\Downarrow & \hspace{2cm} & \Downarrow\\
-            \overline{\boldsymbol{x}}^{T}A\boldsymbol{x} &= \lambda\norm{\boldsymbol{x}}^{2} & \hspace{2cm} \boldsymbol{x}^{T}A\overline{\boldsymbol{x}} &= \overline{\lambda}\norm{\boldsymbol{x}}^{2}. 
-        \end{aligned}
-    \end{equation*}
-    Además, como $A$ es simétrica,
-    \begin{equation*}
-        \overline{\boldsymbol{x}}^{T}A\boldsymbol{x} = (A\boldsymbol{x})^{T}\overline{\boldsymbol{x}} = \boldsymbol{x}^{T}A\overline{\boldsymbol{x}}.
-    \end{equation*}
-    Así, ya que $\boldsymbol{x}\not=0$, debe ocurrir que $\lambda = \overline{\lambda}$, permitiendo concluir que todos los valores propios de $A$ son números reales.
 
-    Por otro lado, considere $\boldsymbol{u},\boldsymbol{v}\in \mathbb{R}^{n}$ vectores propios distintos de $A$ asociados a los valores propios $\lambda,\mu\in\mathbb{R}\setminus\lbrace 0\rbrace$ respectivamente. Calculamos como sigue,
-    \begin{align*}
-        \lambda \langle \boldsymbol{u},\boldsymbol{v}\rangle = \langle \lambda \boldsymbol{u},\boldsymbol{v}\rangle
-        = \langle A\boldsymbol{u},\boldsymbol{v} \rangle
-        = \langle \boldsymbol{u},A^{T} \boldsymbol{v} \rangle
-        = \langle \boldsymbol{u},A\boldsymbol{v} \rangle
-        = \langle \boldsymbol{u},\mu \boldsymbol{v} \rangle
-        = \mu \langle \boldsymbol{u},\boldsymbol{v}\rangle.
-    \end{align*}
-    De esta manera, $\lambda\langle \boldsymbol{u},\boldsymbol{v}\rangle = \mu\langle \boldsymbol{u},\boldsymbol{v}\rangle$ si y solamente si $\langle \boldsymbol{u},\boldsymbol{v}\rangle = 0$. Ya probada la ortogonalidad de los vectores propios de $A$, defina $\mathcal{B} = \lbrace \boldsymbol{u}_1, \boldsymbol{u}_2,...,\boldsymbol{u}_n\rbrace$ como el conjunto de vectores propios normalizados de $A$ para probar que $\mathcal{B}$ constituye una base ortonormal de $\mathbb{R}^{n}$. Para esto, sean $c_1,...,c_n\in\mathbb{R}$ tales que
-    \begin{equation*}
-        c_1 \boldsymbol{u}_1 + c_2 \boldsymbol{u}_2 + ... + c_n \boldsymbol{u}_n = 0.
-    \end{equation*}
-    Entonces, para cualquier $i\in[n]$, multiplicando por la izquierda la igualdad anterior por $\boldsymbol{u}_{i}^{T}$,
-    \begin{equation*}
-        \boldsymbol{u}_{i}^{T} (c_1 \boldsymbol{u}_1 + ... + c_n \boldsymbol{u}_n) = c_i \boldsymbol{u}_{i}^{T}\boldsymbol{u}_i = c_i = 0.
-    \end{equation*}
-    Así, queda demostrado que $\mathcal{B}$ es una base ortonormal de $\mathbb{R}^{n}$.
-\end{proof}
 A continuación, se enunciará sin demostración uno de los teoremas más importantes del álgebra lineal, y se estudiarán algunas de sus consecuencias bajo el contexto de la teoría de grafos.
-\begin{teorema} (Teorema espectral) %%%% Teorema espectral
-    Sea $A\in\mathcal{M}_{n\times n}(\mathbb{R})$ una matriz real simétrica. Entonces existen matrices $P$ ortogonal y $D$ diagonal tales que
-    \begin{equation} \label{Descomposición espectral}
-        A = PDP^{T} = \sum_{i=1}^{n}\lambda_{i}\boldsymbol{v}_{i}\boldsymbol{v}_{i}^{T}.
-    \end{equation}
-    En donde la matriz diagonal $D$ está compuesta por los valores propios $\lambda_i \in\mathbb{R}$ de $A$, y las columnas de $P$ son los vectores propios ortonormales $\boldsymbol{v}_{i}\in\mathbb{R}^{n}$ de $A$.
+\begin{teorema} (Teorema espectral \cite{axler2024linear}) 
+    Sea $A\in\mathcal{M}_{n\times n}(\mathbb{R})$, entonces las siguientes son equivalentes:
+    \begin{itemize}
+        \item[i)] $A$ es simétrica.
+        \item[ii)] Existen matrices $P$ ortogonal y $D$ diagonal tales que
+        \begin{equation} \label{Descomposición espectral}
+            A = PDP^{T} = \sum_{i=1}^{n}\lambda_{i}\boldsymbol{v}_{i}\boldsymbol{v}_{i}^{T}.
+        \end{equation}
+        En donde la matriz diagonal $D$ está compuesta por los valores propios $\lambda_i \in\mathbb{R}$ de $A$, y las columnas de $P$ son los vectores propios normalizados $\boldsymbol{v}_{i}\in\mathbb{R}^{n}$ de $A$.
+        \item[iii)] Los vectores propios normalizados de $A$ forman una base ortonormal de $\mathbb{R}^{n}$.
+    \end{itemize}
 \end{teorema}
+
+%\begin{prop} %%%% Proposición: VP relaes y vectores ortogonales.
+%    Sea $A\in\mathcal{M}_{n\times n}(\mathbb{R})$ una matriz real simétrica, entonces todos sus valores %propios son reales. Además, si dos vectores propios están asociados a distintos valores propios, %entonces éstos son ortogonales. Más aún, el conjunto de todos los vectores propios define una base %ortonormal de $\mathbb{R}^{n}$.
+%\end{prop}
+%\begin{proof} %%%% Demostración
+%    Se comienza probando que los valores propios de $A$ son reales. Sea $\lambda$ un valor propio de $A$ %y $\boldsymbol{x}\not=0$ su correspondiente vector propio. Tomando su conjugado (denotado por %$\overline{z}$ al complejo conjugado de $z\in\mathbb{C}$), se obtiene paralelamente que
+%    \begin{equation*}
+%        \begin{aligned}
+%            A\boldsymbol{x} &= \lambda \boldsymbol{x} & \hspace{2cm}  A\overline{\boldsymbol{\boldsymbol%{x}}} &= \overline{\lambda}\overline{\boldsymbol{x}}\\
+%            &\Downarrow & \hspace{2cm} & \Downarrow\\
+%            \overline{\boldsymbol{x}}^{T}A\boldsymbol{x} &= \lambda\norm{\boldsymbol{x}}^{2} & \hspace%{2cm} \boldsymbol{x}^{T}A\overline{\boldsymbol{x}} &= \overline{\lambda}\norm{\boldsymbol{x}}%^{2}. 
+%        \end{aligned}
+%    \end{equation*}
+%    Además, como $A$ es simétrica,
+%    \begin{equation*}
+%        \overline{\boldsymbol{x}}^{T}A\boldsymbol{x} = (A\boldsymbol{x})^{T}\overline{\boldsymbol{x}} = %\boldsymbol{x}^{T}A\overline{\boldsymbol{x}}.
+%    \end{equation*}
+%    Así, ya que $\boldsymbol{x}\not=0$, debe ocurrir que $\lambda = \overline{\lambda}$, permitiendo %concluir que todos los valores propios de $A$ son números reales.
+%
+%    Por otro lado, considere $\boldsymbol{u},\boldsymbol{v}\in \mathbb{R}^{n}$ vectores propios %distintos de $A$ asociados a los valores propios $\lambda,\mu\in\mathbb{R}\setminus\lbrace 0\rbrace$ %respectivamente. Calculamos como sigue,
+%    \begin{align*}
+%        \lambda \langle \boldsymbol{u},\boldsymbol{v}\rangle = \langle \lambda \boldsymbol{u},\boldsymbol%{v}\rangle
+%        = \langle A\boldsymbol{u},\boldsymbol{v} \rangle
+%        = \langle \boldsymbol{u},A^{T} \boldsymbol{v} \rangle
+%        = \langle \boldsymbol{u},A\boldsymbol{v} \rangle
+%        = \langle \boldsymbol{u},\mu \boldsymbol{v} \rangle
+%        = \mu \langle \boldsymbol{u},\boldsymbol{v}\rangle.
+%    \end{align*}
+%    De esta manera, $\lambda\langle \boldsymbol{u},\boldsymbol{v}\rangle = \mu\langle \boldsymbol{u},%\boldsymbol{v}\rangle$ si y solamente si $\langle \boldsymbol{u},\boldsymbol{v}\rangle = 0$. Ya %probada la ortogonalidad de los vectores propios de $A$, defina $\mathcal{B} = \lbrace \boldsymbol{u}%_1, \boldsymbol{u}_2,...,\boldsymbol{u}_n\rbrace$ como el conjunto de vectores propios normalizados %de $A$ para probar que $\mathcal{B}$ constituye una base ortonormal de $\mathbb{R}^{n}$. Para esto, %sean $c_1,...,c_n\in\mathbb{R}$ tales que
+%    \begin{equation*}
+%        c_1 \boldsymbol{u}_1 + c_2 \boldsymbol{u}_2 + ... + c_n \boldsymbol{u}_n = 0.
+%    \end{equation*}
+%    Entonces, para cualquier $i\in[n]$, multiplicando por la izquierda la igualdad anterior por %$\boldsymbol{u}_{i}^{T}$,
+%    \begin{equation*}
+%        \boldsymbol{u}_{i}^{T} (c_1 \boldsymbol{u}_1 + ... + c_n \boldsymbol{u}_n) = c_i \boldsymbol{u}_%{i}^{T}\boldsymbol{u}_i = c_i = 0.
+%    \end{equation*}
+%    Así, queda demostrado que $\mathcal{B}$ es una base ortonormal de $\mathbb{R}^{n}$.
+%\end{proof}
+%A continuación, se enunciará sin demostración uno de los teoremas más importantes del álgebra lineal, y %se estudiarán algunas de sus consecuencias bajo el contexto de la teoría de grafos.
+%\begin{teorema} (Teorema espectral) %%%% Teorema espectral
+%    Sea $A\in\mathcal{M}_{n\times n}(\mathbb{R})$ una matriz real simétrica. Entonces existen matrices %$P$ ortogonal y $D$ diagonal tales que
+%    \begin{equation} \label{Descomposición espectral}
+%        A = PDP^{T} = \sum_{i=1}^{n}\lambda_{i}\boldsymbol{v}_{i}\boldsymbol{v}_{i}^{T}.
+%    \end{equation}
+%    En donde la matriz diagonal $D$ está compuesta por los valores propios $\lambda_i \in\mathbb{R}$ de %$A$, y las columnas de $P$ son los vectores propios ortonormales $\boldsymbol{v}_{i}\in\mathbb{R}^{n}%$ de $A$.
+%\end{teorema}
 Con el teorema anterior es posible representar la matriz de adyacencia de un grafo por medio de dos matrices que dependen únicamente de sus valores y vectores propios para obtener propiedades desde una perspectiva espectral.
 
-En primera instancia, observe que la descomposición espectral \eqref{Descomposición espectral} permite trabajar eficientemente con las potencias de una matriz real simétrica, puesto a que el problema se reduce a calcular la respectiva potencia de la matriz diagonal de valores propios. Para visualizar este hecho, primero observe cómo se comporta el cuadrado de una matriz simétrica $A\in\mathcal{M}_{n\times n}(\mathbb{R})$:
+En primera instancia, observe que la \emph{descomposición espectral} \eqref{Descomposición espectral} permite trabajar eficientemente con las potencias de una matriz real simétrica, puesto a que el problema se reduce a calcular la respectiva potencia de la matriz diagonal de valores propios. Para visualizar este hecho, primero observe cómo se comporta el cuadrado de una matriz simétrica $A\in\mathcal{M}_{n\times n}(\mathbb{R})$:
 \begin{align*}
     A^{2} = (PDP^{T})(PDP^{T})
     = PD(P^{T}P)DP^{T}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.3)  13 APR 2024 23:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.3)  14 APR 2024 16:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1150,78 +1150,79 @@ LaTeX Info: Redefining \% on input line 617.
 LaTeX Info: Redefining \. on input line 629.
 LaTeX Info: Redefining \% on input line 629.
  [11]
-LaTeX Info: Redefining \. on input line 665.
-LaTeX Info: Redefining \% on input line 665.
+LaTeX Info: Redefining \. on input line 698.
+LaTeX Info: Redefining \% on input line 698.
  [12]
-LaTeX Info: Redefining \. on input line 685.
-LaTeX Info: Redefining \% on input line 685.
+LaTeX Info: Redefining \. on input line 727.
+LaTeX Info: Redefining \% on input line 727.
  [13]
-LaTeX Info: Redefining \. on input line 715.
-LaTeX Info: Redefining \% on input line 715.
- [14]
-LaTeX Info: Redefining \. on input line 752.
-LaTeX Info: Redefining \% on input line 752.
+Overfull \hbox (1.60135pt too wide) in paragraph at lines 749--750
+[][]\OT1/cmr/bx/sc/12 Corolario 9. []\OT1/cmr/m/it/12 Sea $\OML/cmm/m/it/12 ^^U[]$ \OT1/cmr/m/it/12 el va-lor pro-pio m^^Sas gran-de de la ma-triz sim^^Setri-ca $\OML/cmm/m/it/12 A \OMS/cmsy/m/n/12 2 M[]\OT1/cmr/m/n/12 (\U/DSSerif/m/n/12 R\OT1/cmr/m/n/12 )$\OT1/cmr/m/it/12 ,
+ []
+
+LaTeX Info: Redefining \. on input line 765.
+LaTeX Info: Redefining \% on input line 765.
+[14]
+LaTeX Info: Redefining \. on input line 789.
+LaTeX Info: Redefining \% on input line 789.
  [15]
-LaTeX Info: Redefining \. on input line 781.
-LaTeX Info: Redefining \% on input line 781.
+LaTeX Info: Redefining \. on input line 824.
+LaTeX Info: Redefining \% on input line 824.
  [16]
-LaTeX Info: Redefining \. on input line 822.
-LaTeX Info: Redefining \% on input line 822.
+LaTeX Info: Redefining \. on input line 861.
+LaTeX Info: Redefining \% on input line 861.
  [17]
-LaTeX Info: Redefining \. on input line 846.
-LaTeX Info: Redefining \% on input line 846.
- [18]
 Cap\'{\i }tulo 2.
-[19
+[18
 
 ]
-LaTeX Info: Redefining \. on input line 891.
-LaTeX Info: Redefining \% on input line 891.
+LaTeX Info: Redefining \. on input line 906.
+LaTeX Info: Redefining \% on input line 906.
+ [19]
+LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
+(Font)              scaled to size 10.0pt on input line 907.
+LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
+(Font)              scaled to size 7.0pt on input line 907.
+LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
+(Font)              scaled to size 5.0pt on input line 907.
+LaTeX Info: Redefining \. on input line 924.
+LaTeX Info: Redefining \% on input line 924.
  [20]
-LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 10.0pt on input line 892.
-LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 7.0pt on input line 892.
-LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 5.0pt on input line 892.
-LaTeX Info: Redefining \. on input line 909.
-LaTeX Info: Redefining \% on input line 909.
+LaTeX Info: Redefining \. on input line 953.
+LaTeX Info: Redefining \% on input line 953.
  [21]
-LaTeX Info: Redefining \. on input line 938.
-LaTeX Info: Redefining \% on input line 938.
+LaTeX Info: Redefining \. on input line 981.
+LaTeX Info: Redefining \% on input line 981.
  [22]
-LaTeX Info: Redefining \. on input line 966.
-LaTeX Info: Redefining \% on input line 966.
+LaTeX Info: Redefining \. on input line 997.
+LaTeX Info: Redefining \% on input line 997.
  [23]
-LaTeX Info: Redefining \. on input line 982.
-LaTeX Info: Redefining \% on input line 982.
+LaTeX Info: Redefining \. on input line 1027.
+LaTeX Info: Redefining \% on input line 1027.
  [24]
-LaTeX Info: Redefining \. on input line 1012.
-LaTeX Info: Redefining \% on input line 1012.
+LaTeX Info: Redefining \. on input line 1052.
+LaTeX Info: Redefining \% on input line 1052.
  [25]
-LaTeX Info: Redefining \. on input line 1037.
-LaTeX Info: Redefining \% on input line 1037.
+LaTeX Info: Redefining \. on input line 1084.
+LaTeX Info: Redefining \% on input line 1084.
  [26]
-LaTeX Info: Redefining \. on input line 1069.
-LaTeX Info: Redefining \% on input line 1069.
+LaTeX Info: Redefining \. on input line 1096.
+LaTeX Info: Redefining \% on input line 1096.
  [27]
-LaTeX Info: Redefining \. on input line 1081.
-LaTeX Info: Redefining \% on input line 1081.
+LaTeX Info: Redefining \. on input line 1128.
+LaTeX Info: Redefining \% on input line 1128.
  [28]
-LaTeX Info: Redefining \. on input line 1113.
-LaTeX Info: Redefining \% on input line 1113.
+LaTeX Info: Redefining \. on input line 1145.
+LaTeX Info: Redefining \% on input line 1145.
  [29]
-LaTeX Info: Redefining \. on input line 1130.
-LaTeX Info: Redefining \% on input line 1130.
- [30]
 
-c:/Tesis/Documento Tesis/Tesis_corr1.tex:1162: Package pgfkeys Error: I do not know the key '/tikz/minimim size', to which you passed '2pt', and I am going to ignore it. Perhaps you misspelled it.
+c:/Tesis/Documento Tesis/Tesis_corr1.tex:1177: Package pgfkeys Error: I do not know the key '/tikz/minimim size', to which you passed '2pt', and I am going to ignore it. Perhaps you misspelled it.
 
 See the pgfkeys package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1162 ...ristas permitidas dentro del grafo $G$.}
+l.1177 ...ristas permitidas dentro del grafo $G$.}
                                                   
 This error message was generated by an \errmessage
 command, so I can't give any explicit help.
@@ -1229,105 +1230,105 @@ Pretend that you're Hercule Poirot: Examine all clues,
 and deduce the truth by order and method.
 
 
-c:/Tesis/Documento Tesis/Tesis_corr1.tex:1162: Package pgfkeys Error: I do not know the key '/tikz/minimim size', to which you passed '2pt', and I am going to ignore it. Perhaps you misspelled it.
+c:/Tesis/Documento Tesis/Tesis_corr1.tex:1177: Package pgfkeys Error: I do not know the key '/tikz/minimim size', to which you passed '2pt', and I am going to ignore it. Perhaps you misspelled it.
 
 See the pgfkeys package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1162 ...ristas permitidas dentro del grafo $G$.}
+l.1177 ...ristas permitidas dentro del grafo $G$.}
                                                   
 (That was another \errmessage.)
 
-LaTeX Info: Redefining \. on input line 1182.
-LaTeX Info: Redefining \% on input line 1182.
-[31]
-LaTeX Info: Redefining \. on input line 1211.
-LaTeX Info: Redefining \% on input line 1211.
+LaTeX Info: Redefining \. on input line 1197.
+LaTeX Info: Redefining \% on input line 1197.
+[30]
+LaTeX Info: Redefining \. on input line 1226.
+LaTeX Info: Redefining \% on input line 1226.
+ [31]
+LaTeX Info: Redefining \. on input line 1260.
+LaTeX Info: Redefining \% on input line 1260.
  [32]
-LaTeX Info: Redefining \. on input line 1245.
-LaTeX Info: Redefining \% on input line 1245.
+LaTeX Info: Redefining \. on input line 1288.
+LaTeX Info: Redefining \% on input line 1288.
  [33]
-LaTeX Info: Redefining \. on input line 1273.
-LaTeX Info: Redefining \% on input line 1273.
+LaTeX Info: Redefining \. on input line 1302.
+LaTeX Info: Redefining \% on input line 1302.
  [34]
-LaTeX Info: Redefining \. on input line 1287.
-LaTeX Info: Redefining \% on input line 1287.
- [35]
 Cap\'{\i }tulo 3.
-[36
+[35
 
 ]
-LaTeX Info: Redefining \. on input line 1316.
-LaTeX Info: Redefining \% on input line 1316.
+LaTeX Info: Redefining \. on input line 1331.
+LaTeX Info: Redefining \% on input line 1331.
+ [36]
+LaTeX Info: Redefining \. on input line 1360.
+LaTeX Info: Redefining \% on input line 1360.
  [37]
-LaTeX Info: Redefining \. on input line 1345.
-LaTeX Info: Redefining \% on input line 1345.
+LaTeX Info: Redefining \. on input line 1378.
+LaTeX Info: Redefining \% on input line 1378.
  [38]
-LaTeX Info: Redefining \. on input line 1363.
-LaTeX Info: Redefining \% on input line 1363.
+LaTeX Info: Redefining \. on input line 1407.
+LaTeX Info: Redefining \% on input line 1407.
  [39]
-LaTeX Info: Redefining \. on input line 1392.
-LaTeX Info: Redefining \% on input line 1392.
+LaTeX Info: Redefining \. on input line 1427.
+LaTeX Info: Redefining \% on input line 1427.
  [40]
-LaTeX Info: Redefining \. on input line 1412.
-LaTeX Info: Redefining \% on input line 1412.
+LaTeX Info: Redefining \. on input line 1462.
+LaTeX Info: Redefining \% on input line 1462.
  [41]
-LaTeX Info: Redefining \. on input line 1447.
-LaTeX Info: Redefining \% on input line 1447.
+LaTeX Info: Redefining \. on input line 1500.
+LaTeX Info: Redefining \% on input line 1500.
  [42]
-LaTeX Info: Redefining \. on input line 1485.
-LaTeX Info: Redefining \% on input line 1485.
+LaTeX Info: Redefining \. on input line 1511.
+LaTeX Info: Redefining \% on input line 1511.
  [43]
-LaTeX Info: Redefining \. on input line 1496.
-LaTeX Info: Redefining \% on input line 1496.
- [44]
-<Imágenes/Partition_by_irregularity.png, id=631, 481.8pt x 289.68225pt>
+<Imágenes/Partition_by_irregularity.png, id=628, 481.8pt x 289.68225pt>
 File: Imágenes/Partition_by_irregularity.png Graphic file (type png)
 <use Imágenes/Partition_by_irregularity.png>
-Package pdftex.def Info: Imágenes/Partition_by_irregularity.png  used on input line 1499.
+Package pdftex.def Info: Imágenes/Partition_by_irregularity.png  used on input line 1514.
 (pdftex.def)             Requested size: 343.48299pt x 206.5245pt.
-LaTeX Info: Redefining \. on input line 1517.
-LaTeX Info: Redefining \% on input line 1517.
- [45 <./Imágenes/Partition_by_irregularity.png>]
-LaTeX Info: Redefining \. on input line 1538.
-LaTeX Info: Redefining \% on input line 1538.
+LaTeX Info: Redefining \. on input line 1532.
+LaTeX Info: Redefining \% on input line 1532.
+ [44 <./Imágenes/Partition_by_irregularity.png>]
+LaTeX Info: Redefining \. on input line 1553.
+LaTeX Info: Redefining \% on input line 1553.
+ [45]
+LaTeX Info: Redefining \. on input line 1565.
+LaTeX Info: Redefining \% on input line 1565.
  [46]
-LaTeX Info: Redefining \. on input line 1550.
-LaTeX Info: Redefining \% on input line 1550.
+LaTeX Info: Redefining \. on input line 1591.
+LaTeX Info: Redefining \% on input line 1591.
  [47]
-LaTeX Info: Redefining \. on input line 1576.
-LaTeX Info: Redefining \% on input line 1576.
+LaTeX Info: Redefining \. on input line 1622.
+LaTeX Info: Redefining \% on input line 1622.
  [48]
-LaTeX Info: Redefining \. on input line 1607.
-LaTeX Info: Redefining \% on input line 1607.
+LaTeX Info: Redefining \. on input line 1647.
+LaTeX Info: Redefining \% on input line 1647.
  [49]
-LaTeX Info: Redefining \. on input line 1632.
-LaTeX Info: Redefining \% on input line 1632.
+LaTeX Info: Redefining \. on input line 1678.
+LaTeX Info: Redefining \% on input line 1678.
  [50]
-LaTeX Info: Redefining \. on input line 1663.
-LaTeX Info: Redefining \% on input line 1663.
- [51]
-Overfull \hbox (0.59267pt too wide) in paragraph at lines 1667--1669
+Overfull \hbox (0.59267pt too wide) in paragraph at lines 1682--1684
 \OT1/cmr/m/n/12 Utilizando las des-igual-da-des [], [] y [] en la ex-pre-si^^Son enun-cia-da en []
  []
 
-LaTeX Info: Redefining \. on input line 1680.
-LaTeX Info: Redefining \% on input line 1680.
-[52]
-LaTeX Info: Redefining \. on input line 1709.
-LaTeX Info: Redefining \% on input line 1709.
+LaTeX Info: Redefining \. on input line 1695.
+LaTeX Info: Redefining \% on input line 1695.
+[51]
+LaTeX Info: Redefining \. on input line 1724.
+LaTeX Info: Redefining \% on input line 1724.
+ [52]
+LaTeX Info: Redefining \. on input line 1744.
+LaTeX Info: Redefining \% on input line 1744.
  [53]
-LaTeX Info: Redefining \. on input line 1729.
-LaTeX Info: Redefining \% on input line 1729.
+LaTeX Info: Redefining \. on input line 1764.
+LaTeX Info: Redefining \% on input line 1764.
  [54]
-LaTeX Info: Redefining \. on input line 1749.
-LaTeX Info: Redefining \% on input line 1749.
- [55]
-c:/Tesis/Documento Tesis/Tesis_corr1.tex:1775: Extra }, or forgotten \right.
+c:/Tesis/Documento Tesis/Tesis_corr1.tex:1790: Extra }, or forgotten \right.
 <template> }
             $}\ifmeasuring@ \savefieldlength@ \fi \set@field \endtemplate 
-l.1775     \end{align*}
+l.1790     \end{align*}
                        
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1335,10 +1336,10 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-c:/Tesis/Documento Tesis/Tesis_corr1.tex:1775: Missing \right. inserted.
+c:/Tesis/Documento Tesis/Tesis_corr1.tex:1790: Missing \right. inserted.
 <inserted text> 
                 \right .
-l.1775     \end{align*}
+l.1790     \end{align*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1346,10 +1347,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-c:/Tesis/Documento Tesis/Tesis_corr1.tex:1775: Missing } inserted.
+c:/Tesis/Documento Tesis/Tesis_corr1.tex:1790: Missing } inserted.
 <inserted text> 
                 }
-l.1775     \end{align*}
+l.1790     \end{align*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1357,10 +1358,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-c:/Tesis/Documento Tesis/Tesis_corr1.tex:1775: Missing } inserted.
+c:/Tesis/Documento Tesis/Tesis_corr1.tex:1790: Missing } inserted.
 <inserted text> 
                 }
-l.1775     \end{align*}
+l.1790     \end{align*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1368,26 +1369,26 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-c:/Tesis/Documento Tesis/Tesis_corr1.tex:1775: Extra \right.
+c:/Tesis/Documento Tesis/Tesis_corr1.tex:1790: Extra \right.
 <argument> ...l : xy,yz,xz\in & E'\rbrace \right |
                                                    \geq d(V_i, V_j)d(V_i, V_...
-l.1775     \end{align*}
+l.1790     \end{align*}
                        
 I'm ignoring a \right that had no matching \left.
 
-c:/Tesis/Documento Tesis/Tesis_corr1.tex:1775: Missing { inserted.
+c:/Tesis/Documento Tesis/Tesis_corr1.tex:1790: Missing { inserted.
 <inserted text> 
                 {
-l.1775     \end{align*}
+l.1790     \end{align*}
                        
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-c:/Tesis/Documento Tesis/Tesis_corr1.tex:1775: Extra }, or forgotten \right.
+c:/Tesis/Documento Tesis/Tesis_corr1.tex:1790: Extra }, or forgotten \right.
 <template> }
             $}\ifmeasuring@ \savefieldlength@ \fi \set@field \endtemplate 
-l.1775     \end{align*}
+l.1790     \end{align*}
                        
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1395,10 +1396,10 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-c:/Tesis/Documento Tesis/Tesis_corr1.tex:1775: Missing \right. inserted.
+c:/Tesis/Documento Tesis/Tesis_corr1.tex:1790: Missing \right. inserted.
 <inserted text> 
                 \right .
-l.1775     \end{align*}
+l.1790     \end{align*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1406,10 +1407,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-c:/Tesis/Documento Tesis/Tesis_corr1.tex:1775: Missing } inserted.
+c:/Tesis/Documento Tesis/Tesis_corr1.tex:1790: Missing } inserted.
 <inserted text> 
                 }
-l.1775     \end{align*}
+l.1790     \end{align*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1417,10 +1418,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-c:/Tesis/Documento Tesis/Tesis_corr1.tex:1775: Missing } inserted.
+c:/Tesis/Documento Tesis/Tesis_corr1.tex:1790: Missing } inserted.
 <inserted text> 
                 }
-l.1775     \end{align*}
+l.1790     \end{align*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1428,17 +1429,17 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-c:/Tesis/Documento Tesis/Tesis_corr1.tex:1775: Extra \right.
+c:/Tesis/Documento Tesis/Tesis_corr1.tex:1790: Extra \right.
 <argument> ...l : xy,yz,xz\in & E'\rbrace \right |
                                                    \geq d(V_i, V_j)d(V_i, V_...
-l.1775     \end{align*}
+l.1790     \end{align*}
                        
 I'm ignoring a \right that had no matching \left.
 
-c:/Tesis/Documento Tesis/Tesis_corr1.tex:1775: Missing \endgroup inserted.
+c:/Tesis/Documento Tesis/Tesis_corr1.tex:1790: Missing \endgroup inserted.
 <inserted text> 
                 \endgroup 
-l.1775     \end{align*}
+l.1790     \end{align*}
                        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1446,81 +1447,84 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-c:/Tesis/Documento Tesis/Tesis_corr1.tex:1775: Misplaced \omit.
+c:/Tesis/Documento Tesis/Tesis_corr1.tex:1790: Misplaced \omit.
 \math@cr@@@ ...@ \@ne \add@amps \maxfields@ \omit 
                                                   \kern -\alignsep@ \iftag@ ...
-l.1775     \end{align*}
+l.1790     \end{align*}
                        
 I expect to see \omit only after tab marks or the \cr of
 an alignment. Proceed, and I'll ignore this case.
 
-c:/Tesis/Documento Tesis/Tesis_corr1.tex:1775: Missing { inserted.
+c:/Tesis/Documento Tesis/Tesis_corr1.tex:1790: Missing { inserted.
 <inserted text> 
                 {
-l.1775     \end{align*}
+l.1790     \end{align*}
                        
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-LaTeX Info: Redefining \. on input line 1775.
-LaTeX Info: Redefining \% on input line 1775.
-[56]
+LaTeX Info: Redefining \. on input line 1790.
+LaTeX Info: Redefining \% on input line 1790.
+[55]
 LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1788.
-LaTeX Info: Redefining \. on input line 1854.
-LaTeX Info: Redefining \% on input line 1854.
+(Font)              scaled to size 10.95pt on input line 1803.
+LaTeX Info: Redefining \. on input line 1869.
+LaTeX Info: Redefining \% on input line 1869.
+ [56]
+LaTeX Info: Redefining \. on input line 1887.
+LaTeX Info: Redefining \% on input line 1887.
  [57]
-LaTeX Info: Redefining \. on input line 1872.
-LaTeX Info: Redefining \% on input line 1872.
+LaTeX Info: Redefining \. on input line 1913.
+LaTeX Info: Redefining \% on input line 1913.
  [58]
-LaTeX Info: Redefining \. on input line 1898.
-LaTeX Info: Redefining \% on input line 1898.
+LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
+(Font)              scaled to size 24.88pt on input line 1940.
+LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
+(Font)              scaled to size 20.74pt on input line 1940.
+LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
+(Font)              scaled to size 17.28pt on input line 1940.
+LaTeX Info: Redefining \. on input line 1977.
+LaTeX Info: Redefining \% on input line 1977.
  [59]
-LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 24.88pt on input line 1925.
-LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 20.74pt on input line 1925.
-LaTeX Font Info:    Font shape `U/DSSerif/m/n' will be
-(Font)              scaled to size 17.28pt on input line 1925.
-LaTeX Info: Redefining \. on input line 1962.
-LaTeX Info: Redefining \% on input line 1962.
- [60]
-LaTeX Info: Redefining \. on input line 1980.
-LaTeX Info: Redefining \% on input line 1980.
- [61] (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryarrows.meta.code.tex
+LaTeX Info: Redefining \. on input line 1995.
+LaTeX Info: Redefining \% on input line 1995.
+ [60] (C:\Users\Felipe\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryarrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfarrowinset=\dimen289
 \pgfarrowlength=\dimen290
 \pgfarrowwidth=\dimen291
 \pgfarrowlinewidth=\dimen292
 )
-Underfull \hbox (badness 2269) in paragraph at lines 2052--2052
+Underfull \hbox (badness 2269) in paragraph at lines 2067--2067
 []\OT1/cmr/m/n/12 Figura 3.4: |Ejem-plo del em-pa-re-ja-mien-to ge-ne-ra-do por la
  []
 
 
-Underfull \hbox (badness 6927) in paragraph at lines 2052--2052
+Underfull \hbox (badness 6927) in paragraph at lines 2067--2067
 \OT1/cmr/m/n/12 cla-se de equi-va-len-cia aso-cia-da a $\OML/cmm/m/it/12 q \OT1/cmr/m/n/12 = 5$, y $\OML/cmm/m/it/12 S \OT1/cmr/m/n/12 =
  []
 
-LaTeX Info: Redefining \. on input line 2059.
-LaTeX Info: Redefining \% on input line 2059.
-[62]
-LaTeX Info: Redefining \. on input line 2106.
-LaTeX Info: Redefining \% on input line 2106.
- [63] [64
+LaTeX Info: Redefining \. on input line 2074.
+LaTeX Info: Redefining \% on input line 2074.
+[61]
+LaTeX Info: Redefining \. on input line 2121.
+LaTeX Info: Redefining \% on input line 2121.
+ [62] [63
 
 ]
-Overfull \hbox (0.55585pt too wide) in paragraph at lines 2108--2108
+Overfull \hbox (0.55585pt too wide) in paragraph at lines 2123--2123
 \OT1/cmr/m/n/12 lem-ma''. En: \OT1/cmr/m/it/12 Geo-me-tric & Fun-ctio-nal Analy-sis GA-FA \OT1/cmr/m/n/12 7.2 (1997), p^^Sags. 322[]337. 
  []
 
-LaTeX Info: Redefining \. on input line 2108.
-LaTeX Info: Redefining \% on input line 2108.
-[65]
-LaTeX Info: Redefining \. on input line 2110.
-LaTeX Info: Redefining \% on input line 2110.
+LaTeX Info: Redefining \. on input line 2123.
+LaTeX Info: Redefining \% on input line 2123.
+[64]
+LaTeX Info: Redefining \. on input line 2123.
+LaTeX Info: Redefining \% on input line 2123.
+ [65]
+LaTeX Info: Redefining \. on input line 2125.
+LaTeX Info: Redefining \% on input line 2125.
  [66] (C:\Tesis\Documento Tesis\build\Tesis_corr1.aux
 LaTeX Info: Redefining \sptext on input line 12.
 LaTeX Info: Redefining \. on input line 12.
@@ -1541,17 +1545,17 @@ Package logreq Info: Writing requests to 'Tesis_corr1.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36088 strings out of 474542
- 698968 string characters out of 5743975
+ 36091 strings out of 474542
+ 699122 string characters out of 5743975
  1948978 words of memory out of 5000000
- 57486 multiletter control sequences out of 15000+600000
+ 57489 multiletter control sequences out of 15000+600000
  586391 words of font info for 144 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,20n,117p,1438b,2293s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Felipe\AppData\Local\MiKTeX\fonts/pk/ljfour/public/bbm/dpi600\bbm12.pk> <C:\Users\Felipe\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/dsserif/DSSerif.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Felipe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on "C:\Tesis\Documento Tesis\build\Tesis_corr1.pdf" (75 pages, 753456 bytes).
+Output written on "C:\Tesis\Documento Tesis\build\Tesis_corr1.pdf" (75 pages, 751009 bytes).
 PDF statistics:
- 1021 PDF objects out of 1200 (max. 8388607)
+ 1022 PDF objects out of 1200 (max. 8388607)
  239 named destinations out of 1000 (max. 500000)
  167 words of extra memory for PDF output out of 10000 (max. 10000000)
 
