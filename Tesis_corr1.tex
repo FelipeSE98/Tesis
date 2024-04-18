@@ -951,6 +951,8 @@ Con esto en mente, damos paso a la demostración de cada proposición considerad
         &= p|X||Y| \pm 4\delta n^{2} \\
         &= p|X||Y| \pm \varepsilon n^{2}.
     \end{align*}
+
+    En la penúltima desigualdad se aplicó la misma lógica observada de la ecuación \eqref{polarización_aristas}, pero esta vez sobre el grafo completo.
 \end{proof}
 \begin{prop} \label{discp => count} %%%%%%%%%% Proposición: DISC'_P => COUNT_P
     Para todo $\varepsilon > 0$ y $p\in(0,1)$, existe $\delta > 0$ y $n_0\in\mathbb{N}$ tales que todo grafo $G$ sobre $n\geq n_0$ vértices satisface $\Count_p (\varepsilon)$ cada vez que cumpla con $\discp_p (\delta)$. En otras palabras,
@@ -959,7 +961,7 @@ Con esto en mente, damos paso a la demostración de cada proposición considerad
     \]
 \end{prop}
 \begin{proof} %%%%%%%%%% Demostración DISC'_P => COUNT_P
-    Sea $\varepsilon > 0$, $p\in (0,1)$ y $H$ un grafo sobre $\ell$ vértices, elegimos $\delta < \frac{\varepsilon}{6\ell^{2}}$ y $n_0\in \mathbb{N}$ suficientemente grande. Considere también el grafo $G = (V,E)$ con $n\geq n_0$ vértices que satisface la propiedad $\Count_{p}(\varepsilon)$.
+    Sea $\varepsilon > 0$, $p\in (0,1)$ y $H$ un grafo sobre $\ell$ vértices, elegimos $\delta < \frac{\varepsilon}{6\ell^{2}}$ y $n_0\in \mathbb{N}$ suficientemente grande. Considere también el grafo $G = (V,E)$ con $n\geq n_0$ vértices que satisface la propiedad $\discp_{p}(\delta)$.
 
     Dado cualquier grafo $F$ con $\ell$ vértices y $e_F \geq 1$ aristas, razonamos por inducción sobre su cantidad de aristas para probar que
     \begin{equation} \label{ind_count}
