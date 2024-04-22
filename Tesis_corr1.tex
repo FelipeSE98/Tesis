@@ -780,7 +780,7 @@ Usualmente, el primer valor propio de todo grafo juega un papel protagónico. Pa
 
 En 1959, P. Erd\H{o}s y A. Rényi \cite{erdds1959random} (también E. Gilbert \cite{gilbert1959random}) proponen un modelo de grafo aleatorio de la siguiente manera: comenzando con un grafo vacío sin aristas $G = ([n],\emptyset)$, decidir independientemente sobre cada par de vértices de $G$ si agregar una arista con una probabilidad previamente establecida $p$. Entonces, considerando $\mathcal{G}^{n}$ como el conjunto de todos los grafos de $n$ vértices, se define formalmente a continuación.
 \begin{definicion} (Modelo binomial)
-    Sea $p\in (0,1)$. Se define $G(n,p)$ como el espacio de probabilidad $\mathcal{G}^{n}$ con la siguiente medida:
+    Sea $p\in (0,1)$. Se define $G(n,p)$ como el espacio de probabilidad con la siguiente medida:
     \begin{equation*}
         \mathbb{P}\left(\lbrace G\rbrace\right) = p^{e_G}(1-p)^{\tbinom{n}{2} - e_G}\quad ,\quad \forall G \in \mathcal{G}^{n}. 
     \end{equation*}
@@ -984,7 +984,7 @@ Con esto en mente, damos paso a la demostración de cada proposición considerad
         \item[i)] $F^{-}$ corresponde al grafo producido por eliminar la arista $ij$ de $F$.
         \item[ii)] $F^{*}$  es el resultado de eliminar los vértices de la arista $ij$ en $F$. 
     \end{enumerate}
-    Sea $T^{-}$ una copia etiquetada de $F^{-}$ en $G$, es decir, $T^{-}$ se corresponde una aplicación inyectiva $f: V(F^{-}) \to V(T^{-})\subseteq V$ tal que $f(u)f(v)\in E(T^{-})$ cada vez que $uv\in~E(F^{-})$. Entonces, considerando $e_{T^{-}}:= f(i)f(j)$, se escribe la cantidad de copias etiquetadas de $F$ en $G$ de manera conveniente para utilizar la hipótesis inductiva como se muestra a continuación:
+    Sea $T^{-}$ una copia etiquetada de $F^{-}$ en $G$, es decir, $T^{-}$ se corresponde con una aplicación inyectiva $f: V(F^{-}) \to V(T^{-})\subseteq V$ tal que $f(u)f(v)\in E(T^{-})$ cada vez que $uv\in~E(F^{-})$. Entonces, considerando $e_{T^{-}}:= f(i)f(j)$, se escribe la cantidad de copias etiquetadas de $F$ en $G$ de manera conveniente para utilizar la hipótesis inductiva como se muestra a continuación:
     \begin{align} \label{count_G_F}
         \left| \tbinom{G}{F}\right| &= \sum_{T^{-}\in \tbinom{G}{F^{-}}} \mathbbm{1}_{E}(e_{T^{-}})\nonumber \\
         &= \sum_{T^{-}\in \tbinom{G}{F^{-}}} \left[ \mathbbm{1}_{E}(e_{T^{-}}) + p - p\right]\nonumber \\
