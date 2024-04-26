@@ -1,24 +1,24 @@
 # Fdb version 4
-["biber C:/Tesis/Documento Tesis/build/Tesis_corr2"] 1714114103.71027 "C:/Tesis/Documento Tesis/build/Tesis_corr2.bcf" "C:/Tesis/Documento Tesis/build/Tesis_corr2.bbl" "C:/Tesis/Documento Tesis/build/Tesis_corr2" 1714114153.62485 0
+["biber C:/Tesis/Documento Tesis/build/Tesis_corr2"] 1714114103.71027 "C:/Tesis/Documento Tesis/build/Tesis_corr2.bcf" "C:/Tesis/Documento Tesis/build/Tesis_corr2.bbl" "C:/Tesis/Documento Tesis/build/Tesis_corr2" 1714144945.47262 0
   "Bibliografia.bib" 1714114096.31307 9218 d9e89b5a9947e0b3513e709ac3be9384 ""
-  "C:/Tesis/Documento Tesis/build/Tesis_corr2.bcf" 1714114152.62523 109858 1d0142502a682f03368b9b948ea4110a ""
+  "C:/Tesis/Documento Tesis/build/Tesis_corr2.bcf" 1714144944.43466 109858 1d0142502a682f03368b9b948ea4110a ""
   (generated)
   "C:/Tesis/Documento Tesis/build/Tesis_corr2.bbl"
   "C:/Tesis/Documento Tesis/build/Tesis_corr2.blg"
   (rewritten before read)
-["biber build/Tesis_corr2"] 1714114098.57079 "build/Tesis_corr2.bcf" "build/Tesis_corr2.bbl" "build/Tesis_corr2" 1714114153.51922 0
+["biber build/Tesis_corr2"] 1714114098.57079 "build/Tesis_corr2.bcf" "build/Tesis_corr2.bbl" "build/Tesis_corr2" 1714144945.3637 0
   "Bibliografia.bib" 1714114096.31307 9218 d9e89b5a9947e0b3513e709ac3be9384 ""
-  "build/Tesis_corr2.bcf" 1714114152.62523 109858 1d0142502a682f03368b9b948ea4110a "pdflatex"
+  "build/Tesis_corr2.bcf" 1714144944.43466 109858 1d0142502a682f03368b9b948ea4110a "pdflatex"
   (generated)
   "build/Tesis_corr2.bbl"
   "build/Tesis_corr2.blg"
   (rewritten before read)
-["pdflatex"] 1714114142.67301 "c:/Tesis/Documento Tesis/Tesis_corr2.tex" "build/Tesis_corr2.pdf" "Tesis_corr2" 1714114153.52271 2
-  "C:/Tesis/Documento Tesis/build/Tesis_corr2.aux" 1714114152.60526 16705 3c55868e80465efa395bf6f947a2ca15 ""
+["pdflatex"] 1714144938.37787 "c:/Tesis/Documento Tesis/Tesis_corr2.tex" "build/Tesis_corr2.pdf" "Tesis_corr2" 1714144945.36669 2
+  "C:/Tesis/Documento Tesis/build/Tesis_corr2.aux" 1714144944.41865 16705 3c55868e80465efa395bf6f947a2ca15 ""
   "C:/Tesis/Documento Tesis/build/Tesis_corr2.bbl" 1714114108.46112 43552 e149c2edd93bd895dbe9d0ad5deba95e "biber C:/Tesis/Documento Tesis/build/Tesis_corr2"
-  "C:/Tesis/Documento Tesis/build/Tesis_corr2.lof" 1714114152.62922 1627 987c30c43ed0547644ca03274bfd2188 ""
-  "C:/Tesis/Documento Tesis/build/Tesis_corr2.out" 1714114152.61623 2997 09ec5e159d76f838ecf47e9793ad38d2 ""
-  "C:/Tesis/Documento Tesis/build/Tesis_corr2.toc" 1714114152.62922 1502 0d858f600ac92c65585cc5cbd25e3ef4 ""
+  "C:/Tesis/Documento Tesis/build/Tesis_corr2.lof" 1714144944.43871 1627 987c30c43ed0547644ca03274bfd2188 ""
+  "C:/Tesis/Documento Tesis/build/Tesis_corr2.out" 1714144944.42766 2997 09ec5e159d76f838ecf47e9793ad38d2 ""
+  "C:/Tesis/Documento Tesis/build/Tesis_corr2.toc" 1714144944.43871 1502 0d858f600ac92c65585cc5cbd25e3ef4 ""
   "C:/Users/Felipe/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1711839056.63272 81232 66d05e7ef23c8c4f50ae117afd5d783c ""
   "C:/Users/Felipe/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk" 1711851083.01917 14064 72944e650543fb3659c68c420c6d1d95 ""
   "C:/Users/Felipe/AppData/Local/MiKTeX/fonts/pk/ljfour/public/bbm/dpi600/bbm12.pk" 1711851081.75806 8448 311cbb432396e0f50425561f025e34d1 ""
@@ -290,13 +290,13 @@
   "Imágenes/Partition_by_irregularity.png" 1711664020.67964 49867 47140086f3548a265b54db7018bb57ac ""
   "Imágenes/logo5.png" 1711840982.38113 72828 91333e6a423496141c6e60a76dd5ce46 ""
   "Preambulo/preambulo.tex" 1712548770.22299 5292 79edecd1f0f608e526d9597ef6419c3a ""
-  "build/Tesis_corr2.aux" 1714114152.60526 16705 3c55868e80465efa395bf6f947a2ca15 "pdflatex"
+  "build/Tesis_corr2.aux" 1714144944.41865 16705 3c55868e80465efa395bf6f947a2ca15 "pdflatex"
   "build/Tesis_corr2.bbl" 1714114108.46112 43552 e149c2edd93bd895dbe9d0ad5deba95e "biber build/Tesis_corr2"
-  "build/Tesis_corr2.lof" 1714114152.62922 1627 987c30c43ed0547644ca03274bfd2188 "pdflatex"
-  "build/Tesis_corr2.out" 1714114152.61623 2997 09ec5e159d76f838ecf47e9793ad38d2 "pdflatex"
-  "build/Tesis_corr2.run.xml" 1714114152.62922 2356 6a3394a1626ee0f89a2760567b4ffcba "pdflatex"
-  "build/Tesis_corr2.toc" 1714114152.62922 1502 0d858f600ac92c65585cc5cbd25e3ef4 "pdflatex"
-  "c:/Tesis/Documento Tesis/Tesis_corr2.tex" 1714108913.39457 175635 a162397abf2514bda527bebff1212ca4 ""
+  "build/Tesis_corr2.lof" 1714144944.43871 1627 987c30c43ed0547644ca03274bfd2188 "pdflatex"
+  "build/Tesis_corr2.out" 1714144944.42766 2997 09ec5e159d76f838ecf47e9793ad38d2 "pdflatex"
+  "build/Tesis_corr2.run.xml" 1714144944.43766 2356 6a3394a1626ee0f89a2760567b4ffcba "pdflatex"
+  "build/Tesis_corr2.toc" 1714144944.43871 1502 0d858f600ac92c65585cc5cbd25e3ef4 "pdflatex"
+  "c:/Tesis/Documento Tesis/Tesis_corr2.tex" 1714144914.03441 175658 f9fd179680f5013928598c964572fc3f ""
   (generated)
   "build/Tesis_corr2.aux"
   "build/Tesis_corr2.bcf"

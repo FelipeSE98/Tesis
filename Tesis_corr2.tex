@@ -1890,15 +1890,15 @@ La presente aplicación del método de regularidad responde a la pregunta: \emph
     
     Para cada $(i,j)\in [k]^{2}$ se eliminan todas las aristas entre los conjuntos $V_i$ y $V_j$ cuando estos presenten irregularidad, densidad menor que $2\varepsilon_r$, o al menos uno de los conjuntos es menor que $\frac{n}{k}\varepsilon_r$. En total, el proceso de limpieza remueve a lo más $4\varepsilon_r n^{2}$ aristas de $G$ para obtener un nuevo grafo $G'$. En consecuencia,
     \begin{equation*}
-        e_G' \geq e_G - 4\varepsilon_r n^{2} > \varepsilon n^{2} - \frac{4}{10}\varepsilon n^{2} > \frac{\varepsilon}{2}n^{2}.
+        e_{G'} \geq e_G - 4\varepsilon_r n^{2} > \varepsilon n^{2} - \frac{4}{10}\varepsilon n^{2} > \frac{\varepsilon}{2}n^{2}.
     \end{equation*}
-    Ahora, observe que debe existir un emparejamiento inducido $R$ en $G'$ con al menos $\frac{\varepsilon}{2}n$ aristas (y al menos $\varepsilon n$ vértices). De no ser así, todos los emparejamientos tendrán a lo más $\frac{\varepsilon}{2}n$ aristas, por lo que $e_G' < \frac{\varepsilon}{2}n^{2}$.
+    Ahora, observe que debe existir un emparejamiento inducido $R$ en $G'$ con al menos $\frac{\varepsilon}{2}n$ aristas (y al menos $\varepsilon n$ vértices). De no ser así, todos los emparejamientos tendrán a lo más $\frac{\varepsilon}{2}n$ aristas, por lo que $e_{G'} < \frac{\varepsilon}{2}n^{2}$.
 
     Denotando por $V(R)$ al conjunto de vértices que componen las aristas de $R$, se define $U_i := V_i \cap V(R)$ como el subconjunto de vértices de $R$ que comparte elementos con $V_i$, y $U := \displaystyle\bigcup_{i\in [k]} \lbrace U_i : |U_i| \geq \varepsilon_r |V_i|\rbrace$. Es decir, $U$ es la unión de todos los conjuntos $U_i \subset V(R)$ que comparten una fracción suficientemente grande de vértices con $V_i$. Note que podemos obtener el conjunto $U$ removiendo a lo más $\varepsilon_r n = \frac{\varepsilon}{10}n$ vértices de $V(R)$, pues
     \begin{equation*}
         \sum_{i\in [k]} |U_i| < \sum_{i\in [k]} \varepsilon_r |V_i| = \frac{\varepsilon}{10} n.
     \end{equation*}
-    Recordando que $|V(R)| \geq \varepsilon n$, se determina que $|U| > \varepsilon n - \frac{\varepsilon}{10}n = \frac{9}{10}\varepsilon n$. Además, como también $|R| \geq \frac{\varepsilon}{2}n$, debe existir al menos un vértice en $U$ que sea parte de una arista en $R$. Luego, dada la limpieza de $G$, dicha arista debe pertenecer a algún par $U_t\times U_\ell$ que satisfacen $|U_t| \geq \varepsilon_r |V_t|$ y  $|U_\ell| \geq \varepsilon_r |V_\ell|$, y son tales que 
+    Recordando que $|V(R)| \geq \varepsilon n$, se determina que $|U| > \varepsilon n - \frac{\varepsilon}{10}n = \frac{9}{10}\varepsilon n$. Además, como también $|R| \geq \frac{\varepsilon}{2}n$ y $U$ es no vacío, debe existir al menos un vértice en $U$ que sea parte de una arista en $R$. Luego, dada la limpieza de $G$, dicha arista debe pertenecer a algún par $U_t\times U_\ell$ que satisfacen $|U_t| \geq \varepsilon_r |V_t|$ y  $|U_\ell| \geq \varepsilon_r |V_\ell|$, y son tales que 
     su correspondiente par $(V_t, V_\ell)$ es $\varepsilon_r$-regular con densidad $d(V_t, V_\ell) \geq 2\varepsilon_r$. Entonces, por regularidad,
     \begin{equation} \label{eq1_emp_ind}
         d(U_t, U_\ell) = d(V_t, V_\ell) \pm \varepsilon_r \geq 2\varepsilon_r - \varepsilon_r = \varepsilon_r.
