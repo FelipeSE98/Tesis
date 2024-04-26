@@ -1,24 +1,24 @@
 # Fdb version 4
-["biber C:/Tesis/Documento Tesis/build/main"] 1712129792.0069 "C:/Tesis/Documento Tesis/build/main.bcf" "C:/Tesis/Documento Tesis/build/main.bbl" "C:/Tesis/Documento Tesis/build/main" 1712130166.14882 0
-  "Bibliografia.bib" 1711948275.57886 7389 3c48e1a98bf12c39b8a5146f26a9ecee ""
-  "C:/Tesis/Documento Tesis/build/main.bcf" 1712130165.60046 109348 872922737f942d18dc463981cdb40c75 ""
+["biber C:/Tesis/Documento Tesis/build/main"] 1714111682.77586 "C:/Tesis/Documento Tesis/build/main.bcf" "C:/Tesis/Documento Tesis/build/main.bbl" "C:/Tesis/Documento Tesis/build/main" 1714111732.95057 0
+  "Bibliografia.bib" 1714111672.64805 9079 2b4ed0ce8e9c94bed2c2ef576fa2015d ""
+  "C:/Tesis/Documento Tesis/build/main.bcf" 1714111732.03701 109348 872922737f942d18dc463981cdb40c75 ""
   (generated)
   "C:/Tesis/Documento Tesis/build/main.bbl"
   "C:/Tesis/Documento Tesis/build/main.blg"
   (rewritten before read)
-["biber build/main"] 0 "build/main.bcf" "build/main.bbl" "build/main" 1712130166.08842 -1
-  "Bibliografia.bib" 1711948275.57886 7389 3c48e1a98bf12c39b8a5146f26a9ecee ""
-  "build/main.bcf" 1712130165.60046 109348 872922737f942d18dc463981cdb40c75 "pdflatex"
+["biber build/main"] 1714111674.88868 "build/main.bcf" "build/main.bbl" "build/main" 1714111732.85578 0
+  "Bibliografia.bib" 1714111672.64805 9079 2b4ed0ce8e9c94bed2c2ef576fa2015d ""
+  "build/main.bcf" 1714111732.03701 109348 872922737f942d18dc463981cdb40c75 "pdflatex"
   (generated)
   "build/main.bbl"
   "build/main.blg"
   (rewritten before read)
-["pdflatex"] 1712130161.48549 "c:/Tesis/Documento Tesis/main.tex" "build/main.pdf" "main" 1712130166.08993 2
-  "C:/Tesis/Documento Tesis/build/main.aux" 1712130165.59041 15709 cd8527260de6733d249f3fcbd425ab11 ""
-  "C:/Tesis/Documento Tesis/build/main.bbl" 1712129794.87128 35349 93b0832517f5f96d014e8c520fe2a947 "biber C:/Tesis/Documento Tesis/build/main"
-  "C:/Tesis/Documento Tesis/build/main.lof" 1712130165.60341 1626 7a8a98ced1b342089e031895791d53a4 ""
-  "C:/Tesis/Documento Tesis/build/main.out" 1712130165.59641 3104 c895603d2829468a3606ce938ceaf10f ""
-  "C:/Tesis/Documento Tesis/build/main.toc" 1712130165.60341 1521 f554fa3a19f262108b081985601136a5 ""
+["pdflatex"] 1714111725.43707 "c:/Tesis/Documento Tesis/main.tex" "build/main.pdf" "main" 1714111732.85804 2
+  "C:/Tesis/Documento Tesis/build/main.aux" 1714111732.02135 16164 0a9b2f2f40a925a0c002edfdeff3df4c ""
+  "C:/Tesis/Documento Tesis/build/main.bbl" 1714111691.99705 43494 f7e88569bedc46b8aadc7eb7b9db6077 "biber C:/Tesis/Documento Tesis/build/main"
+  "C:/Tesis/Documento Tesis/build/main.lof" 1714111732.04098 1626 7a8a98ced1b342089e031895791d53a4 ""
+  "C:/Tesis/Documento Tesis/build/main.out" 1714111732.03035 3104 c895603d2829468a3606ce938ceaf10f ""
+  "C:/Tesis/Documento Tesis/build/main.toc" 1714111732.04098 1521 f554fa3a19f262108b081985601136a5 ""
   "C:/Users/Felipe/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1711839056.63272 81232 66d05e7ef23c8c4f50ae117afd5d783c ""
   "C:/Users/Felipe/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk" 1711851083.01917 14064 72944e650543fb3659c68c420c6d1d95 ""
   "C:/Users/Felipe/AppData/Local/MiKTeX/fonts/pk/ljfour/public/bbm/dpi600/bbm12.pk" 1711851081.75806 8448 311cbb432396e0f50425561f025e34d1 ""
@@ -291,13 +291,13 @@
   "C:/Users/Felipe/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "Imágenes/Partition_by_irregularity.png" 1711664020.67964 49867 47140086f3548a265b54db7018bb57ac ""
   "Imágenes/logo5.png" 1711840982.38113 72828 91333e6a423496141c6e60a76dd5ce46 ""
-  "Preambulo/preambulo.tex" 1711908241.34132 5292 63d640c27a45e3dee4698a05f6dda12f ""
-  "build/main.aux" 1712130165.59041 15709 cd8527260de6733d249f3fcbd425ab11 "pdflatex"
-  "build/main.bbl" 1712129794.87128 35349 93b0832517f5f96d014e8c520fe2a947 "biber build/main"
-  "build/main.lof" 1712130165.60341 1626 7a8a98ced1b342089e031895791d53a4 "pdflatex"
-  "build/main.out" 1712130165.59641 3104 c895603d2829468a3606ce938ceaf10f "pdflatex"
-  "build/main.run.xml" 1712130165.60341 2307 9b94a2488904d2248c4a7ed91bfe343c "pdflatex"
-  "build/main.toc" 1712130165.60341 1521 f554fa3a19f262108b081985601136a5 "pdflatex"
+  "Preambulo/preambulo.tex" 1712548770.22299 5292 79edecd1f0f608e526d9597ef6419c3a ""
+  "build/main.aux" 1714111732.02135 16164 0a9b2f2f40a925a0c002edfdeff3df4c "pdflatex"
+  "build/main.bbl" 1714111691.99705 43494 f7e88569bedc46b8aadc7eb7b9db6077 "biber build/main"
+  "build/main.lof" 1714111732.04098 1626 7a8a98ced1b342089e031895791d53a4 "pdflatex"
+  "build/main.out" 1714111732.03035 3104 c895603d2829468a3606ce938ceaf10f "pdflatex"
+  "build/main.run.xml" 1714111732.04001 2307 9b94a2488904d2248c4a7ed91bfe343c "pdflatex"
+  "build/main.toc" 1714111732.04098 1521 f554fa3a19f262108b081985601136a5 "pdflatex"
   "c:/Tesis/Documento Tesis/main.tex" 1712130140.77119 174724 f6f89ce465f218138b1265dc419533fc ""
   (generated)
   "build/main.aux"

@@ -285,7 +285,7 @@ Por otro lado, será usual utilizar la notación asintótica. Por esto, se defin
 
 Se denota al conjunto de los primeros $n$ naturales por $[n]:=\lbrace 1,2,...,n\rbrace$. También, si $S$ es un conjunto finito y $r$ es un entero positivo, se establece $\tbinom{S}{r}$ como el conjunto de todos los subconjuntos de $r$ elementos de $S$.
 %%%% Definir grafo
-Un \textbf{grafo} es un par $G = (V,E)$, donde $V$ representa el conjunto de \textbf{vértices}, y $E\subseteq \tbinom{V}{2}$ el conjunto de \textbf{aristas}. Para representar una arista, escribiremos $uv$ en vez de $\lbrace u,v\rbrace$. Dado un grafo $G$, denotamos por $V(G)$ a su conjunto de vértices, $E(G)$ a su conjunto de aristas, y $e_G := |E(G)|$ a la cantidad de aristas presentes en el grafo.
+Un \textbf{grafo} es un par $G = (V,E)$, donde $V$ representa el conjunto de \textbf{vértices}, y $E\subseteq \tbinom{V}{2}$ el conjunto de \textbf{aristas}. Para representar una arista, escribiremos $uv$ en vez de $\lbrace u,v\rbrace$. Dado un grafo $G$, denotamos por $V(G)$ a su conjunto de vértices, $E(G)$ a su conjunto de aristas, $e_G := |E(G)|$ a la cantidad de aristas, y $v_G = |V(G)|$ a la cantidad de vértices presentes en el grafo.
 \begin{figure}[h]%%%% Ejemplo grafo
     \centering
     \begin{tikzpicture}[scale=1.3]
@@ -884,7 +884,7 @@ En la presente sección se enuncia el Teorema de Chung, Graham y Wilson junto a 
         \]
         \item[{\makebox[0.2cm][l]{$\Count_p :$}}] \hspace{1.5cm} Para cada grafo $H$, la cantidad de copias etiquetadas de $H$ en $G_n$ está dada por
         \[
-            \left|\tbinom{G_n}{H}\right| = \left(p^{e_H} + o(1)\right) n^{e_H}.
+            \left|\tbinom{G_n}{H}\right| = \left(p^{e_H} + o(1)\right) n^{v_H}.
         \]
         \item[{\makebox[0.2cm][l]{$\Count_{C4,p} :$}}] \hspace{2cm} La cantidad de copias etiquetadas de ciclos de largo 4 es
         \[
@@ -1142,6 +1142,8 @@ Con esto en mente, damos paso a la demostración de cada proposición considerad
 La noción inicial presentada de un grafo cuasi-aleatorio por distribución de aristas según la Definición~\ref{cuasi-aleatoriedad} contempla verificar que si todo par de subconjuntos de vértices del grafo satisfacen la condición $\disc_p$ para determinar la cuasi-aleatoriedad. En otras palabras, se requiere comprobar un número exponencial de subconjuntos. Por esto, resulta sorprendente que tal propiedad sea equivalente a todas las otras (salvo $\discp_p$), debido a que se verifican de manera polinomial. Otro aspecto interesante es que la propiedad $\Count_{C_4,p}$, que solo requiere que la condición de conteo sea verdadera para el ciclo $C_4$, sea suficientemente sólida para implicar la afirmación de conteo de la propiedad $\Count_{p}$; que dice que el número de copias etiquetadas de \emph{cualquier} grafo $F$ de tamaño fijo en $G=([n],E)$ es aproximadamente el esperado de los grafos aleatorios $G(n,p)$.
 
 A continuación mostraremos que no es suficiente que la condición de conteo sea verdadera para ciclos de largo inferior a $4$ para determinar la cuasi-aleatoriedad de un grafo. Para ver esto, se realiza la construcción de un contraejemplo de un grafo que posee la cantidad de copias etiquetadas esperadas de $C_3$, pero que no cumple con las condiciones para ser cuasi-aleatorio.
+
+Es común en el área hablar de la cuasi-aleatoriedad de un grafo en particular, pero siempre se piensa en una sucesión de grafos. Enunciamos el contraejemplo con este modo de pensar.
 \begin{prop} %%%% Proposición contraejemplo
     Existe un grafo $G = ([n], E)$ con $\left(\frac{1}{3}\right)^{3}n^{3} + o(n^{3})$ copias etiquetadas de $C_3$, pero que no es cuasi-aleatorio.
 \end{prop}
@@ -1591,17 +1593,17 @@ En esta sección presentamos la demostración espectral del Lema de regularidad 
     \begin{equation} \label{eq_2 Spectral_Proof}
         \lambda_{i} \leq \frac{n}{\sqrt{i}}\ ,\ \forall i\in [n].
     \end{equation}
-    Consideramos también los intervalos $I_1,\dots, I_{\lceil1/\varepsilon^3\rceil}\subset [n]$ definidos por
+    Luego, si $h^{(0)}$ representa la identidad, consideramos también los intervalos $I_1,\dots, I_{\lceil1/\varepsilon^3\rceil}\subset [n]$ definidos por
     \begin{itemize}
-        \item $I_1=\{1,2,\dots, h^{(1)}(1)-1\}$ y
-        \item $I_k=\{h^{(k-1)}(1),\dots, h^{k}(1)-1\}$ para todo $k=2,\dots, \lceil1/\varepsilon^3\rceil$.
+        %\item $I_1=\{1,2,\dots, h^{(1)}(1)-1\}$ y
+        \item $I_k=\{h^{(k-1)}(1),\dots, h^{k}(1)-1\}$ para todo $k=1,\dots, \lceil1/\varepsilon^3\rceil$.
     \end{itemize}
     Con esta construcción, debe existir un natural $1\leq L \leq\lceil1/\varepsilon^3\rceil$ que cumple con
     \begin{equation} \label{eq_3 Spectral_Proof}
         \sum_{L \leq j < h(L)} \lambda_j^{2} \leq \varepsilon^{3}n^{2},
     \end{equation}
     porque de lo contrario, se obtiene
-    \[\sum_{i=1}^n\lambda_i^2\geq \sum_{k=1}^{\lceil1/\varepsilon^3\rceil}\sum_{i\in I_k}\lambda_i^2 \geq \lceil1/\varepsilon^3\rceil \cdot \varepsilon^3n^2>n^2,\]
+    \[\sum_{i=1}^n\lambda_i^2\geq \sum_{k=1}^{\lceil1/\varepsilon^3\rceil}\sum_{i\in I_k}\lambda_i^2 \geq \lceil1/\varepsilon^3\rceil \cdot \varepsilon^3n^2\geq n^2,\]
     que contradice la desigualdad \eqref{eq_1 Spectral_Proof}.
 
     Ahora, usando $L$, separamos la matriz $A$ en tres matrices simétricas:
@@ -1618,12 +1620,20 @@ En esta sección presentamos la demostración espectral del Lema de regularidad 
     \begin{equation*}
         Q = \sum_{i \geq h(L)} \lambda_i \boldsymbol{u}_i \boldsymbol{u}_{i}^{T}.
     \end{equation*}
-    Usaremos los vectores propios $\boldsymbol{u}_1,...\boldsymbol{u}_{L-1}$ normalizados de $S$ para definir una partición de $V(G)$ como mostraremos a continuación. Consideramos el intervalo de $\mathbb{R}$ centrado en el origen de longitud $2\sqrt{({L}/{\varepsilon})}~\cdot n^{-1/2}$, y lo particionamos en $t = 2(L/\varepsilon)^{2}$ subintervalos $J_1,...,J_t$ de longitud $(\varepsilon /L)^{3/2}n^{-1/2}$ cada uno. Luego, clasificamos los vértices $v\in~V(G)$ según su valor $\boldsymbol{u}_i(v)$ de la siguiente manera:
+    Usaremos los vectores propios $\boldsymbol{u}_1,...\boldsymbol{u}_{L-1}$ unitarios de $S$ para definir una partición de $V(G)$ como mostraremos a continuación. Consideramos el intervalo de $\mathbb{R}$ centrado en el origen de longitud $2\sqrt{({L}/{\varepsilon})}~\cdot n^{-1/2}$, y lo particionamos en $t = 2(L/\varepsilon)^{2}$ subintervalos $J_1,...,J_t$ de longitud $(\varepsilon /L)^{3/2}n^{-1/2}$ cada uno. Luego, clasificamos los vértices $v\in~V(G)$ según su valor $\boldsymbol{u}_i(v)$ de la siguiente manera:
     \[V^j_i=\big\{v\in V(G) :  \boldsymbol{u}_i(v)\in J_j\big\}\ ,\ 1\leq j\leq t.\]
     Tomamos el refinamiento de todos estos conjuntos $\big\{V_i^j\neq\emptyset : i\in[L-1], j\in[t]\big\}$ para obtener los conjuntos $V_0,V_1,...,V_M$, en donde $M\leq (\frac{2L^2}{\varepsilon^2})^L$. El resultado anterior considera un conjunto excepcional de vértices $V_0$ que está definido como sigue:
     \begin{equation*}
         V_{0} = \left\lbrace v\in  V(G): |\boldsymbol{u}_i (v)| > \sqrt{\frac{L}{\varepsilon}}n^{-1/2}\text{ para alg\'un }i\in[L-1]\right\rbrace .
     \end{equation*}
+    Observe que si $v_1, v_2\in V_k$, con $k\not=0$, entonces
+    \begin{equation} \label{justificacion1}
+        \left| \boldsymbol{u}_i(v_1) - \boldsymbol{u}_i(v_2)\right| \leq \left(\frac{\varepsilon}{L}\right)^{3/2}n^{-1/2}\quad ,\quad \forall i\in [L-1],
+    \end{equation}
+    y
+    \begin{equation} \label{justificacion2}
+        \left| \boldsymbol{u}_i(v_1)\right| \leq \sqrt{\frac{L}{\varepsilon}}n^{-1/2}\quad ,\quad \forall i\in[L-1]. 
+    \end{equation}
     Mostraremos que el conjunto excepcional $V_0$ es suficientemente pequeño. En efecto, observando que
     \begin{equation*}
         L-1= \sum_{i=1}^{L-1} \norm{\boldsymbol{u}_i}^{2} \geq  \sum_{i=1}^{L-1}\sum_{v\in V(G)} \boldsymbol{u}_{i}(v)^{2} \geq |V_{0}|\left( {\frac{L}{\varepsilon n}}\right),
@@ -1634,7 +1644,7 @@ En esta sección presentamos la demostración espectral del Lema de regularidad 
     \begin{align*}
         \Sigma_F &=\Big\{(i,j) : \sum_{(x,y)\in V_i\times V_j} f_{xy}^{2} > \varepsilon |V_i| |V_j|\Big\}.
     \end{align*}
-    Luego, por la simetría de $F$ se tiene que $\Tr(F^2)=  \sum_{x\in V(G)} \sum_{y\in V(G)}  f_{xy}^2$. También, note por la Proposición \ref{Tr_Ak} y la linealidad de la traza que $\Tr(F^2) = \sum_{L\leq i<h(L)}\lambda_i^2$. Por lo tanto,
+    Luego, por la simetría de $F$ se tiene que $\Tr(F^2)=  \sum_{x\in V(G)} \sum_{y\in V(G)}  f_{xy}^2$. También, debido a la ortonormalidad de los vectores propios, observe que $F\boldsymbol{u}_i = \lambda_i \boldsymbol{u}_i$ para $L\leq i < h(L)$. Por lo tanto,
     \begin{align*}
         \varepsilon^3n^2\geq \sum_{L\leq i<h(L)}\lambda_i^2 =\Tr(F^2)&=  \sum_{(x,y)\in V(G)^2} f_{xy}^2\\
         &\geq \sum_{(i,j)\in \Sigma_F}\sum_{(x,y)\in V_i\times V_j} f_{xy}^{2} > \varepsilon \sum_{(i,j)\in\Sigma_F} |V_i| |V_j|.
@@ -1646,13 +1656,17 @@ En esta sección presentamos la demostración espectral del Lema de regularidad 
     Además, sea
     \[\Sigma_Q=\Big\{(i,j) : \min\{|V_i|,|V_j|\}<\frac\varepsilon Mn\Big\} \cup \big\{(i,j) : i=0\lor j=0\big\},\]
     y observe que
-    \[ \sum_{(i,j)\in \Sigma_Q} |V_i| |V_j|\leq 2M\cdot\frac\varepsilon M n+ 2|V_0|n<4\varepsilon n.\]
+    \begin{align*}
+        \sum_{(i,j)\in \sigma_Q}|V_i||V_j| &\leq 2\sum_{i=1}^{M}|V_i||V_0| + 2\sum_{|V_i|\leq \frac{\varepsilon n}{M}}|V_i| n\\
+        &\leq 2\varepsilon n^{2} + 2\frac{\varepsilon n^{2}}{M}\cdot M\\
+        &= 4\varepsilon n^{2}.
+    \end{align*}
     Ahora, sea $(i,j)\not\in \Sigma_F\cup\Sigma_Q$, y $d_{ij}=d(V_i,V_j)$ la densidad del par $(V_i,V_j)$. Entonces, dado los subconjuntos $X\subset V_i$ e $Y\subset V_j$, note la siguiente descomposición:
     \begin{align} \label{tres_sumandos_demo_esp} 
         \Big| e(X,Y) - d_{ij}|X||Y|\Big|& =\Big|\boldsymbol{v}_X^T A\boldsymbol{v}_Y - d_{ij}|X||Y|\Big|\nonumber\\
         &\leq \Big|\boldsymbol{v}_X^T S\boldsymbol{v}_Y - d_{ij}|X||Y| \Big|+\Big|\boldsymbol{v}_X^T F\boldsymbol{v}_Y \Big|+\Big|\boldsymbol{v}_X^T Q\boldsymbol{v}_Y \Big|.
     \end{align}
-    En este punto, el objetivo es encontrar cotas para cada uno de los sumandos anteriores.
+    En este punto, el objetivo es encontrar cotas para cada uno de los sumandos anteriores bajo la condición $(i,j)\not\in \Sigma_F\cup\Sigma_Q$.
 
     Para comenzar, por la definición de $\Sigma_F$ y la desigualdad de Cauchy-Schwarz, se obtiene la primera de las cotas de la siguiente manera:
     \begin{align} \label{cota_esp_1}
@@ -1660,12 +1674,12 @@ En esta sección presentamos la demostración espectral del Lema de regularidad 
         &\leq \varepsilon^{2} |V_i| |V_j| |X| |Y|
         \leq \varepsilon^{2} |V_i|^{2} |V_j|^{2}.
     \end{align}    
-    Para la próxima cota, debemos observar por la construcción de $Q$ y el Teorema~\ref{Teo Courant-Fischer} que
+    Para la próxima cota, observar que por la construcción de $Q$ y el Corolario~\ref{cor:CFprimero},
     \begin{align*} 
-        \left| \boldsymbol{v}_{X}^{T} Q \boldsymbol{v}_Y\right|   \overset{\mathrm{DCS}}{\leq} \norm{\boldsymbol{v}_X} \norm{Q \boldsymbol{v}_Y} \leq \norm{\boldsymbol{v}_X} \norm{\boldsymbol{v}_Y} \frac{n}{\sqrt{h(L)}}
+        \left| \boldsymbol{v}_{X}^{T} Q \boldsymbol{v}_Y\right|   \overset{\mathrm{DCS}}{\leq} \norm{\boldsymbol{v}_X} \norm{Q \boldsymbol{v}_Y} \overset{\text{Cor. }\ref{cor:CFprimero}\text{ y \eqref{eq_2 Spectral_Proof}}}{\leq} \norm{\boldsymbol{v}_X} \norm{\boldsymbol{v}_Y} \frac{n}{\sqrt{h(L)}}
         = \sqrt{|X| |Y|} \frac{n}{\sqrt{h(L)}}\leq \frac{n^{2}}{\sqrt{h(L)}}.
     \end{align*}
-    Como $M\leq (\frac{2L^2}{\varepsilon^2})^L$, concluimos de la elección de $h(\cdot)$ que $h(L) \geq \frac{1}{\varepsilon^{6}}\left( \frac{2L^{2}}{\varepsilon^{2}}\right)^{4L}\geq  \frac{1}{\varepsilon^{6}} M^4$. Y así, cuando $(i,j)\not= \Sigma_Q$, se tiene
+    Como $M\leq (\frac{2L^2}{\varepsilon^2})^L$, concluimos de la elección de $h(\cdot)$, que $h(L) \geq \frac{1}{\varepsilon^{6}}\left( \frac{2L^{2}}{\varepsilon^{2}}\right)^{4L}\geq  \frac{1}{\varepsilon^{6}} M^4$. Y así, cuando $(i,j)\not= \Sigma_Q0$, se tiene
     \begin{align} \label{cota_esp_2}
         \left| \boldsymbol{v}_{X}^{T} Q \boldsymbol{v}_Y\right|\leq   \frac{n^{2}}{\sqrt{h(L)}} \leq  \frac{M^{2} |V_i| |V_j|}{\varepsilon^{2}\sqrt{h(L)}}\leq \varepsilon|V_i| |V_j|.
     \end{align}
@@ -1673,9 +1687,9 @@ En esta sección presentamos la demostración espectral del Lema de regularidad 
     \begin{align*}
         s_{cd}-s_{ab}  &=  \sum_{i < L} \lambda_i \boldsymbol{u}_i(c) \boldsymbol{u}_i(d) - \lambda_i \boldsymbol{u}_i(a) \boldsymbol{u}_i(b)\\
         &\leq \sum_{i < L} \left| \lambda_i\right| \Big| \boldsymbol{u}_i(c) \boldsymbol{u}_i(d) - \boldsymbol{u}_i(a)\boldsymbol{u}_i(d) + \boldsymbol{u}_i(a)\boldsymbol{u}_i(d) - \boldsymbol{u}_i(a)\boldsymbol{u}_i(b)\Big|\\
-        &\leq n\sum_{i < L}  \Big| \boldsymbol{u}_i(d)\big(\boldsymbol{u}_i(c) - \boldsymbol{u}_i(a)\big) + \boldsymbol{u}_i(a)\big(\boldsymbol{u}_i(d) - \boldsymbol{u}_i(b)\big)\big|\\
-        &\leq n\sum_{i < L}  \left| \boldsymbol{u}_i(b)\right| \Big| \boldsymbol{u}_i(a) - \boldsymbol{u}_i(c)\Big| + \left| \boldsymbol{u}_i(c)\right| \Big| \boldsymbol{u}_i(b) - \boldsymbol{u}_i(d)\Big|\\
-        &\leq L n\cdot 4\cdot \sqrt{\frac{L}{\varepsilon n}} \cdot \frac{\varepsilon}{L}\sqrt{\frac{\varepsilon}{L n}}\\
+        &\overset{\eqref{eq_2 Spectral_Proof}}{\leq} n\sum_{i < L}  \Big| \boldsymbol{u}_i(d)\Big(\boldsymbol{u}_i(c) - \boldsymbol{u}_i(a)\big) + \boldsymbol{u}_i(a)\big(\boldsymbol{u}_i(d) - \boldsymbol{u}_i(b)\big)\Big|\\
+        &\leq n\sum_{i < L}  \left| \boldsymbol{u}_i(d)\right| \Big| \boldsymbol{u}_i(a) - \boldsymbol{u}_i(c)\Big| + \left| \boldsymbol{u}_i(a)\right| \Big| \boldsymbol{u}_i(b) - \boldsymbol{u}_i(d)\Big|\\
+        &\overset{\eqref{justificacion1}\text{ y }\eqref{justificacion2}}{\leq} L n\cdot 4\cdot \sqrt{\frac{L}{\varepsilon n}} \cdot \frac{\varepsilon}{L}\sqrt{\frac{\varepsilon}{L n}}\\
         &= 4\varepsilon.
     \end{align*}
     Ahora bien, como $d_{ij}$ es el promedio de $S$ sobre $V_{i}\times V_j$, tenemos que $s_{ab} \leq d_{ij} \leq s_{cd}$, y por ende, $|s_{xy}-d_{ij}| \leq s_{cd}-s_{ab}$ para cada $(u,v)\in V_i \times V_j$. Como resultado,
@@ -1707,7 +1721,7 @@ Para el último paso se utilizará un resultado análogo a la propiedad $\Count_
     \end{align*}
 \end{lema}
 \begin{proof} %%%% Demostración Teorema: Lema de conteo de triángulos
-    Se realizará un proceso inductivo similar al visto en la demostración de la Proposición~\ref{discp => count} sobre la cantidad de aristas del grafo $K_3 = ([3], \lbrace 12, 23, 13\rbrace)$. Cuando el grafo no posee aristas, entonces
+    Se realizará un proceso inductivo sobre la cantidad de aristas análogo al visto en la demostración de la Proposición~\ref{discp => count}, pero utilizando el grafo $K_3 = ([3], \lbrace 12, 23, 13\rbrace)$. Cuando el grafo no posee aristas, entonces
     \begin{equation*}
         \Big|\lbrace (x,y,z)\in X\times Y\times Z : xy,xz,yz\not\in E\rbrace\Big| = |X||Y||Z|.
     \end{equation*}
@@ -1715,7 +1729,7 @@ Para el último paso se utilizará un resultado análogo a la propiedad $\Count_
     \begin{equation*}
         \Big|\lbrace (x,y,z)\in X\times Y\times Z : xy\in E\rbrace\Big| = \left( d(X,Y)|X||Y| \pm \varepsilon|X||Y| \right)|Z|.
     \end{equation*}
-    Ahora, se plantea la hipótesis inductiva de la siguiente manera:
+    Ahora, asuma la siguientes hipótesis inductiva sobre las aristas de $K_3$ de la siguiente manera:
     \begin{equation*}
         \Big|\lbrace (x,y,z)\in X,Y,Z : xy,yz\in E\rbrace\Big| = d(X,Y)d(Y,Z)|X||Y||Z| \pm 2\varepsilon |X||Y||Z|.
     \end{equation*}
@@ -1733,7 +1747,7 @@ Para el último paso se utilizará un resultado análogo a la propiedad $\Count_
     \]
     De esta manera, dada la equivalencia de la condición del par $(X,Z)$ $\varepsilon$-regular con versión bipartita de la propiedad $\disc_{d(X,Z)}(\varepsilon)$ vista en \eqref{BIDISC}, se consigue la siguiente desigualdad:
     \begin{align*}
-        \left| \sum_{T^{-}} \left( \mathbbm{1}_{E}(e^{-})\right) - d(X,Z)\right| &\leq \sum_{T^{*}} \left| \sum_{f\in A_{1}^{T^{*}}\times A_{3}^{T^{*}}} \left( \mathbbm{1}_{E}(f) - d(X,Z)\right)\right|\\
+        \left| \sum_{T^{-}} \left( \mathbbm{1}_{E}(e^{-}) - d(X,Z)\right)\right| &\leq \sum_{T^{*}} \left| \sum_{f\in A_{1}^{T^{*}}\times A_{3}^{T^{*}}} \left( \mathbbm{1}_{E}(f) - d(X,Z)\right)\right|\\
         &= \sum_{T^{*}} \left| e(A_{1}^{T^{*}}, A_{3}^{T^{*}}) - d(X,Z)|A_{1}^{T^{*}}||A_{3}^{T^{*}}|\right|\\
         &\leq \sum_{T^{*}} \varepsilon |X||Z|\\
         &\leq \varepsilon |X||Y||Z|.
@@ -1782,12 +1796,12 @@ El Lema de eliminación de triángulos fue probado por los autores I. Ruzsa y E.
 
     Ahora, nos falta probar que el grafo limpio $G' = (V, E')$ es libre de triángulos. Para esto, con nuestra elección de $\delta$, buscaremos formular la siguiente contradicción: si existe un triángulo en el grafo limpio $G'$, el Lema de conteo de triángulos asegura que en realidad existen más de $\delta n^{3}$ triángulos. No obstante, como el grafo original posee a lo más $\delta n^{3}$ triángulos, se podrá concluir que el grafo $G'$ es libre de triángulos eliminando a lo más $\varepsilon n^{2}$ aristas.
 
-    Dicho esto, estudiamos la cantidad de triángulos en $G'$. Dada la eliminación de aristas según la condición (a), cada par $(V_i , V_j)$ es $\varepsilon$-regular, y por ende se satisface la hipótesis del Lema~\ref{Triangle_Counting_Lemma}. Entonces, gracias a la ausencia de las aristas que cumplían con las condiciones (b) y (c),
+    Dicho esto, estudiamos la cantidad de triángulos en $G'$. Dada la eliminación de aristas según la condición (a), cada par $(V_i , V_j)$ es $\varepsilon_r$-regular, y por ende se satisface la hipótesis del Lema~\ref{Triangle_Counting_Lemma}. Entonces, gracias a la ausencia de las aristas que cumplían con las condiciones (b) y (c),
     \begin{align*}
         \left| \lbrace (x,y,z)\in V_i\times V_j\times V_\ell : xy,yz,xz\in& E'\rbrace\right| \geq d(V_i, V_j)d(V_i, V_\ell)d(V_j, V_\ell)|V_i||V_j||V_\ell| \\
         &\quad - 3\varepsilon_r |V_i||V_j||V_\ell| \\
         &\geq \varepsilon_r |V_i| |V_j| |V_\ell| \\
-        &\geq \frac{\varepsilon^{4} n^{3}}{k^{3}} \\
+        &\geq \frac{\varepsilon_r^{4} n^{3}}{k^{3}} \\
         &> \delta n^{3}.
     \end{align*}
     Así, de la contradicción anterior, se determina que el grafo $G$ es libre de triángulos eliminando a lo más $\varepsilon n^{2}$ aristas.
@@ -1884,7 +1898,7 @@ La presente aplicación del método de regularidad responde a la pregunta: \emph
     \begin{equation*}
         \sum_{i\in [k]} |U_i| < \sum_{i\in [k]} \varepsilon_r |V_i| = \frac{\varepsilon}{10} n.
     \end{equation*}
-    Luego, recordando que $|V(R)| \geq \varepsilon n$, se determina que $|U| > \varepsilon n - \frac{\varepsilon}{10}n = \frac{9}{10}\varepsilon n$. Además, como también $|R| \geq \frac{\varepsilon}{2}n$, debe existir al menos un vértice en $U$ que sea parte de una arista en $R$. Luego, dada la limpieza de $G$, dicha arista debe pertenecer a algún par $U_t\times U_\ell$ que satisfacen $|U_k| \geq \varepsilon_r |V_k|$ y  $|U_\ell| \geq \varepsilon_r |V_\ell|$, y son tales que 
+    Recordando que $|V(R)| \geq \varepsilon n$, se determina que $|U| > \varepsilon n - \frac{\varepsilon}{10}n = \frac{9}{10}\varepsilon n$. Además, como también $|R| \geq \frac{\varepsilon}{2}n$, debe existir al menos un vértice en $U$ que sea parte de una arista en $R$. Luego, dada la limpieza de $G$, dicha arista debe pertenecer a algún par $U_t\times U_\ell$ que satisfacen $|U_t| \geq \varepsilon_r |V_t|$ y  $|U_\ell| \geq \varepsilon_r |V_\ell|$, y son tales que 
     su correspondiente par $(V_t, V_\ell)$ es $\varepsilon_r$-regular con densidad $d(V_t, V_\ell) \geq 2\varepsilon_r$. Entonces, por regularidad,
     \begin{equation} \label{eq1_emp_ind}
         d(U_t, U_\ell) = d(V_t, V_\ell) \pm \varepsilon_r \geq 2\varepsilon_r - \varepsilon_r = \varepsilon_r.
@@ -1901,7 +1915,7 @@ La presente aplicación del método de regularidad responde a la pregunta: \emph
         &\geq |U_t|\frac{n}{k}\varepsilon_{r}^{3}\\
         &> |U_t|.
     \end{align*}
-    La desigualdad anterior nos dice que existe una arista entre $U_k$ y $U_\ell$ que no pertenece a $R$, por lo que se contradice la hipótesis de que $R$ es un emparejamiento inducido. 
+    La desigualdad anterior nos dice que existe una arista entre $U_t$ y $U_\ell$ que no pertenece a $R$, por lo que se contradice la hipótesis de que $R$ es un emparejamiento inducido. 
 \end{proof}
 Otra mirada del Teorema~\ref{Teo_emp_ind} es la siguiente: si $G$ posee al menos $\varepsilon n^{2}$ aristas, entonces $G$ tiene al menos un emparejamiento no inducido.
 
@@ -1977,7 +1991,7 @@ En esta sección se entregarán dos demostraciones del Teorema de Roth por medio
 
     Nótese que la tupla $(i,j,k)\in V_1\times V_2\times V_3$ define un triángulo en $G$ si y solamente si $j-i\in S$, $k-j\in S$ y $\frac{k-i}{2}\in S$, o bien, $\left\lbrace j-i, \frac{k-i}{2}, k-j\right\rbrace$ es una progresión aritmética de largo $3$ en $S$ con diferencia $\frac{k-2j+i}{2}$. 
 
-    Diremos que un triángulo $(i,j,k)\in V_1\times V_2\times V_3$ es trivial en $G$ si para algún $s\in S$ se satisface que $j-i = \frac{k-i}{2} = k-j = s$. Entonces, observando que cada triángulo trivial se puede identificar con el par $(i,s)\in V_1 \times S$, la cantidad de estos es exactamente $n|S| \geq \varepsilon n^{2}$. Además, por construcción, no existen triángulos triviales que compartan una arista, por lo que no se pueden eliminar dos de ellos removiendo solo una arista. Por consecuencia, se tienen que eliminar al menos $\frac{\varepsilon}{36}(6n)^{2}$ aristas para hacer de $G$ libre de triángulos. Luego, el Lema de eliminación de triángulos asegura que existen al menos $216\delta n^{3}$ triángulos en $G$. De esta manera, existen al menos $216\delta n^{3} - n^{2}$ triángulos no triviales. En conclusión, como $n$ es lo suficientemente grande, debe existir una progresion aritmética no trivial de largo $3$ en $S$ debido a que $216\delta n^{3} > n^{2}$.
+    Diremos que un triángulo $(i,j,k)\in V_1\times V_2\times V_3$ es trivial en $G$ si para algún $s\in S$ se satisface que $j-i = \frac{k-i}{2} = k-j = s$. Entonces, observando que cada triángulo trivial se puede identificar con el par $(i,s)\in V_1 \times S$, la cantidad de estos es exactamente $n|S| \geq \varepsilon n^{2}$. Además, por construcción, no existen triángulos triviales que compartan una arista, por lo que no se pueden eliminar dos de ellos removiendo solo una arista. Por consecuencia, se tienen que eliminar al menos $\frac{\varepsilon}{36}(6n)^{2}$ aristas para hacer a $G$ libre de triángulos. Luego, el Lema de eliminación de triángulos asegura que existen al menos $216\delta n^{3}$ triángulos en $G$. De esta manera, existen al menos $216\delta n^{3} - n^{2}$ triángulos no triviales. En conclusión, como $n$ es lo suficientemente grande, debe existir una progresion aritmética no trivial de largo $3$ en $S$ debido a que $216\delta n^{3} > n^{2}$.
 \end{proof}
 % Teorema~\ref{Teo_emp_ind}
 Para la segunda demostración del Teorema de Roth, será necesario un resultado intermedio proporcionado por los autores M. Ajtai y E. Szemerédi \cite{ajtai1974sets}. Para su prueba, se utiliza el Teorema del emparejamiento inducido.
